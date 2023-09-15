@@ -1,28 +1,27 @@
-import '/components/custom_app_bar_widget.dart';
+import '/components/detailed_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class EventsPageModel extends FlutterFlowModel {
+class MessagesBoxModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Model for CustomAppBar component.
-  late CustomAppBarModel customAppBarModel;
+  // Model for DetailedAppBar component.
+  late DetailedAppBarModel detailedAppBarModel;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    customAppBarModel = createModel(context, () => CustomAppBarModel());
+    detailedAppBarModel = createModel(context, () => DetailedAppBarModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
-    customAppBarModel.dispose();
+    detailedAppBarModel.dispose();
   }
 
   /// Action blocks are added here.

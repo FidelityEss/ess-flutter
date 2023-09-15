@@ -207,7 +207,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('HomePage');
+                    context.pushNamed('VerificationPage');
                   },
                   text: 'Sign In',
                   options: FFButtonOptions(

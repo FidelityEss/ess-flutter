@@ -24,3 +24,8 @@ export '/auth/sign_up_page/sign_up_page_widget.dart' show SignUpPageWidget;
 export '/profile/profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export '/profile/manage_profile/manage_profile_widget.dart'
     show ManageProfileWidget;
+export '/mailbox/messages_box/messages_box_widget.dart' show MessagesBoxWidget;
+export '/report_incident/incidents_page/incidents_page_widget.dart'
+    show IncidentsPageWidget;
+export '/report_incident/incident_details_page/incident_details_page_widget.dart'
+    show IncidentDetailsPageWidget;

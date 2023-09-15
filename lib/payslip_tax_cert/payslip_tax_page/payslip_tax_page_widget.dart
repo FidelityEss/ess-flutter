@@ -1,3 +1,5 @@
+import '/components/custom_app_bar_widget.dart';
+import '/flutter_flow/flutter_flow_pdf_viewer.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -55,7 +57,63 @@ class _PayslipTaxPageWidgetState extends State<PayslipTaxPageWidget> {
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            children: [],
+            children: [
+              wrapWithModel(
+                model: _model.customAppBarModel,
+                updateCallback: () => setState(() {}),
+                child: CustomAppBarWidget(
+                  title: 'Payslip',
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 50.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            32.0, 0.0, 16.0, 0.0),
+                        child: Text(
+                          '15 September Payslip',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Montserrat',
+                                color: FlutterFlowTheme.of(context).justWhite,
+                              ),
+                        ),
+                      ),
+                    ),
+                    Icon(
+                      Icons.download_rounded,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 18.0,
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 32.0, 0.0),
+                      child: Icon(
+                        Icons.info_outline_rounded,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        size: 18.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: FlutterFlowPdfViewer(
+                  assetPath: 'assets/pdfs/samplepayslip509.pdf',
+                  height: 300.0,
+                  horizontalScroll: false,
+                ),
+              ),
+            ],
           ),
         ),
       ),

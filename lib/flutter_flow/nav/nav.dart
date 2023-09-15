@@ -116,6 +116,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ManageProfile',
           path: '/manageProfile',
           builder: (context, params) => ManageProfileWidget(),
+        ),
+        FFRoute(
+          name: 'MessagesBox',
+          path: '/messagesBox',
+          builder: (context, params) => MessagesBoxWidget(),
+        ),
+        FFRoute(
+          name: 'IncidentsPage',
+          path: '/incidentsPage',
+          builder: (context, params) => IncidentsPageWidget(),
+        ),
+        FFRoute(
+          name: 'IncidentDetailsPage',
+          path: '/incidentDetailsPage',
+          builder: (context, params) => IncidentDetailsPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
