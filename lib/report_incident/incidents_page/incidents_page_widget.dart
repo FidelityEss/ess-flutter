@@ -104,7 +104,6 @@ class _IncidentsPageWidgetState extends State<IncidentsPageWidget> {
                           EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
                       child: TextFormField(
                         controller: _model.textController,
-                        autofocus: true,
                         obscureText: false,
                         decoration: InputDecoration(
                           isDense: true,
@@ -130,21 +129,21 @@ class _IncidentsPageWidgetState extends State<IncidentsPageWidget> {
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).primary,
+                              color: FlutterFlowTheme.of(context).justWhite,
                               width: 1.0,
                             ),
                             borderRadius: BorderRadius.circular(25.0),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).justWhite,
                               width: 1.0,
                             ),
                             borderRadius: BorderRadius.circular(25.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).justWhite,
                               width: 1.0,
                             ),
                             borderRadius: BorderRadius.circular(25.0),

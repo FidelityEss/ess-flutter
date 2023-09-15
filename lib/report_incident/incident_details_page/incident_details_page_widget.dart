@@ -354,7 +354,6 @@ class _IncidentDetailsPageWidgetState extends State<IncidentDetailsPageWidget> {
                             32.0, 0.0, 16.0, 0.0),
                         child: TextFormField(
                           controller: _model.textController,
-                          autofocus: true,
                           obscureText: false,
                           decoration: InputDecoration(
                             isDense: true,

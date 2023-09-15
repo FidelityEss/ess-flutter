@@ -213,7 +213,6 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                 child: TextFormField(
                   controller: _model.textController1,
-                  autofocus: true,
                   obscureText: false,
                   decoration: InputDecoration(
                     labelText: 'Title',
@@ -228,7 +227,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).primary,
+                        color: FlutterFlowTheme.of(context).alternate,
                         width: 2.0,
                       ),
                       borderRadius: BorderRadius.circular(5.0),
@@ -257,7 +256,6 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                 child: TextFormField(
                   controller: _model.textController2,
-                  autofocus: true,
                   obscureText: false,
                   decoration: InputDecoration(
                     labelText: 'Mesaage',
@@ -272,7 +270,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).primary,
+                        color: FlutterFlowTheme.of(context).alternate,
                         width: 2.0,
                       ),
                       borderRadius: BorderRadius.circular(5.0),
