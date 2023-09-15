@@ -24,6 +24,8 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ReportIncidentPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -26,6 +26,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
 
     _model.iDNumberController ??= TextEditingController();
     _model.employeeNumberController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

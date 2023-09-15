@@ -24,6 +24,8 @@ class _FidelityCaresPageWidgetState extends State<FidelityCaresPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FidelityCaresPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

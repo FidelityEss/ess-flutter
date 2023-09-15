@@ -23,6 +23,8 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => VerificationPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

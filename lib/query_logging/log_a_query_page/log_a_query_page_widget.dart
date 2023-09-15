@@ -23,6 +23,8 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LogAQueryPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -36,6 +36,8 @@ class _DetailedAppBarWidgetState extends State<DetailedAppBarWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DetailedAppBarModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

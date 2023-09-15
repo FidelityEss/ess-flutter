@@ -31,6 +31,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
     _model.displayNameController ??= TextEditingController();
     _model.emailController ??= TextEditingController();
     _model.phoneController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

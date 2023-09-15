@@ -25,6 +25,8 @@ class _TimeAndAttendancePageWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => TimeAndAttendancePageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

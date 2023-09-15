@@ -23,6 +23,8 @@ class _PayslipTaxPageWidgetState extends State<PayslipTaxPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PayslipTaxPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
