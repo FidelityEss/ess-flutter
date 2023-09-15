@@ -392,28 +392,37 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 ),
                               ],
                             ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(5.0),
-                                  child: Image.asset(
-                                    'assets/images/IconFidelityCaresHands.png',
-                                    width: 60.0,
-                                    height: 60.0,
-                                    fit: BoxFit.cover,
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('FidelityCaresPage');
+                              },
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(5.0),
+                                    child: Image.asset(
+                                      'assets/images/IconFidelityCaresHands.png',
+                                      width: 60.0,
+                                      height: 60.0,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 8.0, 0.0, 0.0),
-                                  child: Text(
-                                    'Fidelity Cares',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodySmall,
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 8.0, 0.0, 0.0),
+                                    child: Text(
+                                      'Fidelity Cares',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodySmall,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                             Column(
                               mainAxisSize: MainAxisSize.max,

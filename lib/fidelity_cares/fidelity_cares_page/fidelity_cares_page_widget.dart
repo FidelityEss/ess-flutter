@@ -1,7 +1,10 @@
+import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'fidelity_cares_page_model.dart';
@@ -42,26 +45,88 @@ class _FidelityCaresPageWidgetState extends State<FidelityCaresPageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
-          title: Text(
-            'Page Title',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Montserrat',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                ),
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(0.0),
+          child: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).appBarColour,
+            automaticallyImplyLeading: false,
+            actions: [],
+            centerTitle: false,
+            elevation: 0.0,
           ),
-          actions: [],
-          centerTitle: false,
-          elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            children: [],
+            children: [
+              wrapWithModel(
+                model: _model.customAppBarModel,
+                updateCallback: () => setState(() {}),
+                child: CustomAppBarWidget(
+                  title: 'Fidelity Cares',
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 50.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
+                      child: FaIcon(
+                        FontAwesomeIcons.shieldAlt,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        size: 16.0,
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 0.0, 16.0, 0.0),
+                        child: Text(
+                          'https://fidelitycares.co.za',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Montserrat',
+                                color: FlutterFlowTheme.of(context).justWhite,
+                              ),
+                        ),
+                      ),
+                    ),
+                    Icon(
+                      Icons.replay,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 18.0,
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 32.0, 0.0),
+                      child: Icon(
+                        Icons.info_outline_rounded,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        size: 18.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: FlutterFlowWebView(
+                  content: 'https://fidelity-services.com/fidelity-cares/',
+                  bypass: false,
+                  height: 500.0,
+                  verticalScroll: false,
+                  horizontalScroll: false,
+                ),
+              ),
+            ],
           ),
         ),
       ),
