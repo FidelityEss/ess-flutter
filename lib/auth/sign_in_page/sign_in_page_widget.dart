@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'sign_in_page_model.dart';
@@ -60,13 +59,16 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: SvgPicture.asset(
-                  'assets/images/Fidelity-logo.svg',
-                  width: 150.0,
-                  height: 150.0,
-                  fit: BoxFit.contain,
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 32.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.asset(
+                    'assets/images/Fidelity-logo.png',
+                    width: 150.0,
+                    height: 150.0,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
               Padding(
@@ -264,7 +266,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 64.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
