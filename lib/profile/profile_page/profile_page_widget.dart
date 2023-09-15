@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'profile_page_model.dart';
@@ -98,8 +99,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                   width: 80.0,
                                   height: 80.0,
                                   decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
+                                    color:
+                                        FlutterFlowTheme.of(context).justWhite,
                                     shape: BoxShape.circle,
                                   ),
                                   child: Stack(
@@ -115,7 +116,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                             shape: BoxShape.circle,
                                           ),
                                           child: Image.asset(
-                                            'assets/images/Lebogang_(surprised)0998-Recovered_(1).jpg',
+                                            'assets/images/Professional-Headshot-Poses-Blog-Post.webp',
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -128,7 +129,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 16.0, 0.0, 0.0),
                                 child: Text(
-                                  'Email',
+                                  'mariusesterhuyse@demo.com',
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -143,7 +144,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 0.0),
                                 child: Text(
-                                  'Full Names',
+                                  'Marius Esterhuyse',
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -291,10 +292,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 0.0, 0.0),
-                                  child: Icon(
-                                    Icons.privacy_tip_rounded,
+                                  child: FaIcon(
+                                    FontAwesomeIcons.shieldAlt,
                                     color: FlutterFlowTheme.of(context).primary,
-                                    size: 16.0,
+                                    size: 14.0,
                                   ),
                                 ),
                                 Expanded(
@@ -342,10 +343,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 0.0, 0.0),
-                                  child: Icon(
-                                    Icons.info_rounded,
+                                  child: FaIcon(
+                                    FontAwesomeIcons.fileContract,
                                     color: FlutterFlowTheme.of(context).primary,
-                                    size: 16.0,
+                                    size: 14.0,
                                   ),
                                 ),
                                 Expanded(
@@ -426,6 +427,13 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                       ],
                     ),
                   ),
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 1.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).alternate,
                 ),
               ),
               wrapWithModel(

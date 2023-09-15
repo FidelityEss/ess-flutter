@@ -398,7 +398,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(5.0),
                                   child: Image.asset(
-                                    'assets/images/IconCashBlack.png',
+                                    'assets/images/IconFidelityCaresHands.png',
                                     width: 60.0,
                                     height: 60.0,
                                     fit: BoxFit.cover,
@@ -500,7 +500,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(5.0),
                                   child: Image.asset(
-                                    'assets/images/IconCashBlack.png',
+                                    'assets/images/IconInformationBlack.png',
                                     width: 60.0,
                                     height: 60.0,
                                     fit: BoxFit.cover,

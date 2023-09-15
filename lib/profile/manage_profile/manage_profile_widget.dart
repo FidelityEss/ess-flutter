@@ -97,51 +97,25 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                                   width: 80.0,
                                   height: 80.0,
                                   decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      colors: [
-                                        Colors.transparent,
-                                        FlutterFlowTheme.of(context).justBlack
-                                      ],
-                                      stops: [0.0, 1.0],
-                                      begin: AlignmentDirectional(0.0, -1.0),
-                                      end: AlignmentDirectional(0, 1.0),
-                                    ),
+                                    color:
+                                        FlutterFlowTheme.of(context).justWhite,
                                     shape: BoxShape.circle,
                                   ),
                                   child: Stack(
                                     children: [
-                                      Opacity(
-                                        opacity: 0.3,
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.00, 0.00),
                                         child: Container(
-                                          width: 80.0,
-                                          height: 80.0,
+                                          width: 78.0,
+                                          height: 78.0,
                                           clipBehavior: Clip.antiAlias,
                                           decoration: BoxDecoration(
                                             shape: BoxShape.circle,
                                           ),
                                           child: Image.asset(
-                                            'assets/images/Lebogang_(surprised)0998-Recovered_(1).jpg',
+                                            'assets/images/Professional-Headshot-Poses-Blog-Post.webp',
                                             fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(0.00, 1.00),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 10.0),
-                                          child: Text(
-                                            'Edit',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Montserrat',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .justWhite,
-                                                ),
                                           ),
                                         ),
                                       ),
@@ -153,7 +127,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 16.0, 0.0, 0.0),
                                 child: Text(
-                                  'Email',
+                                  'mariusesterhuyse@demo.com',
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -168,7 +142,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 0.0),
                                 child: Text(
-                                  'Full Name',
+                                  'Marius Esterhuyse',
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -469,6 +443,13 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                       ],
                     ),
                   ),
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 1.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).alternate,
                 ),
               ),
               wrapWithModel(
