@@ -40,7 +40,7 @@ class _IntroSlider2WidgetState extends State<IntroSlider2Widget> {
       onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).justBlack,
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(0.0),
           child: AppBar(
