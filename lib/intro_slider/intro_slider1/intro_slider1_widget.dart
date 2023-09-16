@@ -4,25 +4,25 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'intro_slider2_model.dart';
-export 'intro_slider2_model.dart';
+import 'intro_slider1_model.dart';
+export 'intro_slider1_model.dart';
 
-class IntroSlider2Widget extends StatefulWidget {
-  const IntroSlider2Widget({Key? key}) : super(key: key);
+class IntroSlider1Widget extends StatefulWidget {
+  const IntroSlider1Widget({Key? key}) : super(key: key);
 
   @override
-  _IntroSlider2WidgetState createState() => _IntroSlider2WidgetState();
+  _IntroSlider1WidgetState createState() => _IntroSlider1WidgetState();
 }
 
-class _IntroSlider2WidgetState extends State<IntroSlider2Widget> {
-  late IntroSlider2Model _model;
+class _IntroSlider1WidgetState extends State<IntroSlider1Widget> {
+  late IntroSlider1Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => IntroSlider2Model());
+    _model = createModel(context, () => IntroSlider1Model());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -61,7 +61,7 @@ class _IntroSlider2WidgetState extends State<IntroSlider2Widget> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(0.0),
                   child: Image.asset(
-                    'assets/images/2021-03-01_e2dc17a17a7111ebb2da23acf98e6420.png',
+                    'assets/images/comp-01-1.png',
                     width: double.infinity,
                     height: double.infinity,
                     fit: BoxFit.cover,
@@ -89,7 +89,7 @@ class _IntroSlider2WidgetState extends State<IntroSlider2Widget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             32.0, 64.0, 32.0, 0.0),
                         child: Text(
-                          'Track your package every step of the way',
+                          'Welcome to FESS',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .titleLarge
@@ -105,7 +105,7 @@ class _IntroSlider2WidgetState extends State<IntroSlider2Widget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             64.0, 16.0, 64.0, 0.0),
                         child: Text(
-                          'Stay informed about the whereabouts of your package at all times',
+                          'FESS is Fidelities answer to your needs as an employee. Get access to company wide functions on your smartphone',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .bodySmall
@@ -128,15 +128,6 @@ class _IntroSlider2WidgetState extends State<IntroSlider2Widget> {
                               height: 40.0,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50.0),
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).justWhite,
-                                ),
-                              ),
-                              child: Icon(
-                                Icons.chevron_left_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
                               ),
                             ),
                             Row(
@@ -149,8 +140,8 @@ class _IntroSlider2WidgetState extends State<IntroSlider2Widget> {
                                     width: 10.0,
                                     height: 10.0,
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .inactivePrimary,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       borderRadius: BorderRadius.circular(50.0),
                                     ),
                                   ),
@@ -159,7 +150,8 @@ class _IntroSlider2WidgetState extends State<IntroSlider2Widget> {
                                   width: 10.0,
                                   height: 10.0,
                                   decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context).primary,
+                                    color: FlutterFlowTheme.of(context)
+                                        .inactivePrimary,
                                     borderRadius: BorderRadius.circular(50.0),
                                   ),
                                 ),
@@ -185,7 +177,7 @@ class _IntroSlider2WidgetState extends State<IntroSlider2Widget> {
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'IntroSlider3',
+                                  'IntroSlider2',
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,

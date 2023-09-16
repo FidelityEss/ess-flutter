@@ -39,6 +39,9 @@ export '/query_logging/query_details_page/query_details_page_widget.dart'
     show QueryDetailsPageWidget;
 export '/chatbot/chat_bot_page/chat_bot_page_widget.dart'
     show ChatBotPageWidget;
-export '/intro_slider1/intro_slider1_widget.dart' show IntroSlider1Widget;
-export '/intro_slider2/intro_slider2_widget.dart' show IntroSlider2Widget;
-export '/intro_slider3/intro_slider3_widget.dart' show IntroSlider3Widget;
+export '/intro_slider/intro_slider1/intro_slider1_widget.dart'
+    show IntroSlider1Widget;
+export '/intro_slider/intro_slider2/intro_slider2_widget.dart'
+    show IntroSlider2Widget;
+export '/intro_slider/intro_slider3/intro_slider3_widget.dart'
+    show IntroSlider3Widget;

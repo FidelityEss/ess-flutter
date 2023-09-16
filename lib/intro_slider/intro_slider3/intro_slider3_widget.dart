@@ -89,7 +89,7 @@ class _IntroSlider3WidgetState extends State<IntroSlider3Widget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             32.0, 64.0, 32.0, 0.0),
                         child: Text(
-                          'Track your package every step of the way',
+                          'Get Started',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .titleLarge
@@ -105,7 +105,7 @@ class _IntroSlider3WidgetState extends State<IntroSlider3Widget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             64.0, 16.0, 64.0, 0.0),
                         child: Text(
-                          'Stay informed about the whereabouts of your package at all times',
+                          'Get started with FESS by signing in with your employee and ID number.',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .bodySmall
