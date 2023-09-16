@@ -44,7 +44,7 @@ class _IntroSlider1WidgetState extends State<IntroSlider1Widget> {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(0.0),
           child: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).appBarColour,
+            backgroundColor: FlutterFlowTheme.of(context).justBlack,
             automaticallyImplyLeading: false,
             actions: [],
             centerTitle: false,
@@ -53,28 +53,37 @@ class _IntroSlider1WidgetState extends State<IntroSlider1Widget> {
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(0.0),
-                child: Image.asset(
-                  'assets/images/comp-01-1.png',
-                  width: MediaQuery.sizeOf(context).width * 1.0,
-                  height: MediaQuery.sizeOf(context).height * 0.6,
-                  fit: BoxFit.cover,
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            child: Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(0.0),
+                  child: Image.asset(
+                    'assets/images/comp-01-1.png',
+                    width: double.infinity,
+                    height: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              Expanded(
-                child: Container(
+                Container(
                   width: double.infinity,
-                  height: 100.0,
+                  height: double.infinity,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0x5E000000),
+                        FlutterFlowTheme.of(context).justBlack
+                      ],
+                      stops: [0.0, 1.0],
+                      begin: AlignmentDirectional(0.0, -1.0),
+                      end: AlignmentDirectional(0, 1.0),
+                    ),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -82,63 +91,74 @@ class _IntroSlider1WidgetState extends State<IntroSlider1Widget> {
                         child: Text(
                           'Track your package every step of the way',
                           textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).titleLarge.override(
-                                    fontFamily: 'Montserrat',
-                                    fontSize: 24.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .titleLarge
+                              .override(
+                                fontFamily: 'Montserrat',
+                                color: FlutterFlowTheme.of(context).justWhite,
+                                fontSize: 24.0,
+                                fontWeight: FontWeight.w600,
+                              ),
                         ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            32.0, 16.0, 32.0, 0.0),
+                            64.0, 16.0, 64.0, 0.0),
                         child: Text(
                           'Stay informed about the whereabouts of your package at all times',
                           textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context).bodySmall,
+                          style: FlutterFlowTheme.of(context)
+                              .bodySmall
+                              .override(
+                                fontFamily: 'Montserrat',
+                                color: FlutterFlowTheme.of(context).justWhite,
+                              ),
                         ),
                       ),
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              32.0, 32.0, 32.0, 32.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 40.0,
-                                height: 40.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                  borderRadius: BorderRadius.circular(50.0),
-                                  border: Border.all(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                  ),
-                                ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            32.0, 32.0, 32.0, 100.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 40.0,
+                              height: 40.0,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50.0),
                               ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 8.0, 0.0),
-                                    child: Container(
-                                      width: 10.0,
-                                      height: 10.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        borderRadius:
-                                            BorderRadius.circular(50.0),
-                                      ),
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 8.0, 0.0),
+                                  child: Container(
+                                    width: 10.0,
+                                    height: 10.0,
+                                    decoration: BoxDecoration(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      borderRadius: BorderRadius.circular(50.0),
                                     ),
                                   ),
-                                  Container(
+                                ),
+                                Container(
+                                  width: 10.0,
+                                  height: 10.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .inactivePrimary,
+                                    borderRadius: BorderRadius.circular(50.0),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 0.0, 0.0, 0.0),
+                                  child: Container(
                                     width: 10.0,
                                     height: 10.0,
                                     decoration: BoxDecoration(
@@ -147,69 +167,54 @@ class _IntroSlider1WidgetState extends State<IntroSlider1Widget> {
                                       borderRadius: BorderRadius.circular(50.0),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: 10.0,
-                                      height: 10.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .inactivePrimary,
-                                        borderRadius:
-                                            BorderRadius.circular(50.0),
-                                      ),
+                                ),
+                              ],
+                            ),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed(
+                                  'IntroSlider2',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType:
+                                          PageTransitionType.rightToLeft,
                                     ),
-                                  ),
-                                ],
-                              ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed(
-                                    'IntroSlider2',
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType:
-                                            PageTransitionType.rightToLeft,
-                                      ),
-                                    },
-                                  );
-                                },
-                                child: Container(
-                                  width: 40.0,
-                                  height: 40.0,
-                                  decoration: BoxDecoration(
+                                  },
+                                );
+                              },
+                              child: Container(
+                                width: 40.0,
+                                height: 40.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                  border: Border.all(
                                     color: FlutterFlowTheme.of(context).primary,
-                                    borderRadius: BorderRadius.circular(50.0),
-                                    border: Border.all(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                    ),
                                   ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
-                                    child: Icon(
-                                      Icons.chevron_right_rounded,
-                                      color: Colors.white,
-                                      size: 24.0,
-                                    ),
+                                ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  child: Icon(
+                                    Icons.chevron_right_rounded,
+                                    color: Colors.white,
+                                    size: 24.0,
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
