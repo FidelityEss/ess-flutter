@@ -35,12 +35,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => SignInPageWidget(),
+      errorBuilder: (context, state) => IntroSlider1Widget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => SignInPageWidget(),
+          builder: (context, _) => IntroSlider1Widget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -156,6 +156,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ChatBotPage',
           path: '/chatBotPage',
           builder: (context, params) => ChatBotPageWidget(),
+        ),
+        FFRoute(
+          name: 'IntroSlider1',
+          path: '/introSlider1',
+          builder: (context, params) => IntroSlider1Widget(),
+        ),
+        FFRoute(
+          name: 'IntroSlider2',
+          path: '/introSlider2',
+          builder: (context, params) => IntroSlider2Widget(),
+        ),
+        FFRoute(
+          name: 'IntroSlider3',
+          path: '/introSlider3',
+          builder: (context, params) => IntroSlider3Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
