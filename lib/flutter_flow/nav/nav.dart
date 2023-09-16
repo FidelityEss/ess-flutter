@@ -131,6 +131,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'IncidentDetailsPage',
           path: '/incidentDetailsPage',
           builder: (context, params) => IncidentDetailsPageWidget(),
+        ),
+        FFRoute(
+          name: 'EventDetailsPage',
+          path: '/eventDetailsPage',
+          builder: (context, params) => EventDetailsPageWidget(),
+        ),
+        FFRoute(
+          name: 'MessageDetailsPage',
+          path: '/messageDetailsPage',
+          builder: (context, params) => MessageDetailsPageWidget(),
+        ),
+        FFRoute(
+          name: 'QueriesPage',
+          path: '/queriesPage',
+          builder: (context, params) => QueriesPageWidget(),
+        ),
+        FFRoute(
+          name: 'QueryDetailsPage',
+          path: '/queryDetailsPage',
+          builder: (context, params) => QueryDetailsPageWidget(),
+        ),
+        FFRoute(
+          name: 'ChatBotPage',
+          path: '/chatBotPage',
+          builder: (context, params) => ChatBotPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

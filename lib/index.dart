@@ -29,3 +29,13 @@ export '/report_incident/incidents_page/incidents_page_widget.dart'
     show IncidentsPageWidget;
 export '/report_incident/incident_details_page/incident_details_page_widget.dart'
     show IncidentDetailsPageWidget;
+export '/events/event_details_page/event_details_page_widget.dart'
+    show EventDetailsPageWidget;
+export '/mailbox/message_details_page/message_details_page_widget.dart'
+    show MessageDetailsPageWidget;
+export '/query_logging/queries_page/queries_page_widget.dart'
+    show QueriesPageWidget;
+export '/query_logging/query_details_page/query_details_page_widget.dart'
+    show QueryDetailsPageWidget;
+export '/chatbot/chat_bot_page/chat_bot_page_widget.dart'
+    show ChatBotPageWidget;
