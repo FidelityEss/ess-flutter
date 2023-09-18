@@ -73,7 +73,7 @@ class _QueryDetailsPageWidgetState extends State<QueryDetailsPageWidget> {
                         model: _model.customAppBarModel,
                         updateCallback: () => setState(() {}),
                         child: CustomAppBarWidget(
-                          title: 'Incident',
+                          title: 'Query Tracking',
                         ),
                       ),
                       Padding(
@@ -163,7 +163,7 @@ class _QueryDetailsPageWidgetState extends State<QueryDetailsPageWidget> {
                           child: Align(
                             alignment: AlignmentDirectional(0.00, 0.00),
                             child: Text(
-                              'Fire Incident',
+                              'Urgent',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -179,7 +179,7 @@ class _QueryDetailsPageWidgetState extends State<QueryDetailsPageWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             32.0, 32.0, 32.0, 0.0),
                         child: Text(
-                          'There is a fire incident in Kyalami Corner',
+                          'Leave days missing',
                           style:
                               FlutterFlowTheme.of(context).titleMedium.override(
                                     fontFamily: 'Montserrat',
@@ -191,7 +191,7 @@ class _QueryDetailsPageWidgetState extends State<QueryDetailsPageWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             32.0, 16.0, 32.0, 0.0),
                         child: Text(
-                          'There is a fire incident in Kyalami corner. Assistance is required to contain the fire.',
+                          'Hi there. I noticed that I have leave days missing on my payslip',
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ),
@@ -245,7 +245,7 @@ class _QueryDetailsPageWidgetState extends State<QueryDetailsPageWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 16.0, 16.0, 0.0),
                                         child: Text(
-                                          'We have managed to contain the fire as of now. We are awaiting more news',
+                                          'Hi there. I noticed that I have leave days missing on my payslip',
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall,
                                         ),
