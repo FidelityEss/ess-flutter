@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "571461684738",
+    "project_id": "fess-a6f94",
+    "storage_bucket": "fess-a6f94.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571461684738:android:e514bb8c4d8ac9e58de11b",
+        "android_client_info": {
+          "package_name": "com.fidelitycares.fess"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp54F2JTJPsHH7ln0yzhnKi2PbY4BhQh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571461684738:android:346a28aec4b4b52e8de11b",
+        "android_client_info": {
+          "package_name": "za.co.fidelitycares.fess"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp54F2JTJPsHH7ln0yzhnKi2PbY4BhQh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

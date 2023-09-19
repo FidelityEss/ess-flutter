@@ -1,4 +1,4 @@
-package za.co.fidelitycares.fess
+package com.fidelitycares.fess
 
 import io.flutter.embedding.android.FlutterActivity
 
