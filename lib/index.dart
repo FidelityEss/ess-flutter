@@ -45,3 +45,8 @@ export '/intro_slider/intro_slider2/intro_slider2_widget.dart'
     show IntroSlider2Widget;
 export '/intro_slider/intro_slider3/intro_slider3_widget.dart'
     show IntroSlider3Widget;
+export '/vacancies/vancies_page/vancies_page_widget.dart'
+    show VanciesPageWidget;
+export '/vacancies/vacancies_details_page/vacancies_details_page_widget.dart'
+    show VacanciesDetailsPageWidget;
+export '/info_page/info_page_widget.dart' show InfoPageWidget;

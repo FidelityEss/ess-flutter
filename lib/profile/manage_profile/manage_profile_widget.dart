@@ -44,7 +44,9 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -114,7 +116,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                                             shape: BoxShape.circle,
                                           ),
                                           child: Image.asset(
-                                            'assets/images/Professional-Headshot-Poses-Blog-Post.webp',
+                                            'assets/images/news_preview_mob_image__preview_967.jpg',
                                             fit: BoxFit.cover,
                                           ),
                                         ),

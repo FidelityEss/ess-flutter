@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 
 import '/index.dart';
 import '/main.dart';
@@ -35,12 +36,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => IntroSlider1Widget(),
+      errorBuilder: (context, state) => IntroSlider3Widget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => IntroSlider1Widget(),
+          builder: (context, _) => IntroSlider3Widget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -171,6 +172,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'IntroSlider3',
           path: '/introSlider3',
           builder: (context, params) => IntroSlider3Widget(),
+        ),
+        FFRoute(
+          name: 'VanciesPage',
+          path: '/vanciesPage',
+          builder: (context, params) => VanciesPageWidget(),
+        ),
+        FFRoute(
+          name: 'VacanciesDetailsPage',
+          path: '/vacanciesDetailsPage',
+          builder: (context, params) => VacanciesDetailsPageWidget(),
+        ),
+        FFRoute(
+          name: 'InfoPage',
+          path: '/infoPage',
+          builder: (context, params) => InfoPageWidget(
+            title: params.getParam('title', ParamType.String),
+            heading: params.getParam('heading', ParamType.String),
+            description: params.getParam('description', ParamType.String),
+            link: params.getParam('link', ParamType.String),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -327,4 +348,24 @@ class TransitionInfo {
   final Alignment? alignment;
 
   static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+}
+
+class RootPageContext {
+  const RootPageContext(this.isRootPage, [this.errorRoute]);
+  final bool isRootPage;
+  final String? errorRoute;
+
+  static bool isInactiveRootPage(BuildContext context) {
+    final rootPageContext = context.read<RootPageContext?>();
+    final isRootPage = rootPageContext?.isRootPage ?? false;
+    final location = GoRouter.of(context).location;
+    return isRootPage &&
+        location != '/' &&
+        location != rootPageContext?.errorRoute;
+  }
+
+  static Widget wrap(Widget child, {String? errorRoute}) => Provider.value(
+        value: RootPageContext(true, errorRoute),
+        child: child,
+      );
 }

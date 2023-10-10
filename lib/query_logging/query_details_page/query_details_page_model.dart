@@ -2,11 +2,12 @@ import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'query_details_page_widget.dart' show QueryDetailsPageWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class QueryDetailsPageModel extends FlutterFlowModel {
+class QueryDetailsPageModel extends FlutterFlowModel<QueryDetailsPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
