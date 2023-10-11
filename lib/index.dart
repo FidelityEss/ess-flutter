@@ -50,3 +50,9 @@ export '/vacancies/vancies_page/vancies_page_widget.dart'
 export '/vacancies/vacancies_details_page/vacancies_details_page_widget.dart'
     show VacanciesDetailsPageWidget;
 export '/info_page/info_page_widget.dart' show InfoPageWidget;
+export '/compliments/compliments_page/compliments_page_widget.dart'
+    show ComplimentsPageWidget;
+export '/compliments/compliments_two/compliments_two_widget.dart'
+    show ComplimentsTwoWidget;
+export '/compliments/compliment_submitted_page/compliment_submitted_page_widget.dart'
+    show ComplimentSubmittedPageWidget;

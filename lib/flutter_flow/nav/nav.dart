@@ -192,6 +192,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             description: params.getParam('description', ParamType.String),
             link: params.getParam('link', ParamType.String),
           ),
+        ),
+        FFRoute(
+          name: 'ComplimentsPage',
+          path: '/complimentsPage',
+          builder: (context, params) => ComplimentsPageWidget(),
+        ),
+        FFRoute(
+          name: 'ComplimentsTwo',
+          path: '/complimentsTwo',
+          builder: (context, params) => ComplimentsTwoWidget(),
+        ),
+        FFRoute(
+          name: 'ComplimentSubmittedPage',
+          path: '/complimentSubmittedPage',
+          builder: (context, params) => ComplimentSubmittedPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
