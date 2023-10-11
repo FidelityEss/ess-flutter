@@ -1128,28 +1128,38 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 ),
                               ),
                               Expanded(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/Compliments.png',
-                                        width: 60.0,
-                                        height: 60.0,
-                                        fit: BoxFit.cover,
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('ComplimentsPage');
+                                  },
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
+                                        child: Image.asset(
+                                          'assets/images/Compliments.png',
+                                          width: 60.0,
+                                          height: 60.0,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Compliments',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 8.0, 0.0, 0.0),
+                                        child: Text(
+                                          'Compliments',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                               Expanded(
