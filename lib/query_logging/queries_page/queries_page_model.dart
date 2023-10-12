@@ -8,6 +8,7 @@ import 'queries_page_widget.dart' show QueriesPageWidget;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 class QueriesPageModel extends FlutterFlowModel<QueriesPageWidget> {
