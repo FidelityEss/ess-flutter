@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -16,6 +17,9 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
   // State field(s) for EmployeeNumber widget.
   TextEditingController? employeeNumberController;
   String? Function(BuildContext, String?)? employeeNumberControllerValidator;
+  // State field(s) for PhoneNumber widget.
+  TextEditingController? phoneNumberController;
+  String? Function(BuildContext, String?)? phoneNumberControllerValidator;
 
   /// Initialization and disposal methods.
 
@@ -25,6 +29,7 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
     unfocusNode.dispose();
     iDNumberController?.dispose();
     employeeNumberController?.dispose();
+    phoneNumberController?.dispose();
   }
 
   /// Action blocks are added here.

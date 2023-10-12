@@ -26,6 +26,25 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:571461684738:android:1babc3037fb99e428de11b",
+        "android_client_info": {
+          "package_name": "com.fidelityservices.fessadmin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp54F2JTJPsHH7ln0yzhnKi2PbY4BhQh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:571461684738:android:346a28aec4b4b52e8de11b",
         "android_client_info": {
           "package_name": "za.co.fidelitycares.fess"

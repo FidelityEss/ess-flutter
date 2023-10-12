@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -24,6 +25,7 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
     super.initState();
     _model = createModel(context, () => VerificationPageModel());
 
+    _model.otpController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -89,40 +91,78 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    context.pushNamed('HomePage');
-                  },
-                  text: 'Verify Email',
-                  options: FFButtonOptions(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 40.0,
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
-                    textStyle: FlutterFlowTheme.of(context).bodySmall.override(
-                          fontFamily: 'Montserrat',
-                          color: FlutterFlowTheme.of(context).justWhite,
-                        ),
-                    elevation: 0.0,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
+                padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
+                child: TextFormField(
+                  controller: _model.otpController,
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    labelText: 'OTP',
+                    labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                    hintText: 'OTP',
+                    hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).alternate,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
                     ),
-                    borderRadius: BorderRadius.circular(5.0),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).primary,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).error,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).error,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    prefixIcon: Icon(
+                      Icons.numbers,
+                      color: FlutterFlowTheme.of(context).textFieldIcon,
+                      size: 16.0,
+                    ),
                   ),
+                  style: FlutterFlowTheme.of(context).bodySmall,
+                  validator: _model.otpControllerValidator.asValidator(context),
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
                 child: FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    GoRouter.of(context).prepareAuthEvent();
+                    final smsCodeVal = _model.otpController.text;
+                    if (smsCodeVal == null || smsCodeVal.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Enter SMS verification code.'),
+                        ),
+                      );
+                      return;
+                    }
+                    final phoneVerifiedUser = await authManager.verifySmsCode(
+                      context: context,
+                      smsCode: smsCodeVal,
+                    );
+                    if (phoneVerifiedUser == null) {
+                      return;
+                    }
+
+                    context.goNamedAuth('HomePage', context.mounted);
                   },
-                  text: 'Resend Email',
+                  text: 'Verify Email',
                   options: FFButtonOptions(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 40.0,
@@ -184,7 +224,7 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                   onPressed: () {
                     print('Button pressed ...');
                   },
-                  text: 'Sign Out',
+                  text: 'Go Back',
                   options: FFButtonOptions(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 40.0,

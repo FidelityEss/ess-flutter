@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -26,6 +27,8 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
 
     _model.iDNumberController ??= TextEditingController();
     _model.employeeNumberController ??= TextEditingController();
+    _model.phoneNumberController ??= TextEditingController();
+    authManager.handlePhoneAuthStateChanges(context);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -189,6 +192,55 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                 ),
               ),
               Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                child: TextFormField(
+                  controller: _model.phoneNumberController,
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    labelText: 'Phone Number',
+                    labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                    hintText: 'Phone Number',
+                    hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).alternate,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).primary,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).error,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).error,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    prefixIcon: Icon(
+                      Icons.person_rounded,
+                      color: FlutterFlowTheme.of(context).textFieldIcon,
+                      size: 16.0,
+                    ),
+                  ),
+                  style: FlutterFlowTheme.of(context).bodySmall,
+                  validator: _model.phoneNumberControllerValidator
+                      .asValidator(context),
+                ),
+              ),
+              Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 12.0, 32.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
@@ -209,7 +261,29 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('VerificationPage');
+                    final phoneNumberVal = _model.phoneNumberController.text;
+                    if (phoneNumberVal == null ||
+                        phoneNumberVal.isEmpty ||
+                        !phoneNumberVal.startsWith('+')) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                              'Phone Number is required and has to start with +.'),
+                        ),
+                      );
+                      return;
+                    }
+                    await authManager.beginPhoneAuth(
+                      context: context,
+                      phoneNumber: phoneNumberVal,
+                      onCodeSent: (context) async {
+                        context.goNamedAuth(
+                          'VerificationPage',
+                          context.mounted,
+                          ignoreRedirect: true,
+                        );
+                      },
+                    );
                   },
                   text: 'Sign In',
                   options: FFButtonOptions(
