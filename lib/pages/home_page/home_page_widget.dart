@@ -139,16 +139,18 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             Align(
                                               alignment: AlignmentDirectional(
                                                   0.00, 0.00),
-                                              child: Container(
-                                                width: 33.0,
-                                                height: 33.0,
-                                                clipBehavior: Clip.antiAlias,
-                                                decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: Image.asset(
-                                                  'assets/images/news_preview_mob_image__preview_967.jpg',
-                                                  fit: BoxFit.cover,
+                                              child: AuthUserStreamWidget(
+                                                builder: (context) => Container(
+                                                  width: 33.0,
+                                                  height: 33.0,
+                                                  clipBehavior: Clip.antiAlias,
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: Image.network(
+                                                    currentUserPhoto,
+                                                    fit: BoxFit.cover,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -365,6 +367,37 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     ),
                               ),
                             ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              32.0, 32.0, 32.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              context.pushNamed('IncidentsPage');
+                            },
+                            text: 'Logout',
+                            options: FFButtonOptions(
+                              width: double.infinity,
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.white,
+                                  ),
+                              elevation: 0.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
                           ),
                         ),
                         Padding(

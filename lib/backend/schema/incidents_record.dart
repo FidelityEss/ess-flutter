@@ -61,6 +61,21 @@ class IncidentsRecord extends FirestoreRecord {
   DateTime? get updated => _updated;
   bool hasUpdated() => _updated != null;
 
+  // "location" field.
+  LatLng? _location;
+  LatLng? get location => _location;
+  bool hasLocation() => _location != null;
+
+  // "assignee" field.
+  String? _assignee;
+  String get assignee => _assignee ?? '';
+  bool hasAssignee() => _assignee != null;
+
+  // "status" field.
+  String? _status;
+  String get status => _status ?? '';
+  bool hasStatus() => _status != null;
+
   void _initializeFields() {
     _id = snapshotData['id'] as String?;
     _userId = snapshotData['user_id'] as String?;
@@ -71,6 +86,9 @@ class IncidentsRecord extends FirestoreRecord {
     _message = snapshotData['message'] as String?;
     _created = snapshotData['created'] as DateTime?;
     _updated = snapshotData['updated'] as DateTime?;
+    _location = snapshotData['location'] as LatLng?;
+    _assignee = snapshotData['assignee'] as String?;
+    _status = snapshotData['status'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -117,6 +135,9 @@ Map<String, dynamic> createIncidentsRecordData({
   String? message,
   DateTime? created,
   DateTime? updated,
+  LatLng? location,
+  String? assignee,
+  String? status,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -129,6 +150,9 @@ Map<String, dynamic> createIncidentsRecordData({
       'message': message,
       'created': created,
       'updated': updated,
+      'location': location,
+      'assignee': assignee,
+      'status': status,
     }.withoutNulls,
   );
 
@@ -148,7 +172,10 @@ class IncidentsRecordDocumentEquality implements Equality<IncidentsRecord> {
         e1?.title == e2?.title &&
         e1?.message == e2?.message &&
         e1?.created == e2?.created &&
-        e1?.updated == e2?.updated;
+        e1?.updated == e2?.updated &&
+        e1?.location == e2?.location &&
+        e1?.assignee == e2?.assignee &&
+        e1?.status == e2?.status;
   }
 
   @override
@@ -161,7 +188,10 @@ class IncidentsRecordDocumentEquality implements Equality<IncidentsRecord> {
         e?.title,
         e?.message,
         e?.created,
-        e?.updated
+        e?.updated,
+        e?.location,
+        e?.assignee,
+        e?.status
       ]);
 
   @override

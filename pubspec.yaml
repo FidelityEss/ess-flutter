@@ -30,6 +30,10 @@ dependencies:
   cloud_firestore: 4.8.0
   cloud_firestore_platform_interface: 5.15.0
   cloud_firestore_web: 3.6.0
+  cloud_functions: 4.3.2
+  cloud_functions_platform_interface: 5.4.2
+  cloud_functions_web: 4.5.2
+  collection: 1.17.1
   device_info_plus: 8.0.0
   device_info_plus_platform_interface: 7.0.0
   dropdown_button2: 2.0.0
@@ -39,11 +43,18 @@ dependencies:
   firebase_core: 2.13.1
   firebase_core_platform_interface: 4.8.0
   firebase_core_web: 2.5.0
+  firebase_messaging: 14.6.2
+  firebase_messaging_platform_interface: 4.5.2
+  firebase_messaging_web: 3.5.2
   firebase_performance: 0.9.2+2
   firebase_performance_platform_interface: 0.1.4+2
   firebase_performance_web: 0.1.4+2
   flutter_animate: 4.1.1+1
   flutter_cache_manager: 3.3.0
+  flutter_google_places: 
+    git:
+      url: https://github.com/fluttercommunity/flutter_google_places
+      ref: v0.3.2
   flutter_plugin_android_lifecycle: 2.0.9
   font_awesome_flutter: 10.1.0
   from_css_color: 2.0.0
@@ -61,6 +72,9 @@ dependencies:
   internet_file: 1.1.0
   intl: 0.18.0
   json_path: 0.6.2
+  lottie: 1.2.1
+  package_info_plus: 3.1.0
+  package_info_plus_platform_interface: 2.0.1
   page_transition: 2.0.4
   path_provider: 2.0.14
   path_provider_android: 2.0.25

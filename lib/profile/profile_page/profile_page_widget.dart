@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/components/bottom_nav_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -110,16 +111,18 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                       Align(
                                         alignment:
                                             AlignmentDirectional(0.00, 0.00),
-                                        child: Container(
-                                          width: 78.0,
-                                          height: 78.0,
-                                          clipBehavior: Clip.antiAlias,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: Image.asset(
-                                            'assets/images/news_preview_mob_image__preview_967.jpg',
-                                            fit: BoxFit.cover,
+                                        child: AuthUserStreamWidget(
+                                          builder: (context) => Container(
+                                            width: 78.0,
+                                            height: 78.0,
+                                            clipBehavior: Clip.antiAlias,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Image.network(
+                                              currentUserPhoto,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -131,7 +134,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 16.0, 0.0, 0.0),
                                 child: Text(
-                                  'mariusesterhuyse@demo.com',
+                                  currentUserEmail,
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -145,17 +148,19 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 0.0),
-                                child: Text(
-                                  'Marius Esterhuyse',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .justWhite,
-                                        fontSize: 10.0,
-                                        fontWeight: FontWeight.normal,
-                                      ),
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => Text(
+                                    currentUserDisplayName,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .justWhite,
+                                          fontSize: 10.0,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                  ),
                                 ),
                               ),
                             ],

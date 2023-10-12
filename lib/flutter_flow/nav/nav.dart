@@ -7,7 +7,8 @@ import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 
 import '../../auth/base_auth_user_provider.dart';
-
+import '../../backend/push_notifications/push_notifications_handler.dart'
+    show PushNotificationsHandler;
 import '/index.dart';
 import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -174,7 +175,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'IncidentDetailsPage',
           path: '/incidentDetailsPage',
-          builder: (context, params) => IncidentDetailsPageWidget(),
+          builder: (context, params) => IncidentDetailsPageWidget(
+            id: params.getParam('id', ParamType.String),
+          ),
         ),
         FFRoute(
           name: 'EventDetailsPage',
@@ -448,7 +451,7 @@ class FFRoute {
                     ),
                   ),
                 )
-              : page;
+              : PushNotificationsHandler(child: page);
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition

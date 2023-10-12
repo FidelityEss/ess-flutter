@@ -286,7 +286,7 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                         content: Text(
                           'Profile Updated',
                           style: TextStyle(
-                            color: FlutterFlowTheme.of(context).primaryText,
+                            color: FlutterFlowTheme.of(context).justWhite,
                           ),
                         ),
                         duration: Duration(milliseconds: 4000),
