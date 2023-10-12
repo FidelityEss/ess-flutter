@@ -197,7 +197,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'QueryDetailsPage',
           path: '/queryDetailsPage',
-          builder: (context, params) => QueryDetailsPageWidget(),
+          builder: (context, params) => QueryDetailsPageWidget(
+            id: params.getParam('id', ParamType.String),
+          ),
         ),
         FFRoute(
           name: 'ChatBotPage',

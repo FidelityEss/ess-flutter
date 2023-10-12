@@ -1,9 +1,13 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/random_data_util.dart' as random_data;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -27,8 +31,8 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
     super.initState();
     _model = createModel(context, () => LogAQueryPageModel());
 
-    _model.textController1 ??= TextEditingController();
-    _model.textController2 ??= TextEditingController();
+    _model.titleController ??= TextEditingController();
+    _model.messageController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -185,11 +189,10 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                 child: FlutterFlowDropDown<String>(
-                  controller: _model.dropDownValueController1 ??=
+                  controller: _model.typeValueController ??=
                       FormFieldController<String>(null),
                   options: ['Fire', 'Accident', 'SOS'],
-                  onChanged: (val) =>
-                      setState(() => _model.dropDownValue1 = val),
+                  onChanged: (val) => setState(() => _model.typeValue = val),
                   width: double.infinity,
                   height: 50.0,
                   textStyle: FlutterFlowTheme.of(context).bodyMedium,
@@ -213,11 +216,11 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                 child: FlutterFlowDropDown<String>(
-                  controller: _model.dropDownValueController2 ??=
+                  controller: _model.departmentValueController ??=
                       FormFieldController<String>(null),
                   options: ['Fire', 'Accident', 'SOS'],
                   onChanged: (val) =>
-                      setState(() => _model.dropDownValue2 = val),
+                      setState(() => _model.departmentValue = val),
                   width: double.infinity,
                   height: 50.0,
                   textStyle: FlutterFlowTheme.of(context).bodyMedium,
@@ -241,11 +244,11 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                 child: FlutterFlowDropDown<String>(
-                  controller: _model.dropDownValueController3 ??=
+                  controller: _model.priorityValueController ??=
                       FormFieldController<String>(null),
                   options: ['Fire', 'Accident', 'SOS'],
                   onChanged: (val) =>
-                      setState(() => _model.dropDownValue3 = val),
+                      setState(() => _model.priorityValue = val),
                   width: double.infinity,
                   height: 50.0,
                   textStyle: FlutterFlowTheme.of(context).bodyMedium,
@@ -269,7 +272,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                 child: TextFormField(
-                  controller: _model.textController1,
+                  controller: _model.titleController,
                   obscureText: false,
                   decoration: InputDecoration(
                     labelText: 'Title',
@@ -306,13 +309,13 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium,
                   validator:
-                      _model.textController1Validator.asValidator(context),
+                      _model.titleControllerValidator.asValidator(context),
                 ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                 child: TextFormField(
-                  controller: _model.textController2,
+                  controller: _model.messageController,
                   obscureText: false,
                   decoration: InputDecoration(
                     labelText: 'Mesaage',
@@ -349,14 +352,51 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium,
                   validator:
-                      _model.textController2Validator.asValidator(context),
+                      _model.messageControllerValidator.asValidator(context),
                 ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                 child: FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    await QueriesRecord.collection
+                        .doc()
+                        .set(createQueriesRecordData(
+                          id: '${getCurrentTimestamp.microsecondsSinceEpoch.toString()}${random_data.randomString(
+                            10,
+                            10,
+                            true,
+                            true,
+                            true,
+                          )}',
+                          userId: currentUserUid,
+                          type: _model.typeValue,
+                          department: _model.departmentValue,
+                          priority: _model.priorityValue,
+                          title: _model.titleController.text,
+                          message: _model.messageController.text,
+                          created: getCurrentTimestamp,
+                          updated: getCurrentTimestamp,
+                          assignee: 'No Assignee',
+                          status: 'Created',
+                        ));
+                    await showDialog(
+                      context: context,
+                      builder: (alertDialogContext) {
+                        return AlertDialog(
+                          title: Text('Success'),
+                          content: Text('Your query has been created.'),
+                          actions: [
+                            TextButton(
+                              onPressed: () =>
+                                  Navigator.pop(alertDialogContext),
+                              child: Text('Ok'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                    context.safePop();
                   },
                   text: 'Create Query',
                   options: FFButtonOptions(

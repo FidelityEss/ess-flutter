@@ -141,7 +141,11 @@ final parametersBuilderMap =
   'EventDetailsPage': ParameterData.none(),
   'MessageDetailsPage': ParameterData.none(),
   'QueriesPage': ParameterData.none(),
-  'QueryDetailsPage': ParameterData.none(),
+  'QueryDetailsPage': (data) async => ParameterData(
+        allParams: {
+          'id': getParameter<String>(data, 'id'),
+        },
+      ),
   'ChatBotPage': ParameterData.none(),
   'IntroSlider1': ParameterData.none(),
   'IntroSlider2': ParameterData.none(),
