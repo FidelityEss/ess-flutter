@@ -11,24 +11,49 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for IDNumber widget.
-  TextEditingController? iDNumberController;
-  String? Function(BuildContext, String?)? iDNumberControllerValidator;
+  final formKey = GlobalKey<FormState>();
   // State field(s) for EmployeeNumber widget.
   TextEditingController? employeeNumberController;
   String? Function(BuildContext, String?)? employeeNumberControllerValidator;
+  String? _employeeNumberControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    return null;
+  }
+
+  // State field(s) for IDNumber widget.
+  TextEditingController? iDNumberController;
+  String? Function(BuildContext, String?)? iDNumberControllerValidator;
+  String? _iDNumberControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    if (val.length > 13) {
+      return 'Maximum 13 characters allowed, currently ${val.length}.';
+    }
+
+    return null;
+  }
+
   // State field(s) for PhoneNumber widget.
   TextEditingController? phoneNumberController;
   String? Function(BuildContext, String?)? phoneNumberControllerValidator;
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    employeeNumberControllerValidator = _employeeNumberControllerValidator;
+    iDNumberControllerValidator = _iDNumberControllerValidator;
+  }
 
   void dispose() {
     unfocusNode.dispose();
-    iDNumberController?.dispose();
     employeeNumberController?.dispose();
+    iDNumberController?.dispose();
     phoneNumberController?.dispose();
   }
 

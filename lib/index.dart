@@ -20,7 +20,6 @@ export '/pages/privacy_policy_page/privacy_policy_page_widget.dart'
     show PrivacyPolicyPageWidget;
 export '/pages/terms_and_conditions_page/terms_and_conditions_page_widget.dart'
     show TermsAndConditionsPageWidget;
-export '/auth/sign_up_page/sign_up_page_widget.dart' show SignUpPageWidget;
 export '/profile/profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export '/profile/manage_profile/manage_profile_widget.dart'
     show ManageProfileWidget;
@@ -56,3 +55,5 @@ export '/compliments/compliments_two/compliments_two_widget.dart'
     show ComplimentsTwoWidget;
 export '/compliments/compliment_submitted_page/compliment_submitted_page_widget.dart'
     show ComplimentSubmittedPageWidget;
+export '/auth/update_profile_page/update_profile_page_widget.dart'
+    show UpdateProfilePageWidget;

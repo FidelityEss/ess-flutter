@@ -1,3 +1,4 @@
+import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -9,7 +10,14 @@ import 'verification_page_model.dart';
 export 'verification_page_model.dart';
 
 class VerificationPageWidget extends StatefulWidget {
-  const VerificationPageWidget({Key? key}) : super(key: key);
+  const VerificationPageWidget({
+    Key? key,
+    required this.en,
+    required this.eid,
+  }) : super(key: key);
+
+  final String? en;
+  final String? eid;
 
   @override
   _VerificationPageWidgetState createState() => _VerificationPageWidgetState();
@@ -86,7 +94,7 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 64.0),
                 child: Text(
-                  'Verify your account to continue with FESS ',
+                  'Please enter your OTP to log into the FESS app',
                   style: FlutterFlowTheme.of(context).bodySmall,
                 ),
               ),
@@ -160,9 +168,37 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                       return;
                     }
 
-                    context.goNamedAuth('HomePage', context.mounted);
+                    if (loggedIn) {
+                      if ((valueOrDefault(currentUserDocument?.firstName, '') !=
+                                  null &&
+                              valueOrDefault(
+                                      currentUserDocument?.firstName, '') !=
+                                  '') ||
+                          (valueOrDefault(currentUserDocument?.lastName, '') !=
+                                  null &&
+                              valueOrDefault(
+                                      currentUserDocument?.lastName, '') !=
+                                  '')) {
+                        context.pushNamedAuth('HomePage', context.mounted);
+                      } else {
+                        context.goNamedAuth(
+                          'UpdateProfilePage',
+                          context.mounted,
+                          queryParameters: {
+                            'en': serializeParam(
+                              widget.en,
+                              ParamType.String,
+                            ),
+                            'eid': serializeParam(
+                              widget.eid,
+                              ParamType.String,
+                            ),
+                          }.withoutNulls,
+                        );
+                      }
+                    }
                   },
-                  text: 'Verify Email',
+                  text: 'Verify OTP',
                   options: FFButtonOptions(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 40.0,
@@ -221,8 +257,33 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
                 child: FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    var confirmDialogResponse = await showDialog<bool>(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              title: Text('Warning'),
+                              content: Text(
+                                  'Are you sure you want to go back? This will end your current login session'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext, false),
+                                  child: Text('Cancel'),
+                                ),
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext, true),
+                                  child: Text('Confirm'),
+                                ),
+                              ],
+                            );
+                          },
+                        ) ??
+                        false;
+                    if (confirmDialogResponse) {
+                      context.safePop();
+                    }
                   },
                   text: 'Go Back',
                   options: FFButtonOptions(

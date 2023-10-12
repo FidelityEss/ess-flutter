@@ -101,7 +101,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'VerificationPage',
           path: '/verificationPage',
-          builder: (context, params) => VerificationPageWidget(),
+          builder: (context, params) => VerificationPageWidget(
+            en: params.getParam('en', ParamType.String),
+            eid: params.getParam('eid', ParamType.String),
+          ),
         ),
         FFRoute(
           name: 'PayslipTaxListPage',
@@ -147,11 +150,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'TermsAndConditionsPage',
           path: '/termsAndConditionsPage',
           builder: (context, params) => TermsAndConditionsPageWidget(),
-        ),
-        FFRoute(
-          name: 'SignUpPage',
-          path: '/signUpPage',
-          builder: (context, params) => SignUpPageWidget(),
         ),
         FFRoute(
           name: 'ProfilePage',
@@ -252,6 +250,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ComplimentSubmittedPage',
           path: '/complimentSubmittedPage',
           builder: (context, params) => ComplimentSubmittedPageWidget(),
+        ),
+        FFRoute(
+          name: 'UpdateProfilePage',
+          path: '/updateProfilePage',
+          builder: (context, params) => UpdateProfilePageWidget(
+            en: params.getParam('en', ParamType.String),
+            eid: params.getParam('eid', ParamType.String),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

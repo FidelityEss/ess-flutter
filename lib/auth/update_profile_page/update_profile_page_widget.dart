@@ -1,34 +1,43 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'sign_in_page_model.dart';
-export 'sign_in_page_model.dart';
+import 'update_profile_page_model.dart';
+export 'update_profile_page_model.dart';
 
-class SignInPageWidget extends StatefulWidget {
-  const SignInPageWidget({Key? key}) : super(key: key);
+class UpdateProfilePageWidget extends StatefulWidget {
+  const UpdateProfilePageWidget({
+    Key? key,
+    required this.en,
+    required this.eid,
+  }) : super(key: key);
+
+  final String? en;
+  final String? eid;
 
   @override
-  _SignInPageWidgetState createState() => _SignInPageWidgetState();
+  _UpdateProfilePageWidgetState createState() =>
+      _UpdateProfilePageWidgetState();
 }
 
-class _SignInPageWidgetState extends State<SignInPageWidget> {
-  late SignInPageModel _model;
+class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
+  late UpdateProfilePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SignInPageModel());
+    _model = createModel(context, () => UpdateProfilePageModel());
 
-    _model.employeeNumberController ??= TextEditingController();
-    _model.iDNumberController ??= TextEditingController();
-    _model.phoneNumberController ??= TextEditingController();
-    authManager.handlePhoneAuthStateChanges(context);
+    _model.nameController ??= TextEditingController();
+    _model.surnameController ??= TextEditingController();
+    _model.emailController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -54,7 +63,6 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
             backgroundColor: FlutterFlowTheme.of(context).appBarColour,
             automaticallyImplyLeading: false,
             actions: [],
-            centerTitle: false,
             elevation: 0.0,
           ),
         ),
@@ -62,7 +70,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 32.0),
@@ -79,7 +87,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                 child: Text(
-                  'Sign In',
+                  'Update Profile',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w600,
@@ -89,7 +97,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 42.0),
                 child: Text(
-                  'Hi! Welcome back to the Fidelity ESS app',
+                  'To continue, please update your profile.',
                   style: FlutterFlowTheme.of(context).bodySmall,
                 ),
               ),
@@ -103,12 +111,12 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                       child: TextFormField(
-                        controller: _model.employeeNumberController,
+                        controller: _model.nameController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Employee Number',
+                          labelText: 'Name',
                           labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                          hintText: 'Employee Number',
+                          hintText: 'Name',
                           hintStyle: FlutterFlowTheme.of(context).bodySmall,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -145,70 +153,20 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                           ),
                         ),
                         style: FlutterFlowTheme.of(context).bodySmall,
-                        validator: _model.employeeNumberControllerValidator
-                            .asValidator(context),
+                        validator:
+                            _model.nameControllerValidator.asValidator(context),
                       ),
                     ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                       child: TextFormField(
-                        controller: _model.iDNumberController,
+                        controller: _model.surnameController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'ID Number',
+                          labelText: 'Surname',
                           labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                          hintText: 'ID Number',
-                          hintStyle: FlutterFlowTheme.of(context).bodySmall,
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).alternate,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).primary,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          prefixIcon: Icon(
-                            Icons.numbers,
-                            color: FlutterFlowTheme.of(context).textFieldIcon,
-                            size: 16.0,
-                          ),
-                        ),
-                        style: FlutterFlowTheme.of(context).bodySmall,
-                        validator: _model.iDNumberControllerValidator
-                            .asValidator(context),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                      child: TextFormField(
-                        controller: _model.phoneNumberController,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelText: 'Phone Number',
-                          labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                          hintText: 'Phone Number',
+                          hintText: 'Surname',
                           hintStyle: FlutterFlowTheme.of(context).bodySmall,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -245,26 +203,59 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                           ),
                         ),
                         style: FlutterFlowTheme.of(context).bodySmall,
-                        validator: _model.phoneNumberControllerValidator
+                        validator: _model.surnameControllerValidator
                             .asValidator(context),
                       ),
                     ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 12.0, 32.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      'Forgot Employee Number?',
-                      style: FlutterFlowTheme.of(context).bodySmall.override(
-                            fontFamily: 'Montserrat',
-                            color: FlutterFlowTheme.of(context).primary,
-                            fontWeight: FontWeight.bold,
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                      child: TextFormField(
+                        controller: _model.emailController,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelText: 'Email',
+                          labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                          hintText: 'Email',
+                          hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).alternate,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(5.0),
                           ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).primary,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).error,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).error,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          prefixIcon: Icon(
+                            Icons.email_rounded,
+                            color: FlutterFlowTheme.of(context).textFieldIcon,
+                            size: 16.0,
+                          ),
+                        ),
+                        style: FlutterFlowTheme.of(context).bodySmall,
+                        validator: _model.emailControllerValidator
+                            .asValidator(context),
+                      ),
                     ),
                   ],
                 ),
@@ -277,41 +268,35 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                         !_model.formKey.currentState!.validate()) {
                       return;
                     }
-                    final phoneNumberVal = _model.phoneNumberController.text;
-                    if (phoneNumberVal == null ||
-                        phoneNumberVal.isEmpty ||
-                        !phoneNumberVal.startsWith('+')) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                              'Phone Number is required and has to start with +.'),
+
+                    await currentUserReference!.update(createUsersRecordData(
+                      email: _model.emailController.text,
+                      displayName:
+                          '${_model.nameController.text} ${_model.surnameController.text}',
+                      photoUrl:
+                          'https://firebasestorage.googleapis.com/v0/b/fess-a6f94.appspot.com/o/images%2Ffess_avatar.jpg?alt=media&token=7dfb15df-3b8c-4dfd-b9e0-57f4bbef6bac&_gl=1*b9qxs5*_ga*Mzk1OTY0NDA0LjE2OTUxNDYxMDk.*_ga_CW55HF8NVT*MTY5NzEwOTU4OS4xMi4xLjE2OTcxMDk2MjguMjEuMC4w',
+                      firstName: _model.nameController.text,
+                      lastName: _model.surnameController.text,
+                      userType: 'employee',
+                      en: widget.en,
+                      eid: widget.eid,
+                    ));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          'Profile Updated',
+                          style: TextStyle(
+                            color: FlutterFlowTheme.of(context).primaryText,
+                          ),
                         ),
-                      );
-                      return;
-                    }
-                    await authManager.beginPhoneAuth(
-                      context: context,
-                      phoneNumber: phoneNumberVal,
-                      onCodeSent: (context) async {
-                        context.goNamedAuth(
-                          'VerificationPage',
-                          context.mounted,
-                          queryParameters: {
-                            'en': serializeParam(
-                              _model.employeeNumberController.text,
-                              ParamType.String,
-                            ),
-                            'eid': serializeParam(
-                              _model.iDNumberController.text,
-                              ParamType.String,
-                            ),
-                          }.withoutNulls,
-                          ignoreRedirect: true,
-                        );
-                      },
+                        duration: Duration(milliseconds: 4000),
+                        backgroundColor: FlutterFlowTheme.of(context).secondary,
+                      ),
                     );
+
+                    context.pushNamed('HomePage');
                   },
-                  text: 'Sign In',
+                  text: 'Update',
                   options: FFButtonOptions(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 40.0,
@@ -331,64 +316,6 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                     ),
                     borderRadius: BorderRadius.circular(5.0),
                   ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(64.0, 32.0, 64.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        width: 100.0,
-                        height: 1.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).borderColour,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                      child: Text(
-                        'Or',
-                        style: FlutterFlowTheme.of(context).bodySmall,
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        width: 100.0,
-                        height: 1.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).borderColour,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 64.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Don\'t have an account?',
-                      style: FlutterFlowTheme.of(context).bodySmall,
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                      child: Text(
-                        'Reach out to HR.',
-                        style: FlutterFlowTheme.of(context).bodySmall.override(
-                              fontFamily: 'Montserrat',
-                              color: FlutterFlowTheme.of(context).primary,
-                            ),
-                      ),
-                    ),
-                  ],
                 ),
               ),
             ],
