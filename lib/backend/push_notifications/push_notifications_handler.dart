@@ -138,7 +138,11 @@ final parametersBuilderMap =
           'id': getParameter<String>(data, 'id'),
         },
       ),
-  'EventDetailsPage': ParameterData.none(),
+  'EventDetailsPage': (data) async => ParameterData(
+        allParams: {
+          'id': getParameter<String>(data, 'id'),
+        },
+      ),
   'MessageDetailsPage': ParameterData.none(),
   'QueriesPage': ParameterData.none(),
   'QueryDetailsPage': (data) async => ParameterData(
