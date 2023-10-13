@@ -70,431 +70,502 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: double.infinity,
-                          height: 280.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).primary,
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    32.0, 32.0, 32.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed('MessagesBox');
-                                      },
-                                      child: Container(
-                                        width: 35.0,
-                                        height: 35.0,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          border: Border.all(
-                                            color: FlutterFlowTheme.of(context)
-                                                .justWhite,
-                                          ),
-                                        ),
-                                        child: Icon(
-                                          Icons.notifications,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        height: 280.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).primary,
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  32.0, 32.0, 32.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed('MessagesBox');
+                                    },
+                                    child: Container(
+                                      width: 35.0,
+                                      height: 35.0,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
                                           color: FlutterFlowTheme.of(context)
                                               .justWhite,
-                                          size: 14.0,
                                         ),
                                       ),
+                                      child: Icon(
+                                        Icons.notifications,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 14.0,
+                                      ),
                                     ),
-                                    InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed('ProfilePage');
-                                      },
-                                      child: Container(
-                                        width: 35.0,
-                                        height: 35.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .justWhite,
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Stack(
-                                          children: [
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
-                                              child: AuthUserStreamWidget(
-                                                builder: (context) => Container(
-                                                  width: 33.0,
-                                                  height: 33.0,
-                                                  clipBehavior: Clip.antiAlias,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                  child: Image.network(
-                                                    currentUserPhoto,
-                                                    fit: BoxFit.cover,
-                                                  ),
+                                  ),
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed('ProfilePage');
+                                    },
+                                    child: Container(
+                                      width: 35.0,
+                                      height: 35.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Stack(
+                                        children: [
+                                          Align(
+                                            alignment: AlignmentDirectional(
+                                                0.00, 0.00),
+                                            child: AuthUserStreamWidget(
+                                              builder: (context) => Container(
+                                                width: 33.0,
+                                                height: 33.0,
+                                                clipBehavior: Clip.antiAlias,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: Image.network(
+                                                  currentUserPhoto,
+                                                  fit: BoxFit.cover,
                                                 ),
                                               ),
                                             ),
-                                          ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  32.0, 32.0, 32.0, 0.0),
+                              child: Text(
+                                'Hi there, Marius.',
+                                style: FlutterFlowTheme.of(context)
+                                    .titleLarge
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      color: FlutterFlowTheme.of(context)
+                                          .justWhite,
+                                    ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  32.0, 8.0, 32.0, 0.0),
+                              child: Text(
+                                'Get started with the Fidelity Employee Self Service app. Check payslips, ask for help and more.',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      color: FlutterFlowTheme.of(context)
+                                          .justWhite,
+                                    ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  32.0, 32.0, 32.0, 0.0),
+                              child: Container(
+                                width: double.infinity,
+                                height: 45.0,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(35.0),
+                                  border: Border.all(
+                                    color:
+                                        FlutterFlowTheme.of(context).justWhite,
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 0.0, 0.0, 0.0),
+                                      child: Icon(
+                                        Icons.help_outline_rounded,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 16.0,
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          'Get Help',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .justWhite,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 16.0, 0.0),
+                                      child: Container(
+                                        width: 70.0,
+                                        height: 30.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .justWhite,
+                                          borderRadius:
+                                              BorderRadius.circular(35.0),
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.00, 0.00),
+                                          child: Icon(
+                                            Icons.navigate_next_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .justBlack,
+                                            size: 16.0,
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    32.0, 32.0, 32.0, 0.0),
-                                child: Text(
-                                  'Hi there, Marius.',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .justWhite,
-                                      ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    32.0, 8.0, 32.0, 0.0),
-                                child: Text(
-                                  'Get started with the Fidelity Employee Self Service app. Check payslips, ask for help and more.',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .justWhite,
-                                      ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    32.0, 32.0, 32.0, 0.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  height: 45.0,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(35.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .justWhite,
-                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            32.0, 32.0, 32.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Latest Announcement',
+                              style: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.bold,
                                   ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 0.0, 0.0),
-                                        child: Icon(
-                                          Icons.help_outline_rounded,
+                            ),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('MessagesBox');
+                              },
+                              child: Text(
+                                'See More',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            32.0, 16.0, 32.0, 0.0),
+                        child: Container(
+                          width: double.infinity,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).secondary,
+                            borderRadius: BorderRadius.circular(5.0),
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context).secondary,
+                              width: 0.0,
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 16.0, 0.0),
+                                  child: Text(
+                                    'Payslips are out.',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
                                           color: FlutterFlowTheme.of(context)
                                               .justWhite,
-                                          size: 16.0,
                                         ),
-                                      ),
-                                      Expanded(
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Get Help',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodySmall
-                                                .override(
-                                                  fontFamily: 'Montserrat',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .justWhite,
-                                                ),
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 16.0, 0.0),
-                                        child: Container(
-                                          width: 70.0,
-                                          height: 30.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .justWhite,
-                                            borderRadius:
-                                                BorderRadius.circular(35.0),
-                                          ),
-                                          child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
-                                            child: Icon(
-                                              Icons.navigate_next_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .justBlack,
-                                              size: 16.0,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
                                   ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 16.0, 0.0),
+                                child: Icon(
+                                  Icons.chevron_right_rounded,
+                                  color: FlutterFlowTheme.of(context).justWhite,
+                                  size: 16.0,
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        Padding(
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            32.0, 32.0, 32.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Quick Access',
+                              style: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              32.0, 32.0, 32.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              32.0, 32.0, 32.0, 32.0),
+                          child: GridView(
+                            padding: EdgeInsets.zero,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 4,
+                              crossAxisSpacing: 32.0,
+                              mainAxisSpacing: 32.0,
+                              childAspectRatio: 1.0,
+                            ),
+                            primary: false,
+                            scrollDirection: Axis.vertical,
                             children: [
-                              Text(
-                                'Latest Announcement',
-                                style: FlutterFlowTheme.of(context)
-                                    .labelMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/PayrollServices.png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed('MessagesBox');
-                                },
-                                child: Text(
-                                  'See More',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondary,
-                                      ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/IconFidelityCaresHands.png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/Guarding.png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/Query_Logging.png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/IconEvents.png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/Report_Fraud.png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/IconInformationBlack.png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/ReportIncident.png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/IconInsureBlack_(1).png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/IconCleaningBlack_(1).png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/IconFireBlack_(1).png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/IconCashBlack.png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/Fidelity_ADT.png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/Fidelity_Secure_Drive.png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/Umsuka_Wemali.png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/Training.png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/Human_Resources.png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/Vacancies.png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/Compliments.png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/IconLogout.png',
+                                  width: 60.0,
+                                  height: 60.0,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              32.0, 16.0, 32.0, 0.0),
-                          child: Container(
-                            width: double.infinity,
-                            height: 40.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).secondary,
-                              borderRadius: BorderRadius.circular(5.0),
-                              border: Border.all(
-                                color: FlutterFlowTheme.of(context).secondary,
-                                width: 0.0,
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
-                                    child: Text(
-                                      'Payslips are out.',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            color: FlutterFlowTheme.of(context)
-                                                .justWhite,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 16.0, 0.0),
-                                  child: Icon(
-                                    Icons.chevron_right_rounded,
-                                    color:
-                                        FlutterFlowTheme.of(context).justWhite,
-                                    size: 16.0,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              32.0, 32.0, 32.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Quick Access',
-                                style: FlutterFlowTheme.of(context)
-                                    .labelMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              32.0, 32.0, 32.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              context.pushNamed('IncidentsPage');
-                            },
-                            text: 'Incidents',
-                            options: FFButtonOptions(
-                              width: double.infinity,
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    color: Colors.white,
-                                  ),
-                              elevation: 0.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              32.0, 32.0, 32.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              context.pushNamed('QueriesPage');
-                            },
-                            text: 'Queries',
-                            options: FFButtonOptions(
-                              width: double.infinity,
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    color: Colors.white,
-                                  ),
-                              elevation: 0.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              32.0, 30.0, 32.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              var confirmDialogResponse =
-                                  await showDialog<bool>(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return AlertDialog(
-                                            title: Text('Warning'),
-                                            content: Text(
-                                                'Are you sure you want to logout?'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext, false),
-                                                child: Text('Cancel'),
-                                              ),
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext, true),
-                                                child: Text('Yes'),
-                                              ),
-                                            ],
-                                          );
-                                        },
-                                      ) ??
-                                      false;
-                              if (confirmDialogResponse) {
-                                GoRouter.of(context).prepareAuthEvent();
-                                await authManager.signOut();
-                                GoRouter.of(context).clearRedirectLocation();
-
-                                context.pushNamedAuth(
-                                    'SignInPage', context.mounted);
-                              }
-                            },
-                            text: 'Logout',
-                            options: FFButtonOptions(
-                              width: double.infinity,
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    color: Colors.white,
-                                  ),
-                              elevation: 0.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
