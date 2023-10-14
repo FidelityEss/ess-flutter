@@ -433,6 +433,8 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                             location: _model.placePickerValue.latLng,
                             assignee: 'No Assignee',
                             status: 'Logged',
+                            userName: currentUserDisplayName,
+                            locationName: _model.placePickerValue.name,
                           ));
                       await showDialog(
                         context: context,

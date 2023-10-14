@@ -189,7 +189,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'MessageDetailsPage',
           path: '/messageDetailsPage',
-          builder: (context, params) => MessageDetailsPageWidget(),
+          builder: (context, params) => MessageDetailsPageWidget(
+            id: params.getParam('id', ParamType.String),
+          ),
         ),
         FFRoute(
           name: 'QueriesPage',

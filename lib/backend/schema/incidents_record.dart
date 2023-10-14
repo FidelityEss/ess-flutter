@@ -76,6 +76,16 @@ class IncidentsRecord extends FirestoreRecord {
   String get status => _status ?? '';
   bool hasStatus() => _status != null;
 
+  // "user_name" field.
+  String? _userName;
+  String get userName => _userName ?? '';
+  bool hasUserName() => _userName != null;
+
+  // "location_name" field.
+  String? _locationName;
+  String get locationName => _locationName ?? '';
+  bool hasLocationName() => _locationName != null;
+
   void _initializeFields() {
     _id = snapshotData['id'] as String?;
     _userId = snapshotData['user_id'] as String?;
@@ -89,6 +99,8 @@ class IncidentsRecord extends FirestoreRecord {
     _location = snapshotData['location'] as LatLng?;
     _assignee = snapshotData['assignee'] as String?;
     _status = snapshotData['status'] as String?;
+    _userName = snapshotData['user_name'] as String?;
+    _locationName = snapshotData['location_name'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -138,6 +150,8 @@ Map<String, dynamic> createIncidentsRecordData({
   LatLng? location,
   String? assignee,
   String? status,
+  String? userName,
+  String? locationName,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -153,6 +167,8 @@ Map<String, dynamic> createIncidentsRecordData({
       'location': location,
       'assignee': assignee,
       'status': status,
+      'user_name': userName,
+      'location_name': locationName,
     }.withoutNulls,
   );
 
@@ -175,7 +191,9 @@ class IncidentsRecordDocumentEquality implements Equality<IncidentsRecord> {
         e1?.updated == e2?.updated &&
         e1?.location == e2?.location &&
         e1?.assignee == e2?.assignee &&
-        e1?.status == e2?.status;
+        e1?.status == e2?.status &&
+        e1?.userName == e2?.userName &&
+        e1?.locationName == e2?.locationName;
   }
 
   @override
@@ -191,7 +209,9 @@ class IncidentsRecordDocumentEquality implements Equality<IncidentsRecord> {
         e?.updated,
         e?.location,
         e?.assignee,
-        e?.status
+        e?.status,
+        e?.userName,
+        e?.locationName
       ]);
 
   @override

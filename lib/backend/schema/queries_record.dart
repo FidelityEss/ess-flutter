@@ -76,6 +76,11 @@ class QueriesRecord extends FirestoreRecord {
   String get status => _status ?? '';
   bool hasStatus() => _status != null;
 
+  // "user_name" field.
+  String? _userName;
+  String get userName => _userName ?? '';
+  bool hasUserName() => _userName != null;
+
   void _initializeFields() {
     _id = snapshotData['id'] as String?;
     _userId = snapshotData['user_id'] as String?;
@@ -89,6 +94,7 @@ class QueriesRecord extends FirestoreRecord {
     _location = snapshotData['location'] as LatLng?;
     _assignee = snapshotData['assignee'] as String?;
     _status = snapshotData['status'] as String?;
+    _userName = snapshotData['user_name'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -138,6 +144,7 @@ Map<String, dynamic> createQueriesRecordData({
   LatLng? location,
   String? assignee,
   String? status,
+  String? userName,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -153,6 +160,7 @@ Map<String, dynamic> createQueriesRecordData({
       'location': location,
       'assignee': assignee,
       'status': status,
+      'user_name': userName,
     }.withoutNulls,
   );
 
@@ -175,7 +183,8 @@ class QueriesRecordDocumentEquality implements Equality<QueriesRecord> {
         e1?.updated == e2?.updated &&
         e1?.location == e2?.location &&
         e1?.assignee == e2?.assignee &&
-        e1?.status == e2?.status;
+        e1?.status == e2?.status &&
+        e1?.userName == e2?.userName;
   }
 
   @override
@@ -191,7 +200,8 @@ class QueriesRecordDocumentEquality implements Equality<QueriesRecord> {
         e?.updated,
         e?.location,
         e?.assignee,
-        e?.status
+        e?.status,
+        e?.userName
       ]);
 
   @override

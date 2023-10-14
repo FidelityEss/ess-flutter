@@ -379,6 +379,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                           updated: getCurrentTimestamp,
                           assignee: 'No Assignee',
                           status: 'Created',
+                          userName: currentUserDisplayName,
                         ));
                     await showDialog(
                       context: context,
