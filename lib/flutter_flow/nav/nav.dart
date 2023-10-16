@@ -233,7 +233,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'VacanciesDetailsPage',
           path: '/vacanciesDetailsPage',
-          builder: (context, params) => VacanciesDetailsPageWidget(),
+          builder: (context, params) => VacanciesDetailsPageWidget(
+            id: params.getParam('id', ParamType.String),
+          ),
         ),
         FFRoute(
           name: 'InfoPage',
@@ -253,7 +255,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ComplimentsTwo',
           path: '/complimentsTwo',
-          builder: (context, params) => ComplimentsTwoWidget(),
+          builder: (context, params) => ComplimentsTwoWidget(
+            name: params.getParam('name', ParamType.String),
+            surname: params.getParam('surname', ParamType.String),
+            email: params.getParam('email', ParamType.String),
+            phone: params.getParam('phone', ParamType.String),
+          ),
         ),
         FFRoute(
           name: 'ComplimentSubmittedPage',

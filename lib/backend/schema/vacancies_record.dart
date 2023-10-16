@@ -21,11 +21,6 @@ class VacanciesRecord extends FirestoreRecord {
   String get id => _id ?? '';
   bool hasId() => _id != null;
 
-  // "image" field.
-  String? _image;
-  String get image => _image ?? '';
-  bool hasImage() => _image != null;
-
   // "title" field.
   String? _title;
   String get title => _title ?? '';
@@ -81,9 +76,18 @@ class VacanciesRecord extends FirestoreRecord {
   String get applicationEmail => _applicationEmail ?? '';
   bool hasApplicationEmail() => _applicationEmail != null;
 
+  // "created" field.
+  DateTime? _created;
+  DateTime? get created => _created;
+  bool hasCreated() => _created != null;
+
+  // "image" field.
+  String? _image;
+  String get image => _image ?? '';
+  bool hasImage() => _image != null;
+
   void _initializeFields() {
     _id = snapshotData['id'] as String?;
-    _image = snapshotData['image'] as String?;
     _title = snapshotData['title'] as String?;
     _city = snapshotData['city'] as String?;
     _country = snapshotData['country'] as String?;
@@ -95,6 +99,8 @@ class VacanciesRecord extends FirestoreRecord {
     _description = snapshotData['description'] as String?;
     _companyDescription = snapshotData['company_description'] as String?;
     _applicationEmail = snapshotData['application_email'] as String?;
+    _created = snapshotData['created'] as DateTime?;
+    _image = snapshotData['image'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -133,7 +139,6 @@ class VacanciesRecord extends FirestoreRecord {
 
 Map<String, dynamic> createVacanciesRecordData({
   String? id,
-  String? image,
   String? title,
   String? city,
   String? country,
@@ -145,11 +150,12 @@ Map<String, dynamic> createVacanciesRecordData({
   String? description,
   String? companyDescription,
   String? applicationEmail,
+  DateTime? created,
+  String? image,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'id': id,
-      'image': image,
       'title': title,
       'city': city,
       'country': country,
@@ -161,6 +167,8 @@ Map<String, dynamic> createVacanciesRecordData({
       'description': description,
       'company_description': companyDescription,
       'application_email': applicationEmail,
+      'created': created,
+      'image': image,
     }.withoutNulls,
   );
 
@@ -173,7 +181,6 @@ class VacanciesRecordDocumentEquality implements Equality<VacanciesRecord> {
   @override
   bool equals(VacanciesRecord? e1, VacanciesRecord? e2) {
     return e1?.id == e2?.id &&
-        e1?.image == e2?.image &&
         e1?.title == e2?.title &&
         e1?.city == e2?.city &&
         e1?.country == e2?.country &&
@@ -184,13 +191,14 @@ class VacanciesRecordDocumentEquality implements Equality<VacanciesRecord> {
         e1?.employmentType == e2?.employmentType &&
         e1?.description == e2?.description &&
         e1?.companyDescription == e2?.companyDescription &&
-        e1?.applicationEmail == e2?.applicationEmail;
+        e1?.applicationEmail == e2?.applicationEmail &&
+        e1?.created == e2?.created &&
+        e1?.image == e2?.image;
   }
 
   @override
   int hash(VacanciesRecord? e) => const ListEquality().hash([
         e?.id,
-        e?.image,
         e?.title,
         e?.city,
         e?.country,
@@ -201,7 +209,9 @@ class VacanciesRecordDocumentEquality implements Equality<VacanciesRecord> {
         e?.employmentType,
         e?.description,
         e?.companyDescription,
-        e?.applicationEmail
+        e?.applicationEmail,
+        e?.created,
+        e?.image
       ]);
 
   @override

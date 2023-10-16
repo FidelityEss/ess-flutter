@@ -13,6 +13,7 @@ import 'schema/incidents_record.dart';
 import 'schema/incident_update_record.dart';
 import 'schema/messages_record.dart';
 import 'schema/vacancies_record.dart';
+import 'schema/compliments_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -28,6 +29,7 @@ export 'schema/incidents_record.dart';
 export 'schema/incident_update_record.dart';
 export 'schema/messages_record.dart';
 export 'schema/vacancies_record.dart';
+export 'schema/compliments_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -326,6 +328,43 @@ Future<List<VacanciesRecord>> queryVacanciesRecordOnce({
     queryCollectionOnce(
       VacanciesRecord.collection,
       VacanciesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query ComplimentsRecords (as a Stream and as a Future).
+Future<int> queryComplimentsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ComplimentsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ComplimentsRecord>> queryComplimentsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ComplimentsRecord.collection,
+      ComplimentsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ComplimentsRecord>> queryComplimentsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ComplimentsRecord.collection,
+      ComplimentsRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

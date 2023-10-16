@@ -1,9 +1,13 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/random_data_util.dart' as random_data;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -12,7 +16,18 @@ import 'compliments_two_model.dart';
 export 'compliments_two_model.dart';
 
 class ComplimentsTwoWidget extends StatefulWidget {
-  const ComplimentsTwoWidget({Key? key}) : super(key: key);
+  const ComplimentsTwoWidget({
+    Key? key,
+    required this.name,
+    required this.surname,
+    required this.email,
+    required this.phone,
+  }) : super(key: key);
+
+  final String? name;
+  final String? surname;
+  final String? email;
+  final String? phone;
 
   @override
   _ComplimentsTwoWidgetState createState() => _ComplimentsTwoWidgetState();
@@ -206,7 +221,27 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 32.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('ComplimentSubmittedPage');
+                    await ComplimentsRecord.collection
+                        .doc()
+                        .set(createComplimentsRecordData(
+                          id: '${getCurrentTimestamp.microsecondsSinceEpoch.toString()}${random_data.randomString(
+                            10,
+                            10,
+                            true,
+                            true,
+                            true,
+                          )}',
+                          name: widget.name,
+                          surname: widget.surname,
+                          email: widget.email,
+                          phoneNumber: widget.phone,
+                          department: _model.dropDownValue1,
+                          complimentType: _model.dropDownValue2,
+                          message: _model.nameController.text,
+                          created: getCurrentTimestamp,
+                        ));
+
+                    context.goNamed('ComplimentSubmittedPage');
                   },
                   text: 'Send Compliment',
                   options: FFButtonOptions(

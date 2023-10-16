@@ -159,7 +159,11 @@ final parametersBuilderMap =
   'IntroSlider2': ParameterData.none(),
   'IntroSlider3': ParameterData.none(),
   'VanciesPage': ParameterData.none(),
-  'VacanciesDetailsPage': ParameterData.none(),
+  'VacanciesDetailsPage': (data) async => ParameterData(
+        allParams: {
+          'id': getParameter<String>(data, 'id'),
+        },
+      ),
   'InfoPage': (data) async => ParameterData(
         allParams: {
           'title': getParameter<String>(data, 'title'),
@@ -169,7 +173,14 @@ final parametersBuilderMap =
         },
       ),
   'ComplimentsPage': ParameterData.none(),
-  'ComplimentsTwo': ParameterData.none(),
+  'ComplimentsTwo': (data) async => ParameterData(
+        allParams: {
+          'name': getParameter<String>(data, 'name'),
+          'surname': getParameter<String>(data, 'surname'),
+          'email': getParameter<String>(data, 'email'),
+          'phone': getParameter<String>(data, 'phone'),
+        },
+      ),
   'ComplimentSubmittedPage': ParameterData.none(),
   'UpdateProfilePage': (data) async => ParameterData(
         allParams: {

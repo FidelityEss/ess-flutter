@@ -314,7 +314,27 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 32.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('ComplimentsTwo');
+                    context.pushNamed(
+                      'ComplimentsTwo',
+                      queryParameters: {
+                        'name': serializeParam(
+                          _model.nameController1.text,
+                          ParamType.String,
+                        ),
+                        'surname': serializeParam(
+                          _model.nameController2.text,
+                          ParamType.String,
+                        ),
+                        'email': serializeParam(
+                          _model.nameController3.text,
+                          ParamType.String,
+                        ),
+                        'phone': serializeParam(
+                          _model.nameController4.text,
+                          ParamType.String,
+                        ),
+                      }.withoutNulls,
+                    );
                   },
                   text: 'Next',
                   options: FFButtonOptions(
