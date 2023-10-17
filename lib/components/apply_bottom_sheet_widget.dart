@@ -42,6 +42,8 @@ class _ApplyBottomSheetWidgetState extends State<ApplyBottomSheetWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: double.infinity,
       height: MediaQuery.sizeOf(context).height * 0.27,

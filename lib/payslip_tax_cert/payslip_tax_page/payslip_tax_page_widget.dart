@@ -1,7 +1,7 @@
 import '/components/custom_app_bar_widget.dart';
-import '/flutter_flow/flutter_flow_pdf_viewer.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,7 +10,12 @@ import 'payslip_tax_page_model.dart';
 export 'payslip_tax_page_model.dart';
 
 class PayslipTaxPageWidget extends StatefulWidget {
-  const PayslipTaxPageWidget({Key? key}) : super(key: key);
+  const PayslipTaxPageWidget({
+    Key? key,
+    required this.fileLink,
+  }) : super(key: key);
+
+  final String? fileLink;
 
   @override
   _PayslipTaxPageWidgetState createState() => _PayslipTaxPageWidgetState();
@@ -38,6 +43,8 @@ class _PayslipTaxPageWidgetState extends State<PayslipTaxPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -109,9 +116,11 @@ class _PayslipTaxPageWidgetState extends State<PayslipTaxPageWidget> {
                 ),
               ),
               Expanded(
-                child: FlutterFlowPdfViewer(
-                  assetPath: 'assets/pdfs/samplepayslip509.pdf',
-                  height: 300.0,
+                child: FlutterFlowWebView(
+                  content: 'https://flutter.dev',
+                  bypass: false,
+                  height: 500.0,
+                  verticalScroll: false,
                   horizontalScroll: false,
                 ),
               ),

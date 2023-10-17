@@ -115,7 +115,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'PayslipTaxPage',
           path: '/payslipTaxPage',
-          builder: (context, params) => PayslipTaxPageWidget(),
+          builder: (context, params) => PayslipTaxPageWidget(
+            fileLink: params.getParam('fileLink', ParamType.String),
+          ),
         ),
         FFRoute(
           name: 'TimeAndAttendancePage',

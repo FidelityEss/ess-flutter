@@ -41,6 +41,8 @@ class _MenuItemsContainerWidgetState extends State<MenuItemsContainerWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: double.infinity,
       height: 500.0,

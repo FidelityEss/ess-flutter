@@ -47,6 +47,8 @@ class _QueryDetailsPageWidgetState extends State<QueryDetailsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<List<QueriesRecord>>(
       stream: queryQueriesRecord(
         queryBuilder: (queriesRecord) => queriesRecord.where(

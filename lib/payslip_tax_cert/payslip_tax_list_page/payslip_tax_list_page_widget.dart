@@ -1,7 +1,9 @@
+import '/backend/api_requests/api_calls.dart';
 import '/components/detailed_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -39,6 +41,8 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -187,235 +191,163 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 32.0),
-                child: ListView(
-                  padding: EdgeInsets.zero,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed('PayslipTaxPage');
-                        },
-                        child: Container(
-                          width: 100.0,
-                          height: 60.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(5.0),
-                            border: Border.all(
-                              color: Color(0x46B79E67),
-                              width: 2.0,
+                child: FutureBuilder<ApiCallResponse>(
+                  future: (_model
+                          .apiRequestCompleter ??= Completer<ApiCallResponse>()
+                        ..complete(FessApiGroup.getEmployeePayslipsCall.call(
+                          authToken: FFAppState().token,
+                        )))
+                      .future,
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              FlutterFlowTheme.of(context).primary,
                             ),
                           ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
+                        ),
+                      );
+                    }
+                    final listViewGetEmployeePayslipsResponse = snapshot.data!;
+                    return Builder(
+                      builder: (context) {
+                        final payslips = listViewGetEmployeePayslipsResponse
+                            .jsonBody
+                            .toList();
+                        return RefreshIndicator(
+                          color: FlutterFlowTheme.of(context).primary,
+                          strokeWidth: 1.0,
+                          onRefresh: () async {
+                            setState(() => _model.apiRequestCompleter = null);
+                            await _model.waitForApiRequestCompleted();
+                          },
+                          child: ListView.builder(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: payslips.length,
+                            itemBuilder: (context, payslipsIndex) {
+                              final payslipsItem = payslips[payslipsIndex];
+                              return Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 0.0, 0.0),
-                                child: FaIcon(
-                                  FontAwesomeIcons.file,
-                                  color: FlutterFlowTheme.of(context).secondary,
-                                  size: 18.0,
-                                ),
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'November Payslip',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
-                                        child: Text(
-                                          '1 November 2023',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodySmall,
+                                    0.0, 16.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'PayslipTaxPage',
+                                      queryParameters: {
+                                        'fileLink': serializeParam(
+                                          getJsonField(
+                                            payslipsItem,
+                                            r'''$[*].fileLink''',
+                                          ).toString(),
+                                          ParamType.String,
                                         ),
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: Container(
+                                    width: 100.0,
+                                    height: 60.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(5.0),
+                                      border: Border.all(
+                                        color: Color(0x46B79E67),
+                                        width: 2.0,
                                       ),
-                                    ],
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 0.0, 0.0),
+                                          child: FaIcon(
+                                            FontAwesomeIcons.file,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
+                                            size: 18.0,
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 0.0, 16.0, 0.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  getJsonField(
+                                                    payslipsItem,
+                                                    r'''$[*].friendlyDescription''',
+                                                  ).toString(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    'Payroll Period: ${valueOrDefault<String>(
+                                                      payslipsItem.toString(),
+                                                      '\$[*].payrollPeriod',
+                                                    )}',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodySmall,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 16.0, 0.0),
+                                          child: Icon(
+                                            Icons.chevron_right_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .black,
+                                            size: 16.0,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 16.0, 0.0),
-                                child: Icon(
-                                  Icons.chevron_right_rounded,
-                                  color: FlutterFlowTheme.of(context).black,
-                                  size: 16.0,
-                                ),
-                              ),
-                            ],
+                              );
+                            },
                           ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                      child: Container(
-                        width: 100.0,
-                        height: 60.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(5.0),
-                          border: Border.all(
-                            color: Color(0x46B79E67),
-                            width: 2.0,
-                          ),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 0.0, 0.0),
-                              child: FaIcon(
-                                FontAwesomeIcons.file,
-                                color: FlutterFlowTheme.of(context).secondary,
-                                size: 18.0,
-                              ),
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'October Payslip',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 4.0, 0.0, 0.0),
-                                      child: Text(
-                                        '1 October 2023',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 16.0, 0.0),
-                              child: Icon(
-                                Icons.chevron_right_rounded,
-                                color: FlutterFlowTheme.of(context).black,
-                                size: 16.0,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                      child: Container(
-                        width: 100.0,
-                        height: 60.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(5.0),
-                          border: Border.all(
-                            color: Color(0x46B79E67),
-                            width: 2.0,
-                          ),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 0.0, 0.0),
-                              child: FaIcon(
-                                FontAwesomeIcons.file,
-                                color: FlutterFlowTheme.of(context).secondary,
-                                size: 18.0,
-                              ),
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'September Payslip',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 4.0, 0.0, 0.0),
-                                      child: Text(
-                                        '1 September 2023',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 16.0, 0.0),
-                              child: Icon(
-                                Icons.chevron_right_rounded,
-                                color: FlutterFlowTheme.of(context).black,
-                                size: 16.0,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+                        );
+                      },
+                    );
+                  },
                 ),
               ),
             ],

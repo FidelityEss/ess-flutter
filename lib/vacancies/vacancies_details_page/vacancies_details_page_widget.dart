@@ -46,6 +46,8 @@ class _VacanciesDetailsPageWidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<List<VacanciesRecord>>(
       stream: queryVacanciesRecord(
         queryBuilder: (vacanciesRecord) => vacanciesRecord.where(

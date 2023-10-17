@@ -49,6 +49,8 @@ class _DetailedAppBarWidgetState extends State<DetailedAppBarWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: double.infinity,
       height: 180.0,

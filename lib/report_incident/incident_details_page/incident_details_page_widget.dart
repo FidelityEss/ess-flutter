@@ -49,6 +49,8 @@ class _IncidentDetailsPageWidgetState extends State<IncidentDetailsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<List<IncidentsRecord>>(
       stream: queryIncidentsRecord(
         queryBuilder: (incidentsRecord) => incidentsRecord.where(

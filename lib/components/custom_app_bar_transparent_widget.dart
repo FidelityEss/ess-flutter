@@ -47,6 +47,8 @@ class _CustomAppBarTransparentWidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: double.infinity,
       height: 60.0,

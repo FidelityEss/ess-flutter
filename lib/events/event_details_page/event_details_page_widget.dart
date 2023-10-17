@@ -43,6 +43,8 @@ class _EventDetailsPageWidgetState extends State<EventDetailsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<List<EventsRecord>>(
       stream: queryEventsRecord(
         queryBuilder: (eventsRecord) => eventsRecord.where(

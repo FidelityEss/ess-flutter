@@ -38,6 +38,8 @@ class _MessagesBoxWidgetState extends State<MessagesBoxWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<List<MessagesRecord>>(
       stream: queryMessagesRecord(
         limit: 50,

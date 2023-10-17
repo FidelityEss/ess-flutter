@@ -45,6 +45,8 @@ class _MessageDetailsPageWidgetState extends State<MessageDetailsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<List<MessagesRecord>>(
       stream: queryMessagesRecord(
         queryBuilder: (messagesRecord) => messagesRecord.where(

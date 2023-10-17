@@ -39,6 +39,8 @@ class _MenuBottomSheetWidgetState extends State<MenuBottomSheetWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: double.infinity,
       height: MediaQuery.sizeOf(context).height * 0.3,

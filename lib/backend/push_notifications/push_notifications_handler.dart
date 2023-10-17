@@ -121,7 +121,11 @@ final parametersBuilderMap =
         },
       ),
   'PayslipTaxListPage': ParameterData.none(),
-  'PayslipTaxPage': ParameterData.none(),
+  'PayslipTaxPage': (data) async => ParameterData(
+        allParams: {
+          'fileLink': getParameter<String>(data, 'fileLink'),
+        },
+      ),
   'TimeAndAttendancePage': ParameterData.none(),
   'FidelityCaresPage': ParameterData.none(),
   'LogAQueryPage': ParameterData.none(),

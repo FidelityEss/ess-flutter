@@ -38,6 +38,8 @@ class _VanciesPageWidgetState extends State<VanciesPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<List<VacanciesRecord>>(
       stream: queryVacanciesRecord(
         queryBuilder: (vacanciesRecord) =>

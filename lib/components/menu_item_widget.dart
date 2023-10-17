@@ -39,6 +39,8 @@ class _MenuItemWidgetState extends State<MenuItemWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container();
   }
 }
