@@ -56,7 +56,10 @@
 	<false/>
 
 
-
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>We use the photo library to upload images</string>
+	<key>PermissionGroupNotification</key>
+    <string>We use notifications to keep you updated with FESS</string>
     <key>UIBackgroundModes</key>
     <array>
         <string>fetch</string>
