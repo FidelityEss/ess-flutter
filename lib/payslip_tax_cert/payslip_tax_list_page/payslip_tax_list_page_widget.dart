@@ -217,128 +217,121 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                           final payslips = columnGetEmployeePayslipsResponse
                               .jsonBody
                               .toList();
-                          return SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: List.generate(payslips.length,
-                                  (payslipsIndex) {
-                                final payslipsItem = payslips[payslipsIndex];
-                                return Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 16.0, 0.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed(
-                                        'PayslipTaxPage',
-                                        queryParameters: {
-                                          'fileLink': serializeParam(
-                                            getJsonField(
-                                              payslipsItem,
-                                              r'''$..fileLink''',
-                                            ).toString(),
-                                            ParamType.String,
-                                          ),
-                                        }.withoutNulls,
-                                      );
-                                    },
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 60.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                        border: Border.all(
-                                          color: Color(0x46B79E67),
-                                          width: 2.0,
+                          return Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children:
+                                List.generate(payslips.length, (payslipsIndex) {
+                              final payslipsItem = payslips[payslipsIndex];
+                              return Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 16.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'PayslipTaxPage',
+                                      queryParameters: {
+                                        'fileLink': serializeParam(
+                                          getJsonField(
+                                            payslipsItem,
+                                            r'''$..fileLink''',
+                                          ).toString(),
+                                          ParamType.String,
                                         ),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 0.0, 0.0),
-                                            child: FaIcon(
-                                              FontAwesomeIcons.file,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                              size: 18.0,
-                                            ),
-                                          ),
-                                          Expanded(
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 0.0, 16.0, 0.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    getJsonField(
-                                                      payslipsItem,
-                                                      r'''$..friendlyDescription''',
-                                                    ).toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 4.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      'Payroll Period: ${getJsonField(
-                                                        payslipsItem,
-                                                        r'''$..payrollPeriod''',
-                                                      ).toString()}',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmall,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 16.0, 0.0),
-                                            child: Icon(
-                                              Icons.chevron_right_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .black,
-                                              size: 16.0,
-                                            ),
-                                          ),
-                                        ],
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 60.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(5.0),
+                                      border: Border.all(
+                                        color: Color(0x46B79E67),
+                                        width: 2.0,
                                       ),
                                     ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 0.0, 0.0),
+                                          child: FaIcon(
+                                            FontAwesomeIcons.file,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
+                                            size: 18.0,
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 0.0, 16.0, 0.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  getJsonField(
+                                                    payslipsItem,
+                                                    r'''$..friendlyDescription''',
+                                                  ).toString(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    'Payroll Period: ${getJsonField(
+                                                      payslipsItem,
+                                                      r'''$..payrollPeriod''',
+                                                    ).toString()}',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodySmall,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 16.0, 0.0),
+                                          child: Icon(
+                                            Icons.chevron_right_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .black,
+                                            size: 16.0,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                );
-                              }),
-                            ),
+                                ),
+                              );
+                            }),
                           );
                         },
                       );
