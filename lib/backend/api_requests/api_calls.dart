@@ -63,8 +63,8 @@ class AuthenticationCall {
 
 class GetEmployeePayslipsCall {
   Future<ApiCallResponse> call({
-    String? fromDate = '',
-    String? toDate = '',
+    String? fromDate = '2023-07-01T00:00:00',
+    String? toDate = '2023-10-16T00:00:00',
     String? authToken = '',
   }) async {
     final response = await makeCloudCall(
