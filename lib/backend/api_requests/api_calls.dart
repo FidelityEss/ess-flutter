@@ -2,8 +2,6 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import '../../flutter_flow/flutter_flow_util.dart';
-import '../cloud_functions/cloud_functions.dart';
-
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
@@ -75,19 +73,28 @@ class GetEmployeePayslipsCall {
     String? fromDate = '2023-07-01T00:00:00',
     String? toDate = '2023-10-16T00:00:00',
     String? authToken = '',
-  }) async {
-    final response = await makeCloudCall(
-      _kPrivateApiFunctionName,
-      {
-        'callName': 'GetEmployeePayslipsCall',
-        'variables': {
-          'fromDate': fromDate,
-          'toDate': toDate,
-          'authToken': authToken,
-        },
+  }) {
+    final ffApiRequestBody = '''
+{
+  "fromDate": "${fromDate}",
+  "toDate": "${toDate}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Get Employee Payslips',
+      apiUrl: '${FessApiGroup.baseUrl}/Payroll/GetEmployeePayslips',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${authToken}',
+        'api-key': 'c1e57890-a4ee-4354-ab59-53098d763963',
       },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
     );
-    return ApiCallResponse.fromCloudCallResponse(response);
   }
 
   dynamic fileName(dynamic response) => getJsonField(
@@ -121,18 +128,24 @@ class PayslipCall {
   Future<ApiCallResponse> call({
     String? period = '',
     String? authToken = '',
-  }) async {
-    final response = await makeCloudCall(
-      _kPrivateApiFunctionName,
-      {
-        'callName': 'PayslipCall',
-        'variables': {
-          'period': period,
-          'authToken': authToken,
-        },
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Payslip',
+      apiUrl: '${FessApiGroup.baseUrl}/Payroll/PayslipPdf',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${authToken}',
+        'api-key': 'c1e57890-a4ee-4354-ab59-53098d763963',
       },
+      params: {
+        'period': period,
+        'token': authToken,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
     );
-    return ApiCallResponse.fromCloudCallResponse(response);
   }
 }
 
