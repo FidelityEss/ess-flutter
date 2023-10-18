@@ -3,7 +3,6 @@ import '/components/detailed_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -189,56 +188,39 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                   ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 32.0),
-                child: FutureBuilder<ApiCallResponse>(
-                  future: (_model
-                          .apiRequestCompleter ??= Completer<ApiCallResponse>()
-                        ..complete(FessApiGroup.getEmployeePayslipsCall.call(
-                          authToken: FFAppState().token,
-                        )))
-                      .future,
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: SizedBox(
-                          width: 50.0,
-                          height: 50.0,
-                          child: CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                              FlutterFlowTheme.of(context).primary,
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
+                  child: FutureBuilder<ApiCallResponse>(
+                    future: FessApiGroup.getEmployeePayslipsCall.call(
+                      authToken: FFAppState().token,
+                    ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                FlutterFlowTheme.of(context).primary,
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    }
-                    final listViewGetEmployeePayslipsResponse = snapshot.data!;
-                    return Builder(
-                      builder: (context) {
-                        final payslipsFileName =
-                            (FessApiGroup.getEmployeePayslipsCall.arrayFileName(
-                                  listViewGetEmployeePayslipsResponse.jsonBody,
-                                ) as List)
-                                    .map<String>((s) => s.toString())
-                                    .toList()
-                                    ?.toList() ??
-                                [];
-                        return RefreshIndicator(
-                          color: FlutterFlowTheme.of(context).primary,
-                          strokeWidth: 1.0,
-                          onRefresh: () async {
-                            setState(() => _model.apiRequestCompleter = null);
-                            await _model.waitForApiRequestCompleted();
-                          },
-                          child: ListView.builder(
-                            padding: EdgeInsets.zero,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemCount: payslipsFileName.length,
-                            itemBuilder: (context, payslipsFileNameIndex) {
-                              final payslipsFileNameItem =
-                                  payslipsFileName[payslipsFileNameIndex];
+                        );
+                      }
+                      final columnGetEmployeePayslipsResponse = snapshot.data!;
+                      return Builder(
+                        builder: (context) {
+                          final payslips = columnGetEmployeePayslipsResponse
+                              .jsonBody
+                              .toList();
+                          return Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children:
+                                List.generate(payslips.length, (payslipsIndex) {
+                              final payslipsItem = payslips[payslipsIndex];
                               return Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 16.0, 0.0, 0.0),
@@ -259,7 +241,7 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                                     );
                                   },
                                   child: Container(
-                                    width: 100.0,
+                                    width: double.infinity,
                                     height: 60.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
@@ -297,15 +279,10 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  (FessApiGroup
-                                                          .getEmployeePayslipsCall
-                                                          .arrayFileName(
-                                                    listViewGetEmployeePayslipsResponse
-                                                        .jsonBody,
-                                                  ) as List)
-                                                      .map<String>(
-                                                          (s) => s.toString())
-                                                      .toList()[1],
+                                                  getJsonField(
+                                                    payslipsItem,
+                                                    r'''$..filename''',
+                                                  ).toString(),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -347,12 +324,12 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                                   ),
                                 ),
                               );
-                            },
-                          ),
-                        );
-                      },
-                    );
-                  },
+                            }),
+                          );
+                        },
+                      );
+                    },
+                  ),
                 ),
               ),
             ],
