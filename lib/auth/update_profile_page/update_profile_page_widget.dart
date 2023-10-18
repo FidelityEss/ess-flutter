@@ -15,10 +15,14 @@ class UpdateProfilePageWidget extends StatefulWidget {
     Key? key,
     required this.en,
     required this.eid,
+    required this.firstName,
+    required this.surname,
   }) : super(key: key);
 
   final String? en;
   final String? eid;
+  final String? firstName;
+  final String? surname;
 
   @override
   _UpdateProfilePageWidgetState createState() =>
@@ -35,8 +39,8 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
     super.initState();
     _model = createModel(context, () => UpdateProfilePageModel());
 
-    _model.nameController ??= TextEditingController();
-    _model.surnameController ??= TextEditingController();
+    _model.nameController ??= TextEditingController(text: widget.firstName);
+    _model.surnameController ??= TextEditingController(text: widget.surname);
     _model.emailController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }

@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -42,6 +43,13 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
   // State field(s) for PhoneNumber widget.
   TextEditingController? phoneNumberController;
   String? Function(BuildContext, String?)? phoneNumberControllerValidator;
+  // State field(s) for TestNumber widget.
+  TextEditingController? testNumberController;
+  String? Function(BuildContext, String?)? testNumberControllerValidator;
+  // State field(s) for SwitchListTile widget.
+  bool? switchListTileValue;
+  // Stores action output result for [Backend Call - API (Authentication)] action in Button widget.
+  ApiCallResponse? authResponse;
 
   /// Initialization and disposal methods.
 
@@ -55,6 +63,7 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
     employeeNumberController?.dispose();
     iDNumberController?.dispose();
     phoneNumberController?.dispose();
+    testNumberController?.dispose();
   }
 
   /// Action blocks are added here.

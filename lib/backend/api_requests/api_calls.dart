@@ -46,6 +46,19 @@ class AuthenticationCall {
     );
     return ApiCallResponse.fromCloudCallResponse(response);
   }
+
+  dynamic token(dynamic response) => getJsonField(
+        response,
+        r'''$.token''',
+      );
+  dynamic firstName(dynamic response) => getJsonField(
+        response,
+        r'''$.firstName''',
+      );
+  dynamic surname(dynamic response) => getJsonField(
+        response,
+        r'''$.surname''',
+      );
 }
 
 class GetEmployeePayslipsCall {

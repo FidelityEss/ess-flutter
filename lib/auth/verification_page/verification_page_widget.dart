@@ -14,10 +14,14 @@ class VerificationPageWidget extends StatefulWidget {
     Key? key,
     required this.en,
     required this.eid,
+    required this.firstName,
+    required this.lastName,
   }) : super(key: key);
 
   final String? en;
   final String? eid;
+  final String? firstName;
+  final String? lastName;
 
   @override
   _VerificationPageWidgetState createState() => _VerificationPageWidgetState();
@@ -193,6 +197,14 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                             ),
                             'eid': serializeParam(
                               widget.eid,
+                              ParamType.String,
+                            ),
+                            'firstName': serializeParam(
+                              widget.firstName,
+                              ParamType.String,
+                            ),
+                            'surname': serializeParam(
+                              widget.lastName,
                               ParamType.String,
                             ),
                           }.withoutNulls,

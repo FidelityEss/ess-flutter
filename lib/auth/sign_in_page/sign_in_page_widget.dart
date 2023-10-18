@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -28,6 +29,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
     _model.employeeNumberController ??= TextEditingController();
     _model.iDNumberController ??= TextEditingController();
     _model.phoneNumberController ??= TextEditingController();
+    _model.testNumberController ??= TextEditingController();
     authManager.handlePhoneAuthStateChanges(context);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -100,6 +102,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                 autovalidateMode: AutovalidateMode.disabled,
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
                       padding:
@@ -251,6 +254,85 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                             .asValidator(context),
                       ),
                     ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                      child: Text(
+                        'If you want to use a different number to recieve the OTP in the test environment please enter it here. This will not show in prod',
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                      child: TextFormField(
+                        controller: _model.testNumberController,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelText: 'Test Number for OTP',
+                          labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                          hintText: 'Test Number for OTP',
+                          hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).alternate,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).primary,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).error,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).error,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          prefixIcon: Icon(
+                            Icons.person_rounded,
+                            color: FlutterFlowTheme.of(context).textFieldIcon,
+                            size: 16.0,
+                          ),
+                        ),
+                        style: FlutterFlowTheme.of(context).bodySmall,
+                        validator: _model.testNumberControllerValidator
+                            .asValidator(context),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      child: SwitchListTile.adaptive(
+                        value: _model.switchListTileValue ??= false,
+                        onChanged: (newValue) async {
+                          setState(
+                              () => _model.switchListTileValue = newValue!);
+                        },
+                        title: Text(
+                          'Enable Test Number',
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                        ),
+                        tileColor:
+                            FlutterFlowTheme.of(context).secondaryBackground,
+                        activeColor: FlutterFlowTheme.of(context).primary,
+                        activeTrackColor: FlutterFlowTheme.of(context).accent1,
+                        dense: false,
+                        controlAffinity: ListTileControlAffinity.trailing,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -279,39 +361,89 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                         !_model.formKey.currentState!.validate()) {
                       return;
                     }
-                    final phoneNumberVal = _model.phoneNumberController.text;
-                    if (phoneNumberVal == null ||
-                        phoneNumberVal.isEmpty ||
-                        !phoneNumberVal.startsWith('+')) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                              'Phone Number is required and has to start with +.'),
-                        ),
-                      );
-                      return;
-                    }
-                    await authManager.beginPhoneAuth(
-                      context: context,
-                      phoneNumber: phoneNumberVal,
-                      onCodeSent: (context) async {
-                        context.goNamedAuth(
-                          'VerificationPage',
-                          context.mounted,
-                          queryParameters: {
-                            'en': serializeParam(
-                              _model.employeeNumberController.text,
-                              ParamType.String,
-                            ),
-                            'eid': serializeParam(
-                              _model.iDNumberController.text,
-                              ParamType.String,
-                            ),
-                          }.withoutNulls,
-                          ignoreRedirect: true,
-                        );
-                      },
+                    _model.authResponse =
+                        await FessApiGroup.authenticationCall.call(
+                      employeeNumber: _model.employeeNumberController.text,
+                      idNumber: _model.iDNumberController.text,
                     );
+                    if ((_model.authResponse?.succeeded ?? true) == true) {
+                      FFAppState().token = FessApiGroup.authenticationCall
+                          .token(
+                            (_model.authResponse?.jsonBody ?? ''),
+                          )
+                          .toString();
+                      final phoneNumberVal = _model.switchListTileValue!
+                          ? _model.testNumberController.text
+                          : _model.phoneNumberController.text;
+                      if (phoneNumberVal == null ||
+                          phoneNumberVal.isEmpty ||
+                          !phoneNumberVal.startsWith('+')) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                                'Phone Number is required and has to start with +.'),
+                          ),
+                        );
+                        return;
+                      }
+                      await authManager.beginPhoneAuth(
+                        context: context,
+                        phoneNumber: phoneNumberVal,
+                        onCodeSent: (context) async {
+                          context.goNamedAuth(
+                            'VerificationPage',
+                            context.mounted,
+                            queryParameters: {
+                              'en': serializeParam(
+                                _model.employeeNumberController.text,
+                                ParamType.String,
+                              ),
+                              'eid': serializeParam(
+                                _model.iDNumberController.text,
+                                ParamType.String,
+                              ),
+                              'firstName': serializeParam(
+                                FessApiGroup.authenticationCall
+                                    .firstName(
+                                      (_model.authResponse?.jsonBody ?? ''),
+                                    )
+                                    .toString(),
+                                ParamType.String,
+                              ),
+                              'lastName': serializeParam(
+                                FessApiGroup.authenticationCall
+                                    .surname(
+                                      (_model.authResponse?.jsonBody ?? ''),
+                                    )
+                                    .toString(),
+                                ParamType.String,
+                              ),
+                            }.withoutNulls,
+                            ignoreRedirect: true,
+                          );
+                        },
+                      );
+                    } else {
+                      await showDialog(
+                        context: context,
+                        builder: (alertDialogContext) {
+                          return AlertDialog(
+                            title: Text('Error'),
+                            content: Text(
+                                'There was an issue authenticating your account. Please make sure you enter the correct credentials.'),
+                            actions: [
+                              TextButton(
+                                onPressed: () =>
+                                    Navigator.pop(alertDialogContext),
+                                child: Text('Ok'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    }
+
+                    setState(() {});
                   },
                   text: 'Sign In',
                   options: FFButtonOptions(

@@ -105,6 +105,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => VerificationPageWidget(
             en: params.getParam('en', ParamType.String),
             eid: params.getParam('eid', ParamType.String),
+            firstName: params.getParam('firstName', ParamType.String),
+            lastName: params.getParam('lastName', ParamType.String),
           ),
         ),
         FFRoute(
@@ -275,6 +277,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => UpdateProfilePageWidget(
             en: params.getParam('en', ParamType.String),
             eid: params.getParam('eid', ParamType.String),
+            firstName: params.getParam('firstName', ParamType.String),
+            surname: params.getParam('surname', ParamType.String),
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),

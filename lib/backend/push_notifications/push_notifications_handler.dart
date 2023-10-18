@@ -118,6 +118,8 @@ final parametersBuilderMap =
         allParams: {
           'en': getParameter<String>(data, 'en'),
           'eid': getParameter<String>(data, 'eid'),
+          'firstName': getParameter<String>(data, 'firstName'),
+          'lastName': getParameter<String>(data, 'lastName'),
         },
       ),
   'PayslipTaxListPage': ParameterData.none(),
@@ -190,6 +192,8 @@ final parametersBuilderMap =
         allParams: {
           'en': getParameter<String>(data, 'en'),
           'eid': getParameter<String>(data, 'eid'),
+          'firstName': getParameter<String>(data, 'firstName'),
+          'surname': getParameter<String>(data, 'surname'),
         },
       ),
 };

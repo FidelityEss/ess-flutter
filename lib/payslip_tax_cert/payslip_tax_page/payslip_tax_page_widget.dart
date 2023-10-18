@@ -117,7 +117,7 @@ class _PayslipTaxPageWidgetState extends State<PayslipTaxPageWidget> {
               ),
               Expanded(
                 child: FlutterFlowWebView(
-                  content: 'https://flutter.dev',
+                  content: '${widget.fileLink}&token=${FFAppState().token}',
                   bypass: false,
                   height: 500.0,
                   verticalScroll: false,
