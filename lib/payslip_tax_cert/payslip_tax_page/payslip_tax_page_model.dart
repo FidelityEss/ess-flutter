@@ -1,7 +1,7 @@
 import '/components/custom_app_bar_widget.dart';
+import '/flutter_flow/flutter_flow_pdf_viewer.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'payslip_tax_page_widget.dart' show PayslipTaxPageWidget;
 import 'package:flutter/material.dart';

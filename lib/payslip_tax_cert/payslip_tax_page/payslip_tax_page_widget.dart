@@ -1,7 +1,7 @@
 import '/components/custom_app_bar_widget.dart';
+import '/flutter_flow/flutter_flow_pdf_viewer.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -116,11 +116,9 @@ class _PayslipTaxPageWidgetState extends State<PayslipTaxPageWidget> {
                 ),
               ),
               Expanded(
-                child: FlutterFlowWebView(
-                  content: '${widget.fileLink}&token=${FFAppState().token}',
-                  bypass: false,
-                  height: 500.0,
-                  verticalScroll: false,
+                child: FlutterFlowPdfViewer(
+                  networkPath: '${widget.fileLink}&token=${FFAppState().token}',
+                  height: 300.0,
                   horizontalScroll: false,
                 ),
               ),
