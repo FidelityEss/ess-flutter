@@ -297,7 +297,15 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  'November Payslip',
+                                                  (FessApiGroup
+                                                          .getEmployeePayslipsCall
+                                                          .arrayFileName(
+                                                    listViewGetEmployeePayslipsResponse
+                                                        .jsonBody,
+                                                  ) as List)
+                                                      .map<String>(
+                                                          (s) => s.toString())
+                                                      .toList()[1],
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
