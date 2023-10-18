@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import 'backend/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
@@ -36,6 +37,35 @@ class FFAppState extends ChangeNotifier {
   set token(String _value) {
     _token = _value;
     prefs.setString('ff_token', _value);
+  }
+
+  List<PayslipsStruct> _payslipsState = [];
+  List<PayslipsStruct> get payslipsState => _payslipsState;
+  set payslipsState(List<PayslipsStruct> _value) {
+    _payslipsState = _value;
+  }
+
+  void addToPayslipsState(PayslipsStruct _value) {
+    _payslipsState.add(_value);
+  }
+
+  void removeFromPayslipsState(PayslipsStruct _value) {
+    _payslipsState.remove(_value);
+  }
+
+  void removeAtIndexFromPayslipsState(int _index) {
+    _payslipsState.removeAt(_index);
+  }
+
+  void updatePayslipsStateAtIndex(
+    int _index,
+    PayslipsStruct Function(PayslipsStruct) updateFn,
+  ) {
+    _payslipsState[_index] = updateFn(_payslipsState[_index]);
+  }
+
+  void insertAtIndexInPayslipsState(int _index, PayslipsStruct _value) {
+    _payslipsState.insert(_index, _value);
   }
 }
 

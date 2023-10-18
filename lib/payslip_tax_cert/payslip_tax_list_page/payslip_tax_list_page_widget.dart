@@ -291,10 +291,7 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  getJsonField(
-                                                    payslipsItem,
-                                                    r'''$[0].friendlyDescription''',
-                                                  ).toString(),
+                                                  'November Payslip',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
