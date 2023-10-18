@@ -10,121 +10,49 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class PayslipsStruct extends FFFirebaseStruct {
   PayslipsStruct({
-    String? filename,
-    int? payrollYear,
-    int? payrollPeriod,
-    String? fileLink,
-    String? friendlyDescription,
+    List<PayslipObjectStruct>? payslipsList,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
-  })  : _filename = filename,
-        _payrollYear = payrollYear,
-        _payrollPeriod = payrollPeriod,
-        _fileLink = fileLink,
-        _friendlyDescription = friendlyDescription,
+  })  : _payslipsList = payslipsList,
         super(firestoreUtilData);
 
-  // "filename" field.
-  String? _filename;
-  String get filename => _filename ?? '';
-  set filename(String? val) => _filename = val;
-  bool hasFilename() => _filename != null;
-
-  // "payrollYear" field.
-  int? _payrollYear;
-  int get payrollYear => _payrollYear ?? 0;
-  set payrollYear(int? val) => _payrollYear = val;
-  void incrementPayrollYear(int amount) => _payrollYear = payrollYear + amount;
-  bool hasPayrollYear() => _payrollYear != null;
-
-  // "payrollPeriod" field.
-  int? _payrollPeriod;
-  int get payrollPeriod => _payrollPeriod ?? 0;
-  set payrollPeriod(int? val) => _payrollPeriod = val;
-  void incrementPayrollPeriod(int amount) =>
-      _payrollPeriod = payrollPeriod + amount;
-  bool hasPayrollPeriod() => _payrollPeriod != null;
-
-  // "fileLink" field.
-  String? _fileLink;
-  String get fileLink => _fileLink ?? '';
-  set fileLink(String? val) => _fileLink = val;
-  bool hasFileLink() => _fileLink != null;
-
-  // "friendlyDescription" field.
-  String? _friendlyDescription;
-  String get friendlyDescription => _friendlyDescription ?? '';
-  set friendlyDescription(String? val) => _friendlyDescription = val;
-  bool hasFriendlyDescription() => _friendlyDescription != null;
+  // "payslipsList" field.
+  List<PayslipObjectStruct>? _payslipsList;
+  List<PayslipObjectStruct> get payslipsList => _payslipsList ?? const [];
+  set payslipsList(List<PayslipObjectStruct>? val) => _payslipsList = val;
+  void updatePayslipsList(Function(List<PayslipObjectStruct>) updateFn) =>
+      updateFn(_payslipsList ??= []);
+  bool hasPayslipsList() => _payslipsList != null;
 
   static PayslipsStruct fromMap(Map<String, dynamic> data) => PayslipsStruct(
-        filename: data['filename'] as String?,
-        payrollYear: castToType<int>(data['payrollYear']),
-        payrollPeriod: castToType<int>(data['payrollPeriod']),
-        fileLink: data['fileLink'] as String?,
-        friendlyDescription: data['friendlyDescription'] as String?,
+        payslipsList: getStructList(
+          data['payslipsList'],
+          PayslipObjectStruct.fromMap,
+        ),
       );
 
   static PayslipsStruct? maybeFromMap(dynamic data) =>
       data is Map<String, dynamic> ? PayslipsStruct.fromMap(data) : null;
 
   Map<String, dynamic> toMap() => {
-        'filename': _filename,
-        'payrollYear': _payrollYear,
-        'payrollPeriod': _payrollPeriod,
-        'fileLink': _fileLink,
-        'friendlyDescription': _friendlyDescription,
+        'payslipsList': _payslipsList?.map((e) => e.toMap()).toList(),
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'filename': serializeParam(
-          _filename,
-          ParamType.String,
-        ),
-        'payrollYear': serializeParam(
-          _payrollYear,
-          ParamType.int,
-        ),
-        'payrollPeriod': serializeParam(
-          _payrollPeriod,
-          ParamType.int,
-        ),
-        'fileLink': serializeParam(
-          _fileLink,
-          ParamType.String,
-        ),
-        'friendlyDescription': serializeParam(
-          _friendlyDescription,
-          ParamType.String,
+        'payslipsList': serializeParam(
+          _payslipsList,
+          ParamType.DataStruct,
+          true,
         ),
       }.withoutNulls;
 
   static PayslipsStruct fromSerializableMap(Map<String, dynamic> data) =>
       PayslipsStruct(
-        filename: deserializeParam(
-          data['filename'],
-          ParamType.String,
-          false,
-        ),
-        payrollYear: deserializeParam(
-          data['payrollYear'],
-          ParamType.int,
-          false,
-        ),
-        payrollPeriod: deserializeParam(
-          data['payrollPeriod'],
-          ParamType.int,
-          false,
-        ),
-        fileLink: deserializeParam(
-          data['fileLink'],
-          ParamType.String,
-          false,
-        ),
-        friendlyDescription: deserializeParam(
-          data['friendlyDescription'],
-          ParamType.String,
-          false,
+        payslipsList: deserializeStructParam<PayslipObjectStruct>(
+          data['payslipsList'],
+          ParamType.DataStruct,
+          true,
+          structBuilder: PayslipObjectStruct.fromSerializableMap,
         ),
       );
 
@@ -133,36 +61,22 @@ class PayslipsStruct extends FFFirebaseStruct {
 
   @override
   bool operator ==(Object other) {
+    const listEquality = ListEquality();
     return other is PayslipsStruct &&
-        filename == other.filename &&
-        payrollYear == other.payrollYear &&
-        payrollPeriod == other.payrollPeriod &&
-        fileLink == other.fileLink &&
-        friendlyDescription == other.friendlyDescription;
+        listEquality.equals(payslipsList, other.payslipsList);
   }
 
   @override
-  int get hashCode => const ListEquality().hash(
-      [filename, payrollYear, payrollPeriod, fileLink, friendlyDescription]);
+  int get hashCode => const ListEquality().hash([payslipsList]);
 }
 
 PayslipsStruct createPayslipsStruct({
-  String? filename,
-  int? payrollYear,
-  int? payrollPeriod,
-  String? fileLink,
-  String? friendlyDescription,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
   bool delete = false,
 }) =>
     PayslipsStruct(
-      filename: filename,
-      payrollYear: payrollYear,
-      payrollPeriod: payrollPeriod,
-      fileLink: fileLink,
-      friendlyDescription: friendlyDescription,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

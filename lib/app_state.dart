@@ -39,17 +39,17 @@ class FFAppState extends ChangeNotifier {
     prefs.setString('ff_token', _value);
   }
 
-  List<PayslipsStruct> _payslipsState = [];
-  List<PayslipsStruct> get payslipsState => _payslipsState;
-  set payslipsState(List<PayslipsStruct> _value) {
+  List<PayslipObjectStruct> _payslipsState = [];
+  List<PayslipObjectStruct> get payslipsState => _payslipsState;
+  set payslipsState(List<PayslipObjectStruct> _value) {
     _payslipsState = _value;
   }
 
-  void addToPayslipsState(PayslipsStruct _value) {
+  void addToPayslipsState(PayslipObjectStruct _value) {
     _payslipsState.add(_value);
   }
 
-  void removeFromPayslipsState(PayslipsStruct _value) {
+  void removeFromPayslipsState(PayslipObjectStruct _value) {
     _payslipsState.remove(_value);
   }
 
@@ -59,12 +59,12 @@ class FFAppState extends ChangeNotifier {
 
   void updatePayslipsStateAtIndex(
     int _index,
-    PayslipsStruct Function(PayslipsStruct) updateFn,
+    PayslipObjectStruct Function(PayslipObjectStruct) updateFn,
   ) {
     _payslipsState[_index] = updateFn(_payslipsState[_index]);
   }
 
-  void insertAtIndexInPayslipsState(int _index, PayslipsStruct _value) {
+  void insertAtIndexInPayslipsState(int _index, PayslipObjectStruct _value) {
     _payslipsState.insert(_index, _value);
   }
 }
