@@ -99,27 +99,27 @@ class GetEmployeePayslipsCall {
 
   dynamic fileName(dynamic response) => getJsonField(
         response,
-        r'''$[*].filename''',
+        r'''$[:].filename''',
         true,
       );
   dynamic payrollYear(dynamic response) => getJsonField(
         response,
-        r'''$[*].payrollYear''',
+        r'''$[:].payrollYear''',
         true,
       );
   dynamic payrollPeriod(dynamic response) => getJsonField(
         response,
-        r'''$[*].payrollPeriod''',
+        r'''$[:].payrollPeriod''',
         true,
       );
   dynamic fileLink(dynamic response) => getJsonField(
         response,
-        r'''$[*].fileLink''',
+        r'''$[:].fileLink''',
         true,
       );
   dynamic friendlyDescription(dynamic response) => getJsonField(
         response,
-        r'''$[*].friendlyDescription''',
+        r'''$[:].friendlyDescription''',
         true,
       );
 }

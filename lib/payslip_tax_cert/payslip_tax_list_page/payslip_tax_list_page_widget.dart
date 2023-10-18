@@ -246,10 +246,13 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                                       'PayslipTaxPage',
                                       queryParameters: {
                                         'fileLink': serializeParam(
-                                          getJsonField(
-                                            payslipsItem,
-                                            r'''$[*].fileLink''',
-                                          ).toString(),
+                                          (FessApiGroup.getEmployeePayslipsCall
+                                                  .fileLink(
+                                            listViewGetEmployeePayslipsResponse
+                                                .jsonBody,
+                                          ) as List)
+                                              .map<String>((s) => s.toString())
+                                              .toList()[payslipsIndex],
                                           ParamType.String,
                                         ),
                                       }.withoutNulls,
@@ -294,10 +297,15 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  getJsonField(
-                                                    payslipsItem,
-                                                    r'''$[*].friendlyDescription''',
-                                                  ).toString(),
+                                                  (FessApiGroup
+                                                          .getEmployeePayslipsCall
+                                                          .friendlyDescription(
+                                                    listViewGetEmployeePayslipsResponse
+                                                        .jsonBody,
+                                                  ) as List)
+                                                      .map<String>(
+                                                          (s) => s.toString())
+                                                      .toList()[payslipsIndex],
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -313,10 +321,10 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                                                       .fromSTEB(
                                                           0.0, 4.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'Payroll Period: ${valueOrDefault<String>(
-                                                      payslipsItem.toString(),
-                                                      '\$[*].payrollPeriod',
-                                                    )}',
+                                                    'Payroll Period: ${(FessApiGroup.getEmployeePayslipsCall.payrollPeriod(
+                                                      listViewGetEmployeePayslipsResponse
+                                                          .jsonBody,
+                                                    ) as List).map<String>((s) => s.toString()).toList()[payslipsIndex].toString()}',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodySmall,
