@@ -26,10 +26,11 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
     super.initState();
     _model = createModel(context, () => SignInPageModel());
 
-    _model.employeeNumberController ??= TextEditingController();
-    _model.iDNumberController ??= TextEditingController();
-    _model.phoneNumberController ??= TextEditingController();
-    _model.testNumberController ??= TextEditingController();
+    _model.employeeNumberController ??= TextEditingController(text: '1311366');
+    _model.iDNumberController ??= TextEditingController(text: '8611295962084');
+    _model.phoneNumberController ??=
+        TextEditingController(text: '+27790995258');
+    _model.testNumberController ??= TextEditingController(text: '+27670083283');
     authManager.handlePhoneAuthStateChanges(context);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -365,6 +366,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                         await FessApiGroup.authenticationCall.call(
                       employeeNumber: _model.employeeNumberController.text,
                       idNumber: _model.iDNumberController.text,
+                      cellphoneNumber: _model.phoneNumberController.text,
                     );
                     if ((_model.authResponse?.succeeded ?? true) == true) {
                       FFAppState().token = FessApiGroup.authenticationCall
