@@ -216,9 +216,14 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                     final listViewGetEmployeePayslipsResponse = snapshot.data!;
                     return Builder(
                       builder: (context) {
-                        final payslips = listViewGetEmployeePayslipsResponse
-                            .jsonBody
-                            .toList();
+                        final payslipsFileName =
+                            (FessApiGroup.getEmployeePayslipsCall.arrayFileName(
+                                  listViewGetEmployeePayslipsResponse.jsonBody,
+                                ) as List)
+                                    .map<String>((s) => s.toString())
+                                    .toList()
+                                    ?.toList() ??
+                                [];
                         return RefreshIndicator(
                           color: FlutterFlowTheme.of(context).primary,
                           strokeWidth: 1.0,
@@ -230,9 +235,10 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                             padding: EdgeInsets.zero,
                             shrinkWrap: true,
                             scrollDirection: Axis.vertical,
-                            itemCount: payslips.length,
-                            itemBuilder: (context, payslipsIndex) {
-                              final payslipsItem = payslips[payslipsIndex];
+                            itemCount: payslipsFileName.length,
+                            itemBuilder: (context, payslipsFileNameIndex) {
+                              final payslipsFileNameItem =
+                                  payslipsFileName[payslipsFileNameIndex];
                               return Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 16.0, 0.0, 0.0),
@@ -291,7 +297,7 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  'November Payslip',
+                                                  payslipsFileNameItem,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -307,10 +313,7 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                                                       .fromSTEB(
                                                           0.0, 4.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'Payroll Period: ${getJsonField(
-                                                      payslipsItem,
-                                                      r'''$[:].friendlyDescription''',
-                                                    ).toString()}',
+                                                    '1 November 2023',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodySmall,

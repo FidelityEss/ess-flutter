@@ -122,6 +122,11 @@ class GetEmployeePayslipsCall {
         r'''$[:].friendlyDescription''',
         true,
       );
+  dynamic arrayFileName(dynamic response) => getJsonField(
+        response,
+        r'''$..filename''',
+        true,
+      );
 }
 
 class PayslipCall {
