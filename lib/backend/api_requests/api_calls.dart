@@ -31,20 +31,29 @@ class AuthenticationCall {
     String? idNumber = '',
     String? cellphoneNumber = '',
     String? authToken = '',
-  }) async {
-    final response = await makeCloudCall(
-      _kPrivateApiFunctionName,
-      {
-        'callName': 'AuthenticationCall',
-        'variables': {
-          'employeeNumber': employeeNumber,
-          'idNumber': idNumber,
-          'cellphoneNumber': cellphoneNumber,
-          'authToken': authToken,
-        },
+  }) {
+    final ffApiRequestBody = '''
+{
+  "employeeNumber": "${employeeNumber}",
+  "idNumber": "${idNumber}",
+  "cellphoneNumber": "${cellphoneNumber}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Authentication',
+      apiUrl: '${FessApiGroup.baseUrl}/Authentication/Authenticate',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${authToken}',
+        'api-key': 'c1e57890-a4ee-4354-ab59-53098d763963',
       },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
     );
-    return ApiCallResponse.fromCloudCallResponse(response);
   }
 
   dynamic token(dynamic response) => getJsonField(
