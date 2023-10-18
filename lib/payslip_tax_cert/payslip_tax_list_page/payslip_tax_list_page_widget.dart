@@ -235,10 +235,7 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                                       'PayslipTaxPage',
                                       queryParameters: {
                                         'fileLink': serializeParam(
-                                          getJsonField(
-                                            payslipsItem,
-                                            r'''$..fileLink''',
-                                          ).toString(),
+                                          '',
                                           ParamType.String,
                                         ),
                                       }.withoutNulls,
@@ -302,10 +299,7 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                                                       .fromSTEB(
                                                           0.0, 4.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'Payroll Period: ${getJsonField(
-                                                      payslipsItem,
-                                                      r'''$..payrollPeriod''',
-                                                    ).toString()}',
+                                                    '1 November 2023',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodySmall,

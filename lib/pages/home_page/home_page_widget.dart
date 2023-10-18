@@ -382,25 +382,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return AlertDialog(
-                                        title: Text('Warning'),
-                                        content: Text(
-                                            'This function currently uses dummy data as we are awaiting API developerment to be completed'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child:
-                                                Text('I understand, continue.'),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
-
                                   context.pushNamed('PayslipTaxListPage');
                                 },
                                 child: Column(
