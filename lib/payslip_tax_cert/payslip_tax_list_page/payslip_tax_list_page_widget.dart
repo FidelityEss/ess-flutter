@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -43,80 +44,84 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(0.0),
-          child: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).appBarColour,
-            automaticallyImplyLeading: false,
-            actions: [],
-            centerTitle: false,
-            elevation: 0.0,
-          ),
-        ),
-        body: SafeArea(
-          top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              wrapWithModel(
-                model: _model.detailedAppBarModel,
-                updateCallback: () => setState(() {}),
-                child: DetailedAppBarWidget(
-                  title: 'Payslips',
-                  heading: 'Payslips and Tax Certificates',
-                  description:
-                      'View all your payslips, tax certificates and much more. To get started with a function, please click on an item.',
+    return FutureBuilder<ApiCallResponse>(
+      future: FessApiGroup.getEmployeePayslipsCall.call(
+        authToken: FFAppState().token,
+        fromDate: functions.getDateFrom12MonthsAgo(),
+        toDate: functions.getTodaysDate(),
+      ),
+      builder: (context, snapshot) {
+        // Customize what your widget looks like when it's loading.
+        if (!snapshot.hasData) {
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 40.0,
+                height: 40.0,
+                child: SpinKitDualRing(
+                  color: FlutterFlowTheme.of(context).primary,
+                  size: 40.0,
                 ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
-                child: Text(
-                  'Showing payslips for the last 12 months',
-                  style: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.bold,
-                      ),
-                ),
+            ),
+          );
+        }
+        final payslipTaxListPageGetEmployeePayslipsResponse = snapshot.data!;
+        return GestureDetector(
+          onTap: () => _model.unfocusNode.canRequestFocus
+              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+              : FocusScope.of(context).unfocus(),
+          child: Scaffold(
+            key: scaffoldKey,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            appBar: PreferredSize(
+              preferredSize: Size.fromHeight(0.0),
+              child: AppBar(
+                backgroundColor: FlutterFlowTheme.of(context).appBarColour,
+                automaticallyImplyLeading: false,
+                actions: [],
+                centerTitle: false,
+                elevation: 0.0,
               ),
-              Expanded(
-                child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 32.0),
-                  child: FutureBuilder<ApiCallResponse>(
-                    future: FessApiGroup.getEmployeePayslipsCall.call(
-                      authToken: FFAppState().token,
-                      fromDate: functions.getDateFrom12MonthsAgo(),
-                      toDate: functions.getTodaysDate(),
+            ),
+            body: SafeArea(
+              top: true,
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  wrapWithModel(
+                    model: _model.detailedAppBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: DetailedAppBarWidget(
+                      title: 'Payslips',
+                      heading: 'Payslips and Tax Certificates',
+                      description:
+                          'View all your payslips, tax certificates and much more. To get started with a function, please click on an item.',
                     ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
-                              ),
-                            ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                    child: Text(
+                      'Showing payslips for the last 12 months',
+                      style: FlutterFlowTheme.of(context).labelMedium.override(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
                           ),
-                        );
-                      }
-                      final columnGetEmployeePayslipsResponse = snapshot.data!;
-                      return Builder(
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 32.0),
+                      child: Builder(
                         builder: (context) {
-                          final payslips = columnGetEmployeePayslipsResponse
-                              .jsonBody
-                              .toList();
+                          final payslips =
+                              payslipTaxListPageGetEmployeePayslipsResponse
+                                  .jsonBody
+                                  .toList();
                           return SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -223,15 +228,15 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                             ),
                           );
                         },
-                      );
-                    },
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

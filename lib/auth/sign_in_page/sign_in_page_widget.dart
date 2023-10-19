@@ -327,6 +327,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                               (_model.authResponse?.jsonBody ?? ''),
                             )
                             .toString();
+                        FFAppState().tokenUpdateTime = getCurrentTimestamp;
                         final phoneNumberVal = _model.switchListTileValue!
                             ? _model.testNumberController.text
                             : FessApiGroup.authenticationCall

@@ -1,10 +1,13 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/components/bottom_nav_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_page_model.dart';
@@ -26,6 +29,38 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (functions.hoursAgo(FFAppState().tokenUpdateTime!) >= 4) {
+        _model.apiResultzcx = await FessApiGroup.authenticationCall.call(
+          employeeNumber: valueOrDefault(currentUserDocument?.en, ''),
+          idNumber: valueOrDefault(currentUserDocument?.eid, ''),
+        );
+        if ((_model.apiResultzcx?.succeeded ?? true)) {
+          setState(() {
+            FFAppState().token = FessApiGroup.authenticationCall
+                .token(
+                  (_model.apiResultzcx?.jsonBody ?? ''),
+                )
+                .toString();
+            FFAppState().tokenUpdateTime = getCurrentTimestamp;
+          });
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'Profile Refreshed',
+                style: TextStyle(
+                  color: FlutterFlowTheme.of(context).justWhite,
+                ),
+              ),
+              duration: Duration(milliseconds: 4000),
+              backgroundColor: FlutterFlowTheme.of(context).secondary,
+            ),
+          );
+        }
+      }
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }

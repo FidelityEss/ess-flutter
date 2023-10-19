@@ -53,3 +53,11 @@ String? getTodaysDate() {
 
   return formattedDate;
 }
+
+int hoursAgo(DateTime time) {
+  final now = DateTime.now();
+  final difference = now.difference(time);
+  final hoursDifference = difference.inHours;
+
+  return hoursDifference;
+}

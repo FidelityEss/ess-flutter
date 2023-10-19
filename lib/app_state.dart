@@ -23,6 +23,12 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _token = prefs.getString('ff_token') ?? _token;
     });
+    _safeInit(() {
+      _tokenUpdateTime = prefs.containsKey('ff_tokenUpdateTime')
+          ? DateTime.fromMillisecondsSinceEpoch(
+              prefs.getInt('ff_tokenUpdateTime')!)
+          : _tokenUpdateTime;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -66,6 +72,15 @@ class FFAppState extends ChangeNotifier {
 
   void insertAtIndexInPayslipsState(int _index, PayslipObjectStruct _value) {
     _payslipsState.insert(_index, _value);
+  }
+
+  DateTime? _tokenUpdateTime;
+  DateTime? get tokenUpdateTime => _tokenUpdateTime;
+  set tokenUpdateTime(DateTime? _value) {
+    _tokenUpdateTime = _value;
+    _value != null
+        ? prefs.setInt('ff_tokenUpdateTime', _value.millisecondsSinceEpoch)
+        : prefs.remove('ff_tokenUpdateTime');
   }
 }
 
