@@ -28,8 +28,6 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
 
     _model.employeeNumberController ??= TextEditingController(text: '1311366');
     _model.iDNumberController ??= TextEditingController(text: '8611295962084');
-    _model.phoneNumberController ??=
-        TextEditingController(text: '+27790995258');
     _model.testNumberController ??= TextEditingController(text: '+27670083283');
     authManager.handlePhoneAuthStateChanges(context);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -210,56 +208,6 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            32.0, 16.0, 32.0, 0.0),
-                        child: TextFormField(
-                          controller: _model.phoneNumberController,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            labelText: 'Phone Number',
-                            labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                            hintText: 'Phone Number',
-                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).alternate,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).primary,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            prefixIcon: Icon(
-                              Icons.person_rounded,
-                              color: FlutterFlowTheme.of(context).textFieldIcon,
-                              size: 16.0,
-                            ),
-                          ),
-                          style: FlutterFlowTheme.of(context).bodySmall,
-                          validator: _model.phoneNumberControllerValidator
-                              .asValidator(context),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
                             32.0, 32.0, 32.0, 0.0),
                         child: Text(
                           'If you want to use a different number to recieve the OTP in the test environment please enter it here. This will not show in prod',
@@ -372,7 +320,6 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                           await FessApiGroup.authenticationCall.call(
                         employeeNumber: _model.employeeNumberController.text,
                         idNumber: _model.iDNumberController.text,
-                        cellphoneNumber: _model.phoneNumberController.text,
                       );
                       if ((_model.authResponse?.succeeded ?? true) == true) {
                         FFAppState().token = FessApiGroup.authenticationCall
@@ -382,7 +329,11 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                             .toString();
                         final phoneNumberVal = _model.switchListTileValue!
                             ? _model.testNumberController.text
-                            : _model.phoneNumberController.text;
+                            : FessApiGroup.authenticationCall
+                                .cellphoneNumber(
+                                  (_model.authResponse?.jsonBody ?? ''),
+                                )
+                                .toString();
                         if (phoneNumberVal == null ||
                             phoneNumberVal.isEmpty ||
                             !phoneNumberVal.startsWith('+')) {

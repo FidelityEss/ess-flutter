@@ -27,14 +27,12 @@ class AuthenticationCall {
   Future<ApiCallResponse> call({
     String? employeeNumber = '',
     String? idNumber = '',
-    String? cellphoneNumber = '',
     String? authToken = '',
   }) {
     final ffApiRequestBody = '''
 {
   "employeeNumber": "${employeeNumber}",
-  "idNumber": "${idNumber}",
-  "cellphoneNumber": "${cellphoneNumber}"
+  "idNumber": "${idNumber}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Authentication',
@@ -65,6 +63,10 @@ class AuthenticationCall {
   dynamic surname(dynamic response) => getJsonField(
         response,
         r'''$.surname''',
+      );
+  dynamic cellphoneNumber(dynamic response) => getJsonField(
+        response,
+        r'''$.cellphoneNumber''',
       );
 }
 

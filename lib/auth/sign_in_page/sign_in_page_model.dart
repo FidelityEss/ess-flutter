@@ -40,9 +40,6 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
     return null;
   }
 
-  // State field(s) for PhoneNumber widget.
-  TextEditingController? phoneNumberController;
-  String? Function(BuildContext, String?)? phoneNumberControllerValidator;
   // State field(s) for TestNumber widget.
   TextEditingController? testNumberController;
   String? Function(BuildContext, String?)? testNumberControllerValidator;
@@ -62,7 +59,6 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
     unfocusNode.dispose();
     employeeNumberController?.dispose();
     iDNumberController?.dispose();
-    phoneNumberController?.dispose();
     testNumberController?.dispose();
   }
 

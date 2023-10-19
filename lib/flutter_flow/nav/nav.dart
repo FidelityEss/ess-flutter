@@ -120,6 +120,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/payslipTaxPage',
           builder: (context, params) => PayslipTaxPageWidget(
             fileLink: params.getParam('fileLink', ParamType.String),
+            date: params.getParam('date', ParamType.String),
           ),
         ),
         FFRoute(
@@ -214,16 +215,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ChatBotPage',
           path: '/chatBotPage',
           builder: (context, params) => ChatBotPageWidget(),
-        ),
-        FFRoute(
-          name: 'IntroSlider1',
-          path: '/introSlider1',
-          builder: (context, params) => IntroSlider1Widget(),
-        ),
-        FFRoute(
-          name: 'IntroSlider2',
-          path: '/introSlider2',
-          builder: (context, params) => IntroSlider2Widget(),
         ),
         FFRoute(
           name: 'IntroSlider3',

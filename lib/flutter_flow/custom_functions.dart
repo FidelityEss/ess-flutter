@@ -29,3 +29,27 @@ String? getFileLinkAtIndex(
     return ''; // or handle the error as needed
   }
 }
+
+String? getDateFrom12MonthsAgo() {
+  // Get the current date
+  final now = DateTime.now();
+
+  // Calculate the date 12 months ago
+  final twelveMonthsAgo = now.subtract(Duration(days: 365));
+
+  // Format the date in the desired format
+  final formattedDate =
+      DateFormat("yyyy-MM-dd'T'HH:mm:ss").format(twelveMonthsAgo);
+
+  return formattedDate;
+}
+
+String? getTodaysDate() {
+  // Get the current date and time
+  final now = DateTime.now();
+
+  // Format the current date in the desired format
+  final formattedDate = DateFormat("yyyy-MM-dd'T'HH:mm:ss").format(now);
+
+  return formattedDate;
+}

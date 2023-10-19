@@ -3,6 +3,7 @@ import '/components/detailed_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,181 +43,85 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(0.0),
-          child: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).appBarColour,
-            automaticallyImplyLeading: false,
-            actions: [],
-            centerTitle: false,
-            elevation: 0.0,
-          ),
-        ),
-        body: SafeArea(
-          top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              wrapWithModel(
-                model: _model.detailedAppBarModel,
-                updateCallback: () => setState(() {}),
-                child: DetailedAppBarWidget(
-                  title: 'Payslips',
-                  heading: 'Payslips and Tax Certificates',
-                  description:
-                      'View all your payslips, tax certificates and much more. To get started with a function, please click on an item.',
+    return FutureBuilder<ApiCallResponse>(
+      future: FessApiGroup.getEmployeePayslipsCall.call(
+        authToken: FFAppState().token,
+        fromDate: functions.getDateFrom12MonthsAgo(),
+        toDate: functions.getTodaysDate(),
+      ),
+      builder: (context, snapshot) {
+        // Customize what your widget looks like when it's loading.
+        if (!snapshot.hasData) {
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    FlutterFlowTheme.of(context).primary,
+                  ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
-                child: Text(
-                  'Menu',
-                  style: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.bold,
-                      ),
-                ),
+            ),
+          );
+        }
+        final payslipTaxListPageGetEmployeePayslipsResponse = snapshot.data!;
+        return GestureDetector(
+          onTap: () => _model.unfocusNode.canRequestFocus
+              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+              : FocusScope.of(context).unfocus(),
+          child: Scaffold(
+            key: scaffoldKey,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            appBar: PreferredSize(
+              preferredSize: Size.fromHeight(0.0),
+              child: AppBar(
+                backgroundColor: FlutterFlowTheme.of(context).appBarColour,
+                automaticallyImplyLeading: false,
+                actions: [],
+                centerTitle: false,
+                elevation: 0.0,
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                        child: Container(
-                          width: 100.0,
-                          height: 35.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).secondary,
-                            borderRadius: BorderRadius.circular(5.0),
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).secondary,
-                            ),
-                          ),
-                          child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
-                            child: Text(
-                              'Payslip',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    color:
-                                        FlutterFlowTheme.of(context).justWhite,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                            ),
-                          ),
-                        ),
-                      ),
+            ),
+            body: SafeArea(
+              top: true,
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  wrapWithModel(
+                    model: _model.detailedAppBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: DetailedAppBarWidget(
+                      title: 'Payslips',
+                      heading: 'Payslips and Tax Certificates',
+                      description:
+                          'View all your payslips, tax certificates and much more. To get started with a function, please click on an item.',
                     ),
-                    Expanded(
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                        child: Container(
-                          width: 100.0,
-                          height: 35.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(5.0),
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).secondary,
-                              width: 2.0,
-                            ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                    child: Text(
+                      'Showing payslips for the last 12 months',
+                      style: FlutterFlowTheme.of(context).labelMedium.override(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
                           ),
-                          child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
-                            child: Text(
-                              'Tax Certs',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    color: FlutterFlowTheme.of(context).black,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                            ),
-                          ),
-                        ),
-                      ),
                     ),
-                    Expanded(
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                        child: Container(
-                          width: 100.0,
-                          height: 35.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(5.0),
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).secondary,
-                              width: 2.0,
-                            ),
-                          ),
-                          child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
-                            child: Text(
-                              'Other',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    color: FlutterFlowTheme.of(context).black,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 32.0),
-                  child: FutureBuilder<ApiCallResponse>(
-                    future: FessApiGroup.getEmployeePayslipsCall.call(
-                      authToken: FFAppState().token,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
-                              ),
-                            ),
-                          ),
-                        );
-                      }
-                      final columnGetEmployeePayslipsResponse = snapshot.data!;
-                      return Builder(
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 32.0),
+                      child: Builder(
                         builder: (context) {
-                          final payslips = columnGetEmployeePayslipsResponse
-                              .jsonBody
-                              .toList();
+                          final payslips =
+                              payslipTaxListPageGetEmployeePayslipsResponse
+                                  .jsonBody
+                                  .toList();
                           return SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -239,6 +144,13 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                                             getJsonField(
                                               payslipsItem,
                                               r'''$..fileLink''',
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
+                                          'date': serializeParam(
+                                            getJsonField(
+                                              payslipsItem,
+                                              r'''$..friendlyDescription''',
                                             ).toString(),
                                             ParamType.String,
                                           ),
@@ -278,20 +190,13 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       16.0, 0.0, 16.0, 0.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    getJsonField(
-                                                      payslipsItem,
-                                                      r'''$..friendlyDescription''',
-                                                    ).toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
+                                              child: Text(
+                                                getJsonField(
+                                                  payslipsItem,
+                                                  r'''$..friendlyDescription''',
+                                                ).toString(),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
@@ -299,21 +204,6 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 4.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      '1 November 2023',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmall,
-                                                    ),
-                                                  ),
-                                                ],
                                               ),
                                             ),
                                           ),
@@ -338,15 +228,15 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                             ),
                           );
                         },
-                      );
-                    },
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

@@ -13,9 +13,11 @@ class PayslipTaxPageWidget extends StatefulWidget {
   const PayslipTaxPageWidget({
     Key? key,
     required this.fileLink,
+    required this.date,
   }) : super(key: key);
 
   final String? fileLink;
+  final String? date;
 
   @override
   _PayslipTaxPageWidgetState createState() => _PayslipTaxPageWidgetState();
@@ -88,7 +90,7 @@ class _PayslipTaxPageWidgetState extends State<PayslipTaxPageWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             32.0, 0.0, 16.0, 0.0),
                         child: Text(
-                          '15 September Payslip',
+                          '${widget.date} Payslip',
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
@@ -98,16 +100,11 @@ class _PayslipTaxPageWidgetState extends State<PayslipTaxPageWidget> {
                         ),
                       ),
                     ),
-                    Icon(
-                      Icons.download_rounded,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 18.0,
-                    ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 32.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 32.0, 0.0),
                       child: Icon(
-                        Icons.info_outline_rounded,
+                        Icons.download_rounded,
                         color: FlutterFlowTheme.of(context).secondaryText,
                         size: 18.0,
                       ),

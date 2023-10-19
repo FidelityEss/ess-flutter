@@ -149,9 +149,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 decoration: BoxDecoration(
                                                   shape: BoxShape.circle,
                                                 ),
-                                                child: Image.network(
-                                                  currentUserPhoto,
+                                                child: CachedNetworkImage(
+                                                  fadeInDuration: Duration(
+                                                      milliseconds: 500),
+                                                  fadeOutDuration: Duration(
+                                                      milliseconds: 500),
+                                                  imageUrl: currentUserPhoto,
                                                   fit: BoxFit.cover,
+                                                  errorWidget: (context, error,
+                                                          stackTrace) =>
+                                                      Image.asset(
+                                                    'assets/images/error_image.jpg',
+                                                    fit: BoxFit.cover,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -166,15 +176,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   32.0, 32.0, 32.0, 0.0),
-                              child: Text(
-                                'Hi there, Marius.',
-                                style: FlutterFlowTheme.of(context)
-                                    .titleLarge
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: FlutterFlowTheme.of(context)
-                                          .justWhite,
-                                    ),
+                              child: AuthUserStreamWidget(
+                                builder: (context) => Text(
+                                  'Hi there, ${valueOrDefault(currentUserDocument?.firstName, '')}',
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                      ),
+                                ),
                               ),
                             ),
                             Padding(
@@ -416,40 +428,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed('FidelityCaresPage');
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/IconFidelityCaresHands.png',
-                                        width: 60.0,
-                                        height: 60.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Fidelity Cares',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
@@ -474,7 +452,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(5.0),
                                       child: Image.asset(
-                                        'assets/images/Guarding.png',
+                                        'assets/images/TimeAttendance.png',
                                         width: 60.0,
                                         height: 60.0,
                                         fit: BoxFit.cover,
@@ -484,7 +462,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
                                       child: Text(
-                                        'Guarding',
+                                        'Time & Attendance',
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall,
                                       ),
@@ -527,6 +505,40 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 ),
                               ),
                             ),
+                            Expanded(
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('FidelityCaresPage');
+                                },
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(5.0),
+                                      child: Image.asset(
+                                        'assets/images/IconFidelityCaresHands.png',
+                                        width: 60.0,
+                                        height: 60.0,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 8.0, 0.0, 0.0),
+                                      child: Text(
+                                        'Fidelity Cares',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodySmall,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -537,40 +549,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Expanded(
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed('EventsPage');
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/IconEvents.png',
-                                        width: 60.0,
-                                        height: 60.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Events',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
                             Expanded(
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -597,6 +575,40 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           0.0, 8.0, 0.0, 0.0),
                                       child: Text(
                                         'Report Fraud',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodySmall,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('IncidentsPage');
+                                },
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(5.0),
+                                      child: Image.asset(
+                                        'assets/images/ReportIncident.png',
+                                        width: 60.0,
+                                        height: 60.0,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 8.0, 0.0, 0.0),
+                                      child: Text(
+                                        'Report Incident',
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall,
                                       ),
@@ -646,7 +658,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed('IncidentsPage');
+                                  context.pushNamed('EventsPage');
                                 },
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -654,7 +666,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(5.0),
                                       child: Image.asset(
-                                        'assets/images/ReportIncident.png',
+                                        'assets/images/IconEvents.png',
                                         width: 60.0,
                                         height: 60.0,
                                         fit: BoxFit.cover,
@@ -664,7 +676,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
                                       child: Text(
-                                        'Report Incident',
+                                        'Events',
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall,
                                       ),

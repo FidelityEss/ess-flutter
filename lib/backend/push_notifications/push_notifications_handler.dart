@@ -126,6 +126,7 @@ final parametersBuilderMap =
   'PayslipTaxPage': (data) async => ParameterData(
         allParams: {
           'fileLink': getParameter<String>(data, 'fileLink'),
+          'date': getParameter<String>(data, 'date'),
         },
       ),
   'TimeAndAttendancePage': ParameterData.none(),
@@ -161,8 +162,6 @@ final parametersBuilderMap =
         },
       ),
   'ChatBotPage': ParameterData.none(),
-  'IntroSlider1': ParameterData.none(),
-  'IntroSlider2': ParameterData.none(),
   'IntroSlider3': ParameterData.none(),
   'VanciesPage': ParameterData.none(),
   'VacanciesDetailsPage': (data) async => ParameterData(

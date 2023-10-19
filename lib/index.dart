@@ -38,17 +38,13 @@ export '/query_logging/query_details_page/query_details_page_widget.dart'
     show QueryDetailsPageWidget;
 export '/chatbot/chat_bot_page/chat_bot_page_widget.dart'
     show ChatBotPageWidget;
-export '/intro_slider/intro_slider1/intro_slider1_widget.dart'
-    show IntroSlider1Widget;
-export '/intro_slider/intro_slider2/intro_slider2_widget.dart'
-    show IntroSlider2Widget;
 export '/intro_slider/intro_slider3/intro_slider3_widget.dart'
     show IntroSlider3Widget;
 export '/vacancies/vancies_page/vancies_page_widget.dart'
     show VanciesPageWidget;
 export '/vacancies/vacancies_details_page/vacancies_details_page_widget.dart'
     show VacanciesDetailsPageWidget;
-export '/info_page/info_page_widget.dart' show InfoPageWidget;
+export '/pages/info_page/info_page_widget.dart' show InfoPageWidget;
 export '/compliments/compliments_page/compliments_page_widget.dart'
     show ComplimentsPageWidget;
 export '/compliments/compliments_two/compliments_two_widget.dart'

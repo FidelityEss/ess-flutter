@@ -80,7 +80,7 @@ class _MenuBottomSheetWidgetState extends State<MenuBottomSheetWidget> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(5.0),
                         child: Image.asset(
-                          'assets/images/IconInsureBlack_(1).png',
+                          'assets/images/IconInsureBlack.png',
                           width: 60.0,
                           height: 60.0,
                           fit: BoxFit.cover,
@@ -132,7 +132,7 @@ class _MenuBottomSheetWidgetState extends State<MenuBottomSheetWidget> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(5.0),
                           child: Image.asset(
-                            'assets/images/IconCleaningBlack_(1).png',
+                            'assets/images/IconCleaningBlack.png',
                             width: 60.0,
                             height: 60.0,
                             fit: BoxFit.cover,
@@ -185,7 +185,7 @@ class _MenuBottomSheetWidgetState extends State<MenuBottomSheetWidget> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(5.0),
                           child: Image.asset(
-                            'assets/images/IconFireBlack_(1).png',
+                            'assets/images/IconFireBlack.png',
                             width: 60.0,
                             height: 60.0,
                             fit: BoxFit.cover,
