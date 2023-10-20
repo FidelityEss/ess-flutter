@@ -79,7 +79,7 @@ class _TimeAndAttendancePageWidgetState
                 model: _model.customAppBarModel,
                 updateCallback: () => setState(() {}),
                 child: CustomAppBarWidget(
-                  title: 'Payslip',
+                  title: 'Timen And Attendance',
                 ),
               ),
               Container(
@@ -109,10 +109,20 @@ class _TimeAndAttendancePageWidgetState
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 32.0, 0.0),
-                      child: Icon(
-                        Icons.download_rounded,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 18.0,
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          await launchURL(
+                              'https://6j2o2o73d4li23ruy3au3lkktm0zoblr.lambda-url.af-south-1.on.aws/api/Payroll/GetTimeAndAttendancePdf?token=${FFAppState().token}');
+                        },
+                        child: Icon(
+                          Icons.download_rounded,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 18.0,
+                        ),
                       ),
                     ),
                   ],
