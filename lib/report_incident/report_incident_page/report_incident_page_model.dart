@@ -13,6 +13,7 @@ import '/flutter_flow/random_data_util.dart' as random_data;
 import 'report_incident_page_widget.dart' show ReportIncidentPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -33,9 +34,11 @@ class ReportIncidentPageModel
   String? departmentValue;
   FormFieldController<String>? departmentValueController;
   // State field(s) for Title widget.
+  FocusNode? titleFocusNode;
   TextEditingController? titleController;
   String? Function(BuildContext, String?)? titleControllerValidator;
   // State field(s) for Message widget.
+  FocusNode? messageFocusNode;
   TextEditingController? messageController;
   String? Function(BuildContext, String?)? messageControllerValidator;
   // State field(s) for PlacePicker widget.
@@ -50,7 +53,10 @@ class ReportIncidentPageModel
   void dispose() {
     unfocusNode.dispose();
     customAppBarModel.dispose();
+    titleFocusNode?.dispose();
     titleController?.dispose();
+
+    messageFocusNode?.dispose();
     messageController?.dispose();
   }
 

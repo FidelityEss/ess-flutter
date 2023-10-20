@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'manage_profile_model.dart';
@@ -31,12 +32,17 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
 
     _model.nameController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.firstName, ''));
+    _model.nameFocusNode ??= FocusNode();
     _model.surnameController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.lastName, ''));
+    _model.surnameFocusNode ??= FocusNode();
     _model.displayNameController ??=
         TextEditingController(text: currentUserDisplayName);
+    _model.displayNameFocusNode ??= FocusNode();
     _model.emailController ??= TextEditingController(text: currentUserEmail);
+    _model.emailFocusNode ??= FocusNode();
     _model.phoneController ??= TextEditingController(text: currentPhoneNumber);
+    _model.phoneFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -49,6 +55,15 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -177,6 +192,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                           child: AuthUserStreamWidget(
                             builder: (context) => TextFormField(
                               controller: _model.nameController,
+                              focusNode: _model.nameFocusNode,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Name',
@@ -231,6 +247,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                           child: AuthUserStreamWidget(
                             builder: (context) => TextFormField(
                               controller: _model.surnameController,
+                              focusNode: _model.surnameFocusNode,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Surname',
@@ -285,6 +302,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                           child: AuthUserStreamWidget(
                             builder: (context) => TextFormField(
                               controller: _model.displayNameController,
+                              focusNode: _model.displayNameFocusNode,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Display Name',
@@ -338,6 +356,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                               32.0, 16.0, 32.0, 0.0),
                           child: TextFormField(
                             controller: _model.emailController,
+                            focusNode: _model.emailFocusNode,
                             readOnly: true,
                             obscureText: false,
                             decoration: InputDecoration(
@@ -390,6 +409,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                           child: AuthUserStreamWidget(
                             builder: (context) => TextFormField(
                               controller: _model.phoneController,
+                              focusNode: _model.phoneFocusNode,
                               readOnly: true,
                               obscureText: false,
                               decoration: InputDecoration(

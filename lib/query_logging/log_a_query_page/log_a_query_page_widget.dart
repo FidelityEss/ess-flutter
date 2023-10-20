@@ -9,6 +9,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'log_a_query_page_model.dart';
@@ -32,7 +33,9 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
     _model = createModel(context, () => LogAQueryPageModel());
 
     _model.titleController ??= TextEditingController();
+    _model.titleFocusNode ??= FocusNode();
     _model.messageController ??= TextEditingController();
+    _model.messageFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -45,6 +48,15 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -275,6 +287,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                 child: TextFormField(
                   controller: _model.titleController,
+                  focusNode: _model.titleFocusNode,
                   obscureText: false,
                   decoration: InputDecoration(
                     labelText: 'Title',
@@ -318,6 +331,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                 child: TextFormField(
                   controller: _model.messageController,
+                  focusNode: _model.messageFocusNode,
                   obscureText: false,
                   decoration: InputDecoration(
                     labelText: 'Mesaage',

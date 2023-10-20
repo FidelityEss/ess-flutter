@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'queries_page_widget.dart' show QueriesPageWidget;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -18,6 +19,7 @@ class QueriesPageModel extends FlutterFlowModel<QueriesPageWidget> {
   // Model for CustomAppBar component.
   late CustomAppBarModel customAppBarModel;
   // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
 
@@ -30,6 +32,7 @@ class QueriesPageModel extends FlutterFlowModel<QueriesPageWidget> {
   void dispose() {
     unfocusNode.dispose();
     customAppBarModel.dispose();
+    textFieldFocusNode?.dispose();
     textController?.dispose();
   }
 

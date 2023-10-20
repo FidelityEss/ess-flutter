@@ -10,6 +10,7 @@ import '/flutter_flow/random_data_util.dart' as random_data;
 import 'compliments_two_widget.dart' show ComplimentsTwoWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +28,7 @@ class ComplimentsTwoModel extends FlutterFlowModel<ComplimentsTwoWidget> {
   String? dropDownValue2;
   FormFieldController<String>? dropDownValueController2;
   // State field(s) for Name widget.
+  FocusNode? nameFocusNode;
   TextEditingController? nameController;
   String? Function(BuildContext, String?)? nameControllerValidator;
 
@@ -39,6 +41,7 @@ class ComplimentsTwoModel extends FlutterFlowModel<ComplimentsTwoWidget> {
   void dispose() {
     unfocusNode.dispose();
     customAppBarModel.dispose();
+    nameFocusNode?.dispose();
     nameController?.dispose();
   }
 

@@ -10,6 +10,7 @@ import '/flutter_flow/random_data_util.dart' as random_data;
 import 'log_a_query_page_widget.dart' show LogAQueryPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -29,9 +30,11 @@ class LogAQueryPageModel extends FlutterFlowModel<LogAQueryPageWidget> {
   String? priorityValue;
   FormFieldController<String>? priorityValueController;
   // State field(s) for Title widget.
+  FocusNode? titleFocusNode;
   TextEditingController? titleController;
   String? Function(BuildContext, String?)? titleControllerValidator;
   // State field(s) for Message widget.
+  FocusNode? messageFocusNode;
   TextEditingController? messageController;
   String? Function(BuildContext, String?)? messageControllerValidator;
 
@@ -44,7 +47,10 @@ class LogAQueryPageModel extends FlutterFlowModel<LogAQueryPageWidget> {
   void dispose() {
     unfocusNode.dispose();
     customAppBarModel.dispose();
+    titleFocusNode?.dispose();
     titleController?.dispose();
+
+    messageFocusNode?.dispose();
     messageController?.dispose();
   }
 

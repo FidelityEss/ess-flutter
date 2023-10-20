@@ -9,6 +9,7 @@ import '/flutter_flow/random_data_util.dart' as random_data;
 import 'incident_details_page_widget.dart' show IncidentDetailsPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -23,6 +24,7 @@ class IncidentDetailsPageModel
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
   // State field(s) for Update widget.
+  FocusNode? updateFocusNode;
   TextEditingController? updateController;
   String? Function(BuildContext, String?)? updateControllerValidator;
 
@@ -35,6 +37,7 @@ class IncidentDetailsPageModel
   void dispose() {
     unfocusNode.dispose();
     customAppBarModel.dispose();
+    updateFocusNode?.dispose();
     updateController?.dispose();
   }
 

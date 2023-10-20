@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'sign_in_page_widget.dart' show SignInPageWidget;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -14,6 +15,7 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for EmployeeNumber widget.
+  FocusNode? employeeNumberFocusNode;
   TextEditingController? employeeNumberController;
   String? Function(BuildContext, String?)? employeeNumberControllerValidator;
   String? _employeeNumberControllerValidator(
@@ -26,6 +28,7 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
   }
 
   // State field(s) for IDNumber widget.
+  FocusNode? iDNumberFocusNode;
   TextEditingController? iDNumberController;
   String? Function(BuildContext, String?)? iDNumberControllerValidator;
   String? _iDNumberControllerValidator(BuildContext context, String? val) {
@@ -41,6 +44,7 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
   }
 
   // State field(s) for TestNumber widget.
+  FocusNode? testNumberFocusNode;
   TextEditingController? testNumberController;
   String? Function(BuildContext, String?)? testNumberControllerValidator;
   // State field(s) for SwitchListTile widget.
@@ -57,8 +61,13 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    employeeNumberFocusNode?.dispose();
     employeeNumberController?.dispose();
+
+    iDNumberFocusNode?.dispose();
     iDNumberController?.dispose();
+
+    testNumberFocusNode?.dispose();
     testNumberController?.dispose();
   }
 

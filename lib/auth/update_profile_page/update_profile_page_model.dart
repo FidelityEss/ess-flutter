@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'update_profile_page_widget.dart' show UpdateProfilePageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -15,6 +16,7 @@ class UpdateProfilePageModel extends FlutterFlowModel<UpdateProfilePageWidget> {
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for Name widget.
+  FocusNode? nameFocusNode;
   TextEditingController? nameController;
   String? Function(BuildContext, String?)? nameControllerValidator;
   String? _nameControllerValidator(BuildContext context, String? val) {
@@ -26,6 +28,7 @@ class UpdateProfilePageModel extends FlutterFlowModel<UpdateProfilePageWidget> {
   }
 
   // State field(s) for Surname widget.
+  FocusNode? surnameFocusNode;
   TextEditingController? surnameController;
   String? Function(BuildContext, String?)? surnameControllerValidator;
   String? _surnameControllerValidator(BuildContext context, String? val) {
@@ -37,6 +40,7 @@ class UpdateProfilePageModel extends FlutterFlowModel<UpdateProfilePageWidget> {
   }
 
   // State field(s) for Email widget.
+  FocusNode? emailFocusNode;
   TextEditingController? emailController;
   String? Function(BuildContext, String?)? emailControllerValidator;
   String? _emailControllerValidator(BuildContext context, String? val) {
@@ -57,8 +61,13 @@ class UpdateProfilePageModel extends FlutterFlowModel<UpdateProfilePageWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    nameFocusNode?.dispose();
     nameController?.dispose();
+
+    surnameFocusNode?.dispose();
     surnameController?.dispose();
+
+    emailFocusNode?.dispose();
     emailController?.dispose();
   }
 

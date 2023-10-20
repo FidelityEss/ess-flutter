@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'incident_details_page_model.dart';
@@ -37,6 +38,7 @@ class _IncidentDetailsPageWidgetState extends State<IncidentDetailsPageWidget> {
     _model = createModel(context, () => IncidentDetailsPageModel());
 
     _model.updateController ??= TextEditingController();
+    _model.updateFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -49,6 +51,15 @@ class _IncidentDetailsPageWidgetState extends State<IncidentDetailsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return StreamBuilder<List<IncidentsRecord>>(
@@ -428,6 +439,7 @@ class _IncidentDetailsPageWidgetState extends State<IncidentDetailsPageWidget> {
                                 32.0, 0.0, 16.0, 0.0),
                             child: TextFormField(
                               controller: _model.updateController,
+                              focusNode: _model.updateFocusNode,
                               obscureText: false,
                               decoration: InputDecoration(
                                 isDense: true,

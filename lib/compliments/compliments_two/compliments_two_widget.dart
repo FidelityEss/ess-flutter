@@ -9,6 +9,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
@@ -44,6 +45,7 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
     _model = createModel(context, () => ComplimentsTwoModel());
 
     _model.nameController ??= TextEditingController();
+    _model.nameFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -56,6 +58,15 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -201,6 +212,7 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                           16.0, 16.0, 16.0, 16.0),
                       child: TextFormField(
                         controller: _model.nameController,
+                        focusNode: _model.nameFocusNode,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Message',

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import '../../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
@@ -28,7 +28,7 @@ class AuthenticationCall {
     String? employeeNumber = '',
     String? idNumber = '',
     String? authToken = '',
-  }) {
+  }) async {
     final ffApiRequestBody = '''
 {
   "employeeNumber": "${employeeNumber}",
@@ -75,7 +75,7 @@ class GetEmployeePayslipsCall {
     String? fromDate = '2023-07-01T00:00:00',
     String? toDate = '2023-10-16T00:00:00',
     String? authToken = '',
-  }) {
+  }) async {
     final ffApiRequestBody = '''
 {
   "fromDate": "${fromDate}",
@@ -135,7 +135,7 @@ class PayslipCall {
   Future<ApiCallResponse> call({
     String? period = '',
     String? authToken = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'Payslip',
       apiUrl: '${FessApiGroup.baseUrl}/Payroll/PayslipPdf',

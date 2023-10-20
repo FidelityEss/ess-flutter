@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'incidents_page_widget.dart' show IncidentsPageWidget;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +18,7 @@ class IncidentsPageModel extends FlutterFlowModel<IncidentsPageWidget> {
   // Model for CustomAppBar component.
   late CustomAppBarModel customAppBarModel;
   // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
 
@@ -29,6 +31,7 @@ class IncidentsPageModel extends FlutterFlowModel<IncidentsPageWidget> {
   void dispose() {
     unfocusNode.dispose();
     customAppBarModel.dispose();
+    textFieldFocusNode?.dispose();
     textController?.dispose();
   }
 

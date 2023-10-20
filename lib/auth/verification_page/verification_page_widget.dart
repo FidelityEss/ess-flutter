@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'verification_page_model.dart';
@@ -38,6 +39,7 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
     _model = createModel(context, () => VerificationPageModel());
 
     _model.otpController ??= TextEditingController();
+    _model.otpFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -50,6 +52,15 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -116,6 +127,7 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                         EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                     child: TextFormField(
                       controller: _model.otpController,
+                      focusNode: _model.otpFocusNode,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'OTP',

@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'update_profile_page_model.dart';
@@ -40,8 +41,11 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
     _model = createModel(context, () => UpdateProfilePageModel());
 
     _model.nameController ??= TextEditingController(text: widget.firstName);
+    _model.nameFocusNode ??= FocusNode();
     _model.surnameController ??= TextEditingController(text: widget.surname);
+    _model.surnameFocusNode ??= FocusNode();
     _model.emailController ??= TextEditingController();
+    _model.emailFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -54,6 +58,15 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -121,6 +134,7 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                             32.0, 0.0, 32.0, 0.0),
                         child: TextFormField(
                           controller: _model.nameController,
+                          focusNode: _model.nameFocusNode,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Name',
@@ -171,6 +185,7 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                             32.0, 16.0, 32.0, 0.0),
                         child: TextFormField(
                           controller: _model.surnameController,
+                          focusNode: _model.surnameFocusNode,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Surname',
@@ -221,6 +236,7 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                             32.0, 16.0, 32.0, 0.0),
                         child: TextFormField(
                           controller: _model.emailController,
+                          focusNode: _model.emailFocusNode,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Email',

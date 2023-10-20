@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'chat_bot_page_model.dart';
@@ -25,6 +26,7 @@ class _ChatBotPageWidgetState extends State<ChatBotPageWidget> {
     _model = createModel(context, () => ChatBotPageModel());
 
     _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -37,6 +39,15 @@ class _ChatBotPageWidgetState extends State<ChatBotPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -167,6 +178,7 @@ class _ChatBotPageWidgetState extends State<ChatBotPageWidget> {
                                 16.0, 0.0, 16.0, 0.0),
                             child: TextFormField(
                               controller: _model.textController,
+                              focusNode: _model.textFieldFocusNode,
                               autofocus: true,
                               obscureText: false,
                               decoration: InputDecoration(

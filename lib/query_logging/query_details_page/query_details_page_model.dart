@@ -8,6 +8,7 @@ import '/flutter_flow/random_data_util.dart' as random_data;
 import 'query_details_page_widget.dart' show QueryDetailsPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -18,6 +19,7 @@ class QueryDetailsPageModel extends FlutterFlowModel<QueryDetailsPageWidget> {
   // Model for CustomAppBar component.
   late CustomAppBarModel customAppBarModel;
   // State field(s) for Update widget.
+  FocusNode? updateFocusNode;
   TextEditingController? updateController;
   String? Function(BuildContext, String?)? updateControllerValidator;
 
@@ -30,6 +32,7 @@ class QueryDetailsPageModel extends FlutterFlowModel<QueryDetailsPageWidget> {
   void dispose() {
     unfocusNode.dispose();
     customAppBarModel.dispose();
+    updateFocusNode?.dispose();
     updateController?.dispose();
   }
 

@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
@@ -27,9 +28,13 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
     _model = createModel(context, () => ComplimentsPageModel());
 
     _model.nameController1 ??= TextEditingController();
+    _model.nameFocusNode1 ??= FocusNode();
     _model.nameController2 ??= TextEditingController();
+    _model.nameFocusNode2 ??= FocusNode();
     _model.nameController3 ??= TextEditingController();
+    _model.nameFocusNode3 ??= FocusNode();
     _model.nameController4 ??= TextEditingController();
+    _model.nameFocusNode4 ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -42,6 +47,15 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -111,6 +125,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
                 child: TextFormField(
                   controller: _model.nameController1,
+                  focusNode: _model.nameFocusNode1,
                   obscureText: false,
                   decoration: InputDecoration(
                     labelText: 'Name',
@@ -160,6 +175,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                 child: TextFormField(
                   controller: _model.nameController2,
+                  focusNode: _model.nameFocusNode2,
                   obscureText: false,
                   decoration: InputDecoration(
                     labelText: 'Surname',
@@ -209,6 +225,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                 child: TextFormField(
                   controller: _model.nameController3,
+                  focusNode: _model.nameFocusNode3,
                   obscureText: false,
                   decoration: InputDecoration(
                     labelText: 'Email Address',
@@ -258,6 +275,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                 child: TextFormField(
                   controller: _model.nameController4,
+                  focusNode: _model.nameFocusNode4,
                   obscureText: false,
                   decoration: InputDecoration(
                     labelText: 'Phone Number',

@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'query_details_page_model.dart';
@@ -35,6 +36,7 @@ class _QueryDetailsPageWidgetState extends State<QueryDetailsPageWidget> {
     _model = createModel(context, () => QueryDetailsPageModel());
 
     _model.updateController ??= TextEditingController();
+    _model.updateFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -47,6 +49,15 @@ class _QueryDetailsPageWidgetState extends State<QueryDetailsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return StreamBuilder<List<QueriesRecord>>(
@@ -419,6 +430,7 @@ class _QueryDetailsPageWidgetState extends State<QueryDetailsPageWidget> {
                                 32.0, 0.0, 16.0, 0.0),
                             child: TextFormField(
                               controller: _model.updateController,
+                              focusNode: _model.updateFocusNode,
                               obscureText: false,
                               decoration: InputDecoration(
                                 isDense: true,

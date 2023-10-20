@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'sign_in_page_model.dart';
@@ -27,8 +28,11 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
     _model = createModel(context, () => SignInPageModel());
 
     _model.employeeNumberController ??= TextEditingController(text: '1311366');
+    _model.employeeNumberFocusNode ??= FocusNode();
     _model.iDNumberController ??= TextEditingController(text: '8611295962084');
+    _model.iDNumberFocusNode ??= FocusNode();
     _model.testNumberController ??= TextEditingController(text: '+27670083283');
+    _model.testNumberFocusNode ??= FocusNode();
     authManager.handlePhoneAuthStateChanges(context);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -42,6 +46,15 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -111,6 +124,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                             32.0, 0.0, 32.0, 0.0),
                         child: TextFormField(
                           controller: _model.employeeNumberController,
+                          focusNode: _model.employeeNumberFocusNode,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Employee Number',
@@ -161,6 +175,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                             32.0, 16.0, 32.0, 0.0),
                         child: TextFormField(
                           controller: _model.iDNumberController,
+                          focusNode: _model.iDNumberFocusNode,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'ID Number',
@@ -219,6 +234,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                             32.0, 16.0, 32.0, 0.0),
                         child: TextFormField(
                           controller: _model.testNumberController,
+                          focusNode: _model.testNumberFocusNode,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Test Number for OTP',

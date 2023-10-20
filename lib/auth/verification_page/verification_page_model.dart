@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'verification_page_widget.dart' show VerificationPageWidget;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -13,6 +14,7 @@ class VerificationPageModel extends FlutterFlowModel<VerificationPageWidget> {
 
   final unfocusNode = FocusNode();
   // State field(s) for OTP widget.
+  FocusNode? otpFocusNode;
   TextEditingController? otpController;
   String? Function(BuildContext, String?)? otpControllerValidator;
 
@@ -22,6 +24,7 @@ class VerificationPageModel extends FlutterFlowModel<VerificationPageWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    otpFocusNode?.dispose();
     otpController?.dispose();
   }
 

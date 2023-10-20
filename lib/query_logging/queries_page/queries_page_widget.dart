@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -30,6 +31,7 @@ class _QueriesPageWidgetState extends State<QueriesPageWidget> {
     _model = createModel(context, () => QueriesPageModel());
 
     _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -42,6 +44,15 @@ class _QueriesPageWidgetState extends State<QueriesPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return StreamBuilder<List<QueriesRecord>>(
@@ -142,6 +153,7 @@ class _QueriesPageWidgetState extends State<QueriesPageWidget> {
                               32.0, 32.0, 32.0, 0.0),
                           child: TextFormField(
                             controller: _model.textController,
+                            focusNode: _model.textFieldFocusNode,
                             obscureText: false,
                             decoration: InputDecoration(
                               isDense: true,
