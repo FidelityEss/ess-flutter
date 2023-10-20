@@ -27,12 +27,10 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
     super.initState();
     _model = createModel(context, () => SignInPageModel());
 
-    _model.employeeNumberController ??= TextEditingController(text: '1311366');
+    _model.employeeNumberController ??= TextEditingController();
     _model.employeeNumberFocusNode ??= FocusNode();
-    _model.iDNumberController ??= TextEditingController(text: '8611295962084');
+    _model.iDNumberController ??= TextEditingController();
     _model.iDNumberFocusNode ??= FocusNode();
-    _model.testNumberController ??= TextEditingController(text: '+27670083283');
-    _model.testNumberFocusNode ??= FocusNode();
     authManager.handlePhoneAuthStateChanges(context);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -221,87 +219,6 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                               .asValidator(context),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            32.0, 32.0, 32.0, 0.0),
-                        child: Text(
-                          'If you want to use a different number to recieve the OTP in the test environment please enter it here. This will not show in prod',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            32.0, 16.0, 32.0, 0.0),
-                        child: TextFormField(
-                          controller: _model.testNumberController,
-                          focusNode: _model.testNumberFocusNode,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            labelText: 'Test Number for OTP',
-                            labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                            hintText: 'Test Number for OTP',
-                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).alternate,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).primary,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            prefixIcon: Icon(
-                              Icons.person_rounded,
-                              color: FlutterFlowTheme.of(context).textFieldIcon,
-                              size: 16.0,
-                            ),
-                          ),
-                          style: FlutterFlowTheme.of(context).bodySmall,
-                          validator: _model.testNumberControllerValidator
-                              .asValidator(context),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
-                        child: SwitchListTile.adaptive(
-                          value: _model.switchListTileValue ??= false,
-                          onChanged: (newValue) async {
-                            setState(
-                                () => _model.switchListTileValue = newValue!);
-                          },
-                          title: Text(
-                            'Enable Test Number',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
-                          ),
-                          tileColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          activeColor: FlutterFlowTheme.of(context).primary,
-                          activeTrackColor:
-                              FlutterFlowTheme.of(context).accent1,
-                          dense: false,
-                          controlAffinity: ListTileControlAffinity.trailing,
-                        ),
-                      ),
                     ],
                   ),
                 ),
@@ -344,13 +261,11 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                             )
                             .toString();
                         FFAppState().tokenUpdateTime = getCurrentTimestamp;
-                        final phoneNumberVal = _model.switchListTileValue!
-                            ? _model.testNumberController.text
-                            : FessApiGroup.authenticationCall
-                                .cellphoneNumber(
-                                  (_model.authResponse?.jsonBody ?? ''),
-                                )
-                                .toString();
+                        final phoneNumberVal = FessApiGroup.authenticationCall
+                            .cellphoneNumber(
+                              (_model.authResponse?.jsonBody ?? ''),
+                            )
+                            .toString();
                         if (phoneNumberVal == null ||
                             phoneNumberVal.isEmpty ||
                             !phoneNumberVal.startsWith('+')) {

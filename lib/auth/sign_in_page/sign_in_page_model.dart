@@ -43,12 +43,6 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
     return null;
   }
 
-  // State field(s) for TestNumber widget.
-  FocusNode? testNumberFocusNode;
-  TextEditingController? testNumberController;
-  String? Function(BuildContext, String?)? testNumberControllerValidator;
-  // State field(s) for SwitchListTile widget.
-  bool? switchListTileValue;
   // Stores action output result for [Backend Call - API (Authentication)] action in Button widget.
   ApiCallResponse? authResponse;
 
@@ -66,9 +60,6 @@ class SignInPageModel extends FlutterFlowModel<SignInPageWidget> {
 
     iDNumberFocusNode?.dispose();
     iDNumberController?.dispose();
-
-    testNumberFocusNode?.dispose();
-    testNumberController?.dispose();
   }
 
   /// Action blocks are added here.
