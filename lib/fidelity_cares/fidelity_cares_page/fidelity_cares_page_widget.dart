@@ -133,7 +133,7 @@ class _FidelityCaresPageWidgetState extends State<FidelityCaresPageWidget> {
               ),
               Expanded(
                 child: FlutterFlowWebView(
-                  content: 'https://fidelity-services.com/fidelity-cares/',
+                  content: 'https://www.fidelitycares.co.za',
                   bypass: false,
                   height: 500.0,
                   verticalScroll: false,
