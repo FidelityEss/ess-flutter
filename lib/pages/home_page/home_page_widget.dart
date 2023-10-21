@@ -10,6 +10,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_page_model.dart';
@@ -500,15 +501,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/PayrollServices.png',
-                                        width: 60.0,
-                                        height: 60.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
@@ -521,6 +513,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
+                                    ),
+                                    FaIcon(
+                                      FontAwesomeIcons.wallet,
+                                      color: FlutterFlowTheme.of(context)
+                                          .justBlack,
+                                      size: 24.0,
                                     ),
                                   ],
                                 ),
@@ -538,15 +536,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/TimeAttendance.png',
-                                        width: 60.0,
-                                        height: 60.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
@@ -560,6 +549,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
+                                    ),
+                                    FaIcon(
+                                      FontAwesomeIcons.wallet,
+                                      color: FlutterFlowTheme.of(context)
+                                          .justBlack,
+                                      size: 24.0,
                                     ),
                                   ],
                                 ),
@@ -577,15 +572,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/Query_Logging.png',
-                                        width: 60.0,
-                                        height: 60.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
@@ -599,6 +585,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
+                                    ),
+                                    FaIcon(
+                                      FontAwesomeIcons.wallet,
+                                      color: FlutterFlowTheme.of(context)
+                                          .justBlack,
+                                      size: 24.0,
                                     ),
                                   ],
                                 ),
@@ -616,15 +608,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/IconFidelityCaresHands.png',
-                                        width: 60.0,
-                                        height: 60.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
@@ -638,6 +621,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
+                                    ),
+                                    FaIcon(
+                                      FontAwesomeIcons.wallet,
+                                      color: FlutterFlowTheme.of(context)
+                                          .justBlack,
+                                      size: 24.0,
                                     ),
                                   ],
                                 ),
@@ -665,15 +654,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/Report_Fraud.png',
-                                        width: 60.0,
-                                        height: 60.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
@@ -687,6 +667,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
+                                    ),
+                                    FaIcon(
+                                      FontAwesomeIcons.wallet,
+                                      color: FlutterFlowTheme.of(context)
+                                          .justBlack,
+                                      size: 24.0,
                                     ),
                                   ],
                                 ),
@@ -704,15 +690,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/ReportIncident.png',
-                                        width: 60.0,
-                                        height: 60.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
@@ -726,6 +703,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
+                                    ),
+                                    FaIcon(
+                                      FontAwesomeIcons.wallet,
+                                      color: FlutterFlowTheme.of(context)
+                                          .justBlack,
+                                      size: 24.0,
                                     ),
                                   ],
                                 ),
@@ -743,15 +726,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/IconInformationBlack.png',
-                                        width: 60.0,
-                                        height: 60.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
@@ -765,6 +739,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
+                                    ),
+                                    FaIcon(
+                                      FontAwesomeIcons.wallet,
+                                      color: FlutterFlowTheme.of(context)
+                                          .justBlack,
+                                      size: 24.0,
                                     ),
                                   ],
                                 ),
@@ -782,15 +762,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/IconEvents.png',
-                                        width: 60.0,
-                                        height: 60.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
@@ -804,6 +775,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
+                                    ),
+                                    FaIcon(
+                                      FontAwesomeIcons.wallet,
+                                      color: FlutterFlowTheme.of(context)
+                                          .justBlack,
+                                      size: 24.0,
                                     ),
                                   ],
                                 ),
@@ -847,15 +824,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/Human_Resources.png',
-                                        width: 60.0,
-                                        height: 60.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
@@ -869,6 +837,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
+                                    ),
+                                    FaIcon(
+                                      FontAwesomeIcons.wallet,
+                                      color: FlutterFlowTheme.of(context)
+                                          .justBlack,
+                                      size: 24.0,
                                     ),
                                   ],
                                 ),
@@ -886,15 +860,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/Vacancies.png',
-                                        width: 60.0,
-                                        height: 60.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
@@ -910,6 +875,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
+                                    ),
+                                    FaIcon(
+                                      FontAwesomeIcons.wallet,
+                                      color: FlutterFlowTheme.of(context)
+                                          .justBlack,
+                                      size: 24.0,
                                     ),
                                   ],
                                 ),
@@ -927,15 +898,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/Compliments.png',
-                                        width: 60.0,
-                                        height: 60.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
@@ -949,6 +911,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
+                                    ),
+                                    FaIcon(
+                                      FontAwesomeIcons.wallet,
+                                      color: FlutterFlowTheme.of(context)
+                                          .justBlack,
+                                      size: 24.0,
                                     ),
                                   ],
                                 ),
@@ -1002,15 +970,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/IconLogout.png',
-                                        width: 60.0,
-                                        height: 60.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
@@ -1024,6 +983,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
+                                    ),
+                                    FaIcon(
+                                      FontAwesomeIcons.wallet,
+                                      color: FlutterFlowTheme.of(context)
+                                          .justBlack,
+                                      size: 24.0,
                                     ),
                                   ],
                                 ),
