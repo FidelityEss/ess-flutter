@@ -1,8 +1,9 @@
-import '/components/custom_app_bar_widget.dart';
-import '/flutter_flow/flutter_flow_pdf_viewer.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/components/detailed_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -52,94 +53,486 @@ class _TimeAndAttendancePageWidgetState
 
     context.watch<FFAppState>();
 
-    return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(0.0),
-          child: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).appBarColour,
-            automaticallyImplyLeading: false,
-            actions: [],
-            centerTitle: false,
-            toolbarHeight: 0.0,
-            elevation: 0.0,
-          ),
-        ),
-        body: SafeArea(
-          top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              wrapWithModel(
-                model: _model.customAppBarModel,
-                updateCallback: () => setState(() {}),
-                child: CustomAppBarWidget(
-                  title: 'Timen And Attendance',
-                ),
-              ),
-              Container(
-                width: double.infinity,
+    return FutureBuilder<ApiCallResponse>(
+      future: FessApiGroup.getEmployeeTimeCall.call(),
+      builder: (context, snapshot) {
+        // Customize what your widget looks like when it's loading.
+        if (!snapshot.hasData) {
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
                 height: 50.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).primary,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    FlutterFlowTheme.of(context).primary,
+                  ),
                 ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: Padding(
+              ),
+            ),
+          );
+        }
+        final timeAndAttendancePageGetEmployeeTimeResponse = snapshot.data!;
+        return GestureDetector(
+          onTap: () => _model.unfocusNode.canRequestFocus
+              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+              : FocusScope.of(context).unfocus(),
+          child: Scaffold(
+            key: scaffoldKey,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            appBar: PreferredSize(
+              preferredSize: Size.fromHeight(0.0),
+              child: AppBar(
+                backgroundColor: FlutterFlowTheme.of(context).appBarColour,
+                automaticallyImplyLeading: false,
+                actions: [],
+                centerTitle: false,
+                toolbarHeight: 0.0,
+                elevation: 0.0,
+              ),
+            ),
+            body: SafeArea(
+              top: true,
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  wrapWithModel(
+                    model: _model.detailedAppBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: DetailedAppBarWidget(
+                      heading: 'Time & Attendance',
+                      description: 'View and manage your time and attendance',
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        context.pushNamed('QueriesPage');
+                      },
+                      text: 'Have Any Queries?',
+                      options: FFButtonOptions(
+                        width: double.infinity,
+                        height: 40.0,
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            32.0, 0.0, 16.0, 0.0),
-                        child: Text(
-                          'Time and Attendance',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Montserrat',
-                                color: FlutterFlowTheme.of(context).justWhite,
-                              ),
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).secondary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context).justWhite,
+                                ),
+                        elevation: 0.0,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
                         ),
+                        borderRadius: BorderRadius.circular(5.0),
                       ),
                     ),
-                    Padding(
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                    child: Text(
+                      'Showing your time and attendance',
+                      style: FlutterFlowTheme.of(context).labelMedium.override(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 32.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          await launchURL(
-                              'https://6j2o2o73d4li23ruy3au3lkktm0zoblr.lambda-url.af-south-1.on.aws/api/Payroll/GetTimeAndAttendancePdf?token=${FFAppState().token}');
+                          EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 32.0),
+                      child: Builder(
+                        builder: (context) {
+                          final times =
+                              timeAndAttendancePageGetEmployeeTimeResponse
+                                  .jsonBody
+                                  .toList();
+                          return SingleChildScrollView(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children:
+                                  List.generate(times.length, (timesIndex) {
+                                final timesItem = times[timesIndex];
+                                return Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 16.0, 0.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed(
+                                        'PayslipTaxPage',
+                                        queryParameters: {
+                                          'fileLink': serializeParam(
+                                            getJsonField(
+                                              timesItem,
+                                              r'''$..fileLink''',
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
+                                          'date': serializeParam(
+                                            getJsonField(
+                                              timesItem,
+                                              r'''$..friendlyDescription''',
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    },
+                                    child: Container(
+                                      width: double.infinity,
+                                      height: 170.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
+                                        border: Border.all(
+                                          color: Color(0x46B79E67),
+                                          width: 2.0,
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 16.0, 0.0, 0.0),
+                                            child: Icon(
+                                              FFIcons
+                                                  .knewAppIconsTimeAttendance,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                              size: 18.0,
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      8.0, 16.0, 16.0, 16.0),
+                                              child: SingleChildScrollView(
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    RichText(
+                                                      textScaleFactor:
+                                                          MediaQuery.of(context)
+                                                              .textScaleFactor,
+                                                      text: TextSpan(
+                                                        children: [
+                                                          TextSpan(
+                                                            text:
+                                                                'Personnel Number: ',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Montserrat',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
+                                                          ),
+                                                          TextSpan(
+                                                            text: getJsonField(
+                                                              timesItem,
+                                                              r'''$..personnelNumber''',
+                                                            ).toString(),
+                                                            style: TextStyle(),
+                                                          )
+                                                        ],
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: RichText(
+                                                        textScaleFactor:
+                                                            MediaQuery.of(
+                                                                    context)
+                                                                .textScaleFactor,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text:
+                                                                  'Work Date: ',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Montserrat',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                  ),
+                                                            ),
+                                                            TextSpan(
+                                                              text:
+                                                                  getJsonField(
+                                                                timesItem,
+                                                                r'''$..workDate''',
+                                                              ).toString(),
+                                                              style:
+                                                                  TextStyle(),
+                                                            )
+                                                          ],
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: RichText(
+                                                        textScaleFactor:
+                                                            MediaQuery.of(
+                                                                    context)
+                                                                .textScaleFactor,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text:
+                                                                  'Posted Hours: ',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Montserrat',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                  ),
+                                                            ),
+                                                            TextSpan(
+                                                              text:
+                                                                  getJsonField(
+                                                                timesItem,
+                                                                r'''$..postedHours''',
+                                                              ).toString(),
+                                                              style:
+                                                                  TextStyle(),
+                                                            )
+                                                          ],
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: RichText(
+                                                        textScaleFactor:
+                                                            MediaQuery.of(
+                                                                    context)
+                                                                .textScaleFactor,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text:
+                                                                  'Description: ',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Montserrat',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                  ),
+                                                            ),
+                                                            TextSpan(
+                                                              text:
+                                                                  getJsonField(
+                                                                timesItem,
+                                                                r'''$..description''',
+                                                              ).toString(),
+                                                              style:
+                                                                  TextStyle(),
+                                                            )
+                                                          ],
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: RichText(
+                                                        textScaleFactor:
+                                                            MediaQuery.of(
+                                                                    context)
+                                                                .textScaleFactor,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text: 'Route: ',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Montserrat',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                  ),
+                                                            ),
+                                                            TextSpan(
+                                                              text:
+                                                                  getJsonField(
+                                                                timesItem,
+                                                                r'''$..route''',
+                                                              ).toString(),
+                                                              style:
+                                                                  TextStyle(),
+                                                            )
+                                                          ],
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: RichText(
+                                                        textScaleFactor:
+                                                            MediaQuery.of(
+                                                                    context)
+                                                                .textScaleFactor,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text: 'Shift: ',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Montserrat',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                  ),
+                                                            ),
+                                                            TextSpan(
+                                                              text:
+                                                                  getJsonField(
+                                                                timesItem,
+                                                                r'''$..shift''',
+                                                              ).toString(),
+                                                              style:
+                                                                  TextStyle(),
+                                                            )
+                                                          ],
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }),
+                            ),
+                          );
                         },
-                        child: Icon(
-                          Icons.download_rounded,
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 18.0,
-                        ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              Expanded(
-                child: FlutterFlowPdfViewer(
-                  networkPath:
-                      'https://6j2o2o73d4li23ruy3au3lkktm0zoblr.lambda-url.af-south-1.on.aws/api/Payroll/GetTimeAndAttendancePdf?token=${FFAppState().token}',
-                  height: 300.0,
-                  horizontalScroll: false,
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

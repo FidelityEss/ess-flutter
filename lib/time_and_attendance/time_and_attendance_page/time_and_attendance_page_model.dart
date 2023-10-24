@@ -1,9 +1,10 @@
-import '/components/custom_app_bar_widget.dart';
-import '/flutter_flow/flutter_flow_pdf_viewer.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/components/detailed_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'time_and_attendance_page_widget.dart' show TimeAndAttendancePageWidget;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,18 +15,18 @@ class TimeAndAttendancePageModel
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Model for CustomAppBar component.
-  late CustomAppBarModel customAppBarModel;
+  // Model for DetailedAppBar component.
+  late DetailedAppBarModel detailedAppBarModel;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    customAppBarModel = createModel(context, () => CustomAppBarModel());
+    detailedAppBarModel = createModel(context, () => DetailedAppBarModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
-    customAppBarModel.dispose();
+    detailedAppBarModel.dispose();
   }
 
   /// Action blocks are added here.

@@ -21,6 +21,7 @@ class FessApiGroup {
   static GetEmployeePayslipsCall getEmployeePayslipsCall =
       GetEmployeePayslipsCall();
   static PayslipCall payslipCall = PayslipCall();
+  static GetEmployeeTimeCall getEmployeeTimeCall = GetEmployeeTimeCall();
 }
 
 class AuthenticationCall {
@@ -146,6 +147,30 @@ class PayslipCall {
       },
       params: {
         'period': period,
+        'token': authToken,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
+class GetEmployeeTimeCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Get Employee Time',
+      apiUrl: '${FessApiGroup.baseUrl}/Payroll/GetTimeAndAttendance',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${authToken}',
+        'api-key': 'c1e57890-a4ee-4354-ab59-53098d763963',
+        'api-key': 'c1e57890-a4ee-4354-ab59-53098d763963',
+      },
+      params: {
         'token': authToken,
       },
       returnBody: true,

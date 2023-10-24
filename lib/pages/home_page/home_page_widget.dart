@@ -576,7 +576,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
-                                        FFIcons.knewAppIconsPayrollServices,
+                                        FFIcons.knewAppIconsReportFraud,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
                                         size: 40.0,
@@ -600,10 +600,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
-                                        FFIcons.knewAppIconsPayrollServices,
+                                        Icons.help_outline_rounded,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 40.0,
+                                        size: 25.0,
                                       ),
                                       title: 'Report\nIncident',
                                     ),
@@ -634,7 +634,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
-                                        FFIcons.knewAppIconsPayrollServices,
+                                        FFIcons.knewAppIconsMessages,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
                                         size: 40.0,
@@ -658,10 +658,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
-                                        FFIcons.knewAppIconsPayrollServices,
+                                        Icons.calendar_month_sharp,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 40.0,
+                                        size: 25.0,
                                       ),
                                       title: 'View\nEvents',
                                     ),

@@ -107,16 +107,25 @@ class _PayrollServicesPageWidgetState extends State<PayrollServicesPageWidget> {
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                child: wrapWithModel(
-                  model: _model.longMenuItemModel2,
-                  updateCallback: () => setState(() {}),
-                  child: LongMenuItemWidget(
-                    icon: Icon(
-                      FFIcons.knewAppIconsTimeAttendance,
-                      color: FlutterFlowTheme.of(context).justBlack,
-                      size: 28.0,
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed('TimeAndAttendancePage');
+                  },
+                  child: wrapWithModel(
+                    model: _model.longMenuItemModel2,
+                    updateCallback: () => setState(() {}),
+                    child: LongMenuItemWidget(
+                      icon: Icon(
+                        FFIcons.knewAppIconsTimeAttendance,
+                        color: FlutterFlowTheme.of(context).justBlack,
+                        size: 28.0,
+                      ),
+                      title: 'Time & Attendance',
                     ),
-                    title: 'Time & Attendance',
                   ),
                 ),
               ),
