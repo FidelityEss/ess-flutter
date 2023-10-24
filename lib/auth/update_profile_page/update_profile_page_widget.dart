@@ -119,6 +119,7 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                       EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 42.0),
                   child: Text(
                     'To continue, please update your profile.',
+                    textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.normal,

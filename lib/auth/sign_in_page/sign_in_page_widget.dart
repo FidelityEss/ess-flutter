@@ -106,6 +106,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                       EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 42.0),
                   child: Text(
                     'Hi! Welcome back to the Fidelity ESS app',
+                    textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.normal,
@@ -165,7 +166,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                               size: 16.0,
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodySmall,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                           validator: _model.employeeNumberControllerValidator
                               .asValidator(context),
                         ),
@@ -216,7 +217,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                               size: 16.0,
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodySmall,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                           validator: _model.iDNumberControllerValidator
                               .asValidator(context),
                         ),
