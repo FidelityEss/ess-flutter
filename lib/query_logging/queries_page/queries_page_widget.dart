@@ -143,7 +143,7 @@ class _QueriesPageWidgetState extends State<QueriesPageWidget> {
                             child: Text(
                               'Create and manage queries here.',
                               style: FlutterFlowTheme.of(context)
-                                  .bodySmall
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Montserrat',
                                     color:
@@ -244,9 +244,9 @@ class _QueriesPageWidgetState extends State<QueriesPageWidget> {
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).white,
                           textStyle:
-                              FlutterFlowTheme.of(context).bodySmall.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
-                                    color: FlutterFlowTheme.of(context).black,
+                                    fontWeight: FontWeight.w600,
                                   ),
                           elevation: 0.0,
                           borderSide: BorderSide(
@@ -465,8 +465,12 @@ class _QueriesPageWidgetState extends State<QueriesPageWidget> {
                                     32.0, 32.0, 32.0, 32.0),
                                 child: Text(
                                   'You have not logged any queries',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                 ),
                               ),
                             ),

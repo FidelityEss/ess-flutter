@@ -152,16 +152,16 @@ class _IncidentDetailsPageWidgetState extends State<IncidentDetailsPageWidget> {
                                     Text(
                                       'Assignee: ',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .bodyMedium,
                                     ),
                                     Text(
                                       incidentDetailsPageIncidentsRecord!
                                           .assignee,
                                       style: FlutterFlowTheme.of(context)
-                                          .bodySmall
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w500,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                     ),
                                   ],
@@ -172,16 +172,16 @@ class _IncidentDetailsPageWidgetState extends State<IncidentDetailsPageWidget> {
                                     Text(
                                       'Status: ',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .bodyMedium,
                                     ),
                                     Text(
                                       incidentDetailsPageIncidentsRecord!
                                           .status,
                                       style: FlutterFlowTheme.of(context)
-                                          .bodySmall
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w500,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                     ),
                                   ],
@@ -382,7 +382,7 @@ class _IncidentDetailsPageWidgetState extends State<IncidentDetailsPageWidget> {
                                                                   .of(context)
                                                               .primary,
                                                           fontWeight:
-                                                              FontWeight.w500,
+                                                              FontWeight.w600,
                                                         ),
                                                   ),
                                                   Text(
@@ -399,6 +399,8 @@ class _IncidentDetailsPageWidgetState extends State<IncidentDetailsPageWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondary,
+                                                          fontWeight:
+                                                              FontWeight.w600,
                                                         ),
                                                   ),
                                                 ],

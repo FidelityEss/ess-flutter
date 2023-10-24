@@ -235,7 +235,12 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                                   size: 16.0,
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodySmall,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w500,
+                                  ),
                               validator: _model.nameControllerValidator
                                   .asValidator(context),
                             ),
@@ -290,7 +295,12 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                                   size: 16.0,
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodySmall,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w500,
+                                  ),
                               validator: _model.surnameControllerValidator
                                   .asValidator(context),
                             ),
@@ -345,7 +355,12 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                                   size: 16.0,
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodySmall,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w500,
+                                  ),
                               validator: _model.displayNameControllerValidator
                                   .asValidator(context),
                             ),
@@ -398,7 +413,12 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                                 size: 16.0,
                               ),
                             ),
-                            style: FlutterFlowTheme.of(context).bodySmall,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500,
+                                ),
                             validator: _model.emailControllerValidator
                                 .asValidator(context),
                           ),
@@ -453,7 +473,12 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                                   size: 16.0,
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodySmall,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w500,
+                                  ),
                               validator: _model.phoneControllerValidator
                                   .asValidator(context),
                             ),

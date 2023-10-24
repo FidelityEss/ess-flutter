@@ -187,7 +187,7 @@ class _MessagesBoxWidgetState extends State<MessagesBoxWidget> {
                                                           fontFamily:
                                                               'Montserrat',
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                              FontWeight.bold,
                                                         ),
                                               ),
                                               Padding(
@@ -201,7 +201,7 @@ class _MessagesBoxWidgetState extends State<MessagesBoxWidget> {
                                                           .created!),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodySmall,
+                                                      .bodyMedium,
                                                 ),
                                               ),
                                             ],

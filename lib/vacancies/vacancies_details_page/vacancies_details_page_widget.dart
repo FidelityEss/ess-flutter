@@ -354,7 +354,7 @@ class _VacanciesDetailsPageWidgetState
                                     vacanciesDetailsPageVacanciesRecord!
                                         .description,
                                     style:
-                                        FlutterFlowTheme.of(context).bodySmall,
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ),
                               ),
@@ -383,7 +383,7 @@ class _VacanciesDetailsPageWidgetState
                                     vacanciesDetailsPageVacanciesRecord!
                                         .companyDescription,
                                     style:
-                                        FlutterFlowTheme.of(context).bodySmall,
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ),
                               ),

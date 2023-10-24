@@ -221,7 +221,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                       child: Text(
                                         'Manage Profile',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Montserrat',
+                                              fontWeight: FontWeight.w600,
+                                            ),
                                       ),
                                     ),
                                   ),
@@ -273,7 +277,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                     child: Text(
                                       'Settings',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            fontWeight: FontWeight.w600,
+                                          ),
                                     ),
                                   ),
                                 ),
@@ -324,7 +332,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                     child: Text(
                                       'Privacy Policy',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            fontWeight: FontWeight.w600,
+                                          ),
                                     ),
                                   ),
                                 ),
@@ -375,7 +387,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                     child: Text(
                                       'Terms and Conditions',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            fontWeight: FontWeight.w600,
+                                          ),
                                     ),
                                   ),
                                 ),
@@ -426,7 +442,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                     child: Text(
                                       'About',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            fontWeight: FontWeight.w600,
+                                          ),
                                     ),
                                   ),
                                 ),

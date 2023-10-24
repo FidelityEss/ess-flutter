@@ -124,7 +124,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                   child: Text(
                                     'Keep up with all the events happening in the company. Keep track of payslip dates, company events and more.',
                                     style: FlutterFlowTheme.of(context)
-                                        .bodySmall
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Montserrat',
                                           color: FlutterFlowTheme.of(context)

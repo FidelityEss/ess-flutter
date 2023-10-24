@@ -93,14 +93,13 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 32.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
                       'assets/images/Fidelity-logo.png',
-                      width: 150.0,
-                      height: 150.0,
+                      width: 250.0,
+                      height: 250.0,
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -120,7 +119,10 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                       EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 42.0),
                   child: Text(
                     'To continue, please update your profile.',
-                    style: FlutterFlowTheme.of(context).bodySmall,
+                    style: FlutterFlowTheme.of(context).bodyLarge.override(
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.normal,
+                        ),
                   ),
                 ),
                 Form(

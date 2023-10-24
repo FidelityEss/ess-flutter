@@ -92,6 +92,19 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.asset(
+                        'assets/images/Fidelity-logo.png',
+                        width: 250.0,
+                        height: 250.0,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                     child: Text(
                       'Verify Account',
                       style:
@@ -103,23 +116,11 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 32.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.asset(
-                        'assets/images/Fidelity-logo.png',
-                        width: 150.0,
-                        height: 150.0,
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
                         EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 64.0),
                     child: Text(
                       'Please enter your OTP to log into the FESS app',
-                      style: FlutterFlowTheme.of(context).bodySmall,
+                      textAlign: TextAlign.center,
+                      style: FlutterFlowTheme.of(context).bodyLarge,
                     ),
                   ),
                   Padding(

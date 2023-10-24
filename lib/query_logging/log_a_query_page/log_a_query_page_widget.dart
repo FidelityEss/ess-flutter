@@ -126,7 +126,12 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                               16.0, 4.0, 16.0, 0.0),
                           child: Text(
                             'You can also report an issue by calling us or sending an email',
-                            style: FlutterFlowTheme.of(context).bodySmall,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500,
+                                ),
                           ),
                         ),
                         Padding(
@@ -146,8 +151,12 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                                       16.0, 0.0, 16.0, 0.0),
                                   child: Text(
                                     '+27 65 384 2983',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                   ),
                                 ),
                               ),
@@ -176,8 +185,12 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                                       16.0, 0.0, 16.0, 0.0),
                                   child: Text(
                                     'hr@fidelity.co.za',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                   ),
                                 ),
                               ),

@@ -241,7 +241,7 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                                                           fontFamily:
                                                               'Montserrat',
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                              FontWeight.bold,
                                                         ),
                                               ),
                                             ),

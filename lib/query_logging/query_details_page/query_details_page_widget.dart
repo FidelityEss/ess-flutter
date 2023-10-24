@@ -148,15 +148,15 @@ class _QueryDetailsPageWidgetState extends State<QueryDetailsPageWidget> {
                                     Text(
                                       'Assignee: ',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .bodyMedium,
                                     ),
                                     Text(
                                       queryDetailsPageQueriesRecord!.assignee,
                                       style: FlutterFlowTheme.of(context)
-                                          .bodySmall
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w500,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                     ),
                                   ],
@@ -167,15 +167,15 @@ class _QueryDetailsPageWidgetState extends State<QueryDetailsPageWidget> {
                                     Text(
                                       'Status: ',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .bodyMedium,
                                     ),
                                     Text(
                                       queryDetailsPageQueriesRecord!.status,
                                       style: FlutterFlowTheme.of(context)
-                                          .bodySmall
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w500,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                     ),
                                   ],
@@ -196,15 +196,15 @@ class _QueryDetailsPageWidgetState extends State<QueryDetailsPageWidget> {
                                     Text(
                                       'Department: ',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .bodyMedium,
                                     ),
                                     Text(
                                       queryDetailsPageQueriesRecord!.department,
                                       style: FlutterFlowTheme.of(context)
-                                          .bodySmall
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.w500,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                     ),
                                   ],
@@ -373,7 +373,7 @@ class _QueryDetailsPageWidgetState extends State<QueryDetailsPageWidget> {
                                                                   .of(context)
                                                               .primary,
                                                           fontWeight:
-                                                              FontWeight.w500,
+                                                              FontWeight.w600,
                                                         ),
                                                   ),
                                                   Text(
@@ -390,6 +390,8 @@ class _QueryDetailsPageWidgetState extends State<QueryDetailsPageWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondary,
+                                                          fontWeight:
+                                                              FontWeight.w600,
                                                         ),
                                                   ),
                                                 ],

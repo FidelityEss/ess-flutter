@@ -267,7 +267,7 @@ class _EventDetailsPageWidgetState extends State<EventDetailsPageWidget> {
                                             eventDetailsPageEventsRecord!
                                                 .date!),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodyMedium,
                                       ),
                                     ),
                                   ],
@@ -324,7 +324,7 @@ class _EventDetailsPageWidgetState extends State<EventDetailsPageWidget> {
                                       child: Text(
                                         '${eventDetailsPageEventsRecord?.locationStreet}, ${eventDetailsPageEventsRecord?.locationSuburb}, ${eventDetailsPageEventsRecord?.locationCity}, ${eventDetailsPageEventsRecord?.locationProvince}',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodyMedium,
                                       ),
                                     ),
                                   ],
@@ -382,7 +382,7 @@ class _EventDetailsPageWidgetState extends State<EventDetailsPageWidget> {
                                         eventDetailsPageEventsRecord!
                                             .contactPersonEmail,
                                         style: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodyMedium,
                                       ),
                                     ),
                                   ],

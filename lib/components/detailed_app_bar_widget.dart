@@ -52,7 +52,7 @@ class _DetailedAppBarWidgetState extends State<DetailedAppBarWidget> {
 
     return Container(
       width: double.infinity,
-      height: 180.0,
+      height: 190.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primary,
         border: Border.all(
@@ -65,7 +65,7 @@ class _DetailedAppBarWidgetState extends State<DetailedAppBarWidget> {
         children: [
           Container(
             width: double.infinity,
-            height: 60.0,
+            height: 70.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).primary,
             ),
@@ -109,7 +109,7 @@ class _DetailedAppBarWidgetState extends State<DetailedAppBarWidget> {
                       child: Icon(
                         FFIcons.kfESSFidelityServicesGroupWhite,
                         color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 24.0,
+                        size: 36.0,
                       ),
                     ),
                   ),
@@ -144,7 +144,7 @@ class _DetailedAppBarWidgetState extends State<DetailedAppBarWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                     child: Text(
                       widget.description!,
-                      style: FlutterFlowTheme.of(context).bodySmall.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
                             color: FlutterFlowTheme.of(context).justWhite,
                           ),

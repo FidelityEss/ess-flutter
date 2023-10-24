@@ -215,6 +215,7 @@ class _VanciesPageWidgetState extends State<VanciesPageWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .textFieldIcon,
+                                                                fontSize: 12.0,
                                                               ),
                                                     ),
                                                     Padding(
@@ -268,6 +269,8 @@ class _VanciesPageWidgetState extends State<VanciesPageWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .textFieldIcon,
+                                                                  fontSize:
+                                                                      12.0,
                                                                 ),
                                                       ),
                                                     ),

@@ -80,14 +80,13 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 32.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
                       'assets/images/Fidelity-logo.png',
-                      width: 150.0,
-                      height: 150.0,
+                      width: 250.0,
+                      height: 250.0,
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -107,7 +106,10 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                       EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 42.0),
                   child: Text(
                     'Hi! Welcome back to the Fidelity ESS app',
-                    style: FlutterFlowTheme.of(context).bodySmall,
+                    style: FlutterFlowTheme.of(context).bodyLarge.override(
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.normal,
+                        ),
                   ),
                 ),
                 Form(
@@ -231,10 +233,10 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                     children: [
                       Text(
                         'Forgot Employee Number?',
-                        style: FlutterFlowTheme.of(context).bodySmall.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
                               color: FlutterFlowTheme.of(context).primary,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w600,
                             ),
                       ),
                     ],
@@ -404,7 +406,10 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                     children: [
                       Text(
                         'Don\'t have an account?',
-                        style: FlutterFlowTheme.of(context).bodySmall,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w600,
+                            ),
                       ),
                       Padding(
                         padding:
@@ -412,9 +417,10 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                         child: Text(
                           'Reach out to HR.',
                           style:
-                              FlutterFlowTheme.of(context).bodySmall.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     color: FlutterFlowTheme.of(context).primary,
+                                    fontWeight: FontWeight.w600,
                                   ),
                         ),
                       ),

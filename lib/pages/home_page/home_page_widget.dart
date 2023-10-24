@@ -146,7 +146,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       FFIcons.kfESSFidelityServicesGroupWhite,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-                                      size: 30.0,
+                                      size: 35.0,
                                     ),
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
