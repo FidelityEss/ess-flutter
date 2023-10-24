@@ -13,13 +13,11 @@ export 'info_page_model.dart';
 class InfoPageWidget extends StatefulWidget {
   const InfoPageWidget({
     Key? key,
-    required this.title,
     required this.heading,
     required this.description,
     required this.link,
   }) : super(key: key);
 
-  final String? title;
   final String? heading;
   final String? description;
   final String? link;
@@ -86,7 +84,6 @@ class _InfoPageWidgetState extends State<InfoPageWidget> {
                 model: _model.detailedAppBarModel,
                 updateCallback: () => setState(() {}),
                 child: DetailedAppBarWidget(
-                  title: widget.title!,
                   heading: widget.heading!,
                   description: widget.description!,
                 ),

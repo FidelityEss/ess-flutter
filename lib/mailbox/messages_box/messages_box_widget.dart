@@ -99,7 +99,6 @@ class _MessagesBoxWidgetState extends State<MessagesBoxWidget> {
                     model: _model.detailedAppBarModel,
                     updateCallback: () => setState(() {}),
                     child: DetailedAppBarWidget(
-                      title: 'Mailbox',
                       heading: 'Messages',
                       description:
                           'View and manage all you notifications & messages from FESS.',

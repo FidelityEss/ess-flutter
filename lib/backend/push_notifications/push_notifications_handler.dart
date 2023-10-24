@@ -171,7 +171,6 @@ final parametersBuilderMap =
       ),
   'InfoPage': (data) async => ParameterData(
         allParams: {
-          'title': getParameter<String>(data, 'title'),
           'heading': getParameter<String>(data, 'heading'),
           'description': getParameter<String>(data, 'description'),
           'link': getParameter<String>(data, 'link'),

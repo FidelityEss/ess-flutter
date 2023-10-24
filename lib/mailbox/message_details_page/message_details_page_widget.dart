@@ -112,102 +112,104 @@ class _MessageDetailsPageWidgetState extends State<MessageDetailsPageWidget> {
             ),
             body: SafeArea(
               top: true,
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  wrapWithModel(
-                    model: _model.detailedAppBarModel,
-                    updateCallback: () => setState(() {}),
-                    child: DetailedAppBarWidget(
-                      title: 'Message',
-                      heading: messageDetailsPageMessagesRecord!.title,
-                      description:
-                          'Please read the description for more information',
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 200.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).homeBg,
-                        borderRadius: BorderRadius.circular(5.0),
-                        border: Border.all(
-                          color: FlutterFlowTheme.of(context).alternate,
-                        ),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    wrapWithModel(
+                      model: _model.detailedAppBarModel,
+                      updateCallback: () => setState(() {}),
+                      child: DetailedAppBarWidget(
+                        heading: messageDetailsPageMessagesRecord!.title,
+                        description:
+                            'Please read the description for more information',
                       ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 0.0, 0.0),
-                            child: Icon(
-                              Icons.info_outlined,
-                              color: FlutterFlowTheme.of(context).secondary,
-                              size: 24.0,
-                            ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                      child: Container(
+                        width: double.infinity,
+                        height: 200.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).homeBg,
+                          borderRadius: BorderRadius.circular(5.0),
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          Expanded(
-                            child: Padding(
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 16.0, 16.0, 16.0),
-                              child: Text(
-                                messageDetailsPageMessagesRecord!.message,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                  16.0, 16.0, 0.0, 0.0),
+                              child: Icon(
+                                Icons.info_outlined,
+                                color: FlutterFlowTheme.of(context).secondary,
+                                size: 24.0,
                               ),
                             ),
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 16.0, 16.0, 16.0),
+                                child: Text(
+                                  messageDetailsPageMessagesRecord!.message,
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
+                            'Delivered ${dateTimeFormat('MMMMEEEEd', messageDetailsPageMessagesRecord?.created)} ${dateTimeFormat('jm', messageDetailsPageMessagesRecord?.created)}',
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ],
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'Delivered ${dateTimeFormat('MMMMEEEEd', messageDetailsPageMessagesRecord?.created)} ${dateTimeFormat('jm', messageDetailsPageMessagesRecord?.created)}',
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                      child: RichText(
+                        textScaleFactor: MediaQuery.of(context).textScaleFactor,
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Priority: ',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    color: FlutterFlowTheme.of(context).black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            TextSpan(
+                              text: messageDetailsPageMessagesRecord!.priority,
+                              style: TextStyle(
+                                color: FlutterFlowTheme.of(context).error,
+                              ),
+                            )
+                          ],
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                    child: RichText(
-                      textScaleFactor: MediaQuery.of(context).textScaleFactor,
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'Priority: ',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  color: FlutterFlowTheme.of(context).black,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                          ),
-                          TextSpan(
-                            text: messageDetailsPageMessagesRecord!.priority,
-                            style: TextStyle(
-                              color: FlutterFlowTheme.of(context).error,
-                            ),
-                          )
-                        ],
-                        style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

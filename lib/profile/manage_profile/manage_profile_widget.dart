@@ -461,7 +461,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              32.0, 32.0, 32.0, 0.0),
+                              32.0, 32.0, 32.0, 32.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               await currentUserReference!

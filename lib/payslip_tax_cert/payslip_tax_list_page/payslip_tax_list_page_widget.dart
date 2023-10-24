@@ -105,7 +105,6 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                     model: _model.detailedAppBarModel,
                     updateCallback: () => setState(() {}),
                     child: DetailedAppBarWidget(
-                      title: 'Payslips',
                       heading: 'Payslips and Tax Certificates',
                       description:
                           'View all your payslips, tax certificates and much more. To get started with a function, please click on an item.',

@@ -545,7 +545,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('PayslipTaxListPage');
+                                    context.pushNamed('FidelityCaresPage');
                                   },
                                   child: wrapWithModel(
                                     model: _model.menuIconModel2,
@@ -569,7 +569,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('PayslipTaxListPage');
+                                    context.pushNamed('IncidentsPage');
                                   },
                                   child: wrapWithModel(
                                     model: _model.menuIconModel3,
@@ -593,7 +593,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('PayslipTaxListPage');
+                                    context.pushNamed('IncidentsPage');
                                   },
                                   child: wrapWithModel(
                                     model: _model.menuIconModel4,
@@ -773,7 +773,23 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('MessagesBox');
+                                    context.pushNamed(
+                                      'InfoPage',
+                                      queryParameters: {
+                                        'heading': serializeParam(
+                                          'Fidelity inSure',
+                                          ParamType.String,
+                                        ),
+                                        'description': serializeParam(
+                                          'We’ve partnered with Auto & General* to bring you Fidelity inSure – an all-in-one insurance offering covering vehicle, roadside, home, accident, trauma and legal assistance and benefits.',
+                                          ParamType.String,
+                                        ),
+                                        'link': serializeParam(
+                                          'https://fidelity-services.com/our-products-services/fidelity-insure/',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
                                   },
                                   child: wrapWithModel(
                                     model: _model.menuIconModel10,
@@ -797,7 +813,23 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('MessagesBox');
+                                    context.pushNamed(
+                                      'InfoPage',
+                                      queryParameters: {
+                                        'description': serializeParam(
+                                          'The premier choice for clients and businesses who seek high quality, cost-effective fire solutions and products that are scalable, innovative and offer a superior customer service experience.',
+                                          ParamType.String,
+                                        ),
+                                        'link': serializeParam(
+                                          'https://fidelity-services.com/our-products-services/fidelity-securefire/',
+                                          ParamType.String,
+                                        ),
+                                        'heading': serializeParam(
+                                          'Total Integrated Fire Solutions',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
                                   },
                                   child: wrapWithModel(
                                     model: _model.menuIconModel11,
@@ -821,7 +853,23 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('MessagesBox');
+                                    context.pushNamed(
+                                      'InfoPage',
+                                      queryParameters: {
+                                        'heading': serializeParam(
+                                          'Fidelity Cash Solutions',
+                                          ParamType.String,
+                                        ),
+                                        'description': serializeParam(
+                                          'Let Fidelity Cash Solutions be your one stop cash management partner. We have a range of solutions and services to meet your cash related needs.',
+                                          ParamType.String,
+                                        ),
+                                        'link': serializeParam(
+                                          'https://fidelity-services.com/our-products-services/fidelity-cash-solutions/',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
                                   },
                                   child: wrapWithModel(
                                     model: _model.menuIconModel12,
@@ -843,7 +891,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 32.0),
+                              16.0, 16.0, 16.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -855,7 +903,23 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('MessagesBox');
+                                    context.pushNamed(
+                                      'InfoPage',
+                                      queryParameters: {
+                                        'heading': serializeParam(
+                                          'Fidelity ADT',
+                                          ParamType.String,
+                                        ),
+                                        'description': serializeParam(
+                                          'The cornerstone of all security starts at home.This is why we have ensured a hands-on and immediate response service to assist you with any incident related queries, around the clock.',
+                                          ParamType.String,
+                                        ),
+                                        'link': serializeParam(
+                                          'https://fidelity-services.com/our-products-services/fidelity-adt/',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
                                   },
                                   child: wrapWithModel(
                                     model: _model.menuIconModel13,
@@ -879,7 +943,23 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('EventsPage');
+                                    context.pushNamed(
+                                      'InfoPage',
+                                      queryParameters: {
+                                        'heading': serializeParam(
+                                          'Your driving companion',
+                                          ParamType.String,
+                                        ),
+                                        'description': serializeParam(
+                                          'Fidelity SecureDrive gives you a safer, smarter and more connected fleet experience.',
+                                          ParamType.String,
+                                        ),
+                                        'link': serializeParam(
+                                          'https://fidelity-services.com/our-products-services/fidelity-securedrive/',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
                                   },
                                   child: wrapWithModel(
                                     model: _model.menuIconModel14,
@@ -889,7 +969,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         Icons.directions_car_rounded,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 40.0,
+                                        size: 25.0,
                                       ),
                                       title: 'Secure\nDrive',
                                     ),
@@ -943,7 +1023,23 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('VanciesPage');
+                                    context.pushNamed(
+                                      'InfoPage',
+                                      queryParameters: {
+                                        'heading': serializeParam(
+                                          'Fidelity Training',
+                                          ParamType.String,
+                                        ),
+                                        'description': serializeParam(
+                                          'As a pioneer in the security training and development market, Fidelity Services Group was one of the first companies in the country to establish and professionalise the first learnership programme for security officers.',
+                                          ParamType.String,
+                                        ),
+                                        'link': serializeParam(
+                                          'https://fidelity-services.com/training-and-development/',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
                                   },
                                   child: wrapWithModel(
                                     model: _model.menuIconModel16,
@@ -956,6 +1052,58 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         size: 40.0,
                                       ),
                                       title: 'Fidelity\nTraining',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 16.0, 16.0, 32.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'InfoPage',
+                                      queryParameters: {
+                                        'heading': serializeParam(
+                                          'Specialised cleaning and hygiene',
+                                          ParamType.String,
+                                        ),
+                                        'description': serializeParam(
+                                          'Fidelity Cleaning Services is an environmentally-friendly service that not only offers the best tools, equipment and cleaning agents to meet any requirement, but also professionally trained staff to tackle scenarios small and large, across all sectors.',
+                                          ParamType.String,
+                                        ),
+                                        'link': serializeParam(
+                                          'https://fidelity-services.com/our-products-services/fidelity-cleaning-services/',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel17,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        Icons.clean_hands,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 25.0,
+                                      ),
+                                      title: 'Fidelity\nCleaning',
                                     ),
                                   ),
                                 ),

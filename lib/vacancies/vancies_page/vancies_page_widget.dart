@@ -100,7 +100,6 @@ class _VanciesPageWidgetState extends State<VanciesPageWidget> {
                     model: _model.detailedAppBarModel,
                     updateCallback: () => setState(() {}),
                     child: DetailedAppBarWidget(
-                      title: 'Vacancies',
                       heading: 'Fidelity Vacancies',
                       description:
                           'Hi there. Have a look at all available vacancies within the Fidelity ADT group',

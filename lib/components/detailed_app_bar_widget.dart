@@ -1,8 +1,8 @@
-import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'detailed_app_bar_model.dart';
@@ -11,12 +11,10 @@ export 'detailed_app_bar_model.dart';
 class DetailedAppBarWidget extends StatefulWidget {
   const DetailedAppBarWidget({
     Key? key,
-    required this.title,
     required this.heading,
     required this.description,
   }) : super(key: key);
 
-  final String? title;
   final String? heading;
   final String? description;
 
@@ -65,11 +63,58 @@ class _DetailedAppBarWidgetState extends State<DetailedAppBarWidget> {
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          wrapWithModel(
-            model: _model.customAppBarModel,
-            updateCallback: () => setState(() {}),
-            child: CustomAppBarWidget(
-              title: widget.title!,
+          Container(
+            width: double.infinity,
+            height: 60.0,
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).primary,
+            ),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.safePop();
+                    },
+                    child: Container(
+                      width: 30.0,
+                      height: 30.0,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: FlutterFlowTheme.of(context).justWhite,
+                        ),
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(0.00, 0.00),
+                        child: FaIcon(
+                          FontAwesomeIcons.arrowLeft,
+                          color: FlutterFlowTheme.of(context).justWhite,
+                          size: 12.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
+                      child: Icon(
+                        FFIcons.kfESSFidelityServicesGroupWhite,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        size: 24.0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Container(

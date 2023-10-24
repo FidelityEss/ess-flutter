@@ -238,7 +238,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'InfoPage',
           path: '/infoPage',
           builder: (context, params) => InfoPageWidget(
-            title: params.getParam('title', ParamType.String),
             heading: params.getParam('heading', ParamType.String),
             description: params.getParam('description', ParamType.String),
             link: params.getParam('link', ParamType.String),

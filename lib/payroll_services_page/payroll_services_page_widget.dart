@@ -76,7 +76,6 @@ class _PayrollServicesPageWidgetState extends State<PayrollServicesPageWidget> {
                 model: _model.detailedAppBarModel,
                 updateCallback: () => setState(() {}),
                 child: DetailedAppBarWidget(
-                  title: 'Payroll Services',
                   heading: 'Payroll Services',
                   description:
                       'View all your payslips, tax certificates and much more. To get started with a function, please click on an item.',
