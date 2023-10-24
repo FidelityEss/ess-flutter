@@ -65,7 +65,7 @@ class _DetailedAppBarWidgetState extends State<DetailedAppBarWidget> {
         children: [
           Container(
             width: double.infinity,
-            height: 70.0,
+            height: 80.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).primary,
             ),
@@ -73,7 +73,8 @@ class _DetailedAppBarWidgetState extends State<DetailedAppBarWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   InkWell(
                     splashColor: Colors.transparent,
@@ -105,7 +106,7 @@ class _DetailedAppBarWidgetState extends State<DetailedAppBarWidget> {
                   Expanded(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 32.0, 0.0),
                       child: Icon(
                         FFIcons.kfESSFidelityServicesGroupWhite,
                         color: FlutterFlowTheme.of(context).secondaryText,

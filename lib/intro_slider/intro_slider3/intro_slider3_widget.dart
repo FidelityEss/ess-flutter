@@ -54,11 +54,11 @@ class _IntroSlider3WidgetState extends State<IntroSlider3Widget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).justBlack,
+        backgroundColor: FlutterFlowTheme.of(context).justWhite,
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(0.0),
           child: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).justBlack,
+            backgroundColor: FlutterFlowTheme.of(context).appBarColour,
             automaticallyImplyLeading: false,
             actions: [],
             centerTitle: false,
@@ -72,29 +72,10 @@ class _IntroSlider3WidgetState extends State<IntroSlider3Widget> {
             height: double.infinity,
             child: Stack(
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(0.0),
-                  child: Image.asset(
-                    'assets/images/security_update_aug2020_1.jpg',
-                    width: double.infinity,
-                    height: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                ),
                 Container(
                   width: double.infinity,
                   height: double.infinity,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color(0x5E000000),
-                        FlutterFlowTheme.of(context).justBlack
-                      ],
-                      stops: [0.0, 1.0],
-                      begin: AlignmentDirectional(0.0, -1.0),
-                      end: AlignmentDirectional(0, 1.0),
-                    ),
-                  ),
+                  decoration: BoxDecoration(),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -109,7 +90,7 @@ class _IntroSlider3WidgetState extends State<IntroSlider3Widget> {
                               .titleLarge
                               .override(
                                 fontFamily: 'Montserrat',
-                                color: FlutterFlowTheme.of(context).justWhite,
+                                color: FlutterFlowTheme.of(context).justBlack,
                                 fontSize: 24.0,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -121,12 +102,7 @@ class _IntroSlider3WidgetState extends State<IntroSlider3Widget> {
                         child: Text(
                           'Get started with FESS by signing in with your employee and ID number.',
                           textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .bodySmall
-                              .override(
-                                fontFamily: 'Montserrat',
-                                color: FlutterFlowTheme.of(context).justWhite,
-                              ),
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ),
                       Padding(
@@ -178,6 +154,22 @@ class _IntroSlider3WidgetState extends State<IntroSlider3Widget> {
                         ),
                       ),
                     ],
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.00, -1.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.asset(
+                        'assets/images/Fidelity-logo.png',
+                        width: 250.0,
+                        height: 250.0,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
                   ),
                 ),
               ],

@@ -108,47 +108,6 @@ class _TimeAndAttendancePageWidgetState
                       description: 'View and manage your time and attendance',
                     ),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        context.pushNamed('QueriesPage');
-                      },
-                      text: 'Have Any Queries?',
-                      options: FFButtonOptions(
-                        width: double.infinity,
-                        height: 40.0,
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).secondary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).bodyMedium.override(
-                                  fontFamily: 'Montserrat',
-                                  color: FlutterFlowTheme.of(context).justWhite,
-                                ),
-                        elevation: 0.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
-                    child: Text(
-                      'Showing your time and attendance',
-                      style: FlutterFlowTheme.of(context).labelMedium.override(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
-                  ),
                   Expanded(
                     child: Padding(
                       padding:
@@ -196,7 +155,7 @@ class _TimeAndAttendancePageWidgetState
                                     },
                                     child: Container(
                                       width: double.infinity,
-                                      height: 170.0,
+                                      height: 200.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,

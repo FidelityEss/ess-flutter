@@ -319,7 +319,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 0.0, 0.0, 0.0),
                                           child: Icon(
-                                            Icons.help_outline_rounded,
+                                            Icons.search_rounded,
                                             color: FlutterFlowTheme.of(context)
                                                 .justWhite,
                                             size: 16.0,
@@ -331,10 +331,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 0.0, 0.0, 0.0),
                                             child: Text(
-                                              'Get Help',
+                                              'Search',
                                               style: FlutterFlowTheme.of(
                                                       context)
-                                                  .bodySmall
+                                                  .bodyMedium
                                                   .override(
                                                     fontFamily: 'Montserrat',
                                                     color: FlutterFlowTheme.of(
