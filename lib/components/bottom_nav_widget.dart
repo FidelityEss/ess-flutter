@@ -1,4 +1,4 @@
-import '/components/menu_bottom_sheet_widget.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -85,12 +85,14 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                               0.0, 4.0, 0.0, 0.0),
                           child: Text(
                             'Home',
-                            style:
-                                FlutterFlowTheme.of(context).bodySmall.override(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 10.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context)
+                                      .textFieldIcon,
+                                  fontWeight: FontWeight.w600,
+                                ),
                           ),
                         ),
                       ],
@@ -127,12 +129,14 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                               0.0, 4.0, 0.0, 0.0),
                           child: Text(
                             'Messages',
-                            style:
-                                FlutterFlowTheme.of(context).bodySmall.override(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 10.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context)
+                                      .textFieldIcon,
+                                  fontWeight: FontWeight.w600,
+                                ),
                           ),
                         ),
                       ],
@@ -169,12 +173,14 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                               0.0, 4.0, 0.0, 0.0),
                           child: Text(
                             'My Profile',
-                            style:
-                                FlutterFlowTheme.of(context).bodySmall.override(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 10.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context)
+                                      .textFieldIcon,
+                                  fontWeight: FontWeight.w600,
+                                ),
                           ),
                         ),
                       ],
@@ -189,21 +195,36 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    await showModalBottomSheet(
-                      isScrollControlled: true,
-                      backgroundColor: Colors.transparent,
-                      enableDrag: false,
-                      context: context,
-                      builder: (context) {
-                        return Padding(
-                          padding: MediaQuery.viewInsetsOf(context),
-                          child: Container(
-                            height: MediaQuery.sizeOf(context).height * 0.5,
-                            child: MenuBottomSheetWidget(),
-                          ),
-                        );
-                      },
-                    ).then((value) => safeSetState(() {}));
+                    var confirmDialogResponse = await showDialog<bool>(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              title: Text('Warning'),
+                              content: Text(
+                                  'Are you sure you want to log out of your account?'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext, false),
+                                  child: Text('No'),
+                                ),
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext, true),
+                                  child: Text('Yes'),
+                                ),
+                              ],
+                            );
+                          },
+                        ) ??
+                        false;
+                    if (confirmDialogResponse) {
+                      GoRouter.of(context).prepareAuthEvent();
+                      await authManager.signOut();
+                      GoRouter.of(context).clearRedirectLocation();
+
+                      context.pushNamedAuth('SignInPage', context.mounted);
+                    }
                   },
                   child: Container(
                     width: 100.0,
@@ -216,7 +237,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.menu_rounded,
+                          Icons.logout_rounded,
                           color: FlutterFlowTheme.of(context).bottomNavIcons,
                           size: 20.0,
                         ),
@@ -224,13 +245,15 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 4.0, 0.0, 0.0),
                           child: Text(
-                            'Menu',
-                            style:
-                                FlutterFlowTheme.of(context).bodySmall.override(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 10.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
+                            'Logout',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context)
+                                      .textFieldIcon,
+                                  fontWeight: FontWeight.w600,
+                                ),
                           ),
                         ),
                       ],

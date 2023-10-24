@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/components/bottom_nav_widget.dart';
+import '/components/menu_icon_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -10,7 +11,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_page_model.dart';
@@ -120,602 +120,249 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Container(
-                        width: double.infinity,
-                        height: 280.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).primary,
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  32.0, 32.0, 32.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed('MessagesBox');
-                                    },
-                                    child: Container(
-                                      width: 35.0,
-                                      height: 35.0,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
-                                          color: FlutterFlowTheme.of(context)
-                                              .justWhite,
-                                        ),
-                                      ),
-                                      child: Icon(
-                                        Icons.notifications,
-                                        color: FlutterFlowTheme.of(context)
-                                            .justWhite,
-                                        size: 14.0,
-                                      ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          height: 260.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).primary,
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    32.0, 32.0, 32.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Icon(
+                                      FFIcons.kfESSFidelityServicesGroupWhite,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 30.0,
                                     ),
-                                  ),
-                                  InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed('ProfilePage');
-                                    },
-                                    child: Container(
-                                      width: 35.0,
-                                      height: 35.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .justWhite,
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Stack(
-                                        children: [
-                                          Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
-                                            child: AuthUserStreamWidget(
-                                              builder: (context) => Container(
-                                                width: 33.0,
-                                                height: 33.0,
-                                                clipBehavior: Clip.antiAlias,
-                                                decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: CachedNetworkImage(
-                                                  fadeInDuration: Duration(
-                                                      milliseconds: 500),
-                                                  fadeOutDuration: Duration(
-                                                      milliseconds: 500),
-                                                  imageUrl: currentUserPhoto,
-                                                  fit: BoxFit.cover,
-                                                  errorWidget: (context, error,
-                                                          stackTrace) =>
-                                                      Image.asset(
-                                                    'assets/images/error_image.jpg',
-                                                    fit: BoxFit.cover,
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            context.pushNamed('MessagesBox');
+                                          },
+                                          child: Container(
+                                            width: 35.0,
+                                            height: 35.0,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .justWhite,
+                                              ),
+                                            ),
+                                            child: Icon(
+                                              Icons.notifications,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .justWhite,
+                                              size: 14.0,
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              context.pushNamed('ProfilePage');
+                                            },
+                                            child: Container(
+                                              width: 35.0,
+                                              height: 35.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .justWhite,
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: Stack(
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.00, 0.00),
+                                                    child: AuthUserStreamWidget(
+                                                      builder: (context) =>
+                                                          Container(
+                                                        width: 33.0,
+                                                        height: 33.0,
+                                                        clipBehavior:
+                                                            Clip.antiAlias,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child:
+                                                            CachedNetworkImage(
+                                                          fadeInDuration:
+                                                              Duration(
+                                                                  milliseconds:
+                                                                      500),
+                                                          fadeOutDuration:
+                                                              Duration(
+                                                                  milliseconds:
+                                                                      500),
+                                                          imageUrl:
+                                                              currentUserPhoto,
+                                                          fit: BoxFit.cover,
+                                                          errorWidget: (context,
+                                                                  error,
+                                                                  stackTrace) =>
+                                                              Image.asset(
+                                                            'assets/images/error_image.jpg',
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
                                                   ),
-                                                ),
+                                                ],
                                               ),
                                             ),
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  32.0, 32.0, 32.0, 0.0),
-                              child: AuthUserStreamWidget(
-                                builder: (context) => Text(
-                                  'Hi there, ${valueOrDefault(currentUserDocument?.firstName, '')}',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: FlutterFlowTheme.of(context)
-                                            .justWhite,
-                                      ),
+                                  ],
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  32.0, 8.0, 32.0, 0.0),
-                              child: Text(
-                                'Get started with the Fidelity Employee Self Service app. Check payslips, ask for help and more.',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'Montserrat',
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    32.0, 32.0, 32.0, 0.0),
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => Text(
+                                    'Hi there, ${valueOrDefault(currentUserDocument?.firstName, '')}',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .justWhite,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    32.0, 32.0, 32.0, 0.0),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 45.0,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(35.0),
+                                    border: Border.all(
                                       color: FlutterFlowTheme.of(context)
                                           .justWhite,
                                     ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  32.0, 32.0, 32.0, 0.0),
-                              child: Container(
-                                width: double.infinity,
-                                height: 45.0,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(35.0),
-                                  border: Border.all(
-                                    color:
-                                        FlutterFlowTheme.of(context).justWhite,
                                   ),
-                                ),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 0.0, 0.0),
-                                      child: Icon(
-                                        Icons.help_outline_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .justWhite,
-                                        size: 16.0,
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Padding(
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          'Get Help',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodySmall
-                                              .override(
-                                                fontFamily: 'Montserrat',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .justWhite,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 16.0, 0.0),
-                                      child: Container(
-                                        width: 70.0,
-                                        height: 30.0,
-                                        decoration: BoxDecoration(
+                                        child: Icon(
+                                          Icons.help_outline_rounded,
                                           color: FlutterFlowTheme.of(context)
                                               .justWhite,
-                                          borderRadius:
-                                              BorderRadius.circular(35.0),
+                                          size: 16.0,
                                         ),
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.00, 0.00),
-                                          child: Icon(
-                                            Icons.navigate_next_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .justBlack,
-                                            size: 16.0,
+                                      ),
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            'Get Help',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'Montserrat',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .justWhite,
+                                                ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            32.0, 32.0, 32.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Latest Announcement',
-                              style: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed('MessagesBox');
-                              },
-                              child: Text(
-                                'See More',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                    ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            32.0, 16.0, 32.0, 0.0),
-                        child: StreamBuilder<List<MessagesRecord>>(
-                          stream: queryMessagesRecord(
-                            queryBuilder: (messagesRecord) => messagesRecord
-                                .orderBy('created', descending: true),
-                            singleRecord: true,
-                          ),
-                          builder: (context, snapshot) {
-                            // Customize what your widget looks like when it's loading.
-                            if (!snapshot.hasData) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 50.0,
-                                  height: 50.0,
-                                  child: CircularProgressIndicator(
-                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                      FlutterFlowTheme.of(context).primary,
-                                    ),
-                                  ),
-                                ),
-                              );
-                            }
-                            List<MessagesRecord> containerMessagesRecordList =
-                                snapshot.data!;
-                            // Return an empty Container when the item does not exist.
-                            if (snapshot.data!.isEmpty) {
-                              return Container();
-                            }
-                            final containerMessagesRecord =
-                                containerMessagesRecordList.isNotEmpty
-                                    ? containerMessagesRecordList.first
-                                    : null;
-                            return InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'MessageDetailsPage',
-                                  queryParameters: {
-                                    'id': serializeParam(
-                                      containerMessagesRecord?.id,
-                                      ParamType.String,
-                                    ),
-                                  }.withoutNulls,
-                                );
-                              },
-                              child: Container(
-                                width: double.infinity,
-                                height: 40.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).secondary,
-                                  borderRadius: BorderRadius.circular(5.0),
-                                  border: Border.all(
-                                    color:
-                                        FlutterFlowTheme.of(context).secondary,
-                                    width: 0.0,
-                                  ),
-                                ),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Expanded(
-                                      child: Padding(
+                                      Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 0.0),
-                                        child: Text(
-                                          containerMessagesRecord!.message,
-                                          maxLines: 1,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Montserrat',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .justWhite,
-                                                fontWeight: FontWeight.w600,
-                                              ),
+                                            0.0, 0.0, 16.0, 0.0),
+                                        child: Container(
+                                          width: 70.0,
+                                          height: 30.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .justWhite,
+                                            borderRadius:
+                                                BorderRadius.circular(35.0),
+                                          ),
+                                          child: Align(
+                                            alignment: AlignmentDirectional(
+                                                0.00, 0.00),
+                                            child: Icon(
+                                              Icons.navigate_next_rounded,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .justBlack,
+                                              size: 16.0,
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 16.0, 0.0),
-                                      child: Icon(
-                                        Icons.chevron_right_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .justWhite,
-                                        size: 16.0,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            32.0, 32.0, 32.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Quick Access',
-                              style: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    fontWeight: FontWeight.bold,
+                                    ],
                                   ),
-                            ),
-                          ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 16.0, 16.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Expanded(
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed('PayslipTaxListPage');
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Payroll Services',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              32.0, 32.0, 32.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Latest Announcement',
+                                style: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      fontWeight: FontWeight.bold,
                                     ),
-                                    FaIcon(
-                                      FontAwesomeIcons.wallet,
-                                      color: FlutterFlowTheme.of(context)
-                                          .justBlack,
-                                      size: 24.0,
-                                    ),
-                                  ],
-                                ),
                               ),
-                            ),
-                            Expanded(
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed('TimeAndAttendancePage');
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Time & Attendance',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontSize: 10.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                    ),
-                                    FaIcon(
-                                      FontAwesomeIcons.wallet,
-                                      color: FlutterFlowTheme.of(context)
-                                          .justBlack,
-                                      size: 24.0,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed('QueriesPage');
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Queries',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontSize: 10.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                    ),
-                                    FaIcon(
-                                      FontAwesomeIcons.wallet,
-                                      color: FlutterFlowTheme.of(context)
-                                          .justBlack,
-                                      size: 24.0,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed('FidelityCaresPage');
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Fidelity Cares',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontSize: 10.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                    ),
-                                    FaIcon(
-                                      FontAwesomeIcons.wallet,
-                                      color: FlutterFlowTheme.of(context)
-                                          .justBlack,
-                                      size: 24.0,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 16.0, 16.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Expanded(
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed('IncidentsPage');
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Report Fraud',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontSize: 10.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                    ),
-                                    FaIcon(
-                                      FontAwesomeIcons.wallet,
-                                      color: FlutterFlowTheme.of(context)
-                                          .justBlack,
-                                      size: 24.0,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed('IncidentsPage');
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Report Incident',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontSize: 10.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                    ),
-                                    FaIcon(
-                                      FontAwesomeIcons.wallet,
-                                      color: FlutterFlowTheme.of(context)
-                                          .justBlack,
-                                      size: 24.0,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: InkWell(
+                              InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
                                 hoverColor: Colors.transparent,
@@ -723,281 +370,601 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 onTap: () async {
                                   context.pushNamed('MessagesBox');
                                 },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Mailbox',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontSize: 10.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
+                                child: Text(
+                                  'See More',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        fontWeight: FontWeight.w600,
                                       ),
-                                    ),
-                                    FaIcon(
-                                      FontAwesomeIcons.wallet,
-                                      color: FlutterFlowTheme.of(context)
-                                          .justBlack,
-                                      size: 24.0,
-                                    ),
-                                  ],
                                 ),
                               ),
-                            ),
-                            Expanded(
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed('EventsPage');
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Events',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontSize: 10.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                    ),
-                                    FaIcon(
-                                      FontAwesomeIcons.wallet,
-                                      color: FlutterFlowTheme.of(context)
-                                          .justBlack,
-                                      size: 24.0,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 16.0, 16.0, 16.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Expanded(
-                              child: InkWell(
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              32.0, 16.0, 32.0, 0.0),
+                          child: StreamBuilder<List<MessagesRecord>>(
+                            stream: queryMessagesRecord(
+                              queryBuilder: (messagesRecord) => messagesRecord
+                                  .orderBy('created', descending: true),
+                              singleRecord: true,
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        FlutterFlowTheme.of(context).primary,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }
+                              List<MessagesRecord> containerMessagesRecordList =
+                                  snapshot.data!;
+                              // Return an empty Container when the item does not exist.
+                              if (snapshot.data!.isEmpty) {
+                                return Container();
+                              }
+                              final containerMessagesRecord =
+                                  containerMessagesRecordList.isNotEmpty
+                                      ? containerMessagesRecordList.first
+                                      : null;
+                              return InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return AlertDialog(
-                                        title: Text('Warning'),
-                                        content: Text(
-                                            'This function has not been developed yet'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      );
-                                    },
+                                  context.pushNamed(
+                                    'MessageDetailsPage',
+                                    queryParameters: {
+                                      'id': serializeParam(
+                                        containerMessagesRecord?.id,
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
                                   );
                                 },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'HR',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontSize: 10.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                    ),
-                                    FaIcon(
-                                      FontAwesomeIcons.wallet,
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 40.0,
+                                  decoration: BoxDecoration(
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    borderRadius: BorderRadius.circular(5.0),
+                                    border: Border.all(
                                       color: FlutterFlowTheme.of(context)
-                                          .justBlack,
-                                      size: 24.0,
+                                          .secondary,
+                                      width: 0.0,
                                     ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed('VanciesPage');
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Vacancies',
-                                        textAlign: TextAlign.center,
-                                        maxLines: 1,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontSize: 10.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 16.0, 0.0),
+                                          child: Text(
+                                            containerMessagesRecord!.title,
+                                            maxLines: 1,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Montserrat',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .justWhite,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                          ),
+                                        ),
                                       ),
-                                    ),
-                                    FaIcon(
-                                      FontAwesomeIcons.wallet,
-                                      color: FlutterFlowTheme.of(context)
-                                          .justBlack,
-                                      size: 24.0,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed('ComplimentsPage');
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Compliments',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontSize: 10.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 16.0, 0.0),
+                                        child: Icon(
+                                          Icons.chevron_right_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .justWhite,
+                                          size: 16.0,
+                                        ),
                                       ),
-                                    ),
-                                    FaIcon(
-                                      FontAwesomeIcons.wallet,
-                                      color: FlutterFlowTheme.of(context)
-                                          .justBlack,
-                                      size: 24.0,
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ),
-                            Expanded(
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  var confirmDialogResponse =
-                                      await showDialog<bool>(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return AlertDialog(
-                                                title: Text('Warning'),
-                                                content: Text(
-                                                    'Are you sure you want to log out of your account?'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext,
-                                                            false),
-                                                    child: Text('No'),
-                                                  ),
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext,
-                                                            true),
-                                                    child: Text('Yes'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          ) ??
-                                          false;
-                                  if (confirmDialogResponse) {
-                                    GoRouter.of(context).prepareAuthEvent();
-                                    await authManager.signOut();
-                                    GoRouter.of(context)
-                                        .clearRedirectLocation();
-
-                                    context.pushNamedAuth(
-                                        'SignInPage', context.mounted);
-                                  }
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Logout',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontSize: 10.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                    ),
-                                    FaIcon(
-                                      FontAwesomeIcons.wallet,
-                                      color: FlutterFlowTheme.of(context)
-                                          .justBlack,
-                                      size: 24.0,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
+                              );
+                            },
+                          ),
                         ),
-                      ),
-                    ],
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              32.0, 32.0, 32.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Quick Access',
+                                style: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 16.0, 16.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('PayslipTaxListPage');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel1,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.knewAppIconsPayrollServices,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 40.0,
+                                      ),
+                                      title: 'Payroll Services',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('PayslipTaxListPage');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel2,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.knewAppIconsFidelityCares,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 40.0,
+                                      ),
+                                      title: 'Fidelity\nCares',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('PayslipTaxListPage');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel3,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.knewAppIconsPayrollServices,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 40.0,
+                                      ),
+                                      title: 'Report\nFraud',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('PayslipTaxListPage');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel4,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.knewAppIconsPayrollServices,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 40.0,
+                                      ),
+                                      title: 'Report\nIncident',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 16.0, 16.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('MessagesBox');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel5,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.knewAppIconsPayrollServices,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 40.0,
+                                      ),
+                                      title: 'Your\nMailbox',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('EventsPage');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel6,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.knewAppIconsPayrollServices,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 40.0,
+                                      ),
+                                      title: 'View\nEvents',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          title: Text('Warning'),
+                                          content: Text(
+                                              'This function has not been developed yet'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel7,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.knewAppIconsHumanResources,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 40.0,
+                                      ),
+                                      title: 'Human\nResources',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('VanciesPage');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel8,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.knewAppIconsVacancies,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 40.0,
+                                      ),
+                                      title: 'View\nVacancies',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 16.0, 16.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('ComplimentsPage');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel9,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.knewAppIconsCompliments,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 40.0,
+                                      ),
+                                      title: 'Send\nCompliments',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('MessagesBox');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel10,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.knewAppIconsFidelityInsure,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 40.0,
+                                      ),
+                                      title: 'Fidelity\nInsure',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('MessagesBox');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel11,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.knewAppIconsFidelityFire,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 40.0,
+                                      ),
+                                      title: 'Fidelity\nFire',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('MessagesBox');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel12,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.knewAppIconsFidelityCash,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 40.0,
+                                      ),
+                                      title: 'Fidelity\nCash',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 16.0, 16.0, 32.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('MessagesBox');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel13,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.knewAppIconsFidelityADT,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 40.0,
+                                      ),
+                                      title: 'Fidelity\nADT',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('EventsPage');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel14,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        Icons.directions_car_rounded,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 40.0,
+                                      ),
+                                      title: 'Secure\nDrive',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          title: Text('Warning'),
+                                          content: Text(
+                                              'This function has not been developed yet'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel15,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.knewAppIconsUmsukaWemali,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 40.0,
+                                      ),
+                                      title: 'Umsuka\nWemali',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('VanciesPage');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel16,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.knewAppIconsTraining,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 40.0,
+                                      ),
+                                      title: 'Fidelity\nTraining',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

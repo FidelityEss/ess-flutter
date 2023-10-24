@@ -273,6 +273,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             firstName: params.getParam('firstName', ParamType.String),
             surname: params.getParam('surname', ParamType.String),
           ),
+        ),
+        FFRoute(
+          name: 'PayrollServicesPage',
+          path: '/payrollServicesPage',
+          builder: (context, params) => PayrollServicesPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

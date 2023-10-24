@@ -53,3 +53,5 @@ export '/compliments/compliment_submitted_page/compliment_submitted_page_widget.
     show ComplimentSubmittedPageWidget;
 export '/auth/update_profile_page/update_profile_page_widget.dart'
     show UpdateProfilePageWidget;
+export '/payroll_services_page/payroll_services_page_widget.dart'
+    show PayrollServicesPageWidget;
