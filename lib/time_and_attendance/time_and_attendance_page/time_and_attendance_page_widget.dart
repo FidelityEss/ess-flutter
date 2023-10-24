@@ -54,7 +54,9 @@ class _TimeAndAttendancePageWidgetState
     context.watch<FFAppState>();
 
     return FutureBuilder<ApiCallResponse>(
-      future: FessApiGroup.getEmployeeTimeCall.call(),
+      future: FessApiGroup.getEmployeeTimeCall.call(
+        authToken: FFAppState().token,
+      ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {

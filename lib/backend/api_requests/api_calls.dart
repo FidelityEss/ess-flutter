@@ -168,7 +168,6 @@ class GetEmployeeTimeCall {
       headers: {
         'Authorization': 'Bearer ${authToken}',
         'api-key': 'c1e57890-a4ee-4354-ab59-53098d763963',
-        'api-key': 'c1e57890-a4ee-4354-ab59-53098d763963',
       },
       params: {
         'token': authToken,
