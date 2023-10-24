@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/components/bottom_nav_widget.dart';
+import '/components/loading_dialog_widget.dart';
 import '/components/menu_icon_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -52,7 +53,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 onTap: () => _model.unfocusNode.canRequestFocus
                     ? FocusScope.of(context).requestFocus(_model.unfocusNode)
                     : FocusScope.of(context).unfocus(),
-                child: BottomNavWidget(),
+                child: LoadingDialogWidget(),
               ),
             );
           },
@@ -84,6 +85,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             ),
           );
         }
+        Navigator.pop(context);
       }
     });
 
