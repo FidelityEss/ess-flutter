@@ -55,3 +55,5 @@ export '/auth/update_profile_page/update_profile_page_widget.dart'
     show UpdateProfilePageWidget;
 export '/payroll_services_page/payroll_services_page_widget.dart'
     show PayrollServicesPageWidget;
+export '/h_r_services_page/h_r_services_page_widget.dart'
+    show HRServicesPageWidget;

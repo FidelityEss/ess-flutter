@@ -7,6 +7,7 @@ class FFIcons {
   static const String _fessfinaltwoFamily = 'Fessfinaltwo';
   static const String _fessfinalthreeFamily = 'Fessfinalthree';
   static const String _fesslogoFamily = 'Fesslogo';
+  static const String _fesslogo4Family = 'Fesslogo4';
 
   // fessfinal
   static const IconData knewAppIconsCompliments =
@@ -69,4 +70,18 @@ class FFIcons {
   // fesslogo
   static const IconData kfESSFidelityServicesGroupColour =
       IconData(0xe900, fontFamily: _fesslogoFamily);
+
+  // fesslogo4
+  static const IconData kcleaning =
+      IconData(0xe900, fontFamily: _fesslogo4Family);
+  static const IconData kevents1 =
+      IconData(0xe901, fontFamily: _fesslogo4Family);
+  static const IconData kguarding =
+      IconData(0xe902, fontFamily: _fesslogo4Family);
+  static const IconData kreportIncident =
+      IconData(0xe903, fontFamily: _fesslogo4Family);
+  static const IconData ksecureDrive =
+      IconData(0xe904, fontFamily: _fesslogo4Family);
+  static const IconData kumsuka1 =
+      IconData(0xe905, fontFamily: _fesslogo4Family);
 }

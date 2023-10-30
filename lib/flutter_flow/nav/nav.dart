@@ -277,6 +277,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'PayrollServicesPage',
           path: '/payrollServicesPage',
           builder: (context, params) => PayrollServicesPageWidget(),
+        ),
+        FFRoute(
+          name: 'HRServicesPage',
+          path: '/hRServicesPage',
+          builder: (context, params) => HRServicesPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -457,7 +462,7 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: Colors.transparent,
+                  color: FlutterFlowTheme.of(context).justWhite,
                   child: Center(
                     child: Image.asset(
                       'assets/images/2_round_logos_.png',

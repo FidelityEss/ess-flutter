@@ -129,9 +129,17 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Employee Number',
-                            labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                            labelStyle:
+                                FlutterFlowTheme.of(context).bodySmall.override(
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 10.0,
+                                    ),
                             hintText: 'Employee Number',
-                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                            hintStyle:
+                                FlutterFlowTheme.of(context).bodySmall.override(
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 12.0,
+                                    ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).alternate,
@@ -166,7 +174,11 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                               size: 16.0,
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 12.0,
+                                  ),
                           validator: _model.employeeNumberControllerValidator
                               .asValidator(context),
                         ),
@@ -182,7 +194,11 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                             labelText: 'ID Number',
                             labelStyle: FlutterFlowTheme.of(context).bodySmall,
                             hintText: 'ID Number',
-                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                            hintStyle:
+                                FlutterFlowTheme.of(context).bodySmall.override(
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 12.0,
+                                    ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).alternate,
@@ -217,7 +233,11 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                               size: 16.0,
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 12.0,
+                                  ),
                           validator: _model.iDNumberControllerValidator
                               .asValidator(context),
                         ),
@@ -353,6 +373,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                           .override(
                             fontFamily: 'Montserrat',
                             color: FlutterFlowTheme.of(context).secondaryText,
+                            fontSize: 16.0,
                           ),
                       elevation: 0.0,
                       borderSide: BorderSide(

@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -29,8 +30,6 @@ class _IncidentsPageWidgetState extends State<IncidentsPageWidget> {
     super.initState();
     _model = createModel(context, () => IncidentsPageModel());
 
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -111,119 +110,14 @@ class _IncidentsPageWidgetState extends State<IncidentsPageWidget> {
                         title: 'Reports',
                       ),
                     ),
-                    Container(
-                      width: double.infinity,
-                      height: 200.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primary,
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                32.0, 0.0, 32.0, 0.0),
-                            child: Text(
-                              'Report Incidents',
-                              style: FlutterFlowTheme.of(context)
-                                  .titleLarge
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    color:
-                                        FlutterFlowTheme.of(context).justWhite,
-                                  ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                32.0, 4.0, 32.0, 0.0),
-                            child: Text(
-                              'Create and manage incidents here.',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    color:
-                                        FlutterFlowTheme.of(context).justWhite,
-                                  ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                32.0, 32.0, 32.0, 0.0),
-                            child: TextFormField(
-                              controller: _model.textController,
-                              focusNode: _model.textFieldFocusNode,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                isDense: true,
-                                labelText: 'Search ',
-                                labelStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: FlutterFlowTheme.of(context)
-                                          .justWhite,
-                                    ),
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .labelMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: FlutterFlowTheme.of(context)
-                                          .justWhite,
-                                    ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).justWhite,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(25.0),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).justWhite,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(25.0),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).justWhite,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(25.0),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).justWhite,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(25.0),
-                                ),
-                                prefixIcon: Icon(
-                                  Icons.search_rounded,
-                                  color: FlutterFlowTheme.of(context).justWhite,
-                                  size: 16.0,
-                                ),
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    color:
-                                        FlutterFlowTheme.of(context).justWhite,
-                                  ),
-                              validator: _model.textControllerValidator
-                                  .asValidator(context),
-                            ),
-                          ),
-                        ],
+                    wrapWithModel(
+                      model: _model.bannerSliderModel,
+                      updateCallback: () => setState(() {}),
+                      child: BannerSliderWidget(
+                        searchColour:
+                            FlutterFlowTheme.of(context).textFieldIcon,
+                        iconColour: FlutterFlowTheme.of(context).textFieldIcon,
+                        borderColour: FlutterFlowTheme.of(context).alternate,
                       ),
                     ),
                     Padding(

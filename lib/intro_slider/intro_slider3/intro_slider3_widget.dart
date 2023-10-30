@@ -131,8 +131,8 @@ class _IntroSlider3WidgetState extends State<IntroSlider3Widget> {
                                 );
                               },
                               child: Container(
-                                width: 40.0,
-                                height: 40.0,
+                                width: 60.0,
+                                height: 60.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context).primary,
                                   borderRadius: BorderRadius.circular(50.0),
@@ -164,9 +164,9 @@ class _IntroSlider3WidgetState extends State<IntroSlider3Widget> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.asset(
-                        'assets/images/Fidelity-logo.png',
-                        width: 250.0,
-                        height: 250.0,
+                        'assets/images/giphy.gif',
+                        width: double.infinity,
+                        height: 350.0,
                         fit: BoxFit.contain,
                       ),
                     ),

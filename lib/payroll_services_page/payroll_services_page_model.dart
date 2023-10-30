@@ -1,4 +1,5 @@
-import '/components/detailed_app_bar_widget.dart';
+import '/components/banner_slider_widget.dart';
+import '/components/custom_app_bar_widget.dart';
 import '/components/long_menu_item_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -14,8 +15,10 @@ class PayrollServicesPageModel
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Model for DetailedAppBar component.
-  late DetailedAppBarModel detailedAppBarModel;
+  // Model for CustomAppBar component.
+  late CustomAppBarModel customAppBarModel;
+  // Model for BannerSlider component.
+  late BannerSliderModel bannerSliderModel;
   // Model for LongMenuItem component.
   late LongMenuItemModel longMenuItemModel1;
   // Model for LongMenuItem component.
@@ -26,7 +29,8 @@ class PayrollServicesPageModel
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    detailedAppBarModel = createModel(context, () => DetailedAppBarModel());
+    customAppBarModel = createModel(context, () => CustomAppBarModel());
+    bannerSliderModel = createModel(context, () => BannerSliderModel());
     longMenuItemModel1 = createModel(context, () => LongMenuItemModel());
     longMenuItemModel2 = createModel(context, () => LongMenuItemModel());
     longMenuItemModel3 = createModel(context, () => LongMenuItemModel());
@@ -34,7 +38,8 @@ class PayrollServicesPageModel
 
   void dispose() {
     unfocusNode.dispose();
-    detailedAppBarModel.dispose();
+    customAppBarModel.dispose();
+    bannerSliderModel.dispose();
     longMenuItemModel1.dispose();
     longMenuItemModel2.dispose();
     longMenuItemModel3.dispose();

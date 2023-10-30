@@ -1,6 +1,6 @@
 import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
-import '/flutter_flow/flutter_flow_pdf_viewer.dart';
+import '/components/long_menu_item_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -8,26 +8,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'privacy_policy_page_model.dart';
-export 'privacy_policy_page_model.dart';
+import 'h_r_services_page_model.dart';
+export 'h_r_services_page_model.dart';
 
-class PrivacyPolicyPageWidget extends StatefulWidget {
-  const PrivacyPolicyPageWidget({Key? key}) : super(key: key);
+class HRServicesPageWidget extends StatefulWidget {
+  const HRServicesPageWidget({Key? key}) : super(key: key);
 
   @override
-  _PrivacyPolicyPageWidgetState createState() =>
-      _PrivacyPolicyPageWidgetState();
+  _HRServicesPageWidgetState createState() => _HRServicesPageWidgetState();
 }
 
-class _PrivacyPolicyPageWidgetState extends State<PrivacyPolicyPageWidget> {
-  late PrivacyPolicyPageModel _model;
+class _HRServicesPageWidgetState extends State<HRServicesPageWidget> {
+  late HRServicesPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PrivacyPolicyPageModel());
+    _model = createModel(context, () => HRServicesPageModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -65,8 +64,6 @@ class _PrivacyPolicyPageWidgetState extends State<PrivacyPolicyPageWidget> {
             backgroundColor: FlutterFlowTheme.of(context).appBarColour,
             automaticallyImplyLeading: false,
             actions: [],
-            centerTitle: false,
-            toolbarHeight: 0.0,
             elevation: 0.0,
           ),
         ),
@@ -79,7 +76,7 @@ class _PrivacyPolicyPageWidgetState extends State<PrivacyPolicyPageWidget> {
                 model: _model.customAppBarModel,
                 updateCallback: () => setState(() {}),
                 child: CustomAppBarWidget(
-                  title: 'Legal',
+                  title: 'HR Services',
                 ),
               ),
               wrapWithModel(
@@ -91,14 +88,43 @@ class _PrivacyPolicyPageWidgetState extends State<PrivacyPolicyPageWidget> {
                   borderColour: FlutterFlowTheme.of(context).alternate,
                 ),
               ),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                  child: FlutterFlowPdfViewer(
-                    networkPath:
-                        'https://firebasestorage.googleapis.com/v0/b/fess-a6f94.appspot.com/o/assets%2FLegal.pdf?alt=media&token=47ba3d7c-0f05-469f-9796-fd179689fda2&_gl=1*1f4wr6h*_ga*Mzk1OTY0NDA0LjE2OTUxNDYxMDk.*_ga_CW55HF8NVT*MTY5ODY1MjI3OC40MC4xLjE2OTg2NTIzMzMuNS4wLjA.',
-                    height: 300.0,
-                    horizontalScroll: false,
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed(
+                      'InfoPage',
+                      queryParameters: {
+                        'heading': serializeParam(
+                          'Fidelity Training',
+                          ParamType.String,
+                        ),
+                        'description': serializeParam(
+                          'As a pioneer in the security training and development market, Fidelity Services Group was one of the first companies in the country to establish and professionalise the first learnership programme for security officers.',
+                          ParamType.String,
+                        ),
+                        'link': serializeParam(
+                          'https://fidelity-services.com/training-and-development/',
+                          ParamType.String,
+                        ),
+                      }.withoutNulls,
+                    );
+                  },
+                  child: wrapWithModel(
+                    model: _model.longMenuItemModel,
+                    updateCallback: () => setState(() {}),
+                    child: LongMenuItemWidget(
+                      icon: Icon(
+                        FFIcons.knewAppIconsTraining,
+                        color: FlutterFlowTheme.of(context).justBlack,
+                        size: 28.0,
+                      ),
+                      title: 'Training and Development',
+                    ),
                   ),
                 ),
               ),

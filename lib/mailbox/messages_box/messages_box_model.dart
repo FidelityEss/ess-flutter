@@ -1,5 +1,6 @@
 import '/backend/backend.dart';
-import '/components/detailed_app_bar_widget.dart';
+import '/components/banner_slider_widget.dart';
+import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -13,18 +14,22 @@ class MessagesBoxModel extends FlutterFlowModel<MessagesBoxWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Model for DetailedAppBar component.
-  late DetailedAppBarModel detailedAppBarModel;
+  // Model for CustomAppBar component.
+  late CustomAppBarModel customAppBarModel;
+  // Model for BannerSlider component.
+  late BannerSliderModel bannerSliderModel;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    detailedAppBarModel = createModel(context, () => DetailedAppBarModel());
+    customAppBarModel = createModel(context, () => CustomAppBarModel());
+    bannerSliderModel = createModel(context, () => BannerSliderModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
-    detailedAppBarModel.dispose();
+    customAppBarModel.dispose();
+    bannerSliderModel.dispose();
   }
 
   /// Action blocks are added here.

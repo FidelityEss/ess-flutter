@@ -1,4 +1,5 @@
-import '/components/detailed_app_bar_widget.dart';
+import '/components/banner_slider_widget.dart';
+import '/components/custom_app_bar_widget.dart';
 import '/components/long_menu_item_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -73,12 +74,19 @@ class _PayrollServicesPageWidgetState extends State<PayrollServicesPageWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               wrapWithModel(
-                model: _model.detailedAppBarModel,
+                model: _model.customAppBarModel,
                 updateCallback: () => setState(() {}),
-                child: DetailedAppBarWidget(
-                  heading: 'Payroll Services',
-                  description:
-                      'View all your payslips, tax certificates and much more. To get started with a function, please click on an item.',
+                child: CustomAppBarWidget(
+                  title: 'Payroll Services',
+                ),
+              ),
+              wrapWithModel(
+                model: _model.bannerSliderModel,
+                updateCallback: () => setState(() {}),
+                child: BannerSliderWidget(
+                  searchColour: FlutterFlowTheme.of(context).textFieldIcon,
+                  iconColour: FlutterFlowTheme.of(context).textFieldIcon,
+                  borderColour: FlutterFlowTheme.of(context).alternate,
                 ),
               ),
               Padding(

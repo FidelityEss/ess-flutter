@@ -78,7 +78,7 @@ class _PushNotificationsHandlerState extends State<PushNotificationsHandler> {
   @override
   Widget build(BuildContext context) => _loading
       ? Container(
-          color: Colors.transparent,
+          color: FlutterFlowTheme.of(context).justWhite,
           child: Center(
             child: Image.asset(
               'assets/images/2_round_logos_.png',
@@ -195,6 +195,7 @@ final parametersBuilderMap =
         },
       ),
   'PayrollServicesPage': ParameterData.none(),
+  'HRServicesPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

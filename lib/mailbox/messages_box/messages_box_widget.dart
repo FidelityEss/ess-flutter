@@ -1,5 +1,6 @@
 import '/backend/backend.dart';
-import '/components/detailed_app_bar_widget.dart';
+import '/components/banner_slider_widget.dart';
+import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -96,12 +97,19 @@ class _MessagesBoxWidgetState extends State<MessagesBoxWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   wrapWithModel(
-                    model: _model.detailedAppBarModel,
+                    model: _model.customAppBarModel,
                     updateCallback: () => setState(() {}),
-                    child: DetailedAppBarWidget(
-                      heading: 'Messages',
-                      description:
-                          'View and manage all you notifications & messages from FESS.',
+                    child: CustomAppBarWidget(
+                      title: 'Messages',
+                    ),
+                  ),
+                  wrapWithModel(
+                    model: _model.bannerSliderModel,
+                    updateCallback: () => setState(() {}),
+                    child: BannerSliderWidget(
+                      searchColour: FlutterFlowTheme.of(context).textFieldIcon,
+                      iconColour: FlutterFlowTheme.of(context).textFieldIcon,
+                      borderColour: FlutterFlowTheme.of(context).alternate,
                     ),
                   ),
                   Padding(

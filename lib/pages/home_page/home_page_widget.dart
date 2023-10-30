@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/components/banner_slider_widget.dart';
 import '/components/bottom_nav_widget.dart';
 import '/components/menu_icon_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -132,7 +133,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       children: [
                         Container(
                           width: double.infinity,
-                          height: 260.0,
+                          height: 70.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).primary,
                           ),
@@ -148,213 +149,110 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Icon(
-                                      FFIcons.kfESSFidelityServicesGroupWhite,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      size: 45.0,
-                                    ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            context.pushNamed('MessagesBox');
-                                          },
-                                          child: Container(
-                                            width: 35.0,
-                                            height: 35.0,
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .justWhite,
-                                              ),
-                                            ),
-                                            child: Icon(
-                                              Icons.notifications,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .justWhite,
-                                              size: 14.0,
-                                            ),
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed('MessagesBox');
+                                      },
+                                      child: Container(
+                                        width: 35.0,
+                                        height: 35.0,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: FlutterFlowTheme.of(context)
+                                                .justWhite,
                                           ),
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 0.0, 0.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed('ProfilePage');
-                                            },
-                                            child: Container(
-                                              width: 35.0,
-                                              height: 35.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .justWhite,
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: Stack(
-                                                children: [
-                                                  Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.00, 0.00),
-                                                    child: AuthUserStreamWidget(
-                                                      builder: (context) =>
-                                                          Container(
-                                                        width: 33.0,
-                                                        height: 33.0,
-                                                        clipBehavior:
-                                                            Clip.antiAlias,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child:
-                                                            CachedNetworkImage(
-                                                          fadeInDuration:
-                                                              Duration(
-                                                                  milliseconds:
-                                                                      500),
-                                                          fadeOutDuration:
-                                                              Duration(
-                                                                  milliseconds:
-                                                                      500),
-                                                          imageUrl:
-                                                              currentUserPhoto,
-                                                          fit: BoxFit.cover,
-                                                          errorWidget: (context,
-                                                                  error,
-                                                                  stackTrace) =>
-                                                              Image.asset(
-                                                            'assets/images/error_image.jpg',
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    32.0, 32.0, 32.0, 0.0),
-                                child: AuthUserStreamWidget(
-                                  builder: (context) => Text(
-                                    'Hi there, ${valueOrDefault(currentUserDocument?.firstName, '')}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .override(
-                                          fontFamily: 'Montserrat',
-                                          color: FlutterFlowTheme.of(context)
-                                              .justWhite,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    32.0, 32.0, 32.0, 0.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  height: 45.0,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(35.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .justWhite,
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 0.0, 0.0),
                                         child: Icon(
-                                          Icons.search_rounded,
+                                          Icons.notifications,
                                           color: FlutterFlowTheme.of(context)
                                               .justWhite,
-                                          size: 16.0,
+                                          size: 14.0,
                                         ),
                                       ),
-                                      Expanded(
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Search',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Montserrat',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .justWhite,
-                                                ),
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 16.0, 0.0),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 0.0, 0.0, 0.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed('ProfilePage');
+                                        },
                                         child: Container(
-                                          width: 70.0,
-                                          height: 30.0,
+                                          width: 35.0,
+                                          height: 35.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .justWhite,
-                                            borderRadius:
-                                                BorderRadius.circular(35.0),
+                                            shape: BoxShape.circle,
                                           ),
-                                          child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
-                                            child: Icon(
-                                              Icons.navigate_next_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .justBlack,
-                                              size: 16.0,
-                                            ),
+                                          child: Stack(
+                                            children: [
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.00, 0.00),
+                                                child: AuthUserStreamWidget(
+                                                  builder: (context) =>
+                                                      Container(
+                                                    width: 33.0,
+                                                    height: 33.0,
+                                                    clipBehavior:
+                                                        Clip.antiAlias,
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: CachedNetworkImage(
+                                                      fadeInDuration: Duration(
+                                                          milliseconds: 500),
+                                                      fadeOutDuration: Duration(
+                                                          milliseconds: 500),
+                                                      imageUrl:
+                                                          currentUserPhoto,
+                                                      fit: BoxFit.cover,
+                                                      errorWidget: (context,
+                                                              error,
+                                                              stackTrace) =>
+                                                          Image.asset(
+                                                        'assets/images/error_image.jpg',
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
                           ),
                         ),
+                        wrapWithModel(
+                          model: _model.bannerSliderModel,
+                          updateCallback: () => setState(() {}),
+                          child: BannerSliderWidget(
+                            searchColour:
+                                FlutterFlowTheme.of(context).textFieldIcon,
+                            iconColour:
+                                FlutterFlowTheme.of(context).textFieldIcon,
+                            borderColour: FlutterFlowTheme.of(context).black,
+                          ),
+                        ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              32.0, 32.0, 32.0, 0.0),
+                              32.0, 16.0, 32.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -501,14 +399,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                'Quick Access',
-                                style: FlutterFlowTheme.of(context)
-                                    .labelMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                              AuthUserStreamWidget(
+                                builder: (context) => Text(
+                                  'Hi, ${valueOrDefault(currentUserDocument?.firstName, '')}',
+                                  style: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
                               ),
                             ],
                           ),
@@ -701,23 +601,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return AlertDialog(
-                                          title: Text('Warning'),
-                                          content: Text(
-                                              'This function has not been developed yet'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
+                                    context.pushNamed('HRServicesPage');
                                   },
                                   child: wrapWithModel(
                                     model: _model.menuIconModel7,
@@ -1032,10 +916,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
-                                        FFIcons.knewAppIconsUmsukaWemali,
+                                        FFIcons.kumsuka1,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 50.0,
+                                        size: 30.0,
                                       ),
                                       title: 'Umsuka\nWemali',
                                     ),

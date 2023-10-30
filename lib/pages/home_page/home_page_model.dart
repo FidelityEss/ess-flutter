@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/components/banner_slider_widget.dart';
 import '/components/bottom_nav_widget.dart';
 import '/components/menu_icon_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -25,6 +26,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Authentication)] action in HomePage widget.
   ApiCallResponse? apiResultzcx;
+  // Model for BannerSlider component.
+  late BannerSliderModel bannerSliderModel;
   // Model for MenuIcon component.
   late MenuIconModel menuIconModel1;
   // Model for MenuIcon component.
@@ -65,6 +68,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
+    bannerSliderModel = createModel(context, () => BannerSliderModel());
     menuIconModel1 = createModel(context, () => MenuIconModel());
     menuIconModel2 = createModel(context, () => MenuIconModel());
     menuIconModel3 = createModel(context, () => MenuIconModel());
@@ -87,6 +91,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    bannerSliderModel.dispose();
     menuIconModel1.dispose();
     menuIconModel2.dispose();
     menuIconModel3.dispose();
