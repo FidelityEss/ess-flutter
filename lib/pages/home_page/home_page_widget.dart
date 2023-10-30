@@ -518,7 +518,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         FFIcons.kreportIncident,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 35.0,
+                                        size: 50.0,
                                       ),
                                       title: 'Report\nIncident',
                                     ),
@@ -1000,7 +1000,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         FFIcons.kcleaning,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 35.0,
+                                        size: 50.0,
                                       ),
                                       title: 'Fidelity\nCleaning',
                                     ),
@@ -1042,7 +1042,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         FFIcons.kguarding,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 35.0,
+                                        size: 50.0,
                                       ),
                                       title: 'Guarding\nServices',
                                     ),
