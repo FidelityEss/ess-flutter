@@ -515,10 +515,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
-                                        FFIcons.kreportIncident,
+                                        FFIcons.ksos,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 50.0,
+                                        size: 40.0,
                                       ),
                                       title: 'Report\nIncident',
                                     ),
@@ -865,10 +865,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
-                                        FFIcons.ksecureDrive,
+                                        FFIcons.kdestination,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 40.0,
+                                        size: 35.0,
                                       ),
                                       title: 'Secure\nDrive',
                                     ),
