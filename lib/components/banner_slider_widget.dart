@@ -58,7 +58,7 @@ class _BannerSliderWidgetState extends State<BannerSliderWidget> {
 
     return Container(
       width: double.infinity,
-      height: 270.0,
+      height: 280.0,
       decoration: BoxDecoration(),
       child: Column(
         mainAxisSize: MainAxisSize.max,
@@ -82,6 +82,7 @@ class _BannerSliderWidgetState extends State<BannerSliderWidget> {
               focusNode: _model.textFieldFocusNode,
               obscureText: false,
               decoration: InputDecoration(
+                isDense: true,
                 labelText: 'Search',
                 labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                       fontFamily: 'Montserrat',
