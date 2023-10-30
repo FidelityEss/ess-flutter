@@ -515,10 +515,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
-                                        Icons.help_outline_rounded,
+                                        FFIcons.kreportIncident,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 30.0,
+                                        size: 35.0,
                                       ),
                                       title: 'Report\nIncident',
                                     ),
@@ -573,10 +573,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
-                                        Icons.calendar_month_sharp,
+                                        FFIcons.kcalendar,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 30.0,
+                                        size: 45.0,
                                       ),
                                       title: 'View\nEvents',
                                     ),
@@ -865,10 +865,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
-                                        Icons.directions_car_rounded,
+                                        FFIcons.ksecureDrive,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 30.0,
+                                        size: 40.0,
                                       ),
                                       title: 'Secure\nDrive',
                                     ),
@@ -997,12 +997,54 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
-                                        Icons.clean_hands,
+                                        FFIcons.kcleaning,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 30.0,
+                                        size: 35.0,
                                       ),
                                       title: 'Fidelity\nCleaning',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'InfoPage',
+                                      queryParameters: {
+                                        'heading': serializeParam(
+                                          'Guarding Services',
+                                          ParamType.String,
+                                        ),
+                                        'description': serializeParam(
+                                          'Fidelity Security Services is able to offer customers comprehensive guarding solutions in a vast range of small and large scale industries.',
+                                          ParamType.String,
+                                        ),
+                                        'link': serializeParam(
+                                          'https://fidelity-services.com/our-products-services/fidelity-security-services/?gad_source=1&gclid=Cj0KCQjwqP2pBhDMARIsAJQ0CzpUmeL-TzQtsP1VK9vCDk5YF7JdKq48woHqLJnrGMbEfqbGRPXI3s4aAg2ZEALw_wcB',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel18,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.kguarding,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 35.0,
+                                      ),
+                                      title: 'Guarding\nServices',
                                     ),
                                   ),
                                 ),

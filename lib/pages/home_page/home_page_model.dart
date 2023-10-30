@@ -59,6 +59,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   late MenuIconModel menuIconModel16;
   // Model for MenuIcon component.
   late MenuIconModel menuIconModel17;
+  // Model for MenuIcon component.
+  late MenuIconModel menuIconModel18;
   // Model for BottomNav component.
   late BottomNavModel bottomNavModel;
 
@@ -83,6 +85,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     menuIconModel15 = createModel(context, () => MenuIconModel());
     menuIconModel16 = createModel(context, () => MenuIconModel());
     menuIconModel17 = createModel(context, () => MenuIconModel());
+    menuIconModel18 = createModel(context, () => MenuIconModel());
     bottomNavModel = createModel(context, () => BottomNavModel());
   }
 
@@ -106,6 +109,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     menuIconModel15.dispose();
     menuIconModel16.dispose();
     menuIconModel17.dispose();
+    menuIconModel18.dispose();
     bottomNavModel.dispose();
   }
 
