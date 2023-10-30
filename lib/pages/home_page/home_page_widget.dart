@@ -997,10 +997,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
-                                        FFIcons.kcleaning,
+                                        FFIcons.kwipingFloor,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 50.0,
+                                        size: 35.0,
                                       ),
                                       title: 'Fidelity\nCleaning',
                                     ),
@@ -1039,10 +1039,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
-                                        FFIcons.kguarding,
+                                        FFIcons.kbulletproofVest,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 50.0,
+                                        size: 35.0,
                                       ),
                                       title: 'Guarding\nServices',
                                     ),

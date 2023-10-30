@@ -193,6 +193,9 @@ flutter:
     - family: Fesslogo6
       fonts:
         - asset: assets/fonts/fesslogo6.ttf
+    - family: Fesslogo7
+      fonts:
+        - asset: assets/fonts/fesslogo7.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
