@@ -1,5 +1,4 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/components/banner_slider_widget.dart';
 import '/components/bottom_nav_widget.dart';
@@ -24,8 +23,6 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Backend Call - API (Authentication)] action in HomePage widget.
-  ApiCallResponse? apiResultzcx;
   // Model for BannerSlider component.
   late BannerSliderModel bannerSliderModel;
   // Model for MenuIcon component.

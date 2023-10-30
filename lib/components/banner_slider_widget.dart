@@ -69,13 +69,10 @@ class _BannerSliderWidgetState extends State<BannerSliderWidget> {
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).primary,
             ),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-              child: Icon(
-                FFIcons.kfESSFidelityServicesGroupWhite,
-                color: FlutterFlowTheme.of(context).secondaryText,
-                size: 60.0,
-              ),
+            child: Icon(
+              FFIcons.kfESSFidelityServicesGroupWhite,
+              color: FlutterFlowTheme.of(context).secondaryText,
+              size: 70.0,
             ),
           ),
           Padding(

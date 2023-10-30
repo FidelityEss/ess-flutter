@@ -1,5 +1,4 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/components/banner_slider_widget.dart';
 import '/components/bottom_nav_widget.dart';
@@ -37,38 +36,28 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (functions.hoursAgo(FFAppState().tokenUpdateTime!) >= 4) {
-        setState(() {
-          _model.profileRefreshing = true;
-        });
-        _model.apiResultzcx = await FessApiGroup.authenticationCall.call(
-          employeeNumber: valueOrDefault(currentUserDocument?.en, ''),
-          idNumber: valueOrDefault(currentUserDocument?.eid, ''),
-        );
-        if ((_model.apiResultzcx?.succeeded ?? true)) {
-          setState(() {
-            FFAppState().token = FessApiGroup.authenticationCall
-                .token(
-                  (_model.apiResultzcx?.jsonBody ?? ''),
-                )
-                .toString();
-            FFAppState().tokenUpdateTime = getCurrentTimestamp;
-          });
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
+        GoRouter.of(context).prepareAuthEvent();
+        await authManager.signOut();
+        GoRouter.of(context).clearRedirectLocation();
+
+        context.pushNamedAuth('IntroSlider3', context.mounted);
+
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return AlertDialog(
+              title: Text('Session Ended'),
               content: Text(
-                'Profile Refreshed',
-                style: TextStyle(
-                  color: FlutterFlowTheme.of(context).justWhite,
+                  'Your previous session ended. Please login again to continue.'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
                 ),
-              ),
-              duration: Duration(milliseconds: 4000),
-              backgroundColor: FlutterFlowTheme.of(context).secondary,
-            ),
-          );
-          setState(() {
-            _model.profileRefreshing = false;
-          });
-        }
+              ],
+            );
+          },
+        );
       }
     });
 
