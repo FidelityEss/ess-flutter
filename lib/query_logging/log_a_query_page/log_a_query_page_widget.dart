@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -90,9 +91,17 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                     title: 'Create a query',
                   ),
                 ),
+                wrapWithModel(
+                  model: _model.bannerSliderModel,
+                  updateCallback: () => setState(() {}),
+                  child: BannerSliderWidget(
+                    searchColour: FlutterFlowTheme.of(context).textFieldIcon,
+                    iconColour: FlutterFlowTheme.of(context).textFieldIcon,
+                    borderColour: FlutterFlowTheme.of(context).alternate,
+                  ),
+                ),
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     height: 170.0,
@@ -397,7 +406,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                 ),
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 32.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       await QueriesRecord.collection

@@ -197,6 +197,15 @@ final parametersBuilderMap =
   'PayrollServicesPage': ParameterData.none(),
   'HRServicesPage': ParameterData.none(),
   'SearchPage': ParameterData.none(),
+  'ReportFraudPage': ParameterData.none(),
+  'FraudReportsPage': ParameterData.none(),
+  'FraudDetailsPage': (data) async => ParameterData(
+        allParams: {
+          'id': getParameter<String>(data, 'id'),
+        },
+      ),
+  'UmsukaWemaliApplyPage': ParameterData.none(),
+  'LoanSubmitted': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

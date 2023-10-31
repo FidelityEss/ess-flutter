@@ -89,7 +89,7 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               wrapWithModel(
                 model: _model.customAppBarModel,
@@ -113,23 +113,41 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 64.0, 0.0, 0.0),
-                child: Text(
-                  'Send us a compliment',
-                  style: FlutterFlowTheme.of(context).titleLarge.override(
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.bold,
-                      ),
+                padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.asset(
+                    'assets/images/Fidelity-logo.png',
+                    width: 250.0,
+                    height: 250.0,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 0.0),
-                child: Text(
-                  'Hi there! We look forward to hearing back you. Your input is highly valued and will go all the way to our execs. Thank you for taking time out of your day to give us a compliment!',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Montserrat',
-                        color: FlutterFlowTheme.of(context).textFieldIcon,
-                      ),
+              Align(
+                alignment: AlignmentDirectional(-1.00, 0.00),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
+                  child: Text(
+                    'Send us a compliment',
+                    style: FlutterFlowTheme.of(context).titleLarge.override(
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1.00, 0.00),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 0.0),
+                  child: Text(
+                    'Hi there! We look forward to hearing back you. Your input is highly valued and will go all the way to our execs. Thank you for taking time out of your day to give us a compliment!',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).textFieldIcon,
+                        ),
+                  ),
                 ),
               ),
               Padding(
@@ -137,13 +155,30 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                 child: FlutterFlowDropDown<String>(
                   controller: _model.dropDownValueController1 ??=
                       FormFieldController<String>(null),
-                  options: ['Security Services', 'ADT', 'CashMaster'],
+                  options: [
+                    'N/A',
+                    'Outstanding Corporate Culture',
+                    'Innovative Leadership',
+                    'Exceptional Customer Service',
+                    'Sustainability Initiatives',
+                    'Community Involvement',
+                    'Bravery',
+                    'Service Excellence',
+                    'Out The Box Thinking',
+                    'Going the Extra Mile',
+                    'CEO’s Hero',
+                    'Growth Gladiator',
+                    'Courageous Crusader'
+                  ],
                   onChanged: (val) =>
                       setState(() => _model.dropDownValue1 = val),
                   width: double.infinity,
                   height: 45.0,
-                  textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                  hintText: 'Department',
+                  textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w500,
+                      ),
+                  hintText: 'Company Compliments',
                   icon: Icon(
                     Icons.keyboard_arrow_down_rounded,
                     color: FlutterFlowTheme.of(context).textFieldIcon,
@@ -166,16 +201,27 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                   controller: _model.dropDownValueController2 ??=
                       FormFieldController<String>(null),
                   options: [
-                    'Speedy Work',
-                    'Great Customer Service',
-                    'Above and beyond'
+                    'N/A',
+                    'Exemplary Work Ethic',
+                    'Exceptional Problem-Solving',
+                    'Strong Team Player',
+                    'Leadership Skills',
+                    'Effective Communication',
+                    'Continuous Learning',
+                    'Adaptability',
+                    'Customer Relations',
+                    'Innovative Thinking',
+                    'Mentorship and Training'
                   ],
                   onChanged: (val) =>
                       setState(() => _model.dropDownValue2 = val),
                   width: double.infinity,
                   height: 45.0,
-                  textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                  hintText: 'Compliment Type',
+                  textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w500,
+                      ),
+                  hintText: 'Employee Compliments',
                   icon: Icon(
                     Icons.keyboard_arrow_down_rounded,
                     color: FlutterFlowTheme.of(context).textFieldIcon,
@@ -216,14 +262,21 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Message',
-                          labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                          labelStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.override(
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w500,
+                                  ),
                           hintStyle: FlutterFlowTheme.of(context).bodySmall,
                           enabledBorder: InputBorder.none,
                           focusedBorder: InputBorder.none,
                           errorBorder: InputBorder.none,
                           focusedErrorBorder: InputBorder.none,
                         ),
-                        style: FlutterFlowTheme.of(context).bodySmall,
+                        style: FlutterFlowTheme.of(context).bodyLarge.override(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w500,
+                            ),
                         validator:
                             _model.nameControllerValidator.asValidator(context),
                       ),

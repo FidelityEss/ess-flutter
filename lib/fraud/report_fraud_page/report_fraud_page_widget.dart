@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_place_picker.dart';
@@ -16,26 +15,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'report_incident_page_model.dart';
-export 'report_incident_page_model.dart';
+import 'report_fraud_page_model.dart';
+export 'report_fraud_page_model.dart';
 
-class ReportIncidentPageWidget extends StatefulWidget {
-  const ReportIncidentPageWidget({Key? key}) : super(key: key);
+class ReportFraudPageWidget extends StatefulWidget {
+  const ReportFraudPageWidget({Key? key}) : super(key: key);
 
   @override
-  _ReportIncidentPageWidgetState createState() =>
-      _ReportIncidentPageWidgetState();
+  _ReportFraudPageWidgetState createState() => _ReportFraudPageWidgetState();
 }
 
-class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
-  late ReportIncidentPageModel _model;
+class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
+  late ReportFraudPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ReportIncidentPageModel());
+    _model = createModel(context, () => ReportFraudPageModel());
 
     _model.titleController ??= TextEditingController();
     _model.titleFocusNode ??= FocusNode();
@@ -77,7 +75,6 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
             backgroundColor: FlutterFlowTheme.of(context).appBarColour,
             automaticallyImplyLeading: false,
             actions: [],
-            centerTitle: false,
             elevation: 0.0,
           ),
         ),
@@ -86,26 +83,18 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 wrapWithModel(
                   model: _model.customAppBarModel,
                   updateCallback: () => setState(() {}),
                   child: CustomAppBarWidget(
-                    title: 'Report An Incident',
-                  ),
-                ),
-                wrapWithModel(
-                  model: _model.bannerSliderModel,
-                  updateCallback: () => setState(() {}),
-                  child: BannerSliderWidget(
-                    searchColour: FlutterFlowTheme.of(context).textFieldIcon,
-                    iconColour: FlutterFlowTheme.of(context).textFieldIcon,
-                    borderColour: FlutterFlowTheme.of(context).alternate,
+                    title: 'Report Fraud',
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     height: 170.0,
@@ -158,7 +147,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 16.0, 0.0),
                                   child: Text(
-                                    'WickusP@fidelity-services.com',
+                                    'Mbusom@fidelity-services.com',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -180,18 +169,14 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                     ),
                   ),
                 ),
-                Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 0.0, 0.0),
-                    child: Text(
-                      'Incident Form',
-                      style: FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 0.0, 0.0),
+                  child: Text(
+                    'Fraud Form',
+                    style: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
                 ),
                 Padding(
@@ -201,20 +186,31 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                     controller: _model.typeValueController ??=
                         FormFieldController<String>(null),
                     options: [
-                      'Protest Violence',
-                      'Unauthorized Entry and Burglary',
-                      'Cybersecurity Breach',
-                      'Vandalism of Property and Equipment',
-                      'High-Profile VIP Security Breach',
-                      'House Theft',
-                      'Riots',
-                      'Cash Heist in Progress'
+                      'Embezzlement',
+                      'Invoice Fraud',
+                      'Expense Account Abuse',
+                      'Kickbacks and Bribes',
+                      'Financial Statement Manipulation',
+                      'Insider Trading',
+                      'Payroll Fraud',
+                      'Inventory Theft or Fraud',
+                      'Phishing and Data Breach Scams',
+                      'Contract Fraud',
+                      'Supplier Collusion',
+                      'Time and Attendance Fraud',
+                      'Fraudulent Marketing Practices',
+                      'Theft of company assets',
+                      'Timesheet fraud (Payroll)',
+                      'Fuel theft',
+                      'Bribery',
+                      'Identity fraud',
+                      'Defrauding of suppliers and customers by our employees'
                     ],
                     onChanged: (val) => setState(() => _model.typeValue = val),
                     width: double.infinity,
                     height: 50.0,
                     textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                    hintText: 'Incident',
+                    hintText: 'Fraud Type',
                     icon: Icon(
                       Icons.keyboard_arrow_down_rounded,
                       color: FlutterFlowTheme.of(context).black,
@@ -391,12 +387,12 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                 ),
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 32.0),
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 16.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      await IncidentsRecord.collection
+                      await FraudIncidentsRecord.collection
                           .doc()
-                          .set(createIncidentsRecordData(
+                          .set(createFraudIncidentsRecordData(
                             id: '${getCurrentTimestamp.microsecondsSinceEpoch.toString()}${random_data.randomString(
                               10,
                               10,
@@ -411,11 +407,9 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                             message: _model.messageController.text,
                             created: getCurrentTimestamp,
                             updated: getCurrentTimestamp,
-                            location: _model.placePickerValue.latLng,
                             assignee: 'No Assignee',
                             status: 'Logged',
                             userName: currentUserDisplayName,
-                            locationName: _model.placePickerValue.name,
                           ));
                       await showDialog(
                         context: context,

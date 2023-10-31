@@ -58,3 +58,13 @@ export '/payroll_services_page/payroll_services_page_widget.dart'
 export '/h_r_services_page/h_r_services_page_widget.dart'
     show HRServicesPageWidget;
 export '/search_page/search_page_widget.dart' show SearchPageWidget;
+export '/fraud/report_fraud_page/report_fraud_page_widget.dart'
+    show ReportFraudPageWidget;
+export '/fraud/fraud_reports_page/fraud_reports_page_widget.dart'
+    show FraudReportsPageWidget;
+export '/fraud/fraud_details_page/fraud_details_page_widget.dart'
+    show FraudDetailsPageWidget;
+export '/umsuka/umsuka_wemali_apply_page/umsuka_wemali_apply_page_widget.dart'
+    show UmsukaWemaliApplyPageWidget;
+export '/umsuka/loan_submitted/loan_submitted_widget.dart'
+    show LoanSubmittedWidget;

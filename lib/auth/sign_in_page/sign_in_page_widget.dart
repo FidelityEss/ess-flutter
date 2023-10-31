@@ -132,14 +132,14 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                             labelStyle:
                                 FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Montserrat',
+                                      color: Color(0xFF4C4C4C),
                                       fontSize: 10.0,
                                     ),
                             hintText: 'Employee Number',
                             hintStyle:
                                 FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Montserrat',
-                                      color: FlutterFlowTheme.of(context)
-                                          .textFieldIcon,
+                                      color: Color(0xFF4C4C4C),
                                       fontSize: 16.0,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -177,15 +177,13 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                               size: 16.0,
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Montserrat',
-                                color:
-                                    FlutterFlowTheme.of(context).textFieldIcon,
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.w600,
-                              ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    color: Color(0xFF4C4C4C),
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                           validator: _model.employeeNumberControllerValidator
                               .asValidator(context),
                         ),
@@ -199,13 +197,16 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'ID Number',
-                            labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                            labelStyle:
+                                FlutterFlowTheme.of(context).bodySmall.override(
+                                      fontFamily: 'Montserrat',
+                                      color: Color(0xFF4C4C4C),
+                                    ),
                             hintText: 'ID Number',
                             hintStyle:
                                 FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Montserrat',
-                                      color: FlutterFlowTheme.of(context)
-                                          .textFieldIcon,
+                                      color: Color(0xFF4C4C4C),
                                       fontSize: 16.0,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -243,15 +244,13 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                               size: 16.0,
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Montserrat',
-                                color:
-                                    FlutterFlowTheme.of(context).textFieldIcon,
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.w600,
-                              ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    color: Color(0xFF4C4C4C),
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                           validator: _model.iDNumberControllerValidator
                               .asValidator(context),
                         ),

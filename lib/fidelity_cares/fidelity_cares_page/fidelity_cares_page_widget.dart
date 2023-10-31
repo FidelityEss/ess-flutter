@@ -114,20 +114,6 @@ class _FidelityCaresPageWidgetState extends State<FidelityCaresPageWidget> {
                         ),
                       ),
                     ),
-                    Icon(
-                      Icons.replay,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 18.0,
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 32.0, 0.0),
-                      child: Icon(
-                        Icons.info_outline_rounded,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 18.0,
-                      ),
-                    ),
                   ],
                 ),
               ),

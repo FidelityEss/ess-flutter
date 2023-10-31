@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -20,6 +21,8 @@ class LogAQueryPageModel extends FlutterFlowModel<LogAQueryPageWidget> {
   final unfocusNode = FocusNode();
   // Model for CustomAppBar component.
   late CustomAppBarModel customAppBarModel;
+  // Model for BannerSlider component.
+  late BannerSliderModel bannerSliderModel;
   // State field(s) for Type widget.
   String? typeValue;
   FormFieldController<String>? typeValueController;
@@ -42,11 +45,13 @@ class LogAQueryPageModel extends FlutterFlowModel<LogAQueryPageWidget> {
 
   void initState(BuildContext context) {
     customAppBarModel = createModel(context, () => CustomAppBarModel());
+    bannerSliderModel = createModel(context, () => BannerSliderModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
     customAppBarModel.dispose();
+    bannerSliderModel.dispose();
     titleFocusNode?.dispose();
     titleController?.dispose();
 

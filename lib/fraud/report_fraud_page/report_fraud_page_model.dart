@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_place_picker.dart';
@@ -11,22 +10,19 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/place.dart';
 import 'dart:io';
 import '/flutter_flow/random_data_util.dart' as random_data;
-import 'report_incident_page_widget.dart' show ReportIncidentPageWidget;
+import 'report_fraud_page_widget.dart' show ReportFraudPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ReportIncidentPageModel
-    extends FlutterFlowModel<ReportIncidentPageWidget> {
+class ReportFraudPageModel extends FlutterFlowModel<ReportFraudPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
   // Model for CustomAppBar component.
   late CustomAppBarModel customAppBarModel;
-  // Model for BannerSlider component.
-  late BannerSliderModel bannerSliderModel;
   // State field(s) for Type widget.
   String? typeValue;
   FormFieldController<String>? typeValueController;
@@ -48,13 +44,11 @@ class ReportIncidentPageModel
 
   void initState(BuildContext context) {
     customAppBarModel = createModel(context, () => CustomAppBarModel());
-    bannerSliderModel = createModel(context, () => BannerSliderModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
     customAppBarModel.dispose();
-    bannerSliderModel.dispose();
     titleFocusNode?.dispose();
     titleController?.dispose();
 

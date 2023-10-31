@@ -14,6 +14,9 @@ import 'schema/incident_update_record.dart';
 import 'schema/messages_record.dart';
 import 'schema/vacancies_record.dart';
 import 'schema/compliments_record.dart';
+import 'schema/fraud_incidents_record.dart';
+import 'schema/fraud_updates_record.dart';
+import 'schema/umsuka_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -30,6 +33,9 @@ export 'schema/incident_update_record.dart';
 export 'schema/messages_record.dart';
 export 'schema/vacancies_record.dart';
 export 'schema/compliments_record.dart';
+export 'schema/fraud_incidents_record.dart';
+export 'schema/fraud_updates_record.dart';
+export 'schema/umsuka_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -365,6 +371,120 @@ Future<List<ComplimentsRecord>> queryComplimentsRecordOnce({
     queryCollectionOnce(
       ComplimentsRecord.collection,
       ComplimentsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query FraudIncidentsRecords (as a Stream and as a Future).
+Future<int> queryFraudIncidentsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      FraudIncidentsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<FraudIncidentsRecord>> queryFraudIncidentsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      FraudIncidentsRecord.collection,
+      FraudIncidentsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<FraudIncidentsRecord>> queryFraudIncidentsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      FraudIncidentsRecord.collection,
+      FraudIncidentsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query FraudUpdatesRecords (as a Stream and as a Future).
+Future<int> queryFraudUpdatesRecordCount({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      FraudUpdatesRecord.collection(parent),
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<FraudUpdatesRecord>> queryFraudUpdatesRecord({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      FraudUpdatesRecord.collection(parent),
+      FraudUpdatesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<FraudUpdatesRecord>> queryFraudUpdatesRecordOnce({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      FraudUpdatesRecord.collection(parent),
+      FraudUpdatesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query UmsukaRecords (as a Stream and as a Future).
+Future<int> queryUmsukaRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      UmsukaRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<UmsukaRecord>> queryUmsukaRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      UmsukaRecord.collection,
+      UmsukaRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<UmsukaRecord>> queryUmsukaRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      UmsukaRecord.collection,
+      UmsukaRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

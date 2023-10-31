@@ -5,27 +5,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'compliment_submitted_page_model.dart';
-export 'compliment_submitted_page_model.dart';
+import 'loan_submitted_model.dart';
+export 'loan_submitted_model.dart';
 
-class ComplimentSubmittedPageWidget extends StatefulWidget {
-  const ComplimentSubmittedPageWidget({Key? key}) : super(key: key);
+class LoanSubmittedWidget extends StatefulWidget {
+  const LoanSubmittedWidget({Key? key}) : super(key: key);
 
   @override
-  _ComplimentSubmittedPageWidgetState createState() =>
-      _ComplimentSubmittedPageWidgetState();
+  _LoanSubmittedWidgetState createState() => _LoanSubmittedWidgetState();
 }
 
-class _ComplimentSubmittedPageWidgetState
-    extends State<ComplimentSubmittedPageWidget> {
-  late ComplimentSubmittedPageModel _model;
+class _LoanSubmittedWidgetState extends State<LoanSubmittedWidget> {
+  late LoanSubmittedModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ComplimentSubmittedPageModel());
+    _model = createModel(context, () => LoanSubmittedModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -63,6 +61,18 @@ class _ComplimentSubmittedPageWidgetState
             backgroundColor: FlutterFlowTheme.of(context).appBarColour,
             automaticallyImplyLeading: false,
             actions: [],
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                'Page Title',
+                style: FlutterFlowTheme.of(context).headlineMedium.override(
+                      fontFamily: 'Montserrat',
+                      color: Colors.white,
+                      fontSize: 22.0,
+                    ),
+              ),
+              centerTitle: false,
+              expandedTitleScale: 1.0,
+            ),
             elevation: 0.0,
           ),
         ),
@@ -74,6 +84,18 @@ class _ComplimentSubmittedPageWidgetState
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/images/Fidelity-logo.png',
+                      width: 250.0,
+                      height: 250.0,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
                 Container(
                   width: 80.0,
                   height: 80.0,
@@ -90,7 +112,7 @@ class _ComplimentSubmittedPageWidgetState
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                   child: Text(
-                    'Compliment Submitted',
+                    'Loan Application Submitted',
                     style: FlutterFlowTheme.of(context).titleMedium.override(
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.bold,
@@ -100,9 +122,9 @@ class _ComplimentSubmittedPageWidgetState
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 0.0),
                   child: Text(
-                    'Thank you for making it this far. We appreciate your feedback!',
+                    'Thank you for using Umsuka Wemali to apply for a loan. We have sent your details to the relevant department and an Umsuka Wemali call centre agent will contact you.',
                     textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).bodyLarge,
+                    style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Padding(

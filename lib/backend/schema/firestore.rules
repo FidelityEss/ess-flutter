@@ -73,5 +73,31 @@ service cloud.firestore {
       allow write: if true;
       allow delete: if true;
     }
+
+    match /fraud_incidents/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /fraud_incidents/{parent}/fraud_updates/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /{path=**}/fraud_updates/{document} {
+      allow read: if true;
+    }
+
+
+    match /umsuka/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
   }
 }

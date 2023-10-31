@@ -287,6 +287,33 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'SearchPage',
           path: '/searchPage',
           builder: (context, params) => SearchPageWidget(),
+        ),
+        FFRoute(
+          name: 'ReportFraudPage',
+          path: '/reportFraudPage',
+          builder: (context, params) => ReportFraudPageWidget(),
+        ),
+        FFRoute(
+          name: 'FraudReportsPage',
+          path: '/fraudReportsPage',
+          builder: (context, params) => FraudReportsPageWidget(),
+        ),
+        FFRoute(
+          name: 'FraudDetailsPage',
+          path: '/fraudDetailsPage',
+          builder: (context, params) => FraudDetailsPageWidget(
+            id: params.getParam('id', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'UmsukaWemaliApplyPage',
+          path: '/umsukaWemaliApplyPage',
+          builder: (context, params) => UmsukaWemaliApplyPageWidget(),
+        ),
+        FFRoute(
+          name: 'LoanSubmitted',
+          path: '/loanSubmitted',
+          builder: (context, params) => LoanSubmittedWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
