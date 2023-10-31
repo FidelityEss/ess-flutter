@@ -196,6 +196,7 @@ final parametersBuilderMap =
       ),
   'PayrollServicesPage': ParameterData.none(),
   'HRServicesPage': ParameterData.none(),
+  'SearchPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

@@ -81,6 +81,10 @@ class _BannerSliderWidgetState extends State<BannerSliderWidget> {
               child: TextFormField(
                 controller: _model.textController,
                 focusNode: _model.textFieldFocusNode,
+                onFieldSubmitted: (_) async {
+                  context.pushNamed('SearchPage');
+                },
+                readOnly: true,
                 obscureText: false,
                 decoration: InputDecoration(
                   isDense: true,

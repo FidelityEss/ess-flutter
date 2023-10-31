@@ -105,7 +105,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                   padding:
                       EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 42.0),
                   child: Text(
-                    'Hi! Welcome back to the Fidelity ESS app',
+                    'Hi! Welcome back to FESS',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
                           fontFamily: 'Montserrat',
@@ -138,7 +138,10 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                             hintStyle:
                                 FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Montserrat',
-                                      fontSize: 12.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .textFieldIcon,
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.w600,
                                     ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -174,11 +177,15 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                               size: 16.0,
                             ),
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Montserrat',
-                                    fontSize: 12.0,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Montserrat',
+                                color:
+                                    FlutterFlowTheme.of(context).textFieldIcon,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.w600,
+                              ),
                           validator: _model.employeeNumberControllerValidator
                               .asValidator(context),
                         ),
@@ -197,7 +204,10 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                             hintStyle:
                                 FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Montserrat',
-                                      fontSize: 12.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .textFieldIcon,
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.w600,
                                     ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -233,32 +243,18 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                               size: 16.0,
                             ),
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Montserrat',
-                                    fontSize: 12.0,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Montserrat',
+                                color:
+                                    FlutterFlowTheme.of(context).textFieldIcon,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.w600,
+                              ),
                           validator: _model.iDNumberControllerValidator
                               .asValidator(context),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 12.0, 32.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        'Forgot Employee Number?',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Montserrat',
-                              color: FlutterFlowTheme.of(context).primary,
-                              fontWeight: FontWeight.w600,
-                            ),
                       ),
                     ],
                   ),
@@ -382,71 +378,6 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                       ),
                       borderRadius: BorderRadius.circular(5.0),
                     ),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(64.0, 32.0, 64.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: Container(
-                          width: 100.0,
-                          height: 1.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).borderColour,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
-                        child: Text(
-                          'Or',
-                          style: FlutterFlowTheme.of(context).bodySmall,
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          width: 100.0,
-                          height: 1.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).borderColour,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 64.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Don\'t have an account?',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w600,
-                            ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                        child: Text(
-                          'Reach out to HR.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Montserrat',
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                        ),
-                      ),
-                    ],
                   ),
                 ),
               ],

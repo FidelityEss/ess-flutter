@@ -61,3 +61,10 @@ int hoursAgo(DateTime time) {
 
   return hoursDifference;
 }
+
+List<String>? searchFilter(
+  List<String> list,
+  String keyword,
+) {
+  return list.where((item) => item.contains(keyword)).toList();
+}

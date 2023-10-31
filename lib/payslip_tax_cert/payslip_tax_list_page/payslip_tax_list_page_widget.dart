@@ -113,36 +113,6 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        context.pushNamed('QueriesPage');
-                      },
-                      text: 'Have Any Queries?',
-                      options: FFButtonOptions(
-                        width: double.infinity,
-                        height: 40.0,
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).secondary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).bodyMedium.override(
-                                  fontFamily: 'Montserrat',
-                                  color: FlutterFlowTheme.of(context).justWhite,
-                                ),
-                        elevation: 0.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
                     child: Text(
                       'Showing payslips for the last 12 months',
                       style: FlutterFlowTheme.of(context).labelMedium.override(

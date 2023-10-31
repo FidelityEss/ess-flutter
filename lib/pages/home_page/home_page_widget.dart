@@ -484,116 +484,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('IncidentsPage');
-                                  },
-                                  child: wrapWithModel(
-                                    model: _model.menuIconModel3,
-                                    updateCallback: () => setState(() {}),
-                                    child: MenuIconWidget(
-                                      icon: Icon(
-                                        FFIcons.knewAppIconsReportFraud,
-                                        color: FlutterFlowTheme.of(context)
-                                            .justWhite,
-                                        size: 50.0,
-                                      ),
-                                      title: 'Report\nFraud',
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed('IncidentsPage');
-                                  },
-                                  child: wrapWithModel(
-                                    model: _model.menuIconModel4,
-                                    updateCallback: () => setState(() {}),
-                                    child: MenuIconWidget(
-                                      icon: Icon(
-                                        FFIcons.ksos,
-                                        color: FlutterFlowTheme.of(context)
-                                            .justWhite,
-                                        size: 40.0,
-                                      ),
-                                      title: 'Report\nIncident',
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Expanded(
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed('MessagesBox');
-                                  },
-                                  child: wrapWithModel(
-                                    model: _model.menuIconModel5,
-                                    updateCallback: () => setState(() {}),
-                                    child: MenuIconWidget(
-                                      icon: Icon(
-                                        FFIcons.knewAppIconsMessages,
-                                        color: FlutterFlowTheme.of(context)
-                                            .justWhite,
-                                        size: 50.0,
-                                      ),
-                                      title: 'Your\nMailbox',
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed('EventsPage');
-                                  },
-                                  child: wrapWithModel(
-                                    model: _model.menuIconModel6,
-                                    updateCallback: () => setState(() {}),
-                                    child: MenuIconWidget(
-                                      icon: Icon(
-                                        FFIcons.kcalendar,
-                                        color: FlutterFlowTheme.of(context)
-                                            .justWhite,
-                                        size: 45.0,
-                                      ),
-                                      title: 'View\nEvents',
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
                                     context.pushNamed('HRServicesPage');
                                   },
                                   child: wrapWithModel(
-                                    model: _model.menuIconModel7,
+                                    model: _model.menuIconModel3,
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
@@ -617,7 +511,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     context.pushNamed('VanciesPage');
                                   },
                                   child: wrapWithModel(
-                                    model: _model.menuIconModel8,
+                                    model: _model.menuIconModel4,
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
@@ -648,99 +542,35 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('ComplimentsPage');
-                                  },
-                                  child: wrapWithModel(
-                                    model: _model.menuIconModel9,
-                                    updateCallback: () => setState(() {}),
-                                    child: MenuIconWidget(
-                                      icon: Icon(
-                                        FFIcons.knewAppIconsCompliments,
-                                        color: FlutterFlowTheme.of(context)
-                                            .justWhite,
-                                        size: 50.0,
-                                      ),
-                                      title: 'Send\nCompliments',
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
                                     context.pushNamed(
                                       'InfoPage',
                                       queryParameters: {
                                         'heading': serializeParam(
-                                          'Fidelity inSure',
+                                          'Guarding Services',
                                           ParamType.String,
                                         ),
                                         'description': serializeParam(
-                                          'We’ve partnered with Auto & General* to bring you Fidelity inSure – an all-in-one insurance offering covering vehicle, roadside, home, accident, trauma and legal assistance and benefits.',
+                                          'Fidelity Security Services is able to offer customers comprehensive guarding solutions in a vast range of small and large scale industries.',
                                           ParamType.String,
                                         ),
                                         'link': serializeParam(
-                                          'https://fidelity-services.com/our-products-services/fidelity-insure/',
+                                          'https://fidelity-services.com/our-products-services/fidelity-security-services/?gad_source=1&gclid=Cj0KCQjwqP2pBhDMARIsAJQ0CzpUmeL-TzQtsP1VK9vCDk5YF7JdKq48woHqLJnrGMbEfqbGRPXI3s4aAg2ZEALw_wcB',
                                           ParamType.String,
                                         ),
                                       }.withoutNulls,
                                     );
                                   },
                                   child: wrapWithModel(
-                                    model: _model.menuIconModel10,
+                                    model: _model.menuIconModel5,
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
-                                        FFIcons.knewAppIconsFidelityInsure,
+                                        FFIcons.kbulletproofVest,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 50.0,
+                                        size: 35.0,
                                       ),
-                                      title: 'Fidelity\nInsure',
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed(
-                                      'InfoPage',
-                                      queryParameters: {
-                                        'description': serializeParam(
-                                          'The premier choice for clients and businesses who seek high quality, cost-effective fire solutions and products that are scalable, innovative and offer a superior customer service experience.',
-                                          ParamType.String,
-                                        ),
-                                        'link': serializeParam(
-                                          'https://fidelity-services.com/our-products-services/fidelity-securefire/',
-                                          ParamType.String,
-                                        ),
-                                        'heading': serializeParam(
-                                          'Total Integrated Fire Solutions',
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
-                                  },
-                                  child: wrapWithModel(
-                                    model: _model.menuIconModel11,
-                                    updateCallback: () => setState(() {}),
-                                    child: MenuIconWidget(
-                                      icon: Icon(
-                                        FFIcons.knewAppIconsFidelityFire,
-                                        color: FlutterFlowTheme.of(context)
-                                            .justWhite,
-                                        size: 50.0,
-                                      ),
-                                      title: 'Fidelity\nFire',
+                                      title: 'Guarding\nServices',
                                     ),
                                   ),
                                 ),
@@ -771,7 +601,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     );
                                   },
                                   child: wrapWithModel(
-                                    model: _model.menuIconModel12,
+                                    model: _model.menuIconModel6,
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
@@ -785,16 +615,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
                               Expanded(
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -821,7 +641,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     );
                                   },
                                   child: wrapWithModel(
-                                    model: _model.menuIconModel13,
+                                    model: _model.menuIconModel7,
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
@@ -831,6 +651,136 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         size: 50.0,
                                       ),
                                       title: 'Fidelity\nADT',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'InfoPage',
+                                      queryParameters: {
+                                        'heading': serializeParam(
+                                          'Fidelity inSure',
+                                          ParamType.String,
+                                        ),
+                                        'description': serializeParam(
+                                          'We’ve partnered with Auto & General* to bring you Fidelity inSure – an all-in-one insurance offering covering vehicle, roadside, home, accident, trauma and legal assistance and benefits.',
+                                          ParamType.String,
+                                        ),
+                                        'link': serializeParam(
+                                          'https://fidelity-services.com/our-products-services/fidelity-insure/',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel8,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.knewAppIconsFidelityInsure,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 50.0,
+                                      ),
+                                      title: 'Fidelity\nInsure',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 16.0, 16.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'InfoPage',
+                                      queryParameters: {
+                                        'heading': serializeParam(
+                                          'Specialised cleaning and hygiene',
+                                          ParamType.String,
+                                        ),
+                                        'description': serializeParam(
+                                          'Fidelity Cleaning Services is an environmentally-friendly service that not only offers the best tools, equipment and cleaning agents to meet any requirement, but also professionally trained staff to tackle scenarios small and large, across all sectors.',
+                                          ParamType.String,
+                                        ),
+                                        'link': serializeParam(
+                                          'https://fidelity-services.com/our-products-services/fidelity-cleaning-services/',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel9,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.kwipingFloor,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 35.0,
+                                      ),
+                                      title: 'Fidelity\nCleaning',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'InfoPage',
+                                      queryParameters: {
+                                        'description': serializeParam(
+                                          'The premier choice for clients and businesses who seek high quality, cost-effective fire solutions and products that are scalable, innovative and offer a superior customer service experience.',
+                                          ParamType.String,
+                                        ),
+                                        'link': serializeParam(
+                                          'https://fidelity-services.com/our-products-services/fidelity-securefire/',
+                                          ParamType.String,
+                                        ),
+                                        'heading': serializeParam(
+                                          'Total Integrated Fire Solutions',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel10,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.knewAppIconsFidelityFire,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 50.0,
+                                      ),
+                                      title: 'Fidelity\nFire',
                                     ),
                                   ),
                                 ),
@@ -861,7 +811,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     );
                                   },
                                   child: wrapWithModel(
-                                    model: _model.menuIconModel14,
+                                    model: _model.menuIconModel11,
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
@@ -901,7 +851,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     );
                                   },
                                   child: wrapWithModel(
-                                    model: _model.menuIconModel15,
+                                    model: _model.menuIconModel12,
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
@@ -915,46 +865,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   ),
                                 ),
                               ),
-                              Expanded(
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed(
-                                      'InfoPage',
-                                      queryParameters: {
-                                        'heading': serializeParam(
-                                          'Fidelity Training',
-                                          ParamType.String,
-                                        ),
-                                        'description': serializeParam(
-                                          'As a pioneer in the security training and development market, Fidelity Services Group was one of the first companies in the country to establish and professionalise the first learnership programme for security officers.',
-                                          ParamType.String,
-                                        ),
-                                        'link': serializeParam(
-                                          'https://fidelity-services.com/training-and-development/',
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
-                                  },
-                                  child: wrapWithModel(
-                                    model: _model.menuIconModel16,
-                                    updateCallback: () => setState(() {}),
-                                    child: MenuIconWidget(
-                                      icon: Icon(
-                                        FFIcons.knewAppIconsTraining,
-                                        color: FlutterFlowTheme.of(context)
-                                            .justWhite,
-                                        size: 50.0,
-                                      ),
-                                      title: 'Fidelity\nTraining',
-                                    ),
-                                  ),
-                                ),
-                              ),
                             ],
                           ),
                         ),
@@ -963,88 +873,100 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               16.0, 16.0, 16.0, 32.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 0.0, 0.0),
+                              Expanded(
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed(
-                                      'InfoPage',
-                                      queryParameters: {
-                                        'heading': serializeParam(
-                                          'Specialised cleaning and hygiene',
-                                          ParamType.String,
-                                        ),
-                                        'description': serializeParam(
-                                          'Fidelity Cleaning Services is an environmentally-friendly service that not only offers the best tools, equipment and cleaning agents to meet any requirement, but also professionally trained staff to tackle scenarios small and large, across all sectors.',
-                                          ParamType.String,
-                                        ),
-                                        'link': serializeParam(
-                                          'https://fidelity-services.com/our-products-services/fidelity-cleaning-services/',
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
+                                    context.pushNamed('ComplimentsPage');
                                   },
                                   child: wrapWithModel(
-                                    model: _model.menuIconModel17,
+                                    model: _model.menuIconModel13,
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
-                                        FFIcons.kwipingFloor,
+                                        FFIcons.knewAppIconsCompliments,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 35.0,
+                                        size: 50.0,
                                       ),
-                                      title: 'Fidelity\nCleaning',
+                                      title: 'Send\nCompliments',
                                     ),
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
+                              Expanded(
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed(
-                                      'InfoPage',
-                                      queryParameters: {
-                                        'heading': serializeParam(
-                                          'Guarding Services',
-                                          ParamType.String,
-                                        ),
-                                        'description': serializeParam(
-                                          'Fidelity Security Services is able to offer customers comprehensive guarding solutions in a vast range of small and large scale industries.',
-                                          ParamType.String,
-                                        ),
-                                        'link': serializeParam(
-                                          'https://fidelity-services.com/our-products-services/fidelity-security-services/?gad_source=1&gclid=Cj0KCQjwqP2pBhDMARIsAJQ0CzpUmeL-TzQtsP1VK9vCDk5YF7JdKq48woHqLJnrGMbEfqbGRPXI3s4aAg2ZEALw_wcB',
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
+                                    context.pushNamed('IncidentsPage');
                                   },
                                   child: wrapWithModel(
-                                    model: _model.menuIconModel18,
+                                    model: _model.menuIconModel14,
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
-                                        FFIcons.kbulletproofVest,
+                                        FFIcons.knewAppIconsReportFraud,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        size: 35.0,
+                                        size: 50.0,
                                       ),
-                                      title: 'Guarding\nServices',
+                                      title: 'Report\nFraud',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('IncidentsPage');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel15,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.ksos,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 40.0,
+                                      ),
+                                      title: 'Report\nIncident',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('EventsPage');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel16,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.kcalendar,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 45.0,
+                                      ),
+                                      title: 'View\nEvents',
                                     ),
                                   ),
                                 ),

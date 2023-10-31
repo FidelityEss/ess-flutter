@@ -282,6 +282,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'HRServicesPage',
           path: '/hRServicesPage',
           builder: (context, params) => HRServicesPageWidget(),
+        ),
+        FFRoute(
+          name: 'SearchPage',
+          path: '/searchPage',
+          builder: (context, params) => SearchPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

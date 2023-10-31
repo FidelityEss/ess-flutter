@@ -233,7 +233,7 @@ class _TimeAndAttendancePageWidgetState
                                                             .override(
                                                               fontFamily:
                                                                   'Montserrat',
-                                                              fontSize: 12.0,
+                                                              fontSize: 14.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w600,

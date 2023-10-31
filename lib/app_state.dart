@@ -29,6 +29,9 @@ class FFAppState extends ChangeNotifier {
               prefs.getInt('ff_tokenUpdateTime')!)
           : _tokenUpdateTime;
     });
+    _safeInit(() {
+      _searchItems = prefs.getStringList('ff_searchItems') ?? _searchItems;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -81,6 +84,45 @@ class FFAppState extends ChangeNotifier {
     _value != null
         ? prefs.setInt('ff_tokenUpdateTime', _value.millisecondsSinceEpoch)
         : prefs.remove('ff_tokenUpdateTime');
+  }
+
+  List<String> _searchItems = [
+    'Payroll Services',
+    'Fidelity Cares',
+    'Report Fraud'
+  ];
+  List<String> get searchItems => _searchItems;
+  set searchItems(List<String> _value) {
+    _searchItems = _value;
+    prefs.setStringList('ff_searchItems', _value);
+  }
+
+  void addToSearchItems(String _value) {
+    _searchItems.add(_value);
+    prefs.setStringList('ff_searchItems', _searchItems);
+  }
+
+  void removeFromSearchItems(String _value) {
+    _searchItems.remove(_value);
+    prefs.setStringList('ff_searchItems', _searchItems);
+  }
+
+  void removeAtIndexFromSearchItems(int _index) {
+    _searchItems.removeAt(_index);
+    prefs.setStringList('ff_searchItems', _searchItems);
+  }
+
+  void updateSearchItemsAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _searchItems[_index] = updateFn(_searchItems[_index]);
+    prefs.setStringList('ff_searchItems', _searchItems);
+  }
+
+  void insertAtIndexInSearchItems(int _index, String _value) {
+    _searchItems.insert(_index, _value);
+    prefs.setStringList('ff_searchItems', _searchItems);
   }
 }
 

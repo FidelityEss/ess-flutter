@@ -52,7 +52,7 @@ class _DetailedAppBarWidgetState extends State<DetailedAppBarWidget> {
 
     return Container(
       width: double.infinity,
-      height: 190.0,
+      height: 250.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primary,
         border: Border.all(
