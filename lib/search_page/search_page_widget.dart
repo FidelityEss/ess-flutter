@@ -170,44 +170,111 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 0.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    filteredListItem,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Montserrat',
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                  ),
-                                  Icon(
-                                    Icons.chevron_right_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .textFieldIcon,
-                                    size: 24.0,
-                                  ),
-                                ],
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 16.0, 0.0, 0.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  height: 1.0,
-                                  decoration: BoxDecoration(
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              if (filteredListItem == 'Payroll Services') {
+                                context.pushNamed('PayrollServicesPage');
+                              } else {
+                                if (filteredListItem == 'Fidelity Cares') {
+                                  context.pushNamed('FidelityCaresPage');
+                                } else {
+                                  if (filteredListItem == 'Human Resources') {
+                                    context.pushNamed('HRServicesPage');
+                                  } else {
+                                    if (filteredListItem == 'Vacancies') {
+                                      context.pushNamed('VanciesPage');
+                                    } else {
+                                      if (filteredListItem == 'Compliments') {
+                                        context.pushNamed('ComplimentsPage');
+                                      } else {
+                                        if (filteredListItem ==
+                                            'Report Incident') {
+                                          context
+                                              .pushNamed('ReportIncidentPage');
+                                        } else {
+                                          if (filteredListItem == 'Events') {
+                                            context.pushNamed('EventsPage');
+                                          } else {
+                                            if (filteredListItem ==
+                                                'Payslips') {
+                                              context.pushNamed(
+                                                  'PayslipTaxListPage');
+                                            } else {
+                                              if (filteredListItem ==
+                                                  'Time and Attendance') {
+                                                context.pushNamed(
+                                                    'TimeAndAttendancePage');
+                                              } else {
+                                                if (filteredListItem ==
+                                                    'Queries') {
+                                                  context
+                                                      .pushNamed('QueriesPage');
+                                                } else {
+                                                  if (filteredListItem ==
+                                                      'Messages') {
+                                                    context.pushNamed(
+                                                        'MessagesBox');
+                                                  } else {
+                                                    if (filteredListItem ==
+                                                        'Profile') {
+                                                      context.pushNamed(
+                                                          'ManageProfile');
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      filteredListItem,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                    Icon(
+                                      Icons.chevron_right_rounded,
+                                      color: FlutterFlowTheme.of(context)
+                                          .textFieldIcon,
+                                      size: 24.0,
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 16.0, 0.0, 0.0),
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 1.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         );
                       },

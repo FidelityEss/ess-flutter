@@ -89,7 +89,28 @@ class FFAppState extends ChangeNotifier {
   List<String> _searchItems = [
     'Payroll Services',
     'Fidelity Cares',
-    'Report Fraud'
+    'Human Resources',
+    'Vacancies',
+    'Guarding Services',
+    'Fidelity Cash',
+    'Fidelity ADT',
+    'Fidelity Insure',
+    'Fidelity Cleaning',
+    'Fidelity Fire',
+    'Secure Drive',
+    'Umsuka Wemali',
+    'Compliments',
+    'Report Fraud',
+    'Report Incident',
+    'Events',
+    'Payslips',
+    'Time and Attendance',
+    'Queries',
+    'Training and Development',
+    'Messages',
+    'Profile',
+    'Privacy Policy',
+    'Terms and Conditions'
   ];
   List<String> get searchItems => _searchItems;
   set searchItems(List<String> _value) {

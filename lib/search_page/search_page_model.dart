@@ -40,5 +40,7 @@ class SearchPageModel extends FlutterFlowModel<SearchPageWidget> {
 
   /// Action blocks are added here.
 
+  Future searchNavigation(BuildContext context) async {}
+
   /// Additional helper methods are added here.
 }

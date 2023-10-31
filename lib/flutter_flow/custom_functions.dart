@@ -66,5 +66,6 @@ List<String>? searchFilter(
   List<String> list,
   String keyword,
 ) {
-  return list.where((item) => item.contains(keyword)).toList();
+  keyword = keyword.toLowerCase();
+  return list.where((item) => item.toLowerCase().contains(keyword)).toList();
 }
