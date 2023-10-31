@@ -79,366 +79,379 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              wrapWithModel(
-                model: _model.customAppBarModel,
-                updateCallback: () => setState(() {}),
-                child: CustomAppBarWidget(
-                  title: 'Compliments',
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
-                child: LinearPercentIndicator(
-                  percent: 0.3,
-                  width: MediaQuery.sizeOf(context).width * 0.85,
-                  lineHeight: 5.0,
-                  animation: true,
-                  animateFromLastPercent: true,
-                  progressColor: FlutterFlowTheme.of(context).primary,
-                  backgroundColor: FlutterFlowTheme.of(context).alternate,
-                  barRadius: Radius.circular(10.0),
-                  padding: EdgeInsets.zero,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(
-                    'assets/images/Fidelity-logo.png',
-                    width: 250.0,
-                    height: 250.0,
-                    fit: BoxFit.contain,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                wrapWithModel(
+                  model: _model.customAppBarModel,
+                  updateCallback: () => setState(() {}),
+                  child: CustomAppBarWidget(
+                    title: 'Compliments',
                   ),
                 ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(-1.00, 0.00),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
-                  child: Text(
-                    'Send us a compliment',
-                    style: FlutterFlowTheme.of(context).titleLarge.override(
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.bold,
-                        ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: LinearPercentIndicator(
+                    percent: 0.3,
+                    width: MediaQuery.sizeOf(context).width * 0.85,
+                    lineHeight: 5.0,
+                    animation: true,
+                    animateFromLastPercent: true,
+                    progressColor: FlutterFlowTheme.of(context).primary,
+                    backgroundColor: FlutterFlowTheme.of(context).alternate,
+                    barRadius: Radius.circular(10.0),
+                    padding: EdgeInsets.zero,
                   ),
                 ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(-1.00, 0.00),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 0.0),
-                  child: Text(
-                    'Hi there! We look forward to hearing back you. Your input is highly valued and will go all the way to our execs. Thank you for taking time out of your day to give us a compliment!',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          color: FlutterFlowTheme.of(context).textFieldIcon,
-                        ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
-                child: AuthUserStreamWidget(
-                  builder: (context) => TextFormField(
-                    controller: _model.nameController1,
-                    focusNode: _model.nameFocusNode1,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: 'Name',
-                      labelStyle:
-                          FlutterFlowTheme.of(context).bodySmall.override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w500,
-                              ),
-                      hintText: 'Name',
-                      hintStyle:
-                          FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w500,
-                              ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).alternate,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).primary,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.person_rounded,
-                        color: FlutterFlowTheme.of(context).textFieldIcon,
-                        size: 16.0,
-                      ),
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.w500,
-                        ),
-                    validator:
-                        _model.nameController1Validator.asValidator(context),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                child: AuthUserStreamWidget(
-                  builder: (context) => TextFormField(
-                    controller: _model.nameController2,
-                    focusNode: _model.nameFocusNode2,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: 'Surname',
-                      labelStyle:
-                          FlutterFlowTheme.of(context).bodySmall.override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w500,
-                              ),
-                      hintText: 'Surname',
-                      hintStyle:
-                          FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w500,
-                              ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).alternate,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).primary,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.person_rounded,
-                        color: FlutterFlowTheme.of(context).textFieldIcon,
-                        size: 16.0,
-                      ),
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.w500,
-                        ),
-                    validator:
-                        _model.nameController2Validator.asValidator(context),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                child: TextFormField(
-                  controller: _model.nameController3,
-                  focusNode: _model.nameFocusNode3,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    labelText: 'Email Address',
-                    labelStyle: FlutterFlowTheme.of(context).bodySmall.override(
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.w500,
-                        ),
-                    hintText: 'Email Address',
-                    hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.w500,
-                        ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).alternate,
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).primary,
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).error,
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                    focusedErrorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).error,
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                    prefixIcon: Icon(
-                      Icons.email_rounded,
-                      color: FlutterFlowTheme.of(context).textFieldIcon,
-                      size: 16.0,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/images/Fidelity-logo.png',
+                      width: 250.0,
+                      height: 250.0,
+                      fit: BoxFit.contain,
                     ),
                   ),
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w500,
-                      ),
-                  validator:
-                      _model.nameController3Validator.asValidator(context),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                child: AuthUserStreamWidget(
-                  builder: (context) => TextFormField(
-                    controller: _model.nameController4,
-                    focusNode: _model.nameFocusNode4,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: 'Phone Number',
-                      labelStyle:
-                          FlutterFlowTheme.of(context).bodySmall.override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w500,
-                              ),
-                      hintText: 'Phone Number',
-                      hintStyle:
-                          FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w500,
-                              ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).alternate,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).primary,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.phone_rounded,
-                        color: FlutterFlowTheme.of(context).textFieldIcon,
-                        size: 16.0,
-                      ),
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.w500,
-                        ),
-                    validator:
-                        _model.nameController4Validator.asValidator(context),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 32.0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    context.pushNamed(
-                      'ComplimentsTwo',
-                      queryParameters: {
-                        'name': serializeParam(
-                          _model.nameController1.text,
-                          ParamType.String,
-                        ),
-                        'surname': serializeParam(
-                          _model.nameController2.text,
-                          ParamType.String,
-                        ),
-                        'email': serializeParam(
-                          _model.nameController3.text,
-                          ParamType.String,
-                        ),
-                        'phone': serializeParam(
-                          _model.nameController4.text,
-                          ParamType.String,
-                        ),
-                      }.withoutNulls,
-                    );
-                  },
-                  text: 'Next',
-                  options: FFButtonOptions(
-                    width: double.infinity,
-                    height: 40.0,
+                Align(
+                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).secondary,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          color: FlutterFlowTheme.of(context).justWhite,
-                        ),
-                    elevation: 0.0,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
+                        EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
+                    child: Text(
+                      'Send us a compliment',
+                      style: FlutterFlowTheme.of(context).titleLarge.override(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                          ),
                     ),
-                    borderRadius: BorderRadius.circular(5.0),
                   ),
                 ),
-              ),
-            ],
+                Align(
+                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 0.0),
+                    child: Text(
+                      'Hi there! We look forward to hearing back you. Your input is highly valued and will go all the way to our execs. Thank you for taking time out of your day to give us a compliment!',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Montserrat',
+                            color: FlutterFlowTheme.of(context).textFieldIcon,
+                          ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: AuthUserStreamWidget(
+                    builder: (context) => TextFormField(
+                      controller: _model.nameController1,
+                      focusNode: _model.nameFocusNode1,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Name',
+                        labelStyle:
+                            FlutterFlowTheme.of(context).bodySmall.override(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                        hintText: 'Name',
+                        hintStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.override(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).alternate,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primary,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        prefixIcon: Icon(
+                          Icons.person_rounded,
+                          color: FlutterFlowTheme.of(context).textFieldIcon,
+                          size: 16.0,
+                        ),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w500,
+                          ),
+                      validator:
+                          _model.nameController1Validator.asValidator(context),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: AuthUserStreamWidget(
+                    builder: (context) => TextFormField(
+                      controller: _model.nameController2,
+                      focusNode: _model.nameFocusNode2,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Surname',
+                        labelStyle:
+                            FlutterFlowTheme.of(context).bodySmall.override(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                        hintText: 'Surname',
+                        hintStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.override(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).alternate,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primary,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        prefixIcon: Icon(
+                          Icons.person_rounded,
+                          color: FlutterFlowTheme.of(context).textFieldIcon,
+                          size: 16.0,
+                        ),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w500,
+                          ),
+                      validator:
+                          _model.nameController2Validator.asValidator(context),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: TextFormField(
+                    controller: _model.nameController3,
+                    focusNode: _model.nameFocusNode3,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      labelText: 'Email Address',
+                      labelStyle:
+                          FlutterFlowTheme.of(context).bodySmall.override(
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                              ),
+                      hintText: 'Email Address',
+                      hintStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.override(
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                              ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).primary,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.email_rounded,
+                        color: FlutterFlowTheme.of(context).textFieldIcon,
+                        size: 16.0,
+                      ),
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.w500,
+                        ),
+                    validator:
+                        _model.nameController3Validator.asValidator(context),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: AuthUserStreamWidget(
+                    builder: (context) => TextFormField(
+                      controller: _model.nameController4,
+                      focusNode: _model.nameFocusNode4,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Phone Number',
+                        labelStyle:
+                            FlutterFlowTheme.of(context).bodySmall.override(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                        hintText: 'Phone Number',
+                        hintStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.override(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).alternate,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primary,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        prefixIcon: Icon(
+                          Icons.phone_rounded,
+                          color: FlutterFlowTheme.of(context).textFieldIcon,
+                          size: 16.0,
+                        ),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w500,
+                          ),
+                      validator:
+                          _model.nameController4Validator.asValidator(context),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 32.0),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      context.pushNamed(
+                        'ComplimentsTwo',
+                        queryParameters: {
+                          'name': serializeParam(
+                            _model.nameController1.text,
+                            ParamType.String,
+                          ),
+                          'surname': serializeParam(
+                            _model.nameController2.text,
+                            ParamType.String,
+                          ),
+                          'email': serializeParam(
+                            _model.nameController3.text,
+                            ParamType.String,
+                          ),
+                          'phone': serializeParam(
+                            _model.nameController4.text,
+                            ParamType.String,
+                          ),
+                        }.withoutNulls,
+                      );
+                    },
+                    text: 'Next',
+                    options: FFButtonOptions(
+                      width: double.infinity,
+                      height: 40.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).secondary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.override(
+                                fontFamily: 'Montserrat',
+                                color: FlutterFlowTheme.of(context).justWhite,
+                              ),
+                      elevation: 0.0,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

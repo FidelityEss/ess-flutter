@@ -128,21 +128,23 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                           focusNode: _model.employeeNumberFocusNode,
                           obscureText: false,
                           decoration: InputDecoration(
-                            labelText: 'Employee Number',
-                            labelStyle:
-                                FlutterFlowTheme.of(context).bodySmall.override(
-                                      fontFamily: 'Montserrat',
-                                      color: Color(0xFF4C4C4C),
-                                      fontSize: 10.0,
-                                    ),
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: Color(0xFF4C4C4C),
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
                             hintText: 'Employee Number',
-                            hintStyle:
-                                FlutterFlowTheme.of(context).bodySmall.override(
-                                      fontFamily: 'Montserrat',
-                                      color: Color(0xFF4C4C4C),
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: Color(0xFF4C4C4C),
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).alternate,
@@ -196,20 +198,20 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                           focusNode: _model.iDNumberFocusNode,
                           obscureText: false,
                           decoration: InputDecoration(
-                            labelText: 'ID Number',
                             labelStyle:
                                 FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Montserrat',
                                       color: Color(0xFF4C4C4C),
                                     ),
                             hintText: 'ID Number',
-                            hintStyle:
-                                FlutterFlowTheme.of(context).bodySmall.override(
-                                      fontFamily: 'Montserrat',
-                                      color: Color(0xFF4C4C4C),
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: Color(0xFF4C4C4C),
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).alternate,

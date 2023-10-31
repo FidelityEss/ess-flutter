@@ -832,23 +832,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return AlertDialog(
-                                          title: Text('Warning'),
-                                          content: Text(
-                                              'This function has not been developed yet'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
+                                    context.pushNamed('UmsukaWemaliApplyPage');
                                   },
                                   child: wrapWithModel(
                                     model: _model.menuIconModel12,
@@ -906,7 +890,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('IncidentsPage');
+                                    context.pushNamed('FraudReportsPage');
                                   },
                                   child: wrapWithModel(
                                     model: _model.menuIconModel14,

@@ -131,10 +131,21 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                       focusNode: _model.otpFocusNode,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: 'OTP',
-                        labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                        labelStyle:
+                            FlutterFlowTheme.of(context).bodySmall.override(
+                                  fontFamily: 'Montserrat',
+                                  color: Color(0xFF4C4C4C),
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
                         hintText: 'OTP',
-                        hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                        hintStyle:
+                            FlutterFlowTheme.of(context).bodySmall.override(
+                                  fontFamily: 'Montserrat',
+                                  color: Color(0xFF4C4C4C),
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).alternate,
@@ -169,7 +180,12 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                           size: 16.0,
                         ),
                       ),
-                      style: FlutterFlowTheme.of(context).bodySmall,
+                      style: FlutterFlowTheme.of(context).bodySmall.override(
+                            fontFamily: 'Montserrat',
+                            color: Color(0xFF4C4C4C),
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w600,
+                          ),
                       validator:
                           _model.otpControllerValidator.asValidator(context),
                     ),

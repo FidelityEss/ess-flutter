@@ -40,8 +40,6 @@ class _BannerSliderWidgetState extends State<BannerSliderWidget> {
     super.initState();
     _model = createModel(context, () => BannerSliderModel());
 
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -56,101 +54,76 @@ class _BannerSliderWidgetState extends State<BannerSliderWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return InkWell(
-      splashColor: Colors.transparent,
-      focusColor: Colors.transparent,
-      hoverColor: Colors.transparent,
-      highlightColor: Colors.transparent,
-      onTap: () async {
-        context.pushNamed('SearchPage');
-      },
-      child: Container(
-        width: double.infinity,
-        height: 280.0,
-        decoration: BoxDecoration(),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
-                width: double.infinity,
-                height: 200.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).primary,
-                ),
-                child: Icon(
-                  FFIcons.kfESSFidelityServicesGroupWhite,
-                  color: FlutterFlowTheme.of(context).secondaryText,
-                  size: 70.0,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 16.0),
-                child: TextFormField(
-                  controller: _model.textController,
-                  focusNode: _model.textFieldFocusNode,
-                  readOnly: true,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    isDense: true,
-                    labelText: 'Search',
-                    labelStyle:
-                        FlutterFlowTheme.of(context).labelMedium.override(
-                              fontFamily: 'Montserrat',
-                              color: widget.searchColour,
-                              fontWeight: FontWeight.w600,
-                            ),
-                    hintStyle:
-                        FlutterFlowTheme.of(context).labelMedium.override(
-                              fontFamily: 'Montserrat',
-                              color: widget.searchColour,
-                            ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: widget.borderColour,
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: widget.borderColour,
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).error,
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    focusedErrorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).error,
-                        width: 2.0,
-                      ),
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    prefixIcon: Icon(
-                      Icons.search_rounded,
-                      color: widget.iconColour,
-                      size: 16.0,
-                    ),
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Montserrat',
-                        color: widget.searchColour,
-                        fontWeight: FontWeight.w600,
-                      ),
-                  validator:
-                      _model.textControllerValidator.asValidator(context),
-                ),
-              ),
-            ],
+    return Container(
+      width: double.infinity,
+      height: 290.0,
+      decoration: BoxDecoration(),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Container(
+            width: double.infinity,
+            height: 200.0,
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).primary,
+            ),
+            child: Icon(
+              FFIcons.kfESSFidelityServicesGroupWhite,
+              color: FlutterFlowTheme.of(context).secondaryText,
+              size: 70.0,
+            ),
           ),
-        ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 16.0),
+            child: InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                context.pushNamed('SearchPage');
+              },
+              child: Container(
+                width: double.infinity,
+                height: 45.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30.0),
+                  border: Border.all(
+                    color: FlutterFlowTheme.of(context).alternate,
+                    width: 2.0,
+                  ),
+                ),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Icon(
+                        Icons.search_rounded,
+                        color: FlutterFlowTheme.of(context).textFieldIcon,
+                        size: 24.0,
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          'Search',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Montserrat',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontWeight: FontWeight.w600,
+                              ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

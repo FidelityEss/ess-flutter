@@ -87,164 +87,171 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              wrapWithModel(
-                model: _model.customAppBarModel,
-                updateCallback: () => setState(() {}),
-                child: CustomAppBarWidget(
-                  title: 'Compliments',
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
-                child: LinearPercentIndicator(
-                  percent: 0.6,
-                  width: MediaQuery.sizeOf(context).width * 0.85,
-                  lineHeight: 5.0,
-                  animation: true,
-                  animateFromLastPercent: true,
-                  progressColor: FlutterFlowTheme.of(context).primary,
-                  backgroundColor: FlutterFlowTheme.of(context).alternate,
-                  barRadius: Radius.circular(10.0),
-                  padding: EdgeInsets.zero,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(
-                    'assets/images/Fidelity-logo.png',
-                    width: 250.0,
-                    height: 250.0,
-                    fit: BoxFit.contain,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                wrapWithModel(
+                  model: _model.customAppBarModel,
+                  updateCallback: () => setState(() {}),
+                  child: CustomAppBarWidget(
+                    title: 'Compliments',
                   ),
                 ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(-1.00, 0.00),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
-                  child: Text(
-                    'Send us a compliment',
-                    style: FlutterFlowTheme.of(context).titleLarge.override(
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: LinearPercentIndicator(
+                    percent: 0.6,
+                    width: MediaQuery.sizeOf(context).width * 0.85,
+                    lineHeight: 5.0,
+                    animation: true,
+                    animateFromLastPercent: true,
+                    progressColor: FlutterFlowTheme.of(context).primary,
+                    backgroundColor: FlutterFlowTheme.of(context).alternate,
+                    barRadius: Radius.circular(10.0),
+                    padding: EdgeInsets.zero,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/images/Fidelity-logo.png',
+                      width: 250.0,
+                      height: 250.0,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
+                    child: Text(
+                      'Send us a compliment',
+                      style: FlutterFlowTheme.of(context).titleLarge.override(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 0.0),
+                    child: Text(
+                      'Hi there! We look forward to hearing back you. Your input is highly valued and will go all the way to our execs. Thank you for taking time out of your day to give us a compliment!',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Montserrat',
+                            color: FlutterFlowTheme.of(context).textFieldIcon,
+                          ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: FlutterFlowDropDown<String>(
+                    controller: _model.dropDownValueController1 ??=
+                        FormFieldController<String>(null),
+                    options: [
+                      'N/A',
+                      'Outstanding Corporate Culture',
+                      'Innovative Leadership',
+                      'Exceptional Customer Service',
+                      'Sustainability Initiatives',
+                      'Community Involvement',
+                      'Bravery',
+                      'Service Excellence',
+                      'Out The Box Thinking',
+                      'Going the Extra Mile',
+                      'CEO’s Hero',
+                      'Growth Gladiator',
+                      'Courageous Crusader'
+                    ],
+                    onChanged: (val) =>
+                        setState(() => _model.dropDownValue1 = val),
+                    width: double.infinity,
+                    height: 45.0,
+                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
                         ),
+                    hintText: 'Company Compliments',
+                    icon: Icon(
+                      Icons.keyboard_arrow_down_rounded,
+                      color: FlutterFlowTheme.of(context).textFieldIcon,
+                      size: 24.0,
+                    ),
+                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                    elevation: 2.0,
+                    borderColor: FlutterFlowTheme.of(context).alternate,
+                    borderWidth: 2.0,
+                    borderRadius: 5.0,
+                    margin:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                    hidesUnderline: true,
+                    isSearchable: false,
+                    isMultiSelect: false,
                   ),
                 ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(-1.00, 0.00),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 0.0),
-                  child: Text(
-                    'Hi there! We look forward to hearing back you. Your input is highly valued and will go all the way to our execs. Thank you for taking time out of your day to give us a compliment!',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: FlutterFlowDropDown<String>(
+                    controller: _model.dropDownValueController2 ??=
+                        FormFieldController<String>(null),
+                    options: [
+                      'N/A',
+                      'Exemplary Work Ethic',
+                      'Exceptional Problem-Solving',
+                      'Strong Team Player',
+                      'Leadership Skills',
+                      'Effective Communication',
+                      'Continuous Learning',
+                      'Adaptability',
+                      'Customer Relations',
+                      'Innovative Thinking',
+                      'Mentorship and Training'
+                    ],
+                    onChanged: (val) =>
+                        setState(() => _model.dropDownValue2 = val),
+                    width: double.infinity,
+                    height: 45.0,
+                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
-                          color: FlutterFlowTheme.of(context).textFieldIcon,
+                          fontWeight: FontWeight.w500,
                         ),
+                    hintText: 'Employee Compliments',
+                    icon: Icon(
+                      Icons.keyboard_arrow_down_rounded,
+                      color: FlutterFlowTheme.of(context).textFieldIcon,
+                      size: 24.0,
+                    ),
+                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                    elevation: 2.0,
+                    borderColor: FlutterFlowTheme.of(context).alternate,
+                    borderWidth: 2.0,
+                    borderRadius: 5.0,
+                    margin:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                    hidesUnderline: true,
+                    isSearchable: false,
+                    isMultiSelect: false,
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
-                child: FlutterFlowDropDown<String>(
-                  controller: _model.dropDownValueController1 ??=
-                      FormFieldController<String>(null),
-                  options: [
-                    'N/A',
-                    'Outstanding Corporate Culture',
-                    'Innovative Leadership',
-                    'Exceptional Customer Service',
-                    'Sustainability Initiatives',
-                    'Community Involvement',
-                    'Bravery',
-                    'Service Excellence',
-                    'Out The Box Thinking',
-                    'Going the Extra Mile',
-                    'CEO’s Hero',
-                    'Growth Gladiator',
-                    'Courageous Crusader'
-                  ],
-                  onChanged: (val) =>
-                      setState(() => _model.dropDownValue1 = val),
-                  width: double.infinity,
-                  height: 45.0,
-                  textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w500,
-                      ),
-                  hintText: 'Company Compliments',
-                  icon: Icon(
-                    Icons.keyboard_arrow_down_rounded,
-                    color: FlutterFlowTheme.of(context).textFieldIcon,
-                    size: 24.0,
-                  ),
-                  fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-                  elevation: 2.0,
-                  borderColor: FlutterFlowTheme.of(context).alternate,
-                  borderWidth: 2.0,
-                  borderRadius: 5.0,
-                  margin: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
-                  hidesUnderline: true,
-                  isSearchable: false,
-                  isMultiSelect: false,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                child: FlutterFlowDropDown<String>(
-                  controller: _model.dropDownValueController2 ??=
-                      FormFieldController<String>(null),
-                  options: [
-                    'N/A',
-                    'Exemplary Work Ethic',
-                    'Exceptional Problem-Solving',
-                    'Strong Team Player',
-                    'Leadership Skills',
-                    'Effective Communication',
-                    'Continuous Learning',
-                    'Adaptability',
-                    'Customer Relations',
-                    'Innovative Thinking',
-                    'Mentorship and Training'
-                  ],
-                  onChanged: (val) =>
-                      setState(() => _model.dropDownValue2 = val),
-                  width: double.infinity,
-                  height: 45.0,
-                  textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w500,
-                      ),
-                  hintText: 'Employee Compliments',
-                  icon: Icon(
-                    Icons.keyboard_arrow_down_rounded,
-                    color: FlutterFlowTheme.of(context).textFieldIcon,
-                    size: 24.0,
-                  ),
-                  fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-                  elevation: 2.0,
-                  borderColor: FlutterFlowTheme.of(context).alternate,
-                  borderWidth: 2.0,
-                  borderRadius: 5.0,
-                  margin: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
-                  hidesUnderline: true,
-                  isSearchable: false,
-                  isMultiSelect: false,
-                ),
-              ),
-              Expanded(
-                child: Padding(
+                Padding(
                   padding:
                       EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                   child: Container(
                     width: double.infinity,
-                    height: 100.0,
+                    height: 200.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       borderRadius: BorderRadius.circular(5.0),
@@ -283,56 +290,58 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 32.0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    await ComplimentsRecord.collection
-                        .doc()
-                        .set(createComplimentsRecordData(
-                          id: '${getCurrentTimestamp.microsecondsSinceEpoch.toString()}${random_data.randomString(
-                            10,
-                            10,
-                            true,
-                            true,
-                            true,
-                          )}',
-                          name: widget.name,
-                          surname: widget.surname,
-                          email: widget.email,
-                          phoneNumber: widget.phone,
-                          department: _model.dropDownValue1,
-                          complimentType: _model.dropDownValue2,
-                          message: _model.nameController.text,
-                          created: getCurrentTimestamp,
-                        ));
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 32.0),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      await ComplimentsRecord.collection
+                          .doc()
+                          .set(createComplimentsRecordData(
+                            id: '${getCurrentTimestamp.microsecondsSinceEpoch.toString()}${random_data.randomString(
+                              10,
+                              10,
+                              true,
+                              true,
+                              true,
+                            )}',
+                            name: widget.name,
+                            surname: widget.surname,
+                            email: widget.email,
+                            phoneNumber: widget.phone,
+                            department: _model.dropDownValue1,
+                            complimentType: _model.dropDownValue2,
+                            message: _model.nameController.text,
+                            created: getCurrentTimestamp,
+                          ));
 
-                    context.goNamed('ComplimentSubmittedPage');
-                  },
-                  text: 'Send Compliment',
-                  options: FFButtonOptions(
-                    width: double.infinity,
-                    height: 40.0,
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).secondary,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          color: FlutterFlowTheme.of(context).justWhite,
-                        ),
-                    elevation: 0.0,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
+                      context.goNamed('ComplimentSubmittedPage');
+                    },
+                    text: 'Send Compliment',
+                    options: FFButtonOptions(
+                      width: double.infinity,
+                      height: 40.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).secondary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.override(
+                                fontFamily: 'Montserrat',
+                                color: FlutterFlowTheme.of(context).justWhite,
+                              ),
+                      elevation: 0.0,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
                     ),
-                    borderRadius: BorderRadius.circular(5.0),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
