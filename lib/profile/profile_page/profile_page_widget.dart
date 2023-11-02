@@ -489,6 +489,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                             ),
                           ),
                         ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 16.0, 0.0, 32.0),
+                          child: Text(
+                            'Version 1.9.0',
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                          ),
+                        ),
                       ],
                     ),
                   ),
