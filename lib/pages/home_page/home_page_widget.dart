@@ -448,7 +448,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             .justWhite,
                                         size: 50.0,
                                       ),
-                                      title: 'Payroll Services',
+                                      title: 'Payroll\nServices',
                                     ),
                                   ),
                                 ),
