@@ -206,6 +206,7 @@ final parametersBuilderMap =
       ),
   'UmsukaWemaliApplyPage': ParameterData.none(),
   'LoanSubmitted': ParameterData.none(),
+  'AboutPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

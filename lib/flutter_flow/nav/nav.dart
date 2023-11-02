@@ -314,6 +314,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'LoanSubmitted',
           path: '/loanSubmitted',
           builder: (context, params) => LoanSubmittedWidget(),
+        ),
+        FFRoute(
+          name: 'AboutPage',
+          path: '/aboutPage',
+          builder: (context, params) => AboutPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

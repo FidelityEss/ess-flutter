@@ -83,382 +83,375 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                wrapWithModel(
-                  model: _model.customAppBarModel,
-                  updateCallback: () => setState(() {}),
-                  child: CustomAppBarWidget(
-                    title: 'Report An Incident',
-                  ),
-                ),
-                wrapWithModel(
-                  model: _model.bannerSliderModel,
-                  updateCallback: () => setState(() {}),
-                  child: BannerSliderWidget(
-                    searchColour: FlutterFlowTheme.of(context).textFieldIcon,
-                    iconColour: FlutterFlowTheme.of(context).textFieldIcon,
-                    borderColour: FlutterFlowTheme.of(context).alternate,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: 170.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).homeBg,
-                      borderRadius: BorderRadius.circular(5.0),
-                      border: Border.all(
-                        color: FlutterFlowTheme.of(context).alternate,
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            'Reach out',
-                            style: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.bold,
-                                ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 4.0, 16.0, 0.0),
-                          child: Text(
-                            'You can also report an issue by calling us or sending an email',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Icon(
-                                Icons.email_rounded,
-                                color: FlutterFlowTheme.of(context).primary,
-                                size: 16.0,
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
-                                  child: Text(
-                                    'WickusP@fidelity-services.com',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Montserrat',
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Icon(
-                                Icons.chevron_right_rounded,
-                                color: FlutterFlowTheme.of(context).black,
-                                size: 16.0,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+          child: Form(
+            key: _model.formKey,
+            autovalidateMode: AutovalidateMode.disabled,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  wrapWithModel(
+                    model: _model.customAppBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: CustomAppBarWidget(
+                      title: 'Report An Incident',
                     ),
                   ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 0.0, 0.0),
-                    child: Text(
-                      'Incident Form',
-                      style: FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold,
-                          ),
+                  wrapWithModel(
+                    model: _model.bannerSliderModel,
+                    updateCallback: () => setState(() {}),
+                    child: BannerSliderWidget(
+                      searchColour: FlutterFlowTheme.of(context).textFieldIcon,
+                      iconColour: FlutterFlowTheme.of(context).textFieldIcon,
+                      borderColour: FlutterFlowTheme.of(context).alternate,
                     ),
                   ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                  child: FlutterFlowDropDown<String>(
-                    controller: _model.typeValueController ??=
-                        FormFieldController<String>(null),
-                    options: [
-                      'Protest Violence',
-                      'Unauthorized Entry and Burglary',
-                      'Cybersecurity Breach',
-                      'Vandalism of Property and Equipment',
-                      'High-Profile VIP Security Breach',
-                      'House Theft',
-                      'Riots',
-                      'Cash Heist in Progress'
-                    ],
-                    onChanged: (val) => setState(() => _model.typeValue = val),
-                    width: double.infinity,
-                    height: 50.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                    hintText: 'Incident',
-                    icon: Icon(
-                      Icons.keyboard_arrow_down_rounded,
-                      color: FlutterFlowTheme.of(context).black,
-                      size: 24.0,
-                    ),
-                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-                    elevation: 2.0,
-                    borderColor: FlutterFlowTheme.of(context).alternate,
-                    borderWidth: 2.0,
-                    borderRadius: 5.0,
-                    margin:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
-                    hidesUnderline: true,
-                    isSearchable: false,
-                    isMultiSelect: false,
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                  child: FlutterFlowDropDown<String>(
-                    controller: _model.priorityValueController ??=
-                        FormFieldController<String>(null),
-                    options: ['High', 'Medium', 'Low'],
-                    onChanged: (val) =>
-                        setState(() => _model.priorityValue = val),
-                    width: double.infinity,
-                    height: 50.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                    hintText: 'Priority',
-                    icon: Icon(
-                      Icons.keyboard_arrow_down_rounded,
-                      color: FlutterFlowTheme.of(context).black,
-                      size: 24.0,
-                    ),
-                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-                    elevation: 2.0,
-                    borderColor: FlutterFlowTheme.of(context).alternate,
-                    borderWidth: 2.0,
-                    borderRadius: 5.0,
-                    margin:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
-                    hidesUnderline: true,
-                    isSearchable: false,
-                    isMultiSelect: false,
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                  child: TextFormField(
-                    controller: _model.titleController,
-                    focusNode: _model.titleFocusNode,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: 'Title',
-                      labelStyle: FlutterFlowTheme.of(context).bodyMedium,
-                      hintStyle: FlutterFlowTheme.of(context).bodyMedium,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).alternate,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).alternate,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
-                    validator:
-                        _model.titleControllerValidator.asValidator(context),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                  child: TextFormField(
-                    controller: _model.messageController,
-                    focusNode: _model.messageFocusNode,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: 'Mesaage',
-                      labelStyle: FlutterFlowTheme.of(context).bodyMedium,
-                      hintStyle: FlutterFlowTheme.of(context).bodyMedium,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).alternate,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).alternate,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
-                    validator:
-                        _model.messageControllerValidator.asValidator(context),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                  child: FlutterFlowPlacePicker(
-                    iOSGoogleMapsApiKey:
-                        'AIzaSyDPvLXvrnoKFiX_-WCBaw3t65TwVKGMUlQ',
-                    androidGoogleMapsApiKey:
-                        'AIzaSyDp54F2JTJPsHH7ln0yzhnKi2PbY4BhQh0',
-                    webGoogleMapsApiKey:
-                        'AIzaSyAgmTxJWZ48yDLW4KK3nUeYU5ALGBwzA6E',
-                    onSelect: (place) async {
-                      setState(() => _model.placePickerValue = place);
-                    },
-                    defaultText: 'Select Location',
-                    icon: Icon(
-                      Icons.place,
-                      color: FlutterFlowTheme.of(context).info,
-                      size: 16.0,
-                    ),
-                    buttonOptions: FFButtonOptions(
-                      width: double.infinity,
-                      height: 40.0,
-                      color: FlutterFlowTheme.of(context).primary,
-                      textStyle:
-                          FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Montserrat',
-                                color: FlutterFlowTheme.of(context).justWhite,
-                              ),
-                      elevation: 0.0,
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 32.0),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      await IncidentsRecord.collection
-                          .doc()
-                          .set(createIncidentsRecordData(
-                            id: '${getCurrentTimestamp.microsecondsSinceEpoch.toString()}${random_data.randomString(
-                              10,
-                              10,
-                              true,
-                              true,
-                              true,
-                            )}',
-                            userId: currentUserUid,
-                            type: _model.typeValue,
-                            priority: _model.priorityValue,
-                            title: _model.titleController.text,
-                            message: _model.messageController.text,
-                            created: getCurrentTimestamp,
-                            updated: getCurrentTimestamp,
-                            location: _model.placePickerValue.latLng,
-                            assignee: 'No Assignee',
-                            status: 'Logged',
-                            userName: currentUserDisplayName,
-                            locationName: _model.placePickerValue.name,
-                          ));
-                      await showDialog(
-                        context: context,
-                        builder: (alertDialogContext) {
-                          return AlertDialog(
-                            title: Text('Success'),
-                            content: Text('Your query has been created.'),
-                            actions: [
-                              TextButton(
-                                onPressed: () =>
-                                    Navigator.pop(alertDialogContext),
-                                child: Text('Ok'),
-                              ),
-                            ],
-                          );
-                        },
-                      );
-                      context.safePop();
-                    },
-                    text: 'Report Incident',
-                    options: FFButtonOptions(
-                      width: double.infinity,
-                      height: 40.0,
+                  Align(
+                    alignment: AlignmentDirectional(-1.00, 0.00),
+                    child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primary,
-                      textStyle:
-                          FlutterFlowTheme.of(context).bodySmall.override(
-                                fontFamily: 'Montserrat',
-                                color: FlutterFlowTheme.of(context).justWhite,
-                              ),
-                      elevation: 0.0,
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: 1.0,
+                          EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
+                      child: Text(
+                        'Incident Form',
+                        style: FlutterFlowTheme.of(context).titleSmall.override(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold,
+                            ),
                       ),
-                      borderRadius: BorderRadius.circular(5.0),
                     ),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                    child: FlutterFlowDropDown<String>(
+                      controller: _model.typeValueController ??=
+                          FormFieldController<String>(null),
+                      options: [
+                        'Protest Violence',
+                        'Unauthorized Entry and Burglary',
+                        'Cybersecurity Breach',
+                        'Vandalism of Property and Equipment',
+                        'High-Profile VIP Security Breach',
+                        'House Theft',
+                        'Riots',
+                        'Cash Heist in Progress'
+                      ],
+                      onChanged: (val) =>
+                          setState(() => _model.typeValue = val),
+                      width: double.infinity,
+                      height: 50.0,
+                      textStyle: FlutterFlowTheme.of(context).displayLarge,
+                      hintText: 'Incident',
+                      icon: Icon(
+                        Icons.keyboard_arrow_down_rounded,
+                        color: FlutterFlowTheme.of(context).black,
+                        size: 24.0,
+                      ),
+                      fillColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                      elevation: 2.0,
+                      borderColor: FlutterFlowTheme.of(context).alternate,
+                      borderWidth: 2.0,
+                      borderRadius: 5.0,
+                      margin:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                      hidesUnderline: true,
+                      isSearchable: false,
+                      isMultiSelect: false,
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                    child: FlutterFlowDropDown<String>(
+                      controller: _model.priorityValueController ??=
+                          FormFieldController<String>(null),
+                      options: ['High', 'Medium', 'Low'],
+                      onChanged: (val) =>
+                          setState(() => _model.priorityValue = val),
+                      width: double.infinity,
+                      height: 50.0,
+                      textStyle: FlutterFlowTheme.of(context).displayLarge,
+                      hintText: 'Priority',
+                      icon: Icon(
+                        Icons.keyboard_arrow_down_rounded,
+                        color: FlutterFlowTheme.of(context).black,
+                        size: 24.0,
+                      ),
+                      fillColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                      elevation: 2.0,
+                      borderColor: FlutterFlowTheme.of(context).alternate,
+                      borderWidth: 2.0,
+                      borderRadius: 5.0,
+                      margin:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                      hidesUnderline: true,
+                      isSearchable: false,
+                      isMultiSelect: false,
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                    child: TextFormField(
+                      controller: _model.titleController,
+                      focusNode: _model.titleFocusNode,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Title',
+                        labelStyle: FlutterFlowTheme.of(context).displayLarge,
+                        hintStyle: FlutterFlowTheme.of(context).displayLarge,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).alternate,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).alternate,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                      ),
+                      style: FlutterFlowTheme.of(context).displayLarge,
+                      validator:
+                          _model.titleControllerValidator.asValidator(context),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                    child: TextFormField(
+                      controller: _model.messageController,
+                      focusNode: _model.messageFocusNode,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Message',
+                        labelStyle: FlutterFlowTheme.of(context).displayLarge,
+                        hintStyle: FlutterFlowTheme.of(context).displayLarge,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).alternate,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).alternate,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                      ),
+                      style: FlutterFlowTheme.of(context).displayLarge,
+                      validator: _model.messageControllerValidator
+                          .asValidator(context),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                    child: FlutterFlowPlacePicker(
+                      iOSGoogleMapsApiKey:
+                          'AIzaSyDPvLXvrnoKFiX_-WCBaw3t65TwVKGMUlQ',
+                      androidGoogleMapsApiKey:
+                          'AIzaSyDp54F2JTJPsHH7ln0yzhnKi2PbY4BhQh0',
+                      webGoogleMapsApiKey:
+                          'AIzaSyAgmTxJWZ48yDLW4KK3nUeYU5ALGBwzA6E',
+                      onSelect: (place) async {
+                        setState(() => _model.placePickerValue = place);
+                      },
+                      defaultText: 'Select Location',
+                      icon: Icon(
+                        Icons.place,
+                        color: FlutterFlowTheme.of(context).info,
+                        size: 16.0,
+                      ),
+                      buttonOptions: FFButtonOptions(
+                        width: double.infinity,
+                        height: 45.0,
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context).justWhite,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                        elevation: 0.0,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 32.0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        if (_model.formKey.currentState == null ||
+                            !_model.formKey.currentState!.validate()) {
+                          return;
+                        }
+                        if (_model.typeValue == null) {
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return AlertDialog(
+                                title: Text('Select Incident Type'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                          return;
+                        }
+                        if (_model.priorityValue == null) {
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return AlertDialog(
+                                title: Text('Select Priority'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                          return;
+                        }
+                        if (_model.placePickerValue == FFPlace()) {
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return AlertDialog(
+                                title: Text('Select Location'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                          return;
+                        }
+
+                        await IncidentsRecord.collection
+                            .doc()
+                            .set(createIncidentsRecordData(
+                              id: '${getCurrentTimestamp.microsecondsSinceEpoch.toString()}${random_data.randomString(
+                                10,
+                                10,
+                                true,
+                                true,
+                                true,
+                              )}',
+                              userId: currentUserUid,
+                              type: _model.typeValue,
+                              priority: _model.priorityValue,
+                              title: _model.titleController.text,
+                              message: _model.messageController.text,
+                              created: getCurrentTimestamp,
+                              updated: getCurrentTimestamp,
+                              location: _model.placePickerValue.latLng,
+                              assignee: 'No Assignee',
+                              status: 'Logged',
+                              userName: currentUserDisplayName,
+                              locationName: _model.placePickerValue.name,
+                            ));
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              title: Text('Success'),
+                              content: Text('Your query has been created.'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Ok'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                        context.safePop();
+                      },
+                      text: 'Report Incident',
+                      options: FFButtonOptions(
+                        width: double.infinity,
+                        height: 45.0,
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).bodySmall.override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context).justWhite,
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                        elevation: 0.0,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

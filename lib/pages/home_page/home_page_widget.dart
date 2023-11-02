@@ -35,7 +35,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (functions.hoursAgo(FFAppState().tokenUpdateTime!) >= 4) {
+      if (functions.hoursAgo(FFAppState().tokenUpdateTime!) >= 3) {
         GoRouter.of(context).prepareAuthEvent();
         await authManager.signOut();
         GoRouter.of(context).clearRedirectLocation();
@@ -890,7 +890,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('FraudReportsPage');
+                                    context.pushNamed('ReportFraudPage');
                                   },
                                   child: wrapWithModel(
                                     model: _model.menuIconModel14,
@@ -914,7 +914,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('IncidentsPage');
+                                    context.pushNamed('ReportIncidentPage');
                                   },
                                   child: wrapWithModel(
                                     model: _model.menuIconModel15,

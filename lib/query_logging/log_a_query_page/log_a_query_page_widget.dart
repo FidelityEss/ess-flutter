@@ -101,122 +101,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: 170.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).homeBg,
-                      borderRadius: BorderRadius.circular(5.0),
-                      border: Border.all(
-                        color: FlutterFlowTheme.of(context).alternate,
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            'Reach out',
-                            style: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.bold,
-                                ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 4.0, 16.0, 0.0),
-                          child: Text(
-                            'You can also report an issue by calling us or sending an email',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Icon(
-                                Icons.call_rounded,
-                                color: FlutterFlowTheme.of(context).primary,
-                                size: 16.0,
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
-                                  child: Text(
-                                    '+27 65 384 2983',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Montserrat',
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Icon(
-                                Icons.chevron_right_rounded,
-                                color: FlutterFlowTheme.of(context).black,
-                                size: 16.0,
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Icon(
-                                Icons.email_rounded,
-                                color: FlutterFlowTheme.of(context).primary,
-                                size: 16.0,
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
-                                  child: Text(
-                                    'hr@fidelity.co.za',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Montserrat',
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Icon(
-                                Icons.chevron_right_rounded,
-                                color: FlutterFlowTheme.of(context).black,
-                                size: 16.0,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
                   child: Text(
                     'Send us a message',
                     style: FlutterFlowTheme.of(context).titleSmall.override(
@@ -235,7 +120,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                     onChanged: (val) => setState(() => _model.typeValue = val),
                     width: double.infinity,
                     height: 50.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                    textStyle: FlutterFlowTheme.of(context).displayLarge,
                     hintText: 'Query Type',
                     icon: Icon(
                       Icons.keyboard_arrow_down_rounded,
@@ -265,7 +150,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                         setState(() => _model.departmentValue = val),
                     width: double.infinity,
                     height: 50.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                    textStyle: FlutterFlowTheme.of(context).displayLarge,
                     hintText: 'Department',
                     icon: Icon(
                       Icons.keyboard_arrow_down_rounded,
@@ -295,7 +180,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                         setState(() => _model.priorityValue = val),
                     width: double.infinity,
                     height: 50.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                    textStyle: FlutterFlowTheme.of(context).displayLarge,
                     hintText: 'Priority',
                     icon: Icon(
                       Icons.keyboard_arrow_down_rounded,
@@ -323,8 +208,8 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'Title',
-                      labelStyle: FlutterFlowTheme.of(context).bodyMedium,
-                      hintStyle: FlutterFlowTheme.of(context).bodyMedium,
+                      labelStyle: FlutterFlowTheme.of(context).displayLarge,
+                      hintStyle: FlutterFlowTheme.of(context).displayLarge,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).alternate,
@@ -354,7 +239,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                         borderRadius: BorderRadius.circular(5.0),
                       ),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).displayLarge,
                     validator:
                         _model.titleControllerValidator.asValidator(context),
                   ),
@@ -368,8 +253,8 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'Mesaage',
-                      labelStyle: FlutterFlowTheme.of(context).bodyMedium,
-                      hintStyle: FlutterFlowTheme.of(context).bodyMedium,
+                      labelStyle: FlutterFlowTheme.of(context).displayLarge,
+                      hintStyle: FlutterFlowTheme.of(context).displayLarge,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).alternate,
@@ -399,7 +284,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                         borderRadius: BorderRadius.circular(5.0),
                       ),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).displayLarge,
                     validator:
                         _model.messageControllerValidator.asValidator(context),
                   ),

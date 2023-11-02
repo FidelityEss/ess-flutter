@@ -72,10 +72,7 @@ class _LongMenuItemWidgetState extends State<LongMenuItemWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
               child: Text(
                 widget.title!,
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w600,
-                    ),
+                style: FlutterFlowTheme.of(context).displayMedium,
               ),
             ),
           ),

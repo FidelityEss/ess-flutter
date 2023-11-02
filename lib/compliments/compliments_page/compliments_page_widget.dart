@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -6,7 +7,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'compliments_page_model.dart';
 export 'compliments_page_model.dart';
@@ -91,32 +91,10 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                     title: 'Compliments',
                   ),
                 ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
-                  child: LinearPercentIndicator(
-                    percent: 0.3,
-                    width: MediaQuery.sizeOf(context).width * 0.85,
-                    lineHeight: 5.0,
-                    animation: true,
-                    animateFromLastPercent: true,
-                    progressColor: FlutterFlowTheme.of(context).primary,
-                    backgroundColor: FlutterFlowTheme.of(context).alternate,
-                    barRadius: Radius.circular(10.0),
-                    padding: EdgeInsets.zero,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.asset(
-                      'assets/images/Fidelity-logo.png',
-                      width: 250.0,
-                      height: 250.0,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
+                wrapWithModel(
+                  model: _model.bannerSliderModel,
+                  updateCallback: () => setState(() {}),
+                  child: BannerSliderWidget(),
                 ),
                 Align(
                   alignment: AlignmentDirectional(-1.00, 0.00),
@@ -138,7 +116,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 0.0),
                     child: Text(
-                      'Hi there! We look forward to hearing back you. Your input is highly valued and will go all the way to our execs. Thank you for taking time out of your day to give us a compliment!',
+                      'Please confirm your personal and contact details.',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
                             color: FlutterFlowTheme.of(context).textFieldIcon,

@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/detailed_app_bar_widget.dart';
+import '/components/banner_slider_widget.dart';
+import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -102,17 +103,20 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   wrapWithModel(
-                    model: _model.detailedAppBarModel,
+                    model: _model.customAppBarModel,
                     updateCallback: () => setState(() {}),
-                    child: DetailedAppBarWidget(
-                      heading: 'Payslips and Tax Certificates',
-                      description:
-                          'View all your payslips, tax certificates and much more. To get started with a function, please click on an item.',
+                    child: CustomAppBarWidget(
+                      title: 'Payslips',
                     ),
+                  ),
+                  wrapWithModel(
+                    model: _model.bannerSliderModel,
+                    updateCallback: () => setState(() {}),
+                    child: BannerSliderWidget(),
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                     child: Text(
                       'Showing payslips for the last 12 months',
                       style: FlutterFlowTheme.of(context).labelMedium.override(

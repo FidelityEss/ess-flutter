@@ -186,16 +186,16 @@ class ThemeTypography extends Typography {
   String get displayLargeFamily => 'Montserrat';
   TextStyle get displayLarge => GoogleFonts.getFont(
         'Montserrat',
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 64.0,
+        color: Color(0xFF4C4C4C),
+        fontWeight: FontWeight.w600,
+        fontSize: 16.0,
       );
   String get displayMediumFamily => 'Montserrat';
   TextStyle get displayMedium => GoogleFonts.getFont(
         'Montserrat',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 44.0,
+        fontWeight: FontWeight.w600,
+        fontSize: 14.0,
       );
   String get displaySmallFamily => 'Montserrat';
   TextStyle get displaySmall => GoogleFonts.getFont(

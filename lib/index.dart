@@ -68,3 +68,4 @@ export '/umsuka/umsuka_wemali_apply_page/umsuka_wemali_apply_page_widget.dart'
     show UmsukaWemaliApplyPageWidget;
 export '/umsuka/loan_submitted/loan_submitted_widget.dart'
     show LoanSubmittedWidget;
+export '/about_page/about_page_widget.dart' show AboutPageWidget;

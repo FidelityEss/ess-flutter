@@ -1,5 +1,6 @@
 import '/backend/backend.dart';
-import '/components/detailed_app_bar_widget.dart';
+import '/components/banner_slider_widget.dart';
+import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -118,12 +119,26 @@ class _MessageDetailsPageWidgetState extends State<MessageDetailsPageWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     wrapWithModel(
-                      model: _model.detailedAppBarModel,
+                      model: _model.customAppBarModel,
                       updateCallback: () => setState(() {}),
-                      child: DetailedAppBarWidget(
-                        heading: messageDetailsPageMessagesRecord!.title,
-                        description:
-                            'Please read the description for more information',
+                      child: CustomAppBarWidget(
+                        title: 'Message',
+                      ),
+                    ),
+                    wrapWithModel(
+                      model: _model.bannerSliderModel,
+                      updateCallback: () => setState(() {}),
+                      child: BannerSliderWidget(),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
+                      child: Text(
+                        messageDetailsPageMessagesRecord!.title,
+                        style: FlutterFlowTheme.of(context).titleLarge.override(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w600,
+                            ),
                       ),
                     ),
                     Padding(

@@ -140,10 +140,11 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                           focusNode: _model.nameFocusNode,
                           obscureText: false,
                           decoration: InputDecoration(
-                            labelText: 'Name',
-                            labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                            labelStyle:
+                                FlutterFlowTheme.of(context).displayLarge,
                             hintText: 'Name',
-                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                            hintStyle:
+                                FlutterFlowTheme.of(context).displayLarge,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).alternate,
@@ -178,7 +179,7 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                               size: 16.0,
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodySmall,
+                          style: FlutterFlowTheme.of(context).displayLarge,
                           validator: _model.nameControllerValidator
                               .asValidator(context),
                         ),
@@ -191,10 +192,11 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                           focusNode: _model.surnameFocusNode,
                           obscureText: false,
                           decoration: InputDecoration(
-                            labelText: 'Surname',
-                            labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                            labelStyle:
+                                FlutterFlowTheme.of(context).displayLarge,
                             hintText: 'Surname',
-                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                            hintStyle:
+                                FlutterFlowTheme.of(context).displayLarge,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).alternate,
@@ -229,7 +231,7 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                               size: 16.0,
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodySmall,
+                          style: FlutterFlowTheme.of(context).displayLarge,
                           validator: _model.surnameControllerValidator
                               .asValidator(context),
                         ),
@@ -242,10 +244,11 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                           focusNode: _model.emailFocusNode,
                           obscureText: false,
                           decoration: InputDecoration(
-                            labelText: 'Email',
-                            labelStyle: FlutterFlowTheme.of(context).bodySmall,
+                            labelStyle:
+                                FlutterFlowTheme.of(context).displayLarge,
                             hintText: 'Email',
-                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                            hintStyle:
+                                FlutterFlowTheme.of(context).displayLarge,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).alternate,
@@ -280,7 +283,7 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                               size: 16.0,
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodySmall,
+                          style: FlutterFlowTheme.of(context).displayLarge,
                           validator: _model.emailControllerValidator
                               .asValidator(context),
                         ),

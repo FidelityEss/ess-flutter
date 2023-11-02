@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -7,7 +8,6 @@ import 'compliments_page_widget.dart' show ComplimentsPageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 
 class ComplimentsPageModel extends FlutterFlowModel<ComplimentsPageWidget> {
@@ -16,6 +16,8 @@ class ComplimentsPageModel extends FlutterFlowModel<ComplimentsPageWidget> {
   final unfocusNode = FocusNode();
   // Model for CustomAppBar component.
   late CustomAppBarModel customAppBarModel;
+  // Model for BannerSlider component.
+  late BannerSliderModel bannerSliderModel;
   // State field(s) for Name widget.
   FocusNode? nameFocusNode1;
   TextEditingController? nameController1;
@@ -37,11 +39,13 @@ class ComplimentsPageModel extends FlutterFlowModel<ComplimentsPageWidget> {
 
   void initState(BuildContext context) {
     customAppBarModel = createModel(context, () => CustomAppBarModel());
+    bannerSliderModel = createModel(context, () => BannerSliderModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
     customAppBarModel.dispose();
+    bannerSliderModel.dispose();
     nameFocusNode1?.dispose();
     nameController1?.dispose();
 
