@@ -47,7 +47,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           backgroundColor: FlutterFlowTheme.of(context).secondary,
         ),
       );
-      if (functions.hoursAgo(FFAppState().tokenUpdateTime!) >= 3) {
+      if (functions.hoursAgo(FFAppState().tokenUpdateTime) >= 3) {
         GoRouter.of(context).prepareAuthEvent();
         await authManager.signOut();
         GoRouter.of(context).clearRedirectLocation();
