@@ -14,6 +14,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 
 class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  Local state fields for this page.
@@ -57,6 +58,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   late MenuIconModel menuIconModel15;
   // Model for MenuIcon component.
   late MenuIconModel menuIconModel16;
+  // Model for MenuIcon component.
+  late MenuIconModel menuIconModel17;
   // Model for BottomNav component.
   late BottomNavModel bottomNavModel;
 
@@ -80,6 +83,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     menuIconModel14 = createModel(context, () => MenuIconModel());
     menuIconModel15 = createModel(context, () => MenuIconModel());
     menuIconModel16 = createModel(context, () => MenuIconModel());
+    menuIconModel17 = createModel(context, () => MenuIconModel());
     bottomNavModel = createModel(context, () => BottomNavModel());
   }
 
@@ -102,6 +106,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     menuIconModel14.dispose();
     menuIconModel15.dispose();
     menuIconModel16.dispose();
+    menuIconModel17.dispose();
     bottomNavModel.dispose();
   }
 

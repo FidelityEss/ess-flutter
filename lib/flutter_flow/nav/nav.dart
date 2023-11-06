@@ -271,6 +271,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             eid: params.getParam('eid', ParamType.String),
             firstName: params.getParam('firstName', ParamType.String),
             surname: params.getParam('surname', ParamType.String),
+            ecc: params.getParam('ecc', ParamType.String),
           ),
         ),
         FFRoute(

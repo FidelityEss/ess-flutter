@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'sign_in_page_model.dart';
 export 'sign_in_page_model.dart';
 
@@ -29,8 +30,10 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
 
     _model.employeeNumberController ??= TextEditingController();
     _model.employeeNumberFocusNode ??= FocusNode();
+
     _model.iDNumberController ??= TextEditingController();
     _model.iDNumberFocusNode ??= FocusNode();
+
     authManager.handlePhoneAuthStateChanges(context);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -338,7 +341,8 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                         await showDialog(
                           context: context,
                           builder: (alertDialogContext) {
-                            return AlertDialog(
+                            return WebViewAware(
+                                child: AlertDialog(
                               title: Text('Error'),
                               content: Text(
                                   'There was an issue authenticating your account. Please make sure you enter the correct credentials.'),
@@ -349,7 +353,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                                   child: Text('Ok'),
                                 ),
                               ],
-                            );
+                            ));
                           },
                         );
                       }

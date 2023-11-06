@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'bottom_nav_model.dart';
 export 'bottom_nav_model.dart';
 
@@ -198,7 +199,8 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                     var confirmDialogResponse = await showDialog<bool>(
                           context: context,
                           builder: (alertDialogContext) {
-                            return AlertDialog(
+                            return WebViewAware(
+                                child: AlertDialog(
                               title: Text('Warning'),
                               content: Text(
                                   'Are you sure you want to log out of your account?'),
@@ -214,7 +216,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                                   child: Text('Yes'),
                                 ),
                               ],
-                            );
+                            ));
                           },
                         ) ??
                         false;

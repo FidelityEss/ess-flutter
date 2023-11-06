@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'compliments_two_model.dart';
 export 'compliments_two_model.dart';
 
@@ -46,6 +47,7 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
 
     _model.messageController ??= TextEditingController();
     _model.messageFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -251,7 +253,8 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                         await showDialog(
                           context: context,
                           builder: (alertDialogContext) {
-                            return AlertDialog(
+                            return WebViewAware(
+                                child: AlertDialog(
                               title: Text('Select Compliment'),
                               actions: [
                                 TextButton(
@@ -260,7 +263,7 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                                   child: Text('Ok'),
                                 ),
                               ],
-                            );
+                            ));
                           },
                         );
                         return;

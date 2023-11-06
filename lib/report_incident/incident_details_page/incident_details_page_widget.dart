@@ -39,6 +39,7 @@ class _IncidentDetailsPageWidgetState extends State<IncidentDetailsPageWidget> {
 
     _model.updateController ??= TextEditingController();
     _model.updateFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

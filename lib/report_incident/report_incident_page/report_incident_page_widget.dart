@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
@@ -16,6 +17,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'report_incident_page_model.dart';
 export 'report_incident_page_model.dart';
 
@@ -39,8 +41,10 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
 
     _model.titleController ??= TextEditingController();
     _model.titleFocusNode ??= FocusNode();
+
     _model.messageController ??= TextEditingController();
     _model.messageFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -107,23 +111,9 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                       borderColour: FlutterFlowTheme.of(context).alternate,
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(-1.00, 0.00),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
-                      child: Text(
-                        'Incident Form',
-                        style: FlutterFlowTheme.of(context).titleSmall.override(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                    ),
-                  ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                     child: FlutterFlowDropDown<String>(
                       controller: _model.typeValueController ??=
                           FormFieldController<String>(null),
@@ -333,7 +323,8 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                           await showDialog(
                             context: context,
                             builder: (alertDialogContext) {
-                              return AlertDialog(
+                              return WebViewAware(
+                                  child: AlertDialog(
                                 title: Text('Select Incident Type'),
                                 actions: [
                                   TextButton(
@@ -342,7 +333,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                                     child: Text('Ok'),
                                   ),
                                 ],
-                              );
+                              ));
                             },
                           );
                           return;
@@ -351,7 +342,8 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                           await showDialog(
                             context: context,
                             builder: (alertDialogContext) {
-                              return AlertDialog(
+                              return WebViewAware(
+                                  child: AlertDialog(
                                 title: Text('Select Priority'),
                                 actions: [
                                   TextButton(
@@ -360,7 +352,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                                     child: Text('Ok'),
                                   ),
                                 ],
-                              );
+                              ));
                             },
                           );
                           return;
@@ -369,7 +361,8 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                           await showDialog(
                             context: context,
                             builder: (alertDialogContext) {
-                              return AlertDialog(
+                              return WebViewAware(
+                                  child: AlertDialog(
                                 title: Text('Select Location'),
                                 actions: [
                                   TextButton(
@@ -378,11 +371,18 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                                     child: Text('Ok'),
                                   ),
                                 ],
-                              );
+                              ));
                             },
                           );
                           return;
                         }
+                        await SendEmailCall.call(
+                          toEmail: 'nkosilebogang95@gmail.com',
+                          subject:
+                              '${_model.typeValue}: ${_model.priorityValue} Priority',
+                          body:
+                              'Name: ${currentUserDisplayName} Employee Number: ${valueOrDefault(currentUserDocument?.en, '')} Message: ${_model.messageController.text} Location: ${_model.placePickerValue.address} LatLng: ${_model.placePickerValue.latLng?.toString()}',
+                        );
 
                         await IncidentsRecord.collection
                             .doc()
@@ -410,7 +410,8 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                         await showDialog(
                           context: context,
                           builder: (alertDialogContext) {
-                            return AlertDialog(
+                            return WebViewAware(
+                                child: AlertDialog(
                               title: Text('Success'),
                               content: Text('Your query has been created.'),
                               actions: [
@@ -420,7 +421,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                                   child: Text('Ok'),
                                 ),
                               ],
-                            );
+                            ));
                           },
                         );
                         context.safePop();

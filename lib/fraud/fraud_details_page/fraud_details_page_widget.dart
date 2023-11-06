@@ -37,6 +37,7 @@ class _FraudDetailsPageWidgetState extends State<FraudDetailsPageWidget> {
 
     _model.updateController ??= TextEditingController();
     _model.updateFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

@@ -13,6 +13,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -45,7 +46,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
-            return AlertDialog(
+            return WebViewAware(
+                child: AlertDialog(
               title: Text('Session Ended'),
               content: Text(
                   'Your previous session ended. Please login again to continue.'),
@@ -55,7 +57,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   child: Text('Ok'),
                 ),
               ],
-            );
+            ));
           },
         );
       }
@@ -420,7 +422,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       await showDialog(
                                         context: context,
                                         builder: (alertDialogContext) {
-                                          return AlertDialog(
+                                          return WebViewAware(
+                                              child: AlertDialog(
                                             title: Text('Refreshing profile'),
                                             content: Text(
                                                 'Please wait a few seconds whilst we refresh your profile to access payroll services.'),
@@ -431,7 +434,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 child: Text('Ok'),
                                               ),
                                             ],
-                                          );
+                                          ));
                                         },
                                       );
                                     } else {
@@ -854,7 +857,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 32.0),
+                              16.0, 16.0, 16.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -951,6 +954,42 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         size: 45.0,
                                       ),
                                       title: 'View\nEvents',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 16.0, 16.0, 32.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('AboutPage');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel17,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        Icons.info_rounded,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 30.0,
+                                      ),
+                                      title: 'About\nFESS',
                                     ),
                                   ),
                                 ),

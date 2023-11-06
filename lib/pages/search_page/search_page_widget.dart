@@ -30,6 +30,7 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -226,6 +227,33 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                                           'Profile') {
                                                         context.pushNamed(
                                                             'ManageProfile');
+                                                      } else {
+                                                        if (filteredListItem ==
+                                                            'Guarding Services') {
+                                                          context.pushNamed(
+                                                            'InfoPage',
+                                                            queryParameters: {
+                                                              'heading':
+                                                                  serializeParam(
+                                                                'Guarding Services',
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                              'description':
+                                                                  serializeParam(
+                                                                'Fidelity Security Services is able to offer customers comprehensive guarding solutions in a vast range of small and large scale industries.',
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                              'link':
+                                                                  serializeParam(
+                                                                'https://fidelity-services.com/our-products-services/fidelity-security-services/?gad_source=1&gclid=Cj0KCQjwqP2pBhDMARIsAJQ0CzpUmeL-TzQtsP1VK9vCDk5YF7JdKq48woHqLJnrGMbEfqbGRPXI3s4aAg2ZEALw_wcB',
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
+                                                        }
                                                       }
                                                     }
                                                   }

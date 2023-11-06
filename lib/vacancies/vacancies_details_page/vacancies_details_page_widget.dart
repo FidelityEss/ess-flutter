@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'vacancies_details_page_model.dart';
 export 'vacancies_details_page_model.dart';
 
@@ -425,7 +426,8 @@ class _VacanciesDetailsPageWidgetState
                                 enableDrag: false,
                                 context: context,
                                 builder: (context) {
-                                  return GestureDetector(
+                                  return WebViewAware(
+                                      child: GestureDetector(
                                     onTap: () => _model
                                             .unfocusNode.canRequestFocus
                                         ? FocusScope.of(context)
@@ -435,7 +437,7 @@ class _VacanciesDetailsPageWidgetState
                                       padding: MediaQuery.viewInsetsOf(context),
                                       child: ApplyBottomSheetWidget(),
                                     ),
-                                  );
+                                  ));
                                 },
                               ).then((value) => safeSetState(() {}));
                             },

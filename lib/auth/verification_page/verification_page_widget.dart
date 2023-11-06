@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'verification_page_model.dart';
 export 'verification_page_model.dart';
 
@@ -40,6 +41,7 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
 
     _model.otpController ??= TextEditingController();
     _model.otpFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -249,6 +251,10 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                                   widget.lastName,
                                   ParamType.String,
                                 ),
+                                'ecc': serializeParam(
+                                  '',
+                                  ParamType.String,
+                                ),
                               }.withoutNulls,
                             );
                           }
@@ -320,7 +326,8 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                         var confirmDialogResponse = await showDialog<bool>(
                               context: context,
                               builder: (alertDialogContext) {
-                                return AlertDialog(
+                                return WebViewAware(
+                                    child: AlertDialog(
                                   title: Text('Warning'),
                                   content: Text(
                                       'Are you sure you want to go back? This will end your current login session'),
@@ -336,7 +343,7 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                                       child: Text('Confirm'),
                                     ),
                                   ],
-                                );
+                                ));
                               },
                             ) ??
                             false;

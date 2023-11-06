@@ -37,6 +37,7 @@ class _QueryDetailsPageWidgetState extends State<QueryDetailsPageWidget> {
 
     _model.updateController ??= TextEditingController();
     _model.updateFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

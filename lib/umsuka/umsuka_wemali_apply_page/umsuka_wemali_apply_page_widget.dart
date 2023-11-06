@@ -33,22 +33,31 @@ class _UmsukaWemaliApplyPageWidgetState
     _model.nameController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.firstName, ''));
     _model.nameFocusNode ??= FocusNode();
+
     _model.surnameController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.lastName, ''));
     _model.surnameFocusNode ??= FocusNode();
+
     _model.idController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.eid, ''));
     _model.idFocusNode ??= FocusNode();
-    _model.companyNumberController ??= TextEditingController();
+
+    _model.companyNumberController ??= TextEditingController(
+        text: valueOrDefault(currentUserDocument?.ecd, ''));
     _model.companyNumberFocusNode ??= FocusNode();
+
     _model.emailController ??= TextEditingController(text: currentUserEmail);
     _model.emailFocusNode ??= FocusNode();
+
     _model.phoneController ??= TextEditingController(text: currentPhoneNumber);
     _model.phoneFocusNode ??= FocusNode();
+
     _model.loanAmountController ??= TextEditingController();
     _model.loanAmountFocusNode ??= FocusNode();
+
     _model.purposeController ??= TextEditingController();
     _model.purposeFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -325,62 +334,67 @@ class _UmsukaWemaliApplyPageWidgetState
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                    child: TextFormField(
-                      controller: _model.companyNumberController,
-                      focusNode: _model.companyNumberFocusNode,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        labelStyle:
+                    child: AuthUserStreamWidget(
+                      builder: (context) => TextFormField(
+                        controller: _model.companyNumberController,
+                        focusNode: _model.companyNumberFocusNode,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelStyle: FlutterFlowTheme.of(context)
+                              .displayLarge
+                              .override(
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w600,
+                              ),
+                          hintText: 'Company Number',
+                          hintStyle: FlutterFlowTheme.of(context)
+                              .displayLarge
+                              .override(
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w600,
+                              ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).alternate,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).primary,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).error,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).error,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          prefixIcon: Icon(
+                            Icons.numbers_rounded,
+                            color: FlutterFlowTheme.of(context).textFieldIcon,
+                            size: 16.0,
+                          ),
+                        ),
+                        style:
                             FlutterFlowTheme.of(context).displayLarge.override(
                                   fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.w600,
                                 ),
-                        hintText: 'Company Number',
-                        hintStyle:
-                            FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600,
-                                ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).primary,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        errorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).error,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        focusedErrorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).error,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        prefixIcon: Icon(
-                          Icons.numbers_rounded,
-                          color: FlutterFlowTheme.of(context).textFieldIcon,
-                          size: 16.0,
-                        ),
+                        validator: _model.companyNumberControllerValidator
+                            .asValidator(context),
                       ),
-                      style: FlutterFlowTheme.of(context).displayLarge.override(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w600,
-                          ),
-                      validator: _model.companyNumberControllerValidator
-                          .asValidator(context),
                     ),
                   ),
                   Padding(

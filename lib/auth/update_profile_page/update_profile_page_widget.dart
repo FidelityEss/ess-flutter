@@ -18,12 +18,14 @@ class UpdateProfilePageWidget extends StatefulWidget {
     required this.eid,
     required this.firstName,
     required this.surname,
+    required this.ecc,
   }) : super(key: key);
 
   final String? en;
   final String? eid;
   final String? firstName;
   final String? surname;
+  final String? ecc;
 
   @override
   _UpdateProfilePageWidgetState createState() =>
@@ -42,10 +44,13 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
 
     _model.nameController ??= TextEditingController(text: widget.firstName);
     _model.nameFocusNode ??= FocusNode();
+
     _model.surnameController ??= TextEditingController(text: widget.surname);
     _model.surnameFocusNode ??= FocusNode();
+
     _model.emailController ??= TextEditingController();
     _model.emailFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -312,6 +317,7 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                         userType: 'employee',
                         en: widget.en,
                         eid: widget.eid,
+                        ecd: widget.ecc,
                       ));
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(

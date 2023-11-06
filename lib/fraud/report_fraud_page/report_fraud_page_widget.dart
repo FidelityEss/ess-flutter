@@ -16,6 +16,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'report_fraud_page_model.dart';
 export 'report_fraud_page_model.dart';
 
@@ -38,8 +39,10 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
 
     _model.titleController ??= TextEditingController();
     _model.titleFocusNode ??= FocusNode();
+
     _model.messageController ??= TextEditingController();
     _model.messageFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -103,18 +106,7 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
-                    child: Text(
-                      'Fraud Form',
-                      style: FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                     child: FlutterFlowDropDown<String>(
                       controller: _model.typeValueController ??=
                           FormFieldController<String>(null),
@@ -335,7 +327,8 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                           await showDialog(
                             context: context,
                             builder: (alertDialogContext) {
-                              return AlertDialog(
+                              return WebViewAware(
+                                  child: AlertDialog(
                                 title: Text('Select Fraud Type'),
                                 actions: [
                                   TextButton(
@@ -344,7 +337,7 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                                     child: Text('Ok'),
                                   ),
                                 ],
-                              );
+                              ));
                             },
                           );
                           return;
@@ -353,7 +346,8 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                           await showDialog(
                             context: context,
                             builder: (alertDialogContext) {
-                              return AlertDialog(
+                              return WebViewAware(
+                                  child: AlertDialog(
                                 title: Text('Select Priority'),
                                 actions: [
                                   TextButton(
@@ -362,7 +356,7 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                                     child: Text('Ok'),
                                   ),
                                 ],
-                              );
+                              ));
                             },
                           );
                           return;
@@ -371,7 +365,8 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                           await showDialog(
                             context: context,
                             builder: (alertDialogContext) {
-                              return AlertDialog(
+                              return WebViewAware(
+                                  child: AlertDialog(
                                 title: Text('Select Location'),
                                 actions: [
                                   TextButton(
@@ -380,7 +375,7 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                                     child: Text('Ok'),
                                   ),
                                 ],
-                              );
+                              ));
                             },
                           );
                           return;
@@ -410,7 +405,8 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                         await showDialog(
                           context: context,
                           builder: (alertDialogContext) {
-                            return AlertDialog(
+                            return WebViewAware(
+                                child: AlertDialog(
                               title: Text('Success'),
                               content: Text('Your query has been created.'),
                               actions: [
@@ -420,7 +416,7 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                                   child: Text('Ok'),
                                 ),
                               ],
-                            );
+                            ));
                           },
                         );
                         context.safePop();

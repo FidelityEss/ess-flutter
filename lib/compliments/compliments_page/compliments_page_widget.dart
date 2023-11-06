@@ -31,13 +31,17 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
     _model.nameController1 ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.firstName, ''));
     _model.nameFocusNode1 ??= FocusNode();
+
     _model.nameController2 ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.lastName, ''));
     _model.nameFocusNode2 ??= FocusNode();
+
     _model.nameController3 ??= TextEditingController(text: currentUserEmail);
     _model.nameFocusNode3 ??= FocusNode();
+
     _model.nameController4 ??= TextEditingController(text: currentPhoneNumber);
     _model.nameFocusNode4 ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

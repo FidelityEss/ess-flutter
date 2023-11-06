@@ -71,6 +71,11 @@ class UsersRecord extends FirestoreRecord {
   String get eid => _eid ?? '';
   bool hasEid() => _eid != null;
 
+  // "ecd" field.
+  String? _ecd;
+  String get ecd => _ecd ?? '';
+  bool hasEcd() => _ecd != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -83,6 +88,7 @@ class UsersRecord extends FirestoreRecord {
     _userType = snapshotData['user_type'] as String?;
     _en = snapshotData['en'] as String?;
     _eid = snapshotData['eid'] as String?;
+    _ecd = snapshotData['ecd'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -130,6 +136,7 @@ Map<String, dynamic> createUsersRecordData({
   String? userType,
   String? en,
   String? eid,
+  String? ecd,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -144,6 +151,7 @@ Map<String, dynamic> createUsersRecordData({
       'user_type': userType,
       'en': en,
       'eid': eid,
+      'ecd': ecd,
     }.withoutNulls,
   );
 
@@ -165,7 +173,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.lastName == e2?.lastName &&
         e1?.userType == e2?.userType &&
         e1?.en == e2?.en &&
-        e1?.eid == e2?.eid;
+        e1?.eid == e2?.eid &&
+        e1?.ecd == e2?.ecd;
   }
 
   @override
@@ -180,7 +189,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.lastName,
         e?.userType,
         e?.en,
-        e?.eid
+        e?.eid,
+        e?.ecd
       ]);
 
   @override

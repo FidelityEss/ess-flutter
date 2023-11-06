@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'log_a_query_page_model.dart';
 export 'log_a_query_page_model.dart';
 
@@ -35,8 +36,10 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
 
     _model.titleController ??= TextEditingController();
     _model.titleFocusNode ??= FocusNode();
+
     _model.messageController ??= TextEditingController();
     _model.messageFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -319,7 +322,8 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                       await showDialog(
                         context: context,
                         builder: (alertDialogContext) {
-                          return AlertDialog(
+                          return WebViewAware(
+                              child: AlertDialog(
                             title: Text('Success'),
                             content: Text('Your query has been created.'),
                             actions: [
@@ -329,7 +333,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                                 child: Text('Ok'),
                               ),
                             ],
-                          );
+                          ));
                         },
                       );
                       context.safePop();

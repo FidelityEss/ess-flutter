@@ -33,16 +33,21 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
     _model.nameController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.firstName, ''));
     _model.nameFocusNode ??= FocusNode();
+
     _model.surnameController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.lastName, ''));
     _model.surnameFocusNode ??= FocusNode();
+
     _model.displayNameController ??=
         TextEditingController(text: currentUserDisplayName);
     _model.displayNameFocusNode ??= FocusNode();
+
     _model.emailController ??= TextEditingController(text: currentUserEmail);
     _model.emailFocusNode ??= FocusNode();
+
     _model.phoneController ??= TextEditingController(text: currentPhoneNumber);
     _model.phoneFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

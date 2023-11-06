@@ -192,6 +192,7 @@ final parametersBuilderMap =
           'eid': getParameter<String>(data, 'eid'),
           'firstName': getParameter<String>(data, 'firstName'),
           'surname': getParameter<String>(data, 'surname'),
+          'ecc': getParameter<String>(data, 'ecc'),
         },
       ),
   'PayrollServicesPage': ParameterData.none(),

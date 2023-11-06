@@ -182,6 +182,34 @@ class GetEmployeeTimeCall {
 
 /// End FESS API Group Code
 
+class SendEmailCall {
+  static Future<ApiCallResponse> call({
+    String? toEmail = '',
+    String? subject = '',
+    String? body = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "toEmail": "${toEmail}",
+  "subject": "${subject}",
+  "body": "${body}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'SendEmail',
+      apiUrl: 'https://fidelityess.co.za/SendEmail2.php',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
