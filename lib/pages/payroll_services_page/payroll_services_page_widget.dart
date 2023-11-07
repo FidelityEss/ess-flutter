@@ -145,7 +145,7 @@ class _PayrollServicesPageWidgetState extends State<PayrollServicesPageWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    context.pushNamed('QueriesPage');
+                    context.pushNamed('LogAQueryPage');
                   },
                   child: wrapWithModel(
                     model: _model.longMenuItemModel3,

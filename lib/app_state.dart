@@ -108,9 +108,7 @@ class FFAppState extends ChangeNotifier {
     'Queries',
     'Training and Development',
     'Messages',
-    'Profile',
-    'Privacy Policy',
-    'Terms and Conditions'
+    'Profile'
   ];
   List<String> get searchItems => _searchItems;
   set searchItems(List<String> _value) {

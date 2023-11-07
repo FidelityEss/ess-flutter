@@ -127,7 +127,7 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                 ),
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 32.0),
                   child: Text(
                     '\"Our mission at FESS is to provide Fidelity employees with an innovative and user-centric self-service platform. \n\nWe are committed to:\n\n1.\tEmpowerment: \n\nEmpower employees to take control of their work-related tasks and information, allowing them to make more informed decisions about their careers and benefits.\n\n2.\tEfficiency: \n\nStreamline and simplify Payroll and HR-related processes, reducing administrative burden, and saving valuable time for both employees and Management. \n\n3.\tAccessibility: \n\nEnsure that our platform is accessible to all employees, promoting inclusivity and equal opportunities for every employee of the Fidelity family.\n\n4.\tSecurity: \n\nPrioritize the highest standards of data security and privacy to safeguard employee information.\n\n5.\tContinuous Improvement: \n\nContinually evolve our app based on employee feedback and changing needs, ensuring it remains a valuable resource for our workforce.\n\n6.\tSatisfaction: \n\nStrive for the highest levels of employee satisfaction by providing a platform that enhances work experience and supports professional growth.',
                     style: FlutterFlowTheme.of(context).displayMedium,

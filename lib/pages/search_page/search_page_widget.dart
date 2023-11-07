@@ -428,6 +428,32 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                                                             'Umsuka Wemali') {
                                                                           context
                                                                               .pushNamed('UmsukaWemaliApplyPage');
+                                                                        } else {
+                                                                          if (filteredListItem ==
+                                                                              'Training and Development') {
+                                                                            context.pushNamed(
+                                                                              'InfoPage',
+                                                                              queryParameters: {
+                                                                                'heading': serializeParam(
+                                                                                  'Fidelity Training',
+                                                                                  ParamType.String,
+                                                                                ),
+                                                                                'description': serializeParam(
+                                                                                  'As a pioneer in the security training and development market, Fidelity Services Group was one of the first companies in the country to establish and professionalise the first learnership programme for security officers.',
+                                                                                  ParamType.String,
+                                                                                ),
+                                                                                'link': serializeParam(
+                                                                                  'https://fidelity-services.com/training-and-development/',
+                                                                                  ParamType.String,
+                                                                                ),
+                                                                              }.withoutNulls,
+                                                                            );
+                                                                          } else {
+                                                                            if (filteredListItem ==
+                                                                                'Report Fraud') {
+                                                                              context.pushNamed('ReportFraudPage');
+                                                                            }
+                                                                          }
                                                                         }
                                                                       }
                                                                     }
