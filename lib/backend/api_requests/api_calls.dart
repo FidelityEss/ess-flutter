@@ -22,6 +22,8 @@ class FessApiGroup {
       GetEmployeePayslipsCall();
   static PayslipCall payslipCall = PayslipCall();
   static GetEmployeeTimeCall getEmployeeTimeCall = GetEmployeeTimeCall();
+  static CreatePayrollQueryCall createPayrollQueryCall =
+      CreatePayrollQueryCall();
 }
 
 class AuthenticationCall {
@@ -178,6 +180,43 @@ class GetEmployeeTimeCall {
       cache: false,
     );
   }
+}
+
+class CreatePayrollQueryCall {
+  Future<ApiCallResponse> call({
+    String? description = '',
+    String? fcmToken = '',
+    String? fileUrl = '',
+    String? authToken = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "description": "${description}",
+  "fcmToken": "${fcmToken}",
+  "fileUrl": "${fileUrl}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'CreatePayrollQuery',
+      apiUrl: '${FessApiGroup.baseUrl}/Payroll/AddPayrollQuery',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${authToken}',
+        'api-key': 'c1e57890-a4ee-4354-ab59-53098d763963',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic orderId(dynamic response) => getJsonField(
+        response,
+        r'''$.payrollOrderId''',
+      );
 }
 
 /// End FESS API Group Code

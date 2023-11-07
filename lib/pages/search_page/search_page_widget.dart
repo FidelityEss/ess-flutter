@@ -72,187 +72,370 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                wrapWithModel(
-                  model: _model.customAppBarModel,
-                  updateCallback: () => setState(() {}),
-                  child: CustomAppBarWidget(
-                    title: 'Search',
-                  ),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              wrapWithModel(
+                model: _model.customAppBarModel,
+                updateCallback: () => setState(() {}),
+                child: CustomAppBarWidget(
+                  title: 'Search',
                 ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
-                  child: TextFormField(
-                    controller: _model.textController,
-                    focusNode: _model.textFieldFocusNode,
-                    onChanged: (_) => EasyDebounce.debounce(
-                      '_model.textController',
-                      Duration(milliseconds: 2000),
-                      () async {
-                        setState(() {
-                          _model.keyword = _model.textController.text;
-                        });
-                      },
-                    ),
-                    autofocus: true,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: 'Search',
-                      labelStyle:
-                          FlutterFlowTheme.of(context).labelMedium.override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w600,
-                              ),
-                      hintStyle:
-                          FlutterFlowTheme.of(context).labelMedium.override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w600,
-                              ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).alternate,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).primary,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      prefixIcon: Icon(
-                        Icons.search_rounded,
-                        size: 18.0,
-                      ),
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.w600,
-                        ),
-                    validator:
-                        _model.textControllerValidator.asValidator(context),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                child: TextFormField(
+                  controller: _model.textController,
+                  focusNode: _model.textFieldFocusNode,
+                  onChanged: (_) => EasyDebounce.debounce(
+                    '_model.textController',
+                    Duration(milliseconds: 2000),
+                    () async {
+                      setState(() {
+                        _model.keyword = _model.textController.text;
+                      });
+                    },
                   ),
+                  autofocus: true,
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    labelText: 'Search',
+                    labelStyle:
+                        FlutterFlowTheme.of(context).labelMedium.override(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w600,
+                            ),
+                    hintStyle:
+                        FlutterFlowTheme.of(context).labelMedium.override(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w600,
+                            ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).alternate,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).primary,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).error,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).error,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    prefixIcon: Icon(
+                      Icons.search_rounded,
+                      size: 18.0,
+                    ),
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w600,
+                      ),
+                  validator:
+                      _model.textControllerValidator.asValidator(context),
                 ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                  child: Builder(
-                    builder: (context) {
-                      final filteredList = functions
-                              .searchFilter(FFAppState().searchItems.toList(),
-                                  _model.keyword)
-                              ?.toList() ??
-                          [];
-                      return ListView.builder(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: filteredList.length,
-                        itemBuilder: (context, filteredListIndex) {
-                          final filteredListItem =
-                              filteredList[filteredListIndex];
-                          return Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 16.0, 0.0, 0.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                if (filteredListItem == 'Payroll Services') {
-                                  context.pushNamed('PayrollServicesPage');
-                                } else {
-                                  if (filteredListItem == 'Fidelity Cares') {
-                                    context.pushNamed('FidelityCaresPage');
+              ),
+              Expanded(
+                child: Container(
+                  width: double.infinity,
+                  height: 100.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                    child: Builder(
+                      builder: (context) {
+                        final filteredList = functions
+                                .searchFilter(FFAppState().searchItems.toList(),
+                                    _model.keyword)
+                                ?.toList() ??
+                            [];
+                        return ListView.builder(
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: filteredList.length,
+                          itemBuilder: (context, filteredListIndex) {
+                            final filteredListItem =
+                                filteredList[filteredListIndex];
+                            return Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 16.0, 0.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  if (filteredListItem == 'Payroll Services') {
+                                    context.pushNamed('PayrollServicesPage');
                                   } else {
-                                    if (filteredListItem == 'Human Resources') {
-                                      context.pushNamed('HRServicesPage');
+                                    if (filteredListItem == 'Fidelity Cares') {
+                                      context.pushNamed('FidelityCaresPage');
                                     } else {
-                                      if (filteredListItem == 'Vacancies') {
-                                        context.pushNamed('VanciesPage');
+                                      if (filteredListItem ==
+                                          'Human Resources') {
+                                        context.pushNamed('HRServicesPage');
                                       } else {
-                                        if (filteredListItem == 'Compliments') {
-                                          context.pushNamed('ComplimentsPage');
+                                        if (filteredListItem == 'Vacancies') {
+                                          context.pushNamed('VanciesPage');
                                         } else {
                                           if (filteredListItem ==
-                                              'Report Incident') {
-                                            context.pushNamed(
-                                                'ReportIncidentPage');
+                                              'Compliments') {
+                                            context
+                                                .pushNamed('ComplimentsPage');
                                           } else {
-                                            if (filteredListItem == 'Events') {
-                                              context.pushNamed('EventsPage');
+                                            if (filteredListItem ==
+                                                'Report Incident') {
+                                              context.pushNamed(
+                                                  'ReportIncidentPage');
                                             } else {
                                               if (filteredListItem ==
-                                                  'Payslips') {
-                                                context.pushNamed(
-                                                    'PayslipTaxListPage');
+                                                  'Events') {
+                                                context.pushNamed('EventsPage');
                                               } else {
                                                 if (filteredListItem ==
-                                                    'Time and Attendance') {
+                                                    'Payslips') {
                                                   context.pushNamed(
-                                                      'TimeAndAttendancePage');
+                                                      'PayslipTaxListPage');
                                                 } else {
                                                   if (filteredListItem ==
-                                                      'Queries') {
+                                                      'Time and Attendance') {
                                                     context.pushNamed(
-                                                        'QueriesPage');
+                                                        'TimeAndAttendancePage');
                                                   } else {
                                                     if (filteredListItem ==
-                                                        'Messages') {
+                                                        'Queries') {
                                                       context.pushNamed(
-                                                          'MessagesBox');
+                                                          'QueriesPage');
                                                     } else {
                                                       if (filteredListItem ==
-                                                          'Profile') {
+                                                          'Messages') {
                                                         context.pushNamed(
-                                                            'ManageProfile');
+                                                            'MessagesBox');
                                                       } else {
                                                         if (filteredListItem ==
-                                                            'Guarding Services') {
+                                                            'Profile') {
                                                           context.pushNamed(
-                                                            'InfoPage',
-                                                            queryParameters: {
-                                                              'heading':
-                                                                  serializeParam(
-                                                                'Guarding Services',
-                                                                ParamType
-                                                                    .String,
-                                                              ),
-                                                              'description':
-                                                                  serializeParam(
-                                                                'Fidelity Security Services is able to offer customers comprehensive guarding solutions in a vast range of small and large scale industries.',
-                                                                ParamType
-                                                                    .String,
-                                                              ),
-                                                              'link':
-                                                                  serializeParam(
-                                                                'https://fidelity-services.com/our-products-services/fidelity-security-services/?gad_source=1&gclid=Cj0KCQjwqP2pBhDMARIsAJQ0CzpUmeL-TzQtsP1VK9vCDk5YF7JdKq48woHqLJnrGMbEfqbGRPXI3s4aAg2ZEALw_wcB',
-                                                                ParamType
-                                                                    .String,
-                                                              ),
-                                                            }.withoutNulls,
-                                                          );
+                                                              'ManageProfile');
+                                                        } else {
+                                                          if (filteredListItem ==
+                                                              'Guarding Services') {
+                                                            context.pushNamed(
+                                                              'InfoPage',
+                                                              queryParameters: {
+                                                                'heading':
+                                                                    serializeParam(
+                                                                  'Guarding Services',
+                                                                  ParamType
+                                                                      .String,
+                                                                ),
+                                                                'description':
+                                                                    serializeParam(
+                                                                  'Fidelity Security Services is able to offer customers comprehensive guarding solutions in a vast range of small and large scale industries.',
+                                                                  ParamType
+                                                                      .String,
+                                                                ),
+                                                                'link':
+                                                                    serializeParam(
+                                                                  'https://fidelity-services.com/our-products-services/fidelity-security-services/?gad_source=1&gclid=Cj0KCQjwqP2pBhDMARIsAJQ0CzpUmeL-TzQtsP1VK9vCDk5YF7JdKq48woHqLJnrGMbEfqbGRPXI3s4aAg2ZEALw_wcB',
+                                                                  ParamType
+                                                                      .String,
+                                                                ),
+                                                              }.withoutNulls,
+                                                            );
+                                                          } else {
+                                                            if (filteredListItem ==
+                                                                'Fidelity Cash') {
+                                                              context.pushNamed(
+                                                                'InfoPage',
+                                                                queryParameters:
+                                                                    {
+                                                                  'heading':
+                                                                      serializeParam(
+                                                                    'Fidelity Cash Solutions',
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'description':
+                                                                      serializeParam(
+                                                                    'Let Fidelity Cash Solutions be your one stop cash management partner. We have a range of solutions and services to meet your cash related needs.',
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'link':
+                                                                      serializeParam(
+                                                                    'https://fidelity-services.com/our-products-services/fidelity-cash-solutions/',
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            } else {
+                                                              if (filteredListItem ==
+                                                                  'Fidelity ADT') {
+                                                                context
+                                                                    .pushNamed(
+                                                                  'InfoPage',
+                                                                  queryParameters:
+                                                                      {
+                                                                    'heading':
+                                                                        serializeParam(
+                                                                      'Fidelity ADT',
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'description':
+                                                                        serializeParam(
+                                                                      'The cornerstone of all security starts at home.This is why we have ensured a hands-on and immediate response service to assist you with any incident related queries, around the clock.',
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'link':
+                                                                        serializeParam(
+                                                                      'https://fidelity-services.com/our-products-services/fidelity-adt/',
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                  }.withoutNulls,
+                                                                );
+                                                              } else {
+                                                                if (filteredListItem ==
+                                                                    'Fidelity Insure') {
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'InfoPage',
+                                                                    queryParameters:
+                                                                        {
+                                                                      'heading':
+                                                                          serializeParam(
+                                                                        'Fidelity inSure',
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'description':
+                                                                          serializeParam(
+                                                                        'We’ve partnered with Auto & General* to bring you Fidelity inSure – an all-in-one insurance offering covering vehicle, roadside, home, accident, trauma and legal assistance and benefits.',
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                      'link':
+                                                                          serializeParam(
+                                                                        'https://fidelity-services.com/our-products-services/fidelity-insure/',
+                                                                        ParamType
+                                                                            .String,
+                                                                      ),
+                                                                    }.withoutNulls,
+                                                                  );
+                                                                } else {
+                                                                  if (filteredListItem ==
+                                                                      'Fidelity Cleaning') {
+                                                                    context
+                                                                        .pushNamed(
+                                                                      'InfoPage',
+                                                                      queryParameters:
+                                                                          {
+                                                                        'heading':
+                                                                            serializeParam(
+                                                                          'Specialised cleaning and hygiene',
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                        'description':
+                                                                            serializeParam(
+                                                                          'Fidelity Cleaning Services is an environmentally-friendly service that not only offers the best tools, equipment and cleaning agents to meet any requirement, but also professionally trained staff to tackle scenarios small and large, across all sectors.',
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                        'link':
+                                                                            serializeParam(
+                                                                          'https://fidelity-services.com/our-products-services/fidelity-cleaning-services/',
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                      }.withoutNulls,
+                                                                    );
+                                                                  } else {
+                                                                    if (filteredListItem ==
+                                                                        'Fidelity Fire') {
+                                                                      context
+                                                                          .pushNamed(
+                                                                        'InfoPage',
+                                                                        queryParameters:
+                                                                            {
+                                                                          'description':
+                                                                              serializeParam(
+                                                                            'The premier choice for clients and businesses who seek high quality, cost-effective fire solutions and products that are scalable, innovative and offer a superior customer service experience.',
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'link':
+                                                                              serializeParam(
+                                                                            'https://fidelity-services.com/our-products-services/fidelity-securefire/',
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'heading':
+                                                                              serializeParam(
+                                                                            'Total Integrated Fire Solutions',
+                                                                            ParamType.String,
+                                                                          ),
+                                                                        }.withoutNulls,
+                                                                      );
+                                                                    } else {
+                                                                      if (filteredListItem ==
+                                                                          'Secure Drive') {
+                                                                        context
+                                                                            .pushNamed(
+                                                                          'InfoPage',
+                                                                          queryParameters:
+                                                                              {
+                                                                            'heading':
+                                                                                serializeParam(
+                                                                              'Your driving companion',
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'description':
+                                                                                serializeParam(
+                                                                              'Fidelity SecureDrive gives you a safer, smarter and more connected fleet experience.',
+                                                                              ParamType.String,
+                                                                            ),
+                                                                            'link':
+                                                                                serializeParam(
+                                                                              'https://fidelity-services.com/our-products-services/fidelity-securedrive/',
+                                                                              ParamType.String,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                        );
+                                                                      } else {
+                                                                        if (filteredListItem ==
+                                                                            'Umsuka Wemali') {
+                                                                          context
+                                                                              .pushNamed('UmsukaWemaliApplyPage');
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
                                                         }
                                                       }
                                                     }
@@ -265,56 +448,56 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                       }
                                     }
                                   }
-                                }
-                              },
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        filteredListItem,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                      Icon(
-                                        Icons.chevron_right_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .textFieldIcon,
-                                        size: 24.0,
-                                      ),
-                                    ],
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 16.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 1.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                },
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          filteredListItem,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyLarge
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                        Icon(
+                                          Icons.chevron_right_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .textFieldIcon,
+                                          size: 24.0,
+                                        ),
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 16.0, 0.0, 0.0),
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: 1.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          );
-                        },
-                      );
-                    },
+                            );
+                          },
+                        );
+                      },
+                    ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
