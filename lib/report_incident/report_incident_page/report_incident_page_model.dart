@@ -62,6 +62,8 @@ class ReportIncidentPageModel
 
   // State field(s) for PlacePicker widget.
   var placePickerValue = FFPlace();
+  // Stores action output result for [Backend Call - API (SendEmail)] action in Button widget.
+  ApiCallResponse? sendIncidentEmail;
 
   /// Initialization and disposal methods.
 

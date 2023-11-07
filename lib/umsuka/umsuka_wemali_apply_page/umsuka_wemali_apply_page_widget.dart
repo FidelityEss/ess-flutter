@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'umsuka_wemali_apply_page_model.dart';
 export 'umsuka_wemali_apply_page_model.dart';
 
@@ -656,8 +658,36 @@ class _UmsukaWemaliApplyPageWidgetState
                             !_model.formKey.currentState!.validate()) {
                           return;
                         }
+                        _model.sendUmsukaEmail = await SendEmailCall.call(
+                          toEmail: 'FloydN@fidelity-services.com',
+                          subject:
+                              'Umsuka WeMali FESS Application: ${valueOrDefault(currentUserDocument?.eid, '')}',
+                          body:
+                              'Name: ${currentUserDisplayName} Employee ID: ${valueOrDefault(currentUserDocument?.eid, '')} Company Code: ${valueOrDefault(currentUserDocument?.ecd, '')} Employee Number: ${valueOrDefault(currentUserDocument?.en, '')} Email: ${currentUserEmail} Phone Number: ${currentPhoneNumber} Loan Amount: ${_model.loanAmountController.text} Loan Purpose: ${_model.purposeController.text}',
+                        );
+                        if ((_model.sendUmsukaEmail?.succeeded ?? true)) {
+                          context.pushNamed('LoanSubmitted');
+                        } else {
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return WebViewAware(
+                                  child: AlertDialog(
+                                content: Text('Error'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text(
+                                        'There was an error creating your application. Please try again later.'),
+                                  ),
+                                ],
+                              ));
+                            },
+                          );
+                        }
 
-                        context.pushNamed('LoanSubmitted');
+                        setState(() {});
                       },
                       text: 'Next',
                       options: FFButtonOptions(

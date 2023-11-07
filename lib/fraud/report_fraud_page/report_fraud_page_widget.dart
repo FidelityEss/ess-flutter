@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
@@ -380,46 +381,75 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                           );
                           return;
                         }
-
-                        await FraudIncidentsRecord.collection
-                            .doc()
-                            .set(createFraudIncidentsRecordData(
-                              id: '${getCurrentTimestamp.microsecondsSinceEpoch.toString()}${random_data.randomString(
-                                10,
-                                10,
-                                true,
-                                true,
-                                true,
-                              )}',
-                              userId: currentUserUid,
-                              type: _model.typeValue,
-                              priority: _model.priorityValue,
-                              title: _model.titleController.text,
-                              message: _model.messageController.text,
-                              created: getCurrentTimestamp,
-                              updated: getCurrentTimestamp,
-                              assignee: 'No Assignee',
-                              status: 'Logged',
-                              userName: currentUserDisplayName,
-                            ));
-                        await showDialog(
-                          context: context,
-                          builder: (alertDialogContext) {
-                            return WebViewAware(
-                                child: AlertDialog(
-                              title: Text('Success'),
-                              content: Text('Your query has been created.'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.pop(alertDialogContext),
-                                  child: Text('Ok'),
-                                ),
-                              ],
-                            ));
-                          },
+                        _model.sendFraudEmail = await SendEmailCall.call(
+                          toEmail: 'Mbusom@fidelity-services.com',
+                          subject:
+                              '${_model.typeValue}: ${_model.priorityValue} Priority',
+                          body:
+                              'Name: ${currentUserDisplayName} Employee Number: ${valueOrDefault(currentUserDocument?.en, '')} Message: ${_model.messageController.text} Location: ${_model.placePickerValue.address} LatLng: ${_model.placePickerValue.latLng?.toString()}',
                         );
-                        context.safePop();
+                        if ((_model.sendFraudEmail?.succeeded ?? true)) {
+                          await FraudIncidentsRecord.collection
+                              .doc()
+                              .set(createFraudIncidentsRecordData(
+                                id: '${getCurrentTimestamp.microsecondsSinceEpoch.toString()}${random_data.randomString(
+                                  10,
+                                  10,
+                                  true,
+                                  true,
+                                  true,
+                                )}',
+                                userId: currentUserUid,
+                                type: _model.typeValue,
+                                priority: _model.priorityValue,
+                                title: _model.titleController.text,
+                                message: _model.messageController.text,
+                                created: getCurrentTimestamp,
+                                updated: getCurrentTimestamp,
+                                assignee: 'No Assignee',
+                                status: 'Logged',
+                                userName: currentUserDisplayName,
+                              ));
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return WebViewAware(
+                                  child: AlertDialog(
+                                title: Text('Success'),
+                                content: Text('Your query has been created.'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              ));
+                            },
+                          );
+                          context.safePop();
+                        } else {
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return WebViewAware(
+                                  child: AlertDialog(
+                                title: Text('Error'),
+                                content: Text(
+                                    'There was an error trying to create this report. Please try again later.'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              ));
+                            },
+                          );
+                        }
+
+                        setState(() {});
                       },
                       text: 'Report Fraud',
                       options: FFButtonOptions(

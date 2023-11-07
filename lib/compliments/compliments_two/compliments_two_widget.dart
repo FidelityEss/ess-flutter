@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
@@ -268,27 +269,56 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                         );
                         return;
                       }
+                      _model.sendComplimentResponse = await SendEmailCall.call(
+                        toEmail: 'internalcommunications@fidelityservices.com',
+                        subject:
+                            'FESS app Compliment from: ${currentUserDisplayName}',
+                        body:
+                            'From: ${widget.name} Email: ${widget.email} Phone: ${widget.phone} Compliment Type: ${_model.dropDownValue} Message: ${_model.messageController.text}',
+                      );
+                      if ((_model.sendComplimentResponse?.succeeded ?? true)) {
+                        await ComplimentsRecord.collection
+                            .doc()
+                            .set(createComplimentsRecordData(
+                              id: '${getCurrentTimestamp.microsecondsSinceEpoch.toString()}${random_data.randomString(
+                                10,
+                                10,
+                                true,
+                                true,
+                                true,
+                              )}',
+                              name: widget.name,
+                              surname: widget.surname,
+                              email: widget.email,
+                              phoneNumber: widget.phone,
+                              complimentType: _model.dropDownValue,
+                              message: _model.messageController.text,
+                              created: getCurrentTimestamp,
+                            ));
 
-                      await ComplimentsRecord.collection
-                          .doc()
-                          .set(createComplimentsRecordData(
-                            id: '${getCurrentTimestamp.microsecondsSinceEpoch.toString()}${random_data.randomString(
-                              10,
-                              10,
-                              true,
-                              true,
-                              true,
-                            )}',
-                            name: widget.name,
-                            surname: widget.surname,
-                            email: widget.email,
-                            phoneNumber: widget.phone,
-                            complimentType: _model.dropDownValue,
-                            message: _model.messageController.text,
-                            created: getCurrentTimestamp,
-                          ));
+                        context.goNamed('ComplimentSubmittedPage');
+                      } else {
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return WebViewAware(
+                                child: AlertDialog(
+                              title: Text('Error'),
+                              content: Text(
+                                  'There was an error creating this compliment. Please try again later.'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Ok'),
+                                ),
+                              ],
+                            ));
+                          },
+                        );
+                      }
 
-                      context.goNamed('ComplimentSubmittedPage');
+                      setState(() {});
                     },
                     text: 'Send Compliment',
                     options: FFButtonOptions(

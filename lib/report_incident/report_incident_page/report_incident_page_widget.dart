@@ -376,55 +376,77 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                           );
                           return;
                         }
-                        await SendEmailCall.call(
-                          toEmail: 'nkosilebogang95@gmail.com',
+                        _model.sendIncidentEmail = await SendEmailCall.call(
+                          toEmail: 'WickusP@fidelity-services.com',
                           subject:
                               '${_model.typeValue}: ${_model.priorityValue} Priority',
                           body:
                               'Name: ${currentUserDisplayName} Employee Number: ${valueOrDefault(currentUserDocument?.en, '')} Message: ${_model.messageController.text} Location: ${_model.placePickerValue.address} LatLng: ${_model.placePickerValue.latLng?.toString()}',
                         );
+                        if ((_model.sendIncidentEmail?.succeeded ?? true)) {
+                          await IncidentsRecord.collection
+                              .doc()
+                              .set(createIncidentsRecordData(
+                                id: '${getCurrentTimestamp.microsecondsSinceEpoch.toString()}${random_data.randomString(
+                                  10,
+                                  10,
+                                  true,
+                                  true,
+                                  true,
+                                )}',
+                                userId: currentUserUid,
+                                type: _model.typeValue,
+                                priority: _model.priorityValue,
+                                title: _model.titleController.text,
+                                message: _model.messageController.text,
+                                created: getCurrentTimestamp,
+                                updated: getCurrentTimestamp,
+                                location: _model.placePickerValue.latLng,
+                                assignee: 'No Assignee',
+                                status: 'Logged',
+                                userName: currentUserDisplayName,
+                                locationName: _model.placePickerValue.name,
+                              ));
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return WebViewAware(
+                                  child: AlertDialog(
+                                title: Text('Success'),
+                                content: Text('Your query has been created.'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              ));
+                            },
+                          );
+                          context.safePop();
+                        } else {
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return WebViewAware(
+                                  child: AlertDialog(
+                                title: Text('Error'),
+                                content: Text(
+                                    'We couldn\'t create your incident. Please try again'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              ));
+                            },
+                          );
+                        }
 
-                        await IncidentsRecord.collection
-                            .doc()
-                            .set(createIncidentsRecordData(
-                              id: '${getCurrentTimestamp.microsecondsSinceEpoch.toString()}${random_data.randomString(
-                                10,
-                                10,
-                                true,
-                                true,
-                                true,
-                              )}',
-                              userId: currentUserUid,
-                              type: _model.typeValue,
-                              priority: _model.priorityValue,
-                              title: _model.titleController.text,
-                              message: _model.messageController.text,
-                              created: getCurrentTimestamp,
-                              updated: getCurrentTimestamp,
-                              location: _model.placePickerValue.latLng,
-                              assignee: 'No Assignee',
-                              status: 'Logged',
-                              userName: currentUserDisplayName,
-                              locationName: _model.placePickerValue.name,
-                            ));
-                        await showDialog(
-                          context: context,
-                          builder: (alertDialogContext) {
-                            return WebViewAware(
-                                child: AlertDialog(
-                              title: Text('Success'),
-                              content: Text('Your query has been created.'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.pop(alertDialogContext),
-                                  child: Text('Ok'),
-                                ),
-                              ],
-                            ));
-                          },
-                        );
-                        context.safePop();
+                        setState(() {});
                       },
                       text: 'Report Incident',
                       options: FFButtonOptions(

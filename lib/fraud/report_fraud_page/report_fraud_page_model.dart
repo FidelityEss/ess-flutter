@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
@@ -60,6 +61,8 @@ class ReportFraudPageModel extends FlutterFlowModel<ReportFraudPageWidget> {
 
   // State field(s) for PlacePicker widget.
   var placePickerValue = FFPlace();
+  // Stores action output result for [Backend Call - API (SendEmail)] action in Button widget.
+  ApiCallResponse? sendFraudEmail;
 
   /// Initialization and disposal methods.
 
