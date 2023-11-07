@@ -377,7 +377,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 32.0),
                           child: Text(
-                            'Version 1.9.0',
+                            'Version 2.0.0',
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
