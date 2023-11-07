@@ -45,7 +45,7 @@ class _UmsukaWemaliApplyPageWidgetState
     _model.idFocusNode ??= FocusNode();
 
     _model.companyNumberController ??= TextEditingController(
-        text: valueOrDefault(currentUserDocument?.ecd, ''));
+        text: valueOrDefault(currentUserDocument?.en, ''));
     _model.companyNumberFocusNode ??= FocusNode();
 
     _model.emailController ??= TextEditingController(text: currentUserEmail);
@@ -348,7 +348,7 @@ class _UmsukaWemaliApplyPageWidgetState
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.w600,
                               ),
-                          hintText: 'Company Number',
+                          hintText: 'Employee Number',
                           hintStyle: FlutterFlowTheme.of(context)
                               .displayLarge
                               .override(

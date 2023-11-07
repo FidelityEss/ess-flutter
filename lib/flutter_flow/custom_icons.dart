@@ -11,6 +11,7 @@ class FFIcons {
   static const String _fesslogo5Family = 'Fesslogo5';
   static const String _fesslogo6Family = 'Fesslogo6';
   static const String _fesslogo7Family = 'Fesslogo7';
+  static const String _fesslogo8Family = 'Fesslogo8';
 
   // fessfinal
   static const IconData knewAppIconsCompliments =
@@ -102,4 +103,8 @@ class FFIcons {
       IconData(0xe900, fontFamily: _fesslogo7Family);
   static const IconData kbulletproofVest =
       IconData(0xe901, fontFamily: _fesslogo7Family);
+
+  // fesslogo8
+  static const IconData knewSecureDrive1 =
+      IconData(0xe900, fontFamily: _fesslogo8Family);
 }

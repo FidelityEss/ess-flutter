@@ -35,18 +35,6 @@ class ReportFraudPageModel extends FlutterFlowModel<ReportFraudPageWidget> {
   // State field(s) for Priority widget.
   String? priorityValue;
   FormFieldController<String>? priorityValueController;
-  // State field(s) for Title widget.
-  FocusNode? titleFocusNode;
-  TextEditingController? titleController;
-  String? Function(BuildContext, String?)? titleControllerValidator;
-  String? _titleControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'Field is required';
-    }
-
-    return null;
-  }
-
   // State field(s) for Message widget.
   FocusNode? messageFocusNode;
   TextEditingController? messageController;
@@ -69,7 +57,6 @@ class ReportFraudPageModel extends FlutterFlowModel<ReportFraudPageWidget> {
   void initState(BuildContext context) {
     customAppBarModel = createModel(context, () => CustomAppBarModel());
     bannerSliderModel = createModel(context, () => BannerSliderModel());
-    titleControllerValidator = _titleControllerValidator;
     messageControllerValidator = _messageControllerValidator;
   }
 
@@ -77,9 +64,6 @@ class ReportFraudPageModel extends FlutterFlowModel<ReportFraudPageWidget> {
     unfocusNode.dispose();
     customAppBarModel.dispose();
     bannerSliderModel.dispose();
-    titleFocusNode?.dispose();
-    titleController?.dispose();
-
     messageFocusNode?.dispose();
     messageController?.dispose();
   }

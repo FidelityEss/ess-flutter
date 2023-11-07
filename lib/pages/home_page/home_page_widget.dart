@@ -818,7 +818,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(
-                                        FFIcons.kdestination,
+                                        FFIcons.knewSecureDrive1,
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
                                         size: 35.0,

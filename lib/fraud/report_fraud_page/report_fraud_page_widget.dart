@@ -38,9 +38,6 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
     super.initState();
     _model = createModel(context, () => ReportFraudPageModel());
 
-    _model.titleController ??= TextEditingController();
-    _model.titleFocusNode ??= FocusNode();
-
     _model.messageController ??= TextEditingController();
     _model.messageFocusNode ??= FocusNode();
 
@@ -185,51 +182,6 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                       hidesUnderline: true,
                       isSearchable: false,
                       isMultiSelect: false,
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                    child: TextFormField(
-                      controller: _model.titleController,
-                      focusNode: _model.titleFocusNode,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        labelText: 'Title',
-                        labelStyle: FlutterFlowTheme.of(context).displayLarge,
-                        hintStyle: FlutterFlowTheme.of(context).displayLarge,
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        errorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).error,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        focusedErrorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).error,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                      ),
-                      style: FlutterFlowTheme.of(context).displayLarge,
-                      validator:
-                          _model.titleControllerValidator.asValidator(context),
                     ),
                   ),
                   Padding(
@@ -402,7 +354,6 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                                 userId: currentUserUid,
                                 type: _model.typeValue,
                                 priority: _model.priorityValue,
-                                title: _model.titleController.text,
                                 message: _model.messageController.text,
                                 created: getCurrentTimestamp,
                                 updated: getCurrentTimestamp,
