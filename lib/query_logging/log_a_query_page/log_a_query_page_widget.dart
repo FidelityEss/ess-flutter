@@ -242,7 +242,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                                   child: AlertDialog(
                                 title: Text('Success'),
                                 content: Text(
-                                    'Your query has been created. Your payroll order ID is: ${FessApiGroup.createPayrollQueryCall.orderId(
+                                    'Your query has been created. Your payroll order ID is: ${FessApiGroup.createPayrollQueryCall.orderNumber(
                                           (_model.createQueryResponse
                                                   ?.jsonBody ??
                                               ''),

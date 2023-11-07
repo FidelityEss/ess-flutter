@@ -217,6 +217,10 @@ class CreatePayrollQueryCall {
         response,
         r'''$.payrollOrderId''',
       );
+  dynamic orderNumber(dynamic response) => getJsonField(
+        response,
+        r'''$.payrollOrderNumber''',
+      );
 }
 
 /// End FESS API Group Code
