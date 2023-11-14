@@ -91,7 +91,24 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                     child: Text(
-                      'CONNECTING EMPLOYEES, EMPOWERING COMMUNICATION',
+                      'CONNECTING EMPLOYEES',
+                      textAlign: TextAlign.center,
+                      style:
+                          FlutterFlowTheme.of(context).displayMedium.override(
+                                fontFamily: 'Montserrat',
+                                color: FlutterFlowTheme.of(context).secondary,
+                                fontSize: 16.0,
+                              ),
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.00, 0.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 4.0, 32.0, 0.0),
+                    child: Text(
+                      'EMPOWERING COMMUNICATION',
                       textAlign: TextAlign.center,
                       style:
                           FlutterFlowTheme.of(context).displayMedium.override(

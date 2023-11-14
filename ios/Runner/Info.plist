@@ -55,9 +55,10 @@
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 
-
+	<key>NSCameraUsageDescription</key>
+    <string>In order to take a picture or video, this app requires permission to access the camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-    <string>We use the photo library to upload images</string>
+    <string>In order to upload data, this app requires permission to access the photo library.</string>
 	<key>PermissionGroupNotification</key>
     <string>We use notifications to keep you updated with FESS</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

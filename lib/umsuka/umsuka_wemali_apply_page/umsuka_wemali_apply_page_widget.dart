@@ -1,10 +1,13 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/random_data_util.dart' as random_data;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -666,6 +669,33 @@ class _UmsukaWemaliApplyPageWidgetState
                               'Name: ${currentUserDisplayName} Employee ID: ${valueOrDefault(currentUserDocument?.eid, '')} Company Code: ${valueOrDefault(currentUserDocument?.ecd, '')} Employee Number: ${valueOrDefault(currentUserDocument?.en, '')} Email: ${currentUserEmail} Phone Number: ${currentPhoneNumber} Loan Amount: ${_model.loanAmountController.text} Loan Purpose: ${_model.purposeController.text}',
                         );
                         if ((_model.sendUmsukaEmail?.succeeded ?? true)) {
+                          await UmsukaRecord.collection
+                              .doc()
+                              .set(createUmsukaRecordData(
+                                id: '${getCurrentTimestamp.microsecondsSinceEpoch.toString()}${random_data.randomString(
+                                  10,
+                                  10,
+                                  true,
+                                  true,
+                                  true,
+                                )}',
+                                name: _model.nameController.text,
+                                surname: _model.surnameController.text,
+                                eid: valueOrDefault(
+                                    currentUserDocument?.eid, ''),
+                                cn: valueOrDefault(
+                                    currentUserDocument?.ecd, ''),
+                                phone: currentPhoneNumber,
+                                email: currentUserEmail,
+                                amount: int.tryParse(
+                                    _model.loanAmountController.text),
+                                purpose: _model.purposeController.text,
+                                stage: 'Application Sent',
+                                created: getCurrentTimestamp,
+                                updated: getCurrentTimestamp,
+                                en: valueOrDefault(currentUserDocument?.en, ''),
+                              ));
+
                           context.pushNamed('LoanSubmitted');
                         } else {
                           await showDialog(

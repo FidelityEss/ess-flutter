@@ -86,6 +86,11 @@ class IncidentsRecord extends FirestoreRecord {
   String get locationName => _locationName ?? '';
   bool hasLocationName() => _locationName != null;
 
+  // "latlng" field.
+  LatLng? _latlng;
+  LatLng? get latlng => _latlng;
+  bool hasLatlng() => _latlng != null;
+
   void _initializeFields() {
     _id = snapshotData['id'] as String?;
     _userId = snapshotData['user_id'] as String?;
@@ -101,6 +106,7 @@ class IncidentsRecord extends FirestoreRecord {
     _status = snapshotData['status'] as String?;
     _userName = snapshotData['user_name'] as String?;
     _locationName = snapshotData['location_name'] as String?;
+    _latlng = snapshotData['latlng'] as LatLng?;
   }
 
   static CollectionReference get collection =>
@@ -152,6 +158,7 @@ Map<String, dynamic> createIncidentsRecordData({
   String? status,
   String? userName,
   String? locationName,
+  LatLng? latlng,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -169,6 +176,7 @@ Map<String, dynamic> createIncidentsRecordData({
       'status': status,
       'user_name': userName,
       'location_name': locationName,
+      'latlng': latlng,
     }.withoutNulls,
   );
 
@@ -193,7 +201,8 @@ class IncidentsRecordDocumentEquality implements Equality<IncidentsRecord> {
         e1?.assignee == e2?.assignee &&
         e1?.status == e2?.status &&
         e1?.userName == e2?.userName &&
-        e1?.locationName == e2?.locationName;
+        e1?.locationName == e2?.locationName &&
+        e1?.latlng == e2?.latlng;
   }
 
   @override
@@ -211,7 +220,8 @@ class IncidentsRecordDocumentEquality implements Equality<IncidentsRecord> {
         e?.assignee,
         e?.status,
         e?.userName,
-        e?.locationName
+        e?.locationName,
+        e?.latlng
       ]);
 
   @override

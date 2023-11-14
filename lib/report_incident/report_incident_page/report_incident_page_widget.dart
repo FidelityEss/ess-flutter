@@ -329,7 +329,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                           return;
                         }
                         _model.sendIncidentEmail = await SendEmailCall.call(
-                          toEmail: 'WickusP@fidelity-services.com',
+                          toEmail: 'ITOC@fidelitycc.co.za',
                           subject:
                               '${_model.typeValue}: ${_model.priorityValue} Priority',
                           body:
@@ -357,6 +357,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                                 status: 'Logged',
                                 userName: currentUserDisplayName,
                                 locationName: _model.placePickerValue.name,
+                                latlng: _model.placePickerValue.latLng,
                               ));
                           await showDialog(
                             context: context,

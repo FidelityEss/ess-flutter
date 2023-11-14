@@ -76,6 +76,11 @@ class FraudIncidentsRecord extends FirestoreRecord {
   String get userName => _userName ?? '';
   bool hasUserName() => _userName != null;
 
+  // "latlng" field.
+  LatLng? _latlng;
+  LatLng? get latlng => _latlng;
+  bool hasLatlng() => _latlng != null;
+
   void _initializeFields() {
     _id = snapshotData['id'] as String?;
     _userId = snapshotData['user_id'] as String?;
@@ -89,6 +94,7 @@ class FraudIncidentsRecord extends FirestoreRecord {
     _assignee = snapshotData['assignee'] as String?;
     _status = snapshotData['status'] as String?;
     _userName = snapshotData['user_name'] as String?;
+    _latlng = snapshotData['latlng'] as LatLng?;
   }
 
   static CollectionReference get collection =>
@@ -138,6 +144,7 @@ Map<String, dynamic> createFraudIncidentsRecordData({
   String? assignee,
   String? status,
   String? userName,
+  LatLng? latlng,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -153,6 +160,7 @@ Map<String, dynamic> createFraudIncidentsRecordData({
       'assignee': assignee,
       'status': status,
       'user_name': userName,
+      'latlng': latlng,
     }.withoutNulls,
   );
 
@@ -176,7 +184,8 @@ class FraudIncidentsRecordDocumentEquality
         e1?.updated == e2?.updated &&
         e1?.assignee == e2?.assignee &&
         e1?.status == e2?.status &&
-        e1?.userName == e2?.userName;
+        e1?.userName == e2?.userName &&
+        e1?.latlng == e2?.latlng;
   }
 
   @override
@@ -192,7 +201,8 @@ class FraudIncidentsRecordDocumentEquality
         e?.updated,
         e?.assignee,
         e?.status,
-        e?.userName
+        e?.userName,
+        e?.latlng
       ]);
 
   @override

@@ -66,6 +66,21 @@ class UmsukaRecord extends FirestoreRecord {
   String get stage => _stage ?? '';
   bool hasStage() => _stage != null;
 
+  // "created" field.
+  DateTime? _created;
+  DateTime? get created => _created;
+  bool hasCreated() => _created != null;
+
+  // "updated" field.
+  DateTime? _updated;
+  DateTime? get updated => _updated;
+  bool hasUpdated() => _updated != null;
+
+  // "en" field.
+  String? _en;
+  String get en => _en ?? '';
+  bool hasEn() => _en != null;
+
   void _initializeFields() {
     _id = snapshotData['id'] as String?;
     _name = snapshotData['name'] as String?;
@@ -77,6 +92,9 @@ class UmsukaRecord extends FirestoreRecord {
     _amount = castToType<int>(snapshotData['amount']);
     _purpose = snapshotData['purpose'] as String?;
     _stage = snapshotData['stage'] as String?;
+    _created = snapshotData['created'] as DateTime?;
+    _updated = snapshotData['updated'] as DateTime?;
+    _en = snapshotData['en'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -123,6 +141,9 @@ Map<String, dynamic> createUmsukaRecordData({
   int? amount,
   String? purpose,
   String? stage,
+  DateTime? created,
+  DateTime? updated,
+  String? en,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -136,6 +157,9 @@ Map<String, dynamic> createUmsukaRecordData({
       'amount': amount,
       'purpose': purpose,
       'stage': stage,
+      'created': created,
+      'updated': updated,
+      'en': en,
     }.withoutNulls,
   );
 
@@ -156,7 +180,10 @@ class UmsukaRecordDocumentEquality implements Equality<UmsukaRecord> {
         e1?.email == e2?.email &&
         e1?.amount == e2?.amount &&
         e1?.purpose == e2?.purpose &&
-        e1?.stage == e2?.stage;
+        e1?.stage == e2?.stage &&
+        e1?.created == e2?.created &&
+        e1?.updated == e2?.updated &&
+        e1?.en == e2?.en;
   }
 
   @override
@@ -170,7 +197,10 @@ class UmsukaRecordDocumentEquality implements Equality<UmsukaRecord> {
         e?.email,
         e?.amount,
         e?.purpose,
-        e?.stage
+        e?.stage,
+        e?.created,
+        e?.updated,
+        e?.en
       ]);
 
   @override

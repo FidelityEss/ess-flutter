@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'fidelity_cares_page_model.dart';
@@ -79,42 +78,6 @@ class _FidelityCaresPageWidgetState extends State<FidelityCaresPageWidget> {
                 updateCallback: () => setState(() {}),
                 child: CustomAppBarWidget(
                   title: 'Fidelity Cares',
-                ),
-              ),
-              Container(
-                width: double.infinity,
-                height: 50.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).primary,
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
-                      child: FaIcon(
-                        FontAwesomeIcons.shieldAlt,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 16.0,
-                      ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
-                        child: Text(
-                          'https://fidelitycares.co.za',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Montserrat',
-                                color: FlutterFlowTheme.of(context).justWhite,
-                              ),
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
               ),
               Expanded(

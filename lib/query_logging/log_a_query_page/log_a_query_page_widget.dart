@@ -150,27 +150,33 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                         EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        final selectedFiles = await selectFiles(
-                          allowedExtensions: ['pdf'],
-                          multiFile: false,
+                        final selectedMedia =
+                            await selectMediaWithSourceBottomSheet(
+                          context: context,
+                          allowPhoto: true,
                         );
-                        if (selectedFiles != null) {
+                        if (selectedMedia != null &&
+                            selectedMedia.every((m) =>
+                                validateFileFormat(m.storagePath, context))) {
                           setState(() => _model.isDataUploading = true);
                           var selectedUploadedFiles = <FFUploadedFile>[];
 
                           var downloadUrls = <String>[];
                           try {
-                            selectedUploadedFiles = selectedFiles
+                            selectedUploadedFiles = selectedMedia
                                 .map((m) => FFUploadedFile(
                                       name: m.storagePath.split('/').last,
                                       bytes: m.bytes,
+                                      height: m.dimensions?.height,
+                                      width: m.dimensions?.width,
+                                      blurHash: m.blurHash,
                                     ))
                                 .toList();
 
                             downloadUrls = (await Future.wait(
-                              selectedFiles.map(
-                                (f) async =>
-                                    await uploadData(f.storagePath, f.bytes),
+                              selectedMedia.map(
+                                (m) async =>
+                                    await uploadData(m.storagePath, m.bytes),
                               ),
                             ))
                                 .where((u) => u != null)
@@ -180,8 +186,8 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                             _model.isDataUploading = false;
                           }
                           if (selectedUploadedFiles.length ==
-                                  selectedFiles.length &&
-                              downloadUrls.length == selectedFiles.length) {
+                                  selectedMedia.length &&
+                              downloadUrls.length == selectedMedia.length) {
                             setState(() {
                               _model.uploadedLocalFile =
                                   selectedUploadedFiles.first;
@@ -230,7 +236,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                         _model.createQueryResponse =
                             await FessApiGroup.createPayrollQueryCall.call(
                           description: _model.messageController.text,
-                          fcmToken: 'test',
+                          fcmToken: 'value',
                           fileUrl: _model.uploadedFileUrl,
                           authToken: FFAppState().token,
                         );

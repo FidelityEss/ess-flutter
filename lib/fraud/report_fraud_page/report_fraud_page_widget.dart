@@ -360,6 +360,7 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                                 assignee: 'No Assignee',
                                 status: 'Logged',
                                 userName: currentUserDisplayName,
+                                latlng: _model.placePickerValue.latLng,
                               ));
                           await showDialog(
                             context: context,
