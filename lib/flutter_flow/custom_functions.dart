@@ -75,3 +75,10 @@ List<String>? searchFilter(
   keyword = keyword.toLowerCase();
   return list.where((item) => item.toLowerCase().contains(keyword)).toList();
 }
+
+int? getMessageCount(
+  int totalMessages,
+  int readMessages,
+) {
+  return totalMessages - readMessages;
+}

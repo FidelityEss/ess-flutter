@@ -124,7 +124,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       children: [
                         Container(
                           width: double.infinity,
-                          height: 70.0,
+                          height: 80.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).primary,
                           ),
@@ -149,8 +149,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         context.pushNamed('MessagesBox');
                                       },
                                       child: Container(
-                                        width: 35.0,
-                                        height: 35.0,
+                                        width: 40.0,
+                                        height: 40.0,
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
                                           border: Border.all(
@@ -158,11 +158,126 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                 .justWhite,
                                           ),
                                         ),
-                                        child: Icon(
-                                          Icons.notifications,
-                                          color: FlutterFlowTheme.of(context)
-                                              .justWhite,
-                                          size: 14.0,
+                                        child: Stack(
+                                          children: [
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.00, 0.00),
+                                              child: Icon(
+                                                Icons.notifications,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .justWhite,
+                                                size: 14.0,
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  1.00, -1.00),
+                                              child: StreamBuilder<
+                                                  List<ReadbyRecord>>(
+                                                stream: queryReadbyRecord(),
+                                                builder: (context, snapshot) {
+                                                  // Customize what your widget looks like when it's loading.
+                                                  if (!snapshot.hasData) {
+                                                    return Center(
+                                                      child: SizedBox(
+                                                        width: 50.0,
+                                                        height: 50.0,
+                                                        child:
+                                                            CircularProgressIndicator(
+                                                          valueColor:
+                                                              AlwaysStoppedAnimation<
+                                                                  Color>(
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  }
+                                                  List<ReadbyRecord>
+                                                      containerReadbyRecordList =
+                                                      snapshot.data!;
+                                                  return Container(
+                                                    width: 15.0,
+                                                    height: 15.0,
+                                                    decoration: BoxDecoration(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondary,
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.00, 0.00),
+                                                      child: FutureBuilder<int>(
+                                                        future:
+                                                            queryReadbyRecordCount(
+                                                          queryBuilder:
+                                                              (readbyRecord) =>
+                                                                  readbyRecord
+                                                                      .where(
+                                                            'uid',
+                                                            isEqualTo:
+                                                                currentUserUid,
+                                                          ),
+                                                        ),
+                                                        builder: (context,
+                                                            snapshot) {
+                                                          // Customize what your widget looks like when it's loading.
+                                                          if (!snapshot
+                                                              .hasData) {
+                                                            return Center(
+                                                              child: SizedBox(
+                                                                width: 50.0,
+                                                                height: 50.0,
+                                                                child:
+                                                                    CircularProgressIndicator(
+                                                                  valueColor:
+                                                                      AlwaysStoppedAnimation<
+                                                                          Color>(
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            );
+                                                          }
+                                                          int textCount =
+                                                              snapshot.data!;
+                                                          return Text(
+                                                            functions
+                                                                .getMessageCount(
+                                                                    containerReadbyRecordList
+                                                                        .length,
+                                                                    textCount)
+                                                                .toString(),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Montserrat',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .justWhite,
+                                                                  fontSize:
+                                                                      12.0,
+                                                                ),
+                                                          );
+                                                        },
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ),
@@ -178,8 +293,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           context.pushNamed('ProfilePage');
                                         },
                                         child: Container(
-                                          width: 35.0,
-                                          height: 35.0,
+                                          width: 40.0,
+                                          height: 40.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .justWhite,
@@ -977,10 +1092,36 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('AboutPage');
+                                    context.pushNamed('CoidaPage');
                                   },
                                   child: wrapWithModel(
                                     model: _model.menuIconModel17,
+                                    updateCallback: () => setState(() {}),
+                                    child: MenuIconWidget(
+                                      icon: Icon(
+                                        FFIcons.kcOIDAIcon,
+                                        color: FlutterFlowTheme.of(context)
+                                            .justWhite,
+                                        size: 30.0,
+                                      ),
+                                      title: 'COIDA\nInfo',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('AboutPage');
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.menuIconModel18,
                                     updateCallback: () => setState(() {}),
                                     child: MenuIconWidget(
                                       icon: Icon(

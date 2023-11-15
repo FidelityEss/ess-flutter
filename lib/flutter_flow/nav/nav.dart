@@ -320,6 +320,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'AboutPage',
           path: '/aboutPage',
           builder: (context, params) => AboutPageWidget(),
+        ),
+        FFRoute(
+          name: 'CoidaPage',
+          path: '/coidaPage',
+          builder: (context, params) => CoidaPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -694,6 +694,7 @@ class _UmsukaWemaliApplyPageWidgetState
                                 created: getCurrentTimestamp,
                                 updated: getCurrentTimestamp,
                                 en: valueOrDefault(currentUserDocument?.en, ''),
+                                uid: currentUserUid,
                               ));
 
                           context.pushNamed('LoanSubmitted');

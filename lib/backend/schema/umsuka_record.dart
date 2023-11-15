@@ -81,6 +81,11 @@ class UmsukaRecord extends FirestoreRecord {
   String get en => _en ?? '';
   bool hasEn() => _en != null;
 
+  // "uid" field.
+  String? _uid;
+  String get uid => _uid ?? '';
+  bool hasUid() => _uid != null;
+
   void _initializeFields() {
     _id = snapshotData['id'] as String?;
     _name = snapshotData['name'] as String?;
@@ -95,6 +100,7 @@ class UmsukaRecord extends FirestoreRecord {
     _created = snapshotData['created'] as DateTime?;
     _updated = snapshotData['updated'] as DateTime?;
     _en = snapshotData['en'] as String?;
+    _uid = snapshotData['uid'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -144,6 +150,7 @@ Map<String, dynamic> createUmsukaRecordData({
   DateTime? created,
   DateTime? updated,
   String? en,
+  String? uid,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -160,6 +167,7 @@ Map<String, dynamic> createUmsukaRecordData({
       'created': created,
       'updated': updated,
       'en': en,
+      'uid': uid,
     }.withoutNulls,
   );
 
@@ -183,7 +191,8 @@ class UmsukaRecordDocumentEquality implements Equality<UmsukaRecord> {
         e1?.stage == e2?.stage &&
         e1?.created == e2?.created &&
         e1?.updated == e2?.updated &&
-        e1?.en == e2?.en;
+        e1?.en == e2?.en &&
+        e1?.uid == e2?.uid;
   }
 
   @override
@@ -200,7 +209,8 @@ class UmsukaRecordDocumentEquality implements Equality<UmsukaRecord> {
         e?.stage,
         e?.created,
         e?.updated,
-        e?.en
+        e?.en,
+        e?.uid
       ]);
 
   @override

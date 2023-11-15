@@ -31,8 +31,11 @@ class ReportIncidentPageModel
   // Model for BannerSlider component.
   late BannerSliderModel bannerSliderModel;
   // State field(s) for Type widget.
-  String? typeValue;
-  FormFieldController<String>? typeValueController;
+  String? typeValue1;
+  FormFieldController<String>? typeValueController1;
+  // State field(s) for Type widget.
+  String? typeValue2;
+  FormFieldController<String>? typeValueController2;
   // State field(s) for Priority widget.
   String? priorityValue;
   FormFieldController<String>? priorityValueController;

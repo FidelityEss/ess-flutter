@@ -338,7 +338,7 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                           subject:
                               '${_model.typeValue}: ${_model.priorityValue} Priority',
                           body:
-                              'Name: ${currentUserDisplayName} Employee Number: ${valueOrDefault(currentUserDocument?.en, '')} Message: ${_model.messageController.text} Location: ${_model.placePickerValue.address} LatLng: ${_model.placePickerValue.latLng?.toString()}',
+                              'Name: ${currentUserDisplayName} Employee Number: ${valueOrDefault(currentUserDocument?.en, '')} Message: ${_model.messageController.text} Location: ${_model.placePickerValue.address} LatLng: ${_model.placePickerValue.latLng?.toString()} Email: ${currentUserEmail} Phone: ${currentPhoneNumber}',
                         );
                         if ((_model.sendFraudEmail?.succeeded ?? true)) {
                           await FraudIncidentsRecord.collection

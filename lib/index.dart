@@ -69,3 +69,4 @@ export '/umsuka/umsuka_wemali_apply_page/umsuka_wemali_apply_page_widget.dart'
 export '/umsuka/loan_submitted/loan_submitted_widget.dart'
     show LoanSubmittedWidget;
 export '/pages/about_page/about_page_widget.dart' show AboutPageWidget;
+export '/coida_page/coida_page_widget.dart' show CoidaPageWidget;

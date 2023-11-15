@@ -274,7 +274,7 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                         subject:
                             'FESS app Compliment from: ${currentUserDisplayName}',
                         body:
-                            'From: ${widget.name} Email: ${widget.email} Phone: ${widget.phone} Compliment Type: ${_model.dropDownValue} Message: ${_model.messageController.text}',
+                            'From: ${widget.name} Email: ${widget.email} Phone: ${widget.phone} Compliment Type: ${_model.dropDownValue} Message: ${_model.messageController.text} Email: ${currentUserEmail} Phone: ${currentPhoneNumber}',
                       );
                       if ((_model.sendComplimentResponse?.succeeded ?? true)) {
                         await ComplimentsRecord.collection

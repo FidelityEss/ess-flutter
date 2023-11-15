@@ -111,41 +111,116 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
-                    child: FlutterFlowDropDown<String>(
-                      controller: _model.typeValueController ??=
-                          FormFieldController<String>(null),
-                      options: [
-                        'Protest Violence',
-                        'Unauthorized Entry and Burglary',
-                        'Cybersecurity Breach',
-                        'Vandalism of Property and Equipment',
-                        'High-Profile VIP Security Breach',
-                        'House Theft',
-                        'Riots',
-                        'Cash Heist in Progress'
-                      ],
-                      onChanged: (val) =>
-                          setState(() => _model.typeValue = val),
-                      width: double.infinity,
-                      height: 50.0,
-                      textStyle: FlutterFlowTheme.of(context).displayLarge,
-                      hintText: 'Incident',
-                      icon: Icon(
-                        Icons.keyboard_arrow_down_rounded,
-                        color: FlutterFlowTheme.of(context).black,
-                        size: 24.0,
+                    child: StreamBuilder<List<IncidentCategoriesRecord>>(
+                      stream: queryIncidentCategoriesRecord(),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
+                              ),
+                            ),
+                          );
+                        }
+                        List<IncidentCategoriesRecord>
+                            typeIncidentCategoriesRecordList = snapshot.data!;
+                        return FlutterFlowDropDown<String>(
+                          controller: _model.typeValueController1 ??=
+                              FormFieldController<String>(null),
+                          options: typeIncidentCategoriesRecordList
+                              .map((e) => e.name)
+                              .toList(),
+                          onChanged: (val) =>
+                              setState(() => _model.typeValue1 = val),
+                          width: double.infinity,
+                          height: 50.0,
+                          textStyle: FlutterFlowTheme.of(context).displayLarge,
+                          hintText: 'Incident',
+                          icon: Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                            color: FlutterFlowTheme.of(context).black,
+                            size: 24.0,
+                          ),
+                          fillColor:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          elevation: 2.0,
+                          borderColor: FlutterFlowTheme.of(context).alternate,
+                          borderWidth: 2.0,
+                          borderRadius: 5.0,
+                          margin: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 4.0, 16.0, 4.0),
+                          hidesUnderline: true,
+                          isSearchable: false,
+                          isMultiSelect: false,
+                        );
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                    child: StreamBuilder<List<IncidentClassificationsRecord>>(
+                      stream: queryIncidentClassificationsRecord(
+                        queryBuilder: (incidentClassificationsRecord) =>
+                            incidentClassificationsRecord.where(
+                          'parent',
+                          isEqualTo: _model.typeValue1,
+                        ),
                       ),
-                      fillColor:
-                          FlutterFlowTheme.of(context).secondaryBackground,
-                      elevation: 2.0,
-                      borderColor: FlutterFlowTheme.of(context).alternate,
-                      borderWidth: 2.0,
-                      borderRadius: 5.0,
-                      margin:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
-                      hidesUnderline: true,
-                      isSearchable: false,
-                      isMultiSelect: false,
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
+                              ),
+                            ),
+                          );
+                        }
+                        List<IncidentClassificationsRecord>
+                            typeIncidentClassificationsRecordList =
+                            snapshot.data!;
+                        return FlutterFlowDropDown<String>(
+                          controller: _model.typeValueController2 ??=
+                              FormFieldController<String>(null),
+                          options: typeIncidentClassificationsRecordList
+                              .map((e) => e.name)
+                              .toList(),
+                          onChanged: (val) =>
+                              setState(() => _model.typeValue2 = val),
+                          width: double.infinity,
+                          height: 50.0,
+                          textStyle: FlutterFlowTheme.of(context).displayLarge,
+                          hintText: 'Incident',
+                          icon: Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                            color: FlutterFlowTheme.of(context).black,
+                            size: 24.0,
+                          ),
+                          fillColor:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          elevation: 2.0,
+                          borderColor: FlutterFlowTheme.of(context).alternate,
+                          borderWidth: 2.0,
+                          borderRadius: 5.0,
+                          margin: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 4.0, 16.0, 4.0),
+                          hidesUnderline: true,
+                          isSearchable: false,
+                          isMultiSelect: false,
+                        );
+                      },
                     ),
                   ),
                   Padding(
@@ -271,7 +346,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                             !_model.formKey.currentState!.validate()) {
                           return;
                         }
-                        if (_model.typeValue == null) {
+                        if (_model.typeValue1 == null) {
                           await showDialog(
                             context: context,
                             builder: (alertDialogContext) {
@@ -331,9 +406,9 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                         _model.sendIncidentEmail = await SendEmailCall.call(
                           toEmail: 'ITOC@fidelitycc.co.za',
                           subject:
-                              '${_model.typeValue}: ${_model.priorityValue} Priority',
+                              '${_model.typeValue1}: ${_model.priorityValue} Priority',
                           body:
-                              'Name: ${currentUserDisplayName} Employee Number: ${valueOrDefault(currentUserDocument?.en, '')} Message: ${_model.messageController.text} Location: ${_model.placePickerValue.address} LatLng: ${_model.placePickerValue.latLng?.toString()}',
+                              'Name: ${currentUserDisplayName} Employee Number: ${valueOrDefault(currentUserDocument?.en, '')} Message: ${_model.messageController.text} Location: ${_model.placePickerValue.address} LatLng: ${_model.placePickerValue.latLng?.toString()} Email: ${currentUserEmail} Phone: ${currentPhoneNumber} Category: ${_model.typeValue1} Classification: ${_model.typeValue2}',
                         );
                         if ((_model.sendIncidentEmail?.succeeded ?? true)) {
                           await IncidentsRecord.collection
@@ -347,7 +422,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                                   true,
                                 )}',
                                 userId: currentUserUid,
-                                type: _model.typeValue,
+                                type: _model.typeValue1,
                                 priority: _model.priorityValue,
                                 message: _model.messageController.text,
                                 created: getCurrentTimestamp,

@@ -17,6 +17,9 @@ import 'schema/compliments_record.dart';
 import 'schema/fraud_incidents_record.dart';
 import 'schema/fraud_updates_record.dart';
 import 'schema/umsuka_record.dart';
+import 'schema/incident_categories_record.dart';
+import 'schema/incident_classifications_record.dart';
+import 'schema/readby_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -36,6 +39,9 @@ export 'schema/compliments_record.dart';
 export 'schema/fraud_incidents_record.dart';
 export 'schema/fraud_updates_record.dart';
 export 'schema/umsuka_record.dart';
+export 'schema/incident_categories_record.dart';
+export 'schema/incident_classifications_record.dart';
+export 'schema/readby_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -485,6 +491,121 @@ Future<List<UmsukaRecord>> queryUmsukaRecordOnce({
     queryCollectionOnce(
       UmsukaRecord.collection,
       UmsukaRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query IncidentCategoriesRecords (as a Stream and as a Future).
+Future<int> queryIncidentCategoriesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      IncidentCategoriesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<IncidentCategoriesRecord>> queryIncidentCategoriesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      IncidentCategoriesRecord.collection,
+      IncidentCategoriesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<IncidentCategoriesRecord>> queryIncidentCategoriesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      IncidentCategoriesRecord.collection,
+      IncidentCategoriesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query IncidentClassificationsRecords (as a Stream and as a Future).
+Future<int> queryIncidentClassificationsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      IncidentClassificationsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<IncidentClassificationsRecord>> queryIncidentClassificationsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      IncidentClassificationsRecord.collection,
+      IncidentClassificationsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<IncidentClassificationsRecord>>
+    queryIncidentClassificationsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+        queryCollectionOnce(
+          IncidentClassificationsRecord.collection,
+          IncidentClassificationsRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          limit: limit,
+          singleRecord: singleRecord,
+        );
+
+/// Functions to query ReadbyRecords (as a Stream and as a Future).
+Future<int> queryReadbyRecordCount({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ReadbyRecord.collection(parent),
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ReadbyRecord>> queryReadbyRecord({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ReadbyRecord.collection(parent),
+      ReadbyRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ReadbyRecord>> queryReadbyRecordOnce({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ReadbyRecord.collection(parent),
+      ReadbyRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
