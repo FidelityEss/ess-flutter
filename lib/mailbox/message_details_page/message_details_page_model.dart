@@ -22,8 +22,6 @@ class MessageDetailsPageModel
   final unfocusNode = FocusNode();
   // Stores action output result for [Firestore Query - Query a collection] action in MessageDetailsPage widget.
   MessagesRecord? firebaseMessage;
-  // Stores action output result for [Firestore Query - Query a collection] action in MessageDetailsPage widget.
-  ReadbyRecord? firebaseReadBy;
   // Model for CustomAppBar component.
   late CustomAppBarModel customAppBarModel;
   // Model for BannerSlider component.
