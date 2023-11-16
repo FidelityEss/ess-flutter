@@ -128,6 +128,30 @@ class _PayrollServicesPageWidgetState extends State<PayrollServicesPageWidget> {
                     updateCallback: () => setState(() {}),
                     child: LongMenuItemWidget(
                       icon: Icon(
+                        FFIcons.knewAppIconsPayrollServices,
+                        color: FlutterFlowTheme.of(context).justBlack,
+                        size: 28.0,
+                      ),
+                      title: 'Tax Certificates',
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed('TimeAndAttendancePage');
+                  },
+                  child: wrapWithModel(
+                    model: _model.longMenuItemModel3,
+                    updateCallback: () => setState(() {}),
+                    child: LongMenuItemWidget(
+                      icon: Icon(
                         FFIcons.knewAppIconsTimeAttendance,
                         color: FlutterFlowTheme.of(context).justBlack,
                         size: 28.0,
@@ -148,7 +172,7 @@ class _PayrollServicesPageWidgetState extends State<PayrollServicesPageWidget> {
                     context.pushNamed('LogAQueryPage');
                   },
                   child: wrapWithModel(
-                    model: _model.longMenuItemModel3,
+                    model: _model.longMenuItemModel4,
                     updateCallback: () => setState(() {}),
                     child: LongMenuItemWidget(
                       icon: Icon(

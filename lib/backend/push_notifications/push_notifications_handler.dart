@@ -209,6 +209,13 @@ final parametersBuilderMap =
   'LoanSubmitted': ParameterData.none(),
   'AboutPage': ParameterData.none(),
   'CoidaPage': ParameterData.none(),
+  'TaxCertsListPage': ParameterData.none(),
+  'TaxCertPage': (data) async => ParameterData(
+        allParams: {
+          'fileLink': getParameter<String>(data, 'fileLink'),
+          'date': getParameter<String>(data, 'date'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

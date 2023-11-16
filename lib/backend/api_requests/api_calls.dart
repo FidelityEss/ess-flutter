@@ -24,6 +24,8 @@ class FessApiGroup {
   static GetEmployeeTimeCall getEmployeeTimeCall = GetEmployeeTimeCall();
   static CreatePayrollQueryCall createPayrollQueryCall =
       CreatePayrollQueryCall();
+  static GetEmployeeTaxCertificatesCall getEmployeeTaxCertificatesCall =
+      GetEmployeeTaxCertificatesCall();
 }
 
 class AuthenticationCall {
@@ -221,6 +223,36 @@ class CreatePayrollQueryCall {
         response,
         r'''$.payrollOrderNumber''',
       );
+}
+
+class GetEmployeeTaxCertificatesCall {
+  Future<ApiCallResponse> call({
+    String? fromDate = '',
+    String? toDate = '',
+    String? authToken = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "fromDate": "${fromDate}",
+  "toDate": "${toDate}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Get Employee Tax Certificates',
+      apiUrl: '${FessApiGroup.baseUrl}/Payroll/GetEmployeeIRP5s',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${authToken}',
+        'api-key': 'c1e57890-a4ee-4354-ab59-53098d763963',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
 }
 
 /// End FESS API Group Code

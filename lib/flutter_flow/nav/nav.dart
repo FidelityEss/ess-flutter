@@ -325,6 +325,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'CoidaPage',
           path: '/coidaPage',
           builder: (context, params) => CoidaPageWidget(),
+        ),
+        FFRoute(
+          name: 'TaxCertsListPage',
+          path: '/taxCertsListPage',
+          builder: (context, params) => TaxCertsListPageWidget(),
+        ),
+        FFRoute(
+          name: 'TaxCertPage',
+          path: '/taxCertPage',
+          builder: (context, params) => TaxCertPageWidget(
+            fileLink: params.getParam('fileLink', ParamType.String),
+            date: params.getParam('date', ParamType.String),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

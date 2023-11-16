@@ -69,4 +69,8 @@ export '/umsuka/umsuka_wemali_apply_page/umsuka_wemali_apply_page_widget.dart'
 export '/umsuka/loan_submitted/loan_submitted_widget.dart'
     show LoanSubmittedWidget;
 export '/pages/about_page/about_page_widget.dart' show AboutPageWidget;
-export '/coida_page/coida_page_widget.dart' show CoidaPageWidget;
+export '/pages/coida_page/coida_page_widget.dart' show CoidaPageWidget;
+export '/payslip_tax_cert/tax_certs_list_page/tax_certs_list_page_widget.dart'
+    show TaxCertsListPageWidget;
+export '/payslip_tax_cert/tax_cert_page/tax_cert_page_widget.dart'
+    show TaxCertPageWidget;

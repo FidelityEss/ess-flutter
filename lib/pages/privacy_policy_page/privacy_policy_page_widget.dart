@@ -1,6 +1,5 @@
 import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
-import '/flutter_flow/flutter_flow_pdf_viewer.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -72,37 +71,265 @@ class _PrivacyPolicyPageWidgetState extends State<PrivacyPolicyPageWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              wrapWithModel(
-                model: _model.customAppBarModel,
-                updateCallback: () => setState(() {}),
-                child: CustomAppBarWidget(
-                  title: 'Legal',
-                ),
-              ),
-              wrapWithModel(
-                model: _model.bannerSliderModel,
-                updateCallback: () => setState(() {}),
-                child: BannerSliderWidget(
-                  searchColour: FlutterFlowTheme.of(context).textFieldIcon,
-                  iconColour: FlutterFlowTheme.of(context).textFieldIcon,
-                  borderColour: FlutterFlowTheme.of(context).alternate,
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                  child: FlutterFlowPdfViewer(
-                    networkPath:
-                        'https://firebasestorage.googleapis.com/v0/b/fess-a6f94.appspot.com/o/assets%2FLegal.pdf?alt=media&token=47ba3d7c-0f05-469f-9796-fd179689fda2&_gl=1*1f4wr6h*_ga*Mzk1OTY0NDA0LjE2OTUxNDYxMDk.*_ga_CW55HF8NVT*MTY5ODY1MjI3OC40MC4xLjE2OTg2NTIzMzMuNS4wLjA.',
-                    height: 300.0,
-                    horizontalScroll: false,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                wrapWithModel(
+                  model: _model.customAppBarModel,
+                  updateCallback: () => setState(() {}),
+                  child: CustomAppBarWidget(
+                    title: 'Legal',
                   ),
                 ),
-              ),
-            ],
+                wrapWithModel(
+                  model: _model.bannerSliderModel,
+                  updateCallback: () => setState(() {}),
+                  child: BannerSliderWidget(
+                    searchColour: FlutterFlowTheme.of(context).textFieldIcon,
+                    iconColour: FlutterFlowTheme.of(context).textFieldIcon,
+                    borderColour: FlutterFlowTheme.of(context).alternate,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
+                  child: Text(
+                    'FESS Privacy Policy and Terms & Conditions',
+                    style: FlutterFlowTheme.of(context).displayMedium.override(
+                          fontFamily: 'Montserrat',
+                          fontSize: 22.0,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: Text(
+                    'Privacy Policy and Terms & Conditions document for your company\'s ESS (Employee\nSelf-Service) app, called FESS.',
+                    style: FlutterFlowTheme.of(context).displayMedium.override(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.0,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'Intro',
+                    style: FlutterFlowTheme.of(context).displayLarge.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).secondary,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: Text(
+                    'Welcome to Fidelity Employee Self Service (“FESS”), provided by Fidelity Services Group\n(Pty) Ltd. Protecting your privacy and maintaining the security of your personal information is\nour top priority. This Privacy Policy explains how we collect, use, disclose, and safeguard\nyour information when you use FESS. By using the app, you consent to the practices\ndescribed in this Privacy Policy.',
+                    style: FlutterFlowTheme.of(context).displayMedium,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'Information We Collect',
+                    style: FlutterFlowTheme.of(context).displayLarge.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).secondary,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'User-Provided Information:',
+                    style: FlutterFlowTheme.of(context).displayLarge.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).secondary,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: Text(
+                    'When you use FESS, you must provide us with personal information, including but not\nlimited to your SAP company number and ID number.',
+                    style: FlutterFlowTheme.of(context).displayMedium,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'Automatically Collected Information:',
+                    style: FlutterFlowTheme.of(context).displayLarge.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).secondary,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: Text(
+                    'We will collect certain information automatically, such as your device information and cell\nphone number which is kept on SAP.',
+                    style: FlutterFlowTheme.of(context).displayMedium,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'Cookies and Similar Technologies:',
+                    style: FlutterFlowTheme.of(context).displayLarge.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).secondary,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: Text(
+                    'We may use cookies and similar technologies to enhance your experience while using FESS\nfor analytics purposes. You can manage your cookie preferences through your device or\nbrowser settings.',
+                    style: FlutterFlowTheme.of(context).displayMedium,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'How We Use Your Information',
+                    style: FlutterFlowTheme.of(context).displayMedium.override(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.0,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'We use the information we collect to:',
+                    style: FlutterFlowTheme.of(context).displayLarge.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).secondary,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: Text(
+                    'Provide, maintain, and improve FESS.\nAuthenticate users and ensure the security of their accounts.\nCustomize and personalize your experience.\nCommunicate with you, including sending important updates and notifications, such as pay\nslips, tax certificate, time and attendance, competitions, and general important company\ninformation.',
+                    style: FlutterFlowTheme.of(context).displayMedium,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'Comply with legal and regulatory requirements.',
+                    style: FlutterFlowTheme.of(context).displayLarge.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).secondary,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'Data Sharing and Disclosure',
+                    style: FlutterFlowTheme.of(context).displayLarge.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).secondary,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: Text(
+                    'We will make every effort to avoid sharing personal information with any third parties,\ndemonstrating our awareness of the POPI Act 4 of 2013 and its associated regulations, as\namended from time to time (“the Act”).',
+                    style: FlutterFlowTheme.of(context).displayMedium,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'Data Security',
+                    style: FlutterFlowTheme.of(context).displayLarge.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).secondary,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: Text(
+                    'We take reasonable measures to protect your personal information from unauthorized\naccess, disclosure, alteration, or destruction. However, no data transmission or storage\nsystem is entirely secure, and we cannot guarantee the absolute security of your\ninformation.',
+                    style: FlutterFlowTheme.of(context).displayMedium,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'Your Choices',
+                    style: FlutterFlowTheme.of(context).displayLarge.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).secondary,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: Text(
+                    'You may have certain rights in accordance with the Act relating to your personal information,\nincluding the right to access, correct, or delete your data. To exercise these rights or if you\nhave any questions about your information, please contact your HR representative.',
+                    style: FlutterFlowTheme.of(context).displayMedium,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'Terms & Conditions',
+                    style: FlutterFlowTheme.of(context).displayMedium.override(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.0,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: Text(
+                    'By accessing or using FESS, you agree to be bound by the following Terms & Conditions:\n\nAccess and Use:\n\nYou are permitted to use FESS only for purposes related to your employment or HR-related\nactivities. Unauthorized use is strictly prohibited.\n\nUser Accounts:\n\nYou are responsible for maintaining the confidentiality of your account credentials and for\nany activities that occur under your account.\n\nIntellectual Property:\n\nAll content and materials within FESS are protected by intellectual property laws and are\nowned by Fidelity Services Group (Pty) Ltd. You may not reproduce, modify, or distribute any\ncontent without our written consent.\n\nTermination:\n\nWe reserve the right to terminate or suspend your FESS access at our discretion, without\nnotice.\n\nDisclaimer:\n\nFESS is provided \"as is\" without any warranties, and we are not responsible for any\ndamages or losses that may result from its use.\n\nGoverning Law:\n\nThese Terms & Conditions are governed by the laws of South Africa.',
+                    style: FlutterFlowTheme.of(context).displayMedium,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'End of Privacy Policy and Terms & Conditions',
+                    style: FlutterFlowTheme.of(context).displayMedium.override(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.0,
+                        ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -25,6 +25,8 @@ class PayrollServicesPageModel
   late LongMenuItemModel longMenuItemModel2;
   // Model for LongMenuItem component.
   late LongMenuItemModel longMenuItemModel3;
+  // Model for LongMenuItem component.
+  late LongMenuItemModel longMenuItemModel4;
 
   /// Initialization and disposal methods.
 
@@ -34,6 +36,7 @@ class PayrollServicesPageModel
     longMenuItemModel1 = createModel(context, () => LongMenuItemModel());
     longMenuItemModel2 = createModel(context, () => LongMenuItemModel());
     longMenuItemModel3 = createModel(context, () => LongMenuItemModel());
+    longMenuItemModel4 = createModel(context, () => LongMenuItemModel());
   }
 
   void dispose() {
@@ -43,6 +46,7 @@ class PayrollServicesPageModel
     longMenuItemModel1.dispose();
     longMenuItemModel2.dispose();
     longMenuItemModel3.dispose();
+    longMenuItemModel4.dispose();
   }
 
   /// Action blocks are added here.
