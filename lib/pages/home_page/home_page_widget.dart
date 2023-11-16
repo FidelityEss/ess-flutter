@@ -174,9 +174,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             Align(
                                               alignment: AlignmentDirectional(
                                                   1.00, -1.00),
-                                              child: StreamBuilder<
-                                                  List<ReadbyRecord>>(
-                                                stream: queryReadbyRecord(),
+                                              child: FutureBuilder<int>(
+                                                future:
+                                                    queryMessagesRecordCount(),
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
                                                   if (!snapshot.hasData) {
@@ -197,8 +197,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       ),
                                                     );
                                                   }
-                                                  List<ReadbyRecord>
-                                                      containerReadbyRecordList =
+                                                  int containerCount =
                                                       snapshot.data!;
                                                   return Container(
                                                     width: 15.0,
@@ -253,8 +252,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                           return Text(
                                                             functions
                                                                 .getMessageCount(
-                                                                    containerReadbyRecordList
-                                                                        .length,
+                                                                    containerCount,
                                                                     textCount)
                                                                 .toString(),
                                                             style: FlutterFlowTheme

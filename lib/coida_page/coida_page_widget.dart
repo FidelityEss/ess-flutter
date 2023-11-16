@@ -96,7 +96,7 @@ class _CoidaPageWidgetState extends State<CoidaPageWidget> {
                           fontFamily: 'Montserrat',
                           color: Colors.white,
                         ),
-                    elevation: 3.0,
+                    elevation: 0.0,
                     borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
