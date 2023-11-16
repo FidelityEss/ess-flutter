@@ -80,5 +80,10 @@ int? getMessageCount(
   int totalMessages,
   int readMessages,
 ) {
-  return totalMessages - readMessages;
+  int count = totalMessages - readMessages;
+  if (count <= 0) {
+    return 0;
+  } else {
+    return count;
+  }
 }

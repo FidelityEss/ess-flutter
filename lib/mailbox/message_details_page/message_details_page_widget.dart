@@ -48,11 +48,20 @@ class _MessageDetailsPageWidgetState extends State<MessageDetailsPageWidget> {
         ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
-
-      await ReadbyRecord.createDoc(_model.firebaseMessage!.reference)
-          .set(createReadbyRecordData(
-        uid: currentUserUid,
-      ));
+      _model.readByResponse = await queryReadbyRecordOnce(
+        parent: _model.firebaseMessage?.reference,
+        queryBuilder: (readbyRecord) => readbyRecord.where(
+          'uid',
+          isEqualTo: currentUserUid,
+        ),
+        singleRecord: true,
+      ).then((s) => s.firstOrNull);
+      if (!(_model.readByResponse != null)) {
+        await ReadbyRecord.createDoc(_model.firebaseMessage!.reference)
+            .set(createReadbyRecordData(
+          uid: currentUserUid,
+        ));
+      }
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
