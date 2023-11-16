@@ -141,7 +141,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                           width: double.infinity,
                           height: 50.0,
                           textStyle: FlutterFlowTheme.of(context).displayLarge,
-                          hintText: 'Incident',
+                          hintText: 'Incident Category',
                           icon: Icon(
                             Icons.keyboard_arrow_down_rounded,
                             color: FlutterFlowTheme.of(context).black,
@@ -202,7 +202,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                           width: double.infinity,
                           height: 50.0,
                           textStyle: FlutterFlowTheme.of(context).displayLarge,
-                          hintText: 'Incident',
+                          hintText: 'Incident Classification',
                           icon: Icon(
                             Icons.keyboard_arrow_down_rounded,
                             color: FlutterFlowTheme.of(context).black,
