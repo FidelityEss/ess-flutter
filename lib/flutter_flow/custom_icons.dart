@@ -13,6 +13,7 @@ class FFIcons {
   static const String _fesslogo7Family = 'Fesslogo7';
   static const String _fesslogo8Family = 'Fesslogo8';
   static const String _coidaiconFamily = 'Coidaicon';
+  static const String _taxiconFamily = 'Taxicon';
 
   // fessfinal
   static const IconData knewAppIconsCompliments =
@@ -112,4 +113,7 @@ class FFIcons {
   // coidaicon
   static const IconData kcOIDAIcon =
       IconData(0xe900, fontFamily: _coidaiconFamily);
+
+  // taxicon
+  static const IconData ktax = IconData(0xe900, fontFamily: _taxiconFamily);
 }

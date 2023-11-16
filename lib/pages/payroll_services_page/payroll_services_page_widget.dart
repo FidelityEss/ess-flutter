@@ -128,9 +128,9 @@ class _PayrollServicesPageWidgetState extends State<PayrollServicesPageWidget> {
                     updateCallback: () => setState(() {}),
                     child: LongMenuItemWidget(
                       icon: Icon(
-                        FFIcons.knewAppIconsPayrollServices,
+                        FFIcons.ktax,
                         color: FlutterFlowTheme.of(context).justBlack,
-                        size: 28.0,
+                        size: 24.0,
                       ),
                       title: 'Tax Certificates',
                     ),

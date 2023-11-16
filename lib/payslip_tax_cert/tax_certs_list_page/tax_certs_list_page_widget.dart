@@ -113,17 +113,6 @@ class _TaxCertsListPageWidgetState extends State<TaxCertsListPageWidget> {
                     updateCallback: () => setState(() {}),
                     child: BannerSliderWidget(),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
-                    child: Text(
-                      'Showing payslips for the last 12 months',
-                      style: FlutterFlowTheme.of(context).labelMedium.override(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
-                  ),
                   Expanded(
                     child: Padding(
                       padding:
@@ -171,7 +160,7 @@ class _TaxCertsListPageWidgetState extends State<TaxCertsListPageWidget> {
                                     },
                                     child: Container(
                                       width: double.infinity,
-                                      height: 120.0,
+                                      height: 60.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
@@ -227,34 +216,6 @@ class _TaxCertsListPageWidgetState extends State<TaxCertsListPageWidget> {
                                                             fontWeight:
                                                                 FontWeight.bold,
                                                           ),
-                                                    ),
-                                                  ),
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  16.0,
-                                                                  8.0,
-                                                                  16.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        getJsonField(
-                                                          taxcertsItem,
-                                                          r'''$..filename''',
-                                                        ).toString(),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Montserrat',
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                ),
-                                                      ),
                                                     ),
                                                   ),
                                                 ],

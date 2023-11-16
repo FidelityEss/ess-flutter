@@ -204,6 +204,9 @@ flutter:
     - family: Coidaicon
       fonts:
         - asset: assets/fonts/coidaicon.ttf
+    - family: Taxicon
+      fonts:
+        - asset: assets/fonts/taxicon.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
