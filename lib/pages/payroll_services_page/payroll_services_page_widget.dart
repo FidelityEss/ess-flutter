@@ -121,7 +121,7 @@ class _PayrollServicesPageWidgetState extends State<PayrollServicesPageWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    context.pushNamed('TimeAndAttendancePage');
+                    context.pushNamed('TaxCertsListPage');
                   },
                   child: wrapWithModel(
                     model: _model.longMenuItemModel2,
