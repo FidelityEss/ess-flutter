@@ -56,7 +56,7 @@ class _LoadingDialogWidgetState extends State<LoadingDialogWidget> {
           'assets/lottie_animations/oYnibGjwTw.json',
           width: MediaQuery.sizeOf(context).width * 1.0,
           height: MediaQuery.sizeOf(context).height * 1.0,
-          fit: BoxFit.cover,
+          fit: BoxFit.contain,
           animate: true,
         ),
       ),
