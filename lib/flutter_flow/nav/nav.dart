@@ -338,6 +338,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             fileLink: params.getParam('fileLink', ParamType.String),
             date: params.getParam('date', ParamType.String),
           ),
+        ),
+        FFRoute(
+          name: 'DownloadButton',
+          path: '/downloadButton',
+          builder: (context, params) => DownloadButtonWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

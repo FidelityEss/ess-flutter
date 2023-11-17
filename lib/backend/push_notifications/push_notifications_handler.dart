@@ -216,6 +216,7 @@ final parametersBuilderMap =
           'date': getParameter<String>(data, 'date'),
         },
       ),
+  'DownloadButton': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {
