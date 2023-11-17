@@ -206,7 +206,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .secondary,
+                                                              .error,
                                                       shape: BoxShape.circle,
                                                     ),
                                                     child: Align(
