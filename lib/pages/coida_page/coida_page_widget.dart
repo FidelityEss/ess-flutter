@@ -90,6 +90,14 @@ class _CoidaPageWidgetState extends State<CoidaPageWidget> {
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
+                  child: Text(
+                    'We include the COID workflow that needs to be followed in the event of an IOD. Please ensure compliance and submit all relevant paperwork.',
+                    style: FlutterFlowTheme.of(context).displayLarge,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     height: 45.0,
