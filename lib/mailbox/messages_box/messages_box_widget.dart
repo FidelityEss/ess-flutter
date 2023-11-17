@@ -2,18 +2,15 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
-import '/components/loading_dialog_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'messages_box_model.dart';
 export 'messages_box_model.dart';
 
@@ -133,187 +130,148 @@ class _MessagesBoxWidgetState extends State<MessagesBoxWidget> {
                           itemBuilder: (context, messagesItemsIndex) {
                             final messagesItemsItem =
                                 messagesItems[messagesItemsIndex];
-                            return Builder(
-                              builder: (context) => Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 16.0, 0.0, 0.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    await showAlignedDialog(
-                                      barrierDismissible: false,
-                                      context: context,
-                                      isGlobal: true,
-                                      avoidOverflow: false,
-                                      targetAnchor: AlignmentDirectional(
-                                              0.0, 0.0)
-                                          .resolve(Directionality.of(context)),
-                                      followerAnchor: AlignmentDirectional(
-                                              0.0, 0.0)
-                                          .resolve(Directionality.of(context)),
-                                      builder: (dialogContext) {
-                                        return Material(
-                                          color: Colors.transparent,
-                                          child: WebViewAware(
-                                              child: GestureDetector(
-                                            onTap: () => _model
-                                                    .unfocusNode.canRequestFocus
-                                                ? FocusScope.of(context)
-                                                    .requestFocus(
-                                                        _model.unfocusNode)
-                                                : FocusScope.of(context)
-                                                    .unfocus(),
-                                            child: LoadingDialogWidget(),
-                                          )),
-                                        );
-                                      },
-                                    ).then((value) => setState(() {}));
+                            return Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 16.0, 0.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.readByDocument =
+                                      await queryReadbyRecordOnce(
+                                    parent: messagesItemsItem.reference,
+                                    queryBuilder: (readbyRecord) =>
+                                        readbyRecord.where(
+                                      'uid',
+                                      isEqualTo: currentUserUid,
+                                    ),
+                                    singleRecord: true,
+                                  ).then((s) => s.firstOrNull);
+                                  if (_model.readByDocument != null) {
+                                    context.pushNamed(
+                                      'MessageDetailsPage',
+                                      queryParameters: {
+                                        'id': serializeParam(
+                                          messagesItemsItem.id,
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  } else {
+                                    await ReadbyRecord.createDoc(
+                                            messagesItemsItem.reference)
+                                        .set(createReadbyRecordData(
+                                      uid: currentUserUid,
+                                    ));
 
-                                    _model.readByDocument =
-                                        await queryReadbyRecordOnce(
-                                      parent: messagesItemsItem.reference,
-                                      queryBuilder: (readbyRecord) =>
-                                          readbyRecord.where(
-                                        'uid',
-                                        isEqualTo: currentUserUid,
-                                      ),
-                                      singleRecord: true,
-                                    ).then((s) => s.firstOrNull);
-                                    if (_model.readByDocument != null) {
-                                      Navigator.pop(context);
+                                    context.pushNamed(
+                                      'MessageDetailsPage',
+                                      queryParameters: {
+                                        'id': serializeParam(
+                                          messagesItemsItem.id,
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  }
 
-                                      context.pushNamed(
-                                        'MessageDetailsPage',
-                                        queryParameters: {
-                                          'id': serializeParam(
-                                            messagesItemsItem.id,
-                                            ParamType.String,
-                                          ),
-                                        }.withoutNulls,
-                                      );
-                                    } else {
-                                      await ReadbyRecord.createDoc(
-                                              messagesItemsItem.reference)
-                                          .set(createReadbyRecordData(
-                                        uid: currentUserUid,
-                                      ));
-                                      Navigator.pop(context);
-
-                                      context.pushNamed(
-                                        'MessageDetailsPage',
-                                        queryParameters: {
-                                          'id': serializeParam(
-                                            messagesItemsItem.id,
-                                            ParamType.String,
-                                          ),
-                                        }.withoutNulls,
-                                      );
-                                    }
-
-                                    setState(() {});
-                                  },
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 60.0,
-                                    decoration: BoxDecoration(
+                                  setState(() {});
+                                },
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 60.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context).homeBg,
+                                    borderRadius: BorderRadius.circular(5.0),
+                                    border: Border.all(
                                       color:
                                           FlutterFlowTheme.of(context).homeBg,
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      border: Border.all(
-                                        color:
-                                            FlutterFlowTheme.of(context).homeBg,
-                                        width: 2.0,
-                                      ),
+                                      width: 2.0,
                                     ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Padding(
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 0.0, 0.0),
+                                        child: Icon(
+                                          Icons.notifications,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondary,
+                                          size: 16.0,
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 0.0, 0.0),
-                                          child: Icon(
-                                            Icons.notifications,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondary,
-                                            size: 16.0,
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  messagesItemsItem.title,
-                                                  maxLines: 1,
+                                                  16.0, 0.0, 16.0, 0.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                messagesItemsItem.title,
+                                                maxLines: 1,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 2.0, 0.0, 0.0),
+                                                child: Text(
+                                                  dateTimeFormat(
+                                                      'MMMMEEEEd',
+                                                      messagesItemsItem
+                                                          .created!),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Montserrat',
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
+                                                      .bodyMedium,
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 2.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    dateTimeFormat(
-                                                        'MMMMEEEEd',
-                                                        messagesItemsItem
-                                                            .created!),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 8.0, 16.0, 8.0),
-                                          child: Container(
-                                            width: 1.0,
-                                            height: double.infinity,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 16.0, 0.0),
-                                          child: Icon(
-                                            Icons.chevron_right_rounded,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 8.0, 16.0, 8.0),
+                                        child: Container(
+                                          width: 1.0,
+                                          height: double.infinity,
+                                          decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .black,
-                                            size: 18.0,
+                                                .alternate,
                                           ),
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 16.0, 0.0),
+                                        child: Icon(
+                                          Icons.chevron_right_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .black,
+                                          size: 18.0,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
