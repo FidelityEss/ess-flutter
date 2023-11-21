@@ -148,12 +148,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                 child: Text(
                                   currentUserEmail,
                                   style: FlutterFlowTheme.of(context)
-                                      .bodySmall
+                                      .bodyMedium
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        fontWeight: FontWeight.w600,
                                       ),
                                 ),
                               ),
@@ -164,13 +163,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                   builder: (context) => Text(
                                     currentUserDisplayName,
                                     style: FlutterFlowTheme.of(context)
-                                        .bodySmall
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Montserrat',
                                           color: FlutterFlowTheme.of(context)
                                               .justWhite,
-                                          fontSize: 10.0,
-                                          fontWeight: FontWeight.normal,
                                         ),
                                   ),
                                 ),
@@ -221,11 +218,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                       child: Text(
                                         'Manage Profile',
                                         style: FlutterFlowTheme.of(context)
-                                            .displayMedium
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontWeight: FontWeight.w600,
-                                            ),
+                                            .bodyMedium,
                                       ),
                                     ),
                                   ),
@@ -284,78 +277,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        'Privacy Policy',
+                                        'Privacy Policy & T’C’s',
                                         style: FlutterFlowTheme.of(context)
-                                            .displayMedium
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 16.0, 0.0),
-                                    child: Icon(
-                                      Icons.chevron_right_rounded,
-                                      color: FlutterFlowTheme.of(context).black,
-                                      size: 16.0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              32.0, 16.0, 32.0, 0.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed('PrivacyPolicyPage');
-                            },
-                            child: Container(
-                              width: double.infinity,
-                              height: 55.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.circular(5.0),
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                  width: 2.0,
-                                ),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 0.0, 0.0),
-                                    child: FaIcon(
-                                      FontAwesomeIcons.fileContract,
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      size: 14.0,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Terms and Conditions',
-                                        style: FlutterFlowTheme.of(context)
-                                            .displayMedium
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              fontWeight: FontWeight.w600,
-                                            ),
+                                            .bodyMedium,
                                       ),
                                     ),
                                   ),
@@ -377,7 +301,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 32.0),
                           child: Text(
-                            'Version 2.0.4',
+                            'Version 2.0.5',
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),

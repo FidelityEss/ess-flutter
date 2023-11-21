@@ -96,10 +96,7 @@ class _PrivacyPolicyPageWidgetState extends State<PrivacyPolicyPageWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                   child: Text(
                     'FESS Privacy Policy and Terms & Conditions',
-                    style: FlutterFlowTheme.of(context).displayMedium.override(
-                          fontFamily: 'Montserrat',
-                          fontSize: 22.0,
-                        ),
+                    style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Padding(
@@ -107,10 +104,7 @@ class _PrivacyPolicyPageWidgetState extends State<PrivacyPolicyPageWidget> {
                       EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                   child: Text(
                     'Privacy Policy and Terms & Conditions document for your company\'s ESS (Employee\nSelf-Service) app, called FESS.',
-                    style: FlutterFlowTheme.of(context).displayMedium.override(
-                          fontFamily: 'Montserrat',
-                          fontSize: 18.0,
-                        ),
+                    style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Padding(

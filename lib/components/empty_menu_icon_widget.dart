@@ -4,25 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'menu_icon_model.dart';
-export 'menu_icon_model.dart';
+import 'empty_menu_icon_model.dart';
+export 'empty_menu_icon_model.dart';
 
-class MenuIconWidget extends StatefulWidget {
-  const MenuIconWidget({
-    Key? key,
-    required this.icon,
-    required this.title,
-  }) : super(key: key);
-
-  final Widget? icon;
-  final String? title;
+class EmptyMenuIconWidget extends StatefulWidget {
+  const EmptyMenuIconWidget({Key? key}) : super(key: key);
 
   @override
-  _MenuIconWidgetState createState() => _MenuIconWidgetState();
+  _EmptyMenuIconWidgetState createState() => _EmptyMenuIconWidgetState();
 }
 
-class _MenuIconWidgetState extends State<MenuIconWidget> {
-  late MenuIconModel _model;
+class _EmptyMenuIconWidgetState extends State<EmptyMenuIconWidget> {
+  late EmptyMenuIconModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -33,7 +26,7 @@ class _MenuIconWidgetState extends State<MenuIconWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => MenuIconModel());
+    _model = createModel(context, () => EmptyMenuIconModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -57,18 +50,20 @@ class _MenuIconWidgetState extends State<MenuIconWidget> {
           width: 60.0,
           height: 60.0,
           decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).justBlack,
+            color: FlutterFlowTheme.of(context).justWhite,
             borderRadius: BorderRadius.circular(5.0),
           ),
-          child: widget.icon!,
         ),
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
           child: Text(
-            widget.title!,
+            '',
             textAlign: TextAlign.center,
             maxLines: 2,
-            style: FlutterFlowTheme.of(context).bodyMedium,
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Montserrat',
+                  color: FlutterFlowTheme.of(context).justWhite,
+                ),
           ),
         ),
       ],

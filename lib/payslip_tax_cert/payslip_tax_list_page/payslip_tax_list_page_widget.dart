@@ -119,10 +119,7 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                         EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                     child: Text(
                       'Showing payslips for the last 12 months',
-                      style: FlutterFlowTheme.of(context).labelMedium.override(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold,
-                          ),
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
                   Expanded(
@@ -210,13 +207,7 @@ class _PayslipTaxListPageWidgetState extends State<PayslipTaxListPageWidget> {
                                                 ).toString(),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                        .bodyMedium,
                                               ),
                                             ),
                                           ),

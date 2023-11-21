@@ -207,15 +207,10 @@ class _TaxCertsListPageWidgetState extends State<TaxCertsListPageWidget> {
                                                         taxcertsItem,
                                                         r'''$..friendlyDescription''',
                                                       ).toString(),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Montserrat',
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
                                                     ),
                                                   ),
                                                 ],

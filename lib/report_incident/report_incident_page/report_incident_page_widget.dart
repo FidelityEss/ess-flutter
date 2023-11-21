@@ -140,7 +140,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                               setState(() => _model.typeValue1 = val),
                           width: double.infinity,
                           height: 50.0,
-                          textStyle: FlutterFlowTheme.of(context).displayLarge,
+                          textStyle: FlutterFlowTheme.of(context).bodyMedium,
                           hintText: 'Incident Category',
                           icon: Icon(
                             Icons.keyboard_arrow_down_rounded,
@@ -201,7 +201,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                               setState(() => _model.typeValue2 = val),
                           width: double.infinity,
                           height: 50.0,
-                          textStyle: FlutterFlowTheme.of(context).displayLarge,
+                          textStyle: FlutterFlowTheme.of(context).bodyMedium,
                           hintText: 'Incident Classification',
                           icon: Icon(
                             Icons.keyboard_arrow_down_rounded,
@@ -234,7 +234,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                           setState(() => _model.priorityValue = val),
                       width: double.infinity,
                       height: 50.0,
-                      textStyle: FlutterFlowTheme.of(context).displayLarge,
+                      textStyle: FlutterFlowTheme.of(context).bodyMedium,
                       hintText: 'Priority',
                       icon: Icon(
                         Icons.keyboard_arrow_down_rounded,
@@ -263,8 +263,8 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Message',
-                        labelStyle: FlutterFlowTheme.of(context).displayLarge,
-                        hintStyle: FlutterFlowTheme.of(context).displayLarge,
+                        labelStyle: FlutterFlowTheme.of(context).bodyMedium,
+                        hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).alternate,
@@ -294,7 +294,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                           borderRadius: BorderRadius.circular(5.0),
                         ),
                       ),
-                      style: FlutterFlowTheme.of(context).displayLarge,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                       validator: _model.messageControllerValidator
                           .asValidator(context),
                     ),
@@ -326,7 +326,6 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                             FlutterFlowTheme.of(context).bodyMedium.override(
                                   fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).justWhite,
-                                  fontWeight: FontWeight.w600,
                                 ),
                         elevation: 0.0,
                         borderSide: BorderSide(
@@ -485,11 +484,9 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
-                            FlutterFlowTheme.of(context).bodySmall.override(
+                            FlutterFlowTheme.of(context).bodyMedium.override(
                                   fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).justWhite,
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.w600,
                                 ),
                         elevation: 0.0,
                         borderSide: BorderSide(

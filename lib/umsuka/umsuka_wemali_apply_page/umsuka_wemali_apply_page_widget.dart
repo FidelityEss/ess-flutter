@@ -132,10 +132,7 @@ class _UmsukaWemaliApplyPageWidgetState
                         EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
                     child: Text(
                       'Umsuka Wemali Application',
-                      style: FlutterFlowTheme.of(context).titleLarge.override(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold,
-                          ),
+                      style: FlutterFlowTheme.of(context).bodyLarge,
                     ),
                   ),
                   Padding(
@@ -147,19 +144,9 @@ class _UmsukaWemaliApplyPageWidgetState
                         focusNode: _model.nameFocusNode,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelStyle: FlutterFlowTheme.of(context)
-                              .displayLarge
-                              .override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w600,
-                              ),
+                          labelStyle: FlutterFlowTheme.of(context).bodyMedium,
                           hintText: 'Name',
-                          hintStyle: FlutterFlowTheme.of(context)
-                              .displayLarge
-                              .override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w600,
-                              ),
+                          hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).alternate,
@@ -194,11 +181,7 @@ class _UmsukaWemaliApplyPageWidgetState
                             size: 16.0,
                           ),
                         ),
-                        style:
-                            FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600,
-                                ),
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                         validator:
                             _model.nameControllerValidator.asValidator(context),
                       ),
@@ -213,19 +196,9 @@ class _UmsukaWemaliApplyPageWidgetState
                         focusNode: _model.surnameFocusNode,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelStyle: FlutterFlowTheme.of(context)
-                              .displayLarge
-                              .override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w600,
-                              ),
+                          labelStyle: FlutterFlowTheme.of(context).bodyMedium,
                           hintText: 'Surname',
-                          hintStyle: FlutterFlowTheme.of(context)
-                              .displayLarge
-                              .override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w600,
-                              ),
+                          hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).alternate,
@@ -260,11 +233,7 @@ class _UmsukaWemaliApplyPageWidgetState
                             size: 16.0,
                           ),
                         ),
-                        style:
-                            FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600,
-                                ),
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                         validator: _model.surnameControllerValidator
                             .asValidator(context),
                       ),
@@ -279,19 +248,9 @@ class _UmsukaWemaliApplyPageWidgetState
                         focusNode: _model.idFocusNode,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelStyle: FlutterFlowTheme.of(context)
-                              .displayLarge
-                              .override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w600,
-                              ),
+                          labelStyle: FlutterFlowTheme.of(context).bodyMedium,
                           hintText: 'ID',
-                          hintStyle: FlutterFlowTheme.of(context)
-                              .displayLarge
-                              .override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w600,
-                              ),
+                          hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).alternate,
@@ -326,11 +285,7 @@ class _UmsukaWemaliApplyPageWidgetState
                             size: 16.0,
                           ),
                         ),
-                        style:
-                            FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600,
-                                ),
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                         validator:
                             _model.idControllerValidator.asValidator(context),
                       ),
@@ -345,19 +300,9 @@ class _UmsukaWemaliApplyPageWidgetState
                         focusNode: _model.companyNumberFocusNode,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelStyle: FlutterFlowTheme.of(context)
-                              .displayLarge
-                              .override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w600,
-                              ),
+                          labelStyle: FlutterFlowTheme.of(context).bodyMedium,
                           hintText: 'Employee Number',
-                          hintStyle: FlutterFlowTheme.of(context)
-                              .displayLarge
-                              .override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w600,
-                              ),
+                          hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).alternate,
@@ -392,11 +337,7 @@ class _UmsukaWemaliApplyPageWidgetState
                             size: 16.0,
                           ),
                         ),
-                        style:
-                            FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600,
-                                ),
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                         validator: _model.companyNumberControllerValidator
                             .asValidator(context),
                       ),
@@ -410,17 +351,9 @@ class _UmsukaWemaliApplyPageWidgetState
                       focusNode: _model.emailFocusNode,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelStyle:
-                            FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600,
-                                ),
+                        labelStyle: FlutterFlowTheme.of(context).bodyMedium,
                         hintText: 'Email Address',
-                        hintStyle:
-                            FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600,
-                                ),
+                        hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).alternate,
@@ -455,10 +388,7 @@ class _UmsukaWemaliApplyPageWidgetState
                           size: 16.0,
                         ),
                       ),
-                      style: FlutterFlowTheme.of(context).displayLarge.override(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w600,
-                          ),
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                       validator:
                           _model.emailControllerValidator.asValidator(context),
                     ),
@@ -472,19 +402,9 @@ class _UmsukaWemaliApplyPageWidgetState
                         focusNode: _model.phoneFocusNode,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelStyle: FlutterFlowTheme.of(context)
-                              .displayLarge
-                              .override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w600,
-                              ),
+                          labelStyle: FlutterFlowTheme.of(context).bodyMedium,
                           hintText: 'Phone Number',
-                          hintStyle: FlutterFlowTheme.of(context)
-                              .displayLarge
-                              .override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w600,
-                              ),
+                          hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).alternate,
@@ -519,11 +439,7 @@ class _UmsukaWemaliApplyPageWidgetState
                             size: 16.0,
                           ),
                         ),
-                        style:
-                            FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600,
-                                ),
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                         validator: _model.phoneControllerValidator
                             .asValidator(context),
                       ),
@@ -537,17 +453,9 @@ class _UmsukaWemaliApplyPageWidgetState
                       focusNode: _model.loanAmountFocusNode,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelStyle:
-                            FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600,
-                                ),
+                        labelStyle: FlutterFlowTheme.of(context).bodyMedium,
                         hintText: 'Loan Amount',
-                        hintStyle:
-                            FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600,
-                                ),
+                        hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).alternate,
@@ -582,10 +490,7 @@ class _UmsukaWemaliApplyPageWidgetState
                           size: 16.0,
                         ),
                       ),
-                      style: FlutterFlowTheme.of(context).displayLarge.override(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w600,
-                          ),
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                       keyboardType: TextInputType.number,
                       validator: _model.loanAmountControllerValidator
                           .asValidator(context),
@@ -599,17 +504,9 @@ class _UmsukaWemaliApplyPageWidgetState
                       focusNode: _model.purposeFocusNode,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelStyle:
-                            FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600,
-                                ),
+                        labelStyle: FlutterFlowTheme.of(context).bodyMedium,
                         hintText: 'Loan Purpose',
-                        hintStyle:
-                            FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600,
-                                ),
+                        hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).alternate,
@@ -644,10 +541,7 @@ class _UmsukaWemaliApplyPageWidgetState
                           size: 16.0,
                         ),
                       ),
-                      style: FlutterFlowTheme.of(context).displayLarge.override(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w600,
-                          ),
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                       validator: _model.purposeControllerValidator
                           .asValidator(context),
                     ),

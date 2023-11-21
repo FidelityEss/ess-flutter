@@ -193,13 +193,7 @@ class _VanciesPageWidgetState extends State<VanciesPageWidget> {
                                                 vacanciesListItem.title,
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                        .bodyMedium,
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional

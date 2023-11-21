@@ -91,10 +91,7 @@ class _ComplimentSubmittedPageWidgetState
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                   child: Text(
                     'Compliment Submitted',
-                    style: FlutterFlowTheme.of(context).titleMedium.override(
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.bold,
-                        ),
+                    style: FlutterFlowTheme.of(context).bodyLarge,
                   ),
                 ),
                 Padding(
@@ -102,7 +99,7 @@ class _ComplimentSubmittedPageWidgetState
                   child: Text(
                     'Thank you for making it this far. We appreciate your feedback!',
                     textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).bodyLarge,
+                    style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Padding(

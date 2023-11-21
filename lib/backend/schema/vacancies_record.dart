@@ -86,6 +86,26 @@ class VacanciesRecord extends FirestoreRecord {
   String get image => _image ?? '';
   bool hasImage() => _image != null;
 
+  // "branch" field.
+  String? _branch;
+  String get branch => _branch ?? '';
+  bool hasBranch() => _branch != null;
+
+  // "closing" field.
+  DateTime? _closing;
+  DateTime? get closing => _closing;
+  bool hasClosing() => _closing != null;
+
+  // "primary_industry" field.
+  String? _primaryIndustry;
+  String get primaryIndustry => _primaryIndustry ?? '';
+  bool hasPrimaryIndustry() => _primaryIndustry != null;
+
+  // "functional_area" field.
+  String? _functionalArea;
+  String get functionalArea => _functionalArea ?? '';
+  bool hasFunctionalArea() => _functionalArea != null;
+
   void _initializeFields() {
     _id = snapshotData['id'] as String?;
     _title = snapshotData['title'] as String?;
@@ -101,6 +121,10 @@ class VacanciesRecord extends FirestoreRecord {
     _applicationEmail = snapshotData['application_email'] as String?;
     _created = snapshotData['created'] as DateTime?;
     _image = snapshotData['image'] as String?;
+    _branch = snapshotData['branch'] as String?;
+    _closing = snapshotData['closing'] as DateTime?;
+    _primaryIndustry = snapshotData['primary_industry'] as String?;
+    _functionalArea = snapshotData['functional_area'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -152,6 +176,10 @@ Map<String, dynamic> createVacanciesRecordData({
   String? applicationEmail,
   DateTime? created,
   String? image,
+  String? branch,
+  DateTime? closing,
+  String? primaryIndustry,
+  String? functionalArea,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -169,6 +197,10 @@ Map<String, dynamic> createVacanciesRecordData({
       'application_email': applicationEmail,
       'created': created,
       'image': image,
+      'branch': branch,
+      'closing': closing,
+      'primary_industry': primaryIndustry,
+      'functional_area': functionalArea,
     }.withoutNulls,
   );
 
@@ -193,7 +225,11 @@ class VacanciesRecordDocumentEquality implements Equality<VacanciesRecord> {
         e1?.companyDescription == e2?.companyDescription &&
         e1?.applicationEmail == e2?.applicationEmail &&
         e1?.created == e2?.created &&
-        e1?.image == e2?.image;
+        e1?.image == e2?.image &&
+        e1?.branch == e2?.branch &&
+        e1?.closing == e2?.closing &&
+        e1?.primaryIndustry == e2?.primaryIndustry &&
+        e1?.functionalArea == e2?.functionalArea;
   }
 
   @override
@@ -211,7 +247,11 @@ class VacanciesRecordDocumentEquality implements Equality<VacanciesRecord> {
         e?.companyDescription,
         e?.applicationEmail,
         e?.created,
-        e?.image
+        e?.image,
+        e?.branch,
+        e?.closing,
+        e?.primaryIndustry,
+        e?.functionalArea
       ]);
 
   @override

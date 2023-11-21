@@ -125,10 +125,7 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                   child: Text(
                     'To continue, please update your profile.',
                     textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).bodyLarge.override(
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.normal,
-                        ),
+                    style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Form(

@@ -2,12 +2,15 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/banner_slider_widget.dart';
 import '/components/bottom_nav_widget.dart';
+import '/components/empty_menu_icon_widget.dart';
 import '/components/menu_icon_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -363,12 +366,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             children: [
                               Text(
                                 'Latest Announcement',
-                                style: FlutterFlowTheme.of(context)
-                                    .labelMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                               InkWell(
                                 splashColor: Colors.transparent,
@@ -386,7 +384,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .secondary,
-                                        fontWeight: FontWeight.w600,
                                       ),
                                 ),
                               ),
@@ -433,15 +430,45 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed(
-                                    'MessageDetailsPage',
-                                    queryParameters: {
-                                      'id': serializeParam(
-                                        containerMessagesRecord?.id,
-                                        ParamType.String,
-                                      ),
-                                    }.withoutNulls,
-                                  );
+                                  _model.readByDocumentHome =
+                                      await queryReadbyRecordOnce(
+                                    parent: containerMessagesRecord?.reference,
+                                    queryBuilder: (readbyRecord) =>
+                                        readbyRecord.where(
+                                      'uid',
+                                      isEqualTo: currentUserUid,
+                                    ),
+                                    singleRecord: true,
+                                  ).then((s) => s.firstOrNull);
+                                  if (_model.readByDocumentHome != null) {
+                                    context.pushNamed(
+                                      'MessageDetailsPage',
+                                      queryParameters: {
+                                        'id': serializeParam(
+                                          containerMessagesRecord?.id,
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  } else {
+                                    await ReadbyRecord.createDoc(
+                                            containerMessagesRecord!.reference)
+                                        .set(createReadbyRecordData(
+                                      uid: currentUserUid,
+                                    ));
+
+                                    context.pushNamed(
+                                      'MessageDetailsPage',
+                                      queryParameters: {
+                                        'id': serializeParam(
+                                          containerMessagesRecord?.id,
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  }
+
+                                  setState(() {});
                                 },
                                 child: Container(
                                   width: double.infinity,
@@ -474,7 +501,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .justWhite,
-                                                  fontWeight: FontWeight.w600,
                                                 ),
                                           ),
                                         ),
@@ -506,12 +532,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               AuthUserStreamWidget(
                                 builder: (context) => Text(
                                   'Hi, ${valueOrDefault(currentUserDocument?.firstName, '')}',
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                 ),
                               ),
                             ],
@@ -1081,9 +1103,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
+                              Expanded(
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -1107,9 +1127,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
+                              Expanded(
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -1131,6 +1149,20 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       title: 'About\nFESS',
                                     ),
                                   ),
+                                ),
+                              ),
+                              Expanded(
+                                child: wrapWithModel(
+                                  model: _model.emptyMenuIconModel1,
+                                  updateCallback: () => setState(() {}),
+                                  child: EmptyMenuIconWidget(),
+                                ),
+                              ),
+                              Expanded(
+                                child: wrapWithModel(
+                                  model: _model.emptyMenuIconModel2,
+                                  updateCallback: () => setState(() {}),
+                                  child: EmptyMenuIconWidget(),
                                 ),
                               ),
                             ],

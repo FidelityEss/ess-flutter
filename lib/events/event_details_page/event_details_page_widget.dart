@@ -187,13 +187,12 @@ class _EventDetailsPageWidgetState extends State<EventDetailsPageWidget> {
                                             'Event',
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyLarge
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Montserrat',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .justWhite,
-                                                  fontWeight: FontWeight.w600,
                                                 ),
                                           ),
                                         ),
@@ -212,10 +211,7 @@ class _EventDetailsPageWidgetState extends State<EventDetailsPageWidget> {
                           EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
                       child: Text(
                         eventDetailsPageEventsRecord!.title,
-                        style: FlutterFlowTheme.of(context).titleLarge.override(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                            ),
+                        style: FlutterFlowTheme.of(context).bodyLarge,
                       ),
                     ),
                     Padding(
@@ -252,11 +248,7 @@ class _EventDetailsPageWidgetState extends State<EventDetailsPageWidget> {
                                       dateTimeFormat('MMMMEEEEd',
                                           eventDetailsPageEventsRecord!.date!),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                          .bodyMedium,
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -312,11 +304,7 @@ class _EventDetailsPageWidgetState extends State<EventDetailsPageWidget> {
                                       eventDetailsPageEventsRecord!
                                           .locationName,
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                          .bodyMedium,
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -369,11 +357,7 @@ class _EventDetailsPageWidgetState extends State<EventDetailsPageWidget> {
                                       eventDetailsPageEventsRecord!
                                           .contactPersonName,
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                          .bodyMedium,
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -398,10 +382,7 @@ class _EventDetailsPageWidgetState extends State<EventDetailsPageWidget> {
                           EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
                       child: Text(
                         'About Event',
-                        style: FlutterFlowTheme.of(context).titleSmall.override(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w600,
-                            ),
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),
                     Padding(
@@ -409,10 +390,7 @@ class _EventDetailsPageWidgetState extends State<EventDetailsPageWidget> {
                           32.0, 16.0, 32.0, 32.0),
                       child: Text(
                         eventDetailsPageEventsRecord!.description,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Montserrat',
-                              color: FlutterFlowTheme.of(context).textFieldIcon,
-                            ),
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),
                   ],

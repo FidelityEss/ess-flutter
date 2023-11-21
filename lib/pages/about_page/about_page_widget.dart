@@ -134,10 +134,7 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                       EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
                   child: Text(
                     'About FESS',
-                    style: FlutterFlowTheme.of(context).displayMedium.override(
-                          fontFamily: 'Montserrat',
-                          fontSize: 22.0,
-                        ),
+                    style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Padding(

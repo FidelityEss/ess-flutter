@@ -78,7 +78,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                       children: [
                         Icon(
                           Icons.home_outlined,
-                          color: FlutterFlowTheme.of(context).bottomNavIcons,
+                          color: FlutterFlowTheme.of(context).justBlack,
                           size: 20.0,
                         ),
                         Padding(
@@ -86,14 +86,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                               0.0, 4.0, 0.0, 0.0),
                           child: Text(
                             'Home',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  color: FlutterFlowTheme.of(context)
-                                      .textFieldIcon,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
                       ],
@@ -122,7 +115,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                       children: [
                         Icon(
                           Icons.message_outlined,
-                          color: FlutterFlowTheme.of(context).bottomNavIcons,
+                          color: FlutterFlowTheme.of(context).justBlack,
                           size: 20.0,
                         ),
                         Padding(
@@ -130,14 +123,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                               0.0, 4.0, 0.0, 0.0),
                           child: Text(
                             'Messages',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  color: FlutterFlowTheme.of(context)
-                                      .textFieldIcon,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
                       ],
@@ -166,7 +152,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                       children: [
                         Icon(
                           Icons.help_outline,
-                          color: FlutterFlowTheme.of(context).bottomNavIcons,
+                          color: FlutterFlowTheme.of(context).justBlack,
                           size: 20.0,
                         ),
                         Padding(
@@ -174,14 +160,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                               0.0, 4.0, 0.0, 0.0),
                           child: Text(
                             'My Profile',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  color: FlutterFlowTheme.of(context)
-                                      .textFieldIcon,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
                       ],
@@ -240,7 +219,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                       children: [
                         Icon(
                           Icons.logout_rounded,
-                          color: FlutterFlowTheme.of(context).bottomNavIcons,
+                          color: FlutterFlowTheme.of(context).justBlack,
                           size: 20.0,
                         ),
                         Padding(
@@ -248,14 +227,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                               0.0, 4.0, 0.0, 0.0),
                           child: Text(
                             'Logout',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  color: FlutterFlowTheme.of(context)
-                                      .textFieldIcon,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
                       ],

@@ -4,6 +4,7 @@ import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -115,6 +116,7 @@ class _VacanciesDetailsPageWidgetState
               top: true,
               child: Column(
                 mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   wrapWithModel(
                     model: _model.customAppBarModel,
@@ -132,15 +134,18 @@ class _VacanciesDetailsPageWidgetState
                       fit: BoxFit.cover,
                     ),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
-                    child: Text(
-                      vacanciesDetailsPageVacanciesRecord!.title,
-                      style: FlutterFlowTheme.of(context).bodyLarge.override(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold,
-                          ),
+                  Align(
+                    alignment: AlignmentDirectional(0.00, 0.00),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
+                      child: Text(
+                        vacanciesDetailsPageVacanciesRecord!.title,
+                        style: FlutterFlowTheme.of(context).bodyLarge.override(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
                     ),
                   ),
                   Padding(
@@ -151,14 +156,8 @@ class _VacanciesDetailsPageWidgetState
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          vacanciesDetailsPageVacanciesRecord!.city,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Montserrat',
-                                color:
-                                    FlutterFlowTheme.of(context).textFieldIcon,
-                              ),
+                          vacanciesDetailsPageVacanciesRecord!.branch,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -173,14 +172,8 @@ class _VacanciesDetailsPageWidgetState
                           ),
                         ),
                         Text(
-                          vacanciesDetailsPageVacanciesRecord!.company,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Montserrat',
-                                color:
-                                    FlutterFlowTheme.of(context).textFieldIcon,
-                              ),
+                          vacanciesDetailsPageVacanciesRecord!.department,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -195,15 +188,8 @@ class _VacanciesDetailsPageWidgetState
                           ),
                         ),
                         Text(
-                          dateTimeFormat('relative',
-                              vacanciesDetailsPageVacanciesRecord!.created!),
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Montserrat',
-                                color:
-                                    FlutterFlowTheme.of(context).textFieldIcon,
-                              ),
+                          vacanciesDetailsPageVacanciesRecord!.primaryIndustry,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],
                     ),
@@ -238,13 +224,10 @@ class _VacanciesDetailsPageWidgetState
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 0.0),
                                 child: Text(
-                                  vacanciesDetailsPageVacanciesRecord!.salary,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                  vacanciesDetailsPageVacanciesRecord!
+                                      .functionalArea,
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                 ),
                               ),
                             ],
@@ -271,12 +254,8 @@ class _VacanciesDetailsPageWidgetState
                                 child: Text(
                                   vacanciesDetailsPageVacanciesRecord!
                                       .employmentType,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                 ),
                               ),
                             ],
@@ -302,17 +281,65 @@ class _VacanciesDetailsPageWidgetState
                                     0.0, 8.0, 0.0, 0.0),
                                 child: Text(
                                   vacanciesDetailsPageVacanciesRecord!.level,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                 ),
                               ),
                             ],
                           ),
                         ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 0.0, 0.0),
+                    child: RichText(
+                      textScaleFactor: MediaQuery.of(context).textScaleFactor,
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Date Posted: ',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context).primary,
+                                ),
+                          ),
+                          TextSpan(
+                            text: dateTimeFormat('MMMMEEEEd',
+                                vacanciesDetailsPageVacanciesRecord!.created!),
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                          )
+                        ],
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 0.0, 0.0),
+                    child: RichText(
+                      textScaleFactor: MediaQuery.of(context).textScaleFactor,
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Closing Date: ',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context).primary,
+                                ),
+                          ),
+                          TextSpan(
+                            text: dateTimeFormat('MMMMEEEEd',
+                                vacanciesDetailsPageVacanciesRecord!.closing!),
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                          )
+                        ],
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),
                   ),
@@ -354,35 +381,6 @@ class _VacanciesDetailsPageWidgetState
                                   child: Text(
                                     vacanciesDetailsPageVacanciesRecord!
                                         .description,
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(-1.00, 0.00),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      32.0, 32.0, 0.0, 0.0),
-                                  child: Text(
-                                    'About the company',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Montserrat',
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(-1.00, 0.00),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      32.0, 16.0, 32.0, 16.0),
-                                  child: Text(
-                                    vacanciesDetailsPageVacanciesRecord!
-                                        .companyDescription,
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
@@ -458,7 +456,6 @@ class _VacanciesDetailsPageWidgetState
                                         fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .justWhite,
-                                        fontWeight: FontWeight.bold,
                                       ),
                                 ),
                               ),

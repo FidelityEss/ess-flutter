@@ -107,10 +107,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                     children: [
                       Text(
                         'Featured Events',
-                        style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w600,
-                            ),
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ],
                   ),
@@ -239,10 +236,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                                                       'Montserrat',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .white,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
+                                                                      .justWhite,
                                                                 ),
                                                       ),
                                                       Padding(
@@ -261,13 +255,13 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                                           maxLines: 1,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodySmall
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Montserrat',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .white,
+                                                                    .justWhite,
                                                               ),
                                                         ),
                                                       ),
@@ -299,10 +293,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                     children: [
                       Text(
                         'Other events',
-                        style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w600,
-                            ),
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ],
                   ),
@@ -368,7 +359,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                 ),
                                 child: Container(
                                   width: double.infinity,
-                                  height: 60.0,
+                                  height: 65.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context).homeBg,
                                     borderRadius: BorderRadius.circular(5.0),
@@ -427,13 +418,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                                 maxLines: 1,
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                        .bodyMedium,
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -447,7 +432,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                                   maxLines: 1,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodySmall,
+                                                      .bodyMedium,
                                                 ),
                                               ),
                                             ],

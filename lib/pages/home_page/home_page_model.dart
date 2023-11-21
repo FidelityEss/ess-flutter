@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/banner_slider_widget.dart';
 import '/components/bottom_nav_widget.dart';
+import '/components/empty_menu_icon_widget.dart';
 import '/components/menu_icon_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -9,6 +10,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'home_page_widget.dart' show HomePageWidget;
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -21,11 +24,15 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   bool profileRefreshing = false;
 
+  bool hiddenMenuItems = true;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
   // Model for BannerSlider component.
   late BannerSliderModel bannerSliderModel;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  ReadbyRecord? readByDocumentHome;
   // Model for MenuIcon component.
   late MenuIconModel menuIconModel1;
   // Model for MenuIcon component.
@@ -62,6 +69,10 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   late MenuIconModel menuIconModel17;
   // Model for MenuIcon component.
   late MenuIconModel menuIconModel18;
+  // Model for EmptyMenuIcon component.
+  late EmptyMenuIconModel emptyMenuIconModel1;
+  // Model for EmptyMenuIcon component.
+  late EmptyMenuIconModel emptyMenuIconModel2;
   // Model for BottomNav component.
   late BottomNavModel bottomNavModel;
 
@@ -87,6 +98,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     menuIconModel16 = createModel(context, () => MenuIconModel());
     menuIconModel17 = createModel(context, () => MenuIconModel());
     menuIconModel18 = createModel(context, () => MenuIconModel());
+    emptyMenuIconModel1 = createModel(context, () => EmptyMenuIconModel());
+    emptyMenuIconModel2 = createModel(context, () => EmptyMenuIconModel());
     bottomNavModel = createModel(context, () => BottomNavModel());
   }
 
@@ -111,6 +124,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     menuIconModel16.dispose();
     menuIconModel17.dispose();
     menuIconModel18.dispose();
+    emptyMenuIconModel1.dispose();
+    emptyMenuIconModel2.dispose();
     bottomNavModel.dispose();
   }
 

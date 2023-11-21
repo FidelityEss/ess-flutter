@@ -138,17 +138,9 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Name',
-                        labelStyle:
-                            FlutterFlowTheme.of(context).bodySmall.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                        labelStyle: FlutterFlowTheme.of(context).bodyMedium,
                         hintText: 'Name',
-                        hintStyle:
-                            FlutterFlowTheme.of(context).bodyMedium.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                        hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).alternate,
@@ -183,10 +175,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                           size: 16.0,
                         ),
                       ),
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w500,
-                          ),
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                       validator:
                           _model.nameController1Validator.asValidator(context),
                     ),
@@ -202,17 +191,9 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Surname',
-                        labelStyle:
-                            FlutterFlowTheme.of(context).bodySmall.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                        labelStyle: FlutterFlowTheme.of(context).bodyMedium,
                         hintText: 'Surname',
-                        hintStyle:
-                            FlutterFlowTheme.of(context).bodyMedium.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                        hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).alternate,
@@ -247,10 +228,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                           size: 16.0,
                         ),
                       ),
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w500,
-                          ),
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                       validator:
                           _model.nameController2Validator.asValidator(context),
                     ),
@@ -265,17 +243,9 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'Email Address',
-                      labelStyle:
-                          FlutterFlowTheme.of(context).bodySmall.override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w500,
-                              ),
+                      labelStyle: FlutterFlowTheme.of(context).bodyMedium,
                       hintText: 'Email Address',
-                      hintStyle:
-                          FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w500,
-                              ),
+                      hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).alternate,
@@ -310,10 +280,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                         size: 16.0,
                       ),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.w500,
-                        ),
+                    style: FlutterFlowTheme.of(context).bodyMedium,
                     validator:
                         _model.nameController3Validator.asValidator(context),
                   ),
@@ -328,17 +295,9 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Phone Number',
-                        labelStyle:
-                            FlutterFlowTheme.of(context).bodySmall.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                        labelStyle: FlutterFlowTheme.of(context).bodyMedium,
                         hintText: 'Phone Number',
-                        hintStyle:
-                            FlutterFlowTheme.of(context).bodyMedium.override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                        hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).alternate,
@@ -373,10 +332,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                           size: 16.0,
                         ),
                       ),
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w500,
-                          ),
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                       validator:
                           _model.nameController4Validator.asValidator(context),
                     ),

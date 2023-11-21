@@ -202,10 +202,10 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                               decoration: InputDecoration(
                                 labelText: 'Name',
                                 labelStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
+                                    FlutterFlowTheme.of(context).bodyMedium,
                                 hintText: 'Name',
                                 hintStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
+                                    FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color:
@@ -240,12 +240,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                                   size: 16.0,
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                               validator: _model.nameControllerValidator
                                   .asValidator(context),
                             ),
@@ -262,10 +257,10 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                               decoration: InputDecoration(
                                 labelText: 'Surname',
                                 labelStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
+                                    FlutterFlowTheme.of(context).bodyMedium,
                                 hintText: 'Surname',
                                 hintStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
+                                    FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color:
@@ -300,12 +295,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                                   size: 16.0,
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                               validator: _model.surnameControllerValidator
                                   .asValidator(context),
                             ),
@@ -322,10 +312,10 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                               decoration: InputDecoration(
                                 labelText: 'Display Name',
                                 labelStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
+                                    FlutterFlowTheme.of(context).bodyMedium,
                                 hintText: 'Display Name',
                                 hintStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
+                                    FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color:
@@ -360,12 +350,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                                   size: 16.0,
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                               validator: _model.displayNameControllerValidator
                                   .asValidator(context),
                             ),
@@ -382,9 +367,10 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                             decoration: InputDecoration(
                               labelText: 'Email',
                               labelStyle:
-                                  FlutterFlowTheme.of(context).bodySmall,
+                                  FlutterFlowTheme.of(context).bodyMedium,
                               hintText: 'Email',
-                              hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                              hintStyle:
+                                  FlutterFlowTheme.of(context).bodyMedium,
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: FlutterFlowTheme.of(context).alternate,
@@ -418,12 +404,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                                 size: 16.0,
                               ),
                             ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                             validator: _model.emailControllerValidator
                                 .asValidator(context),
                           ),
@@ -440,10 +421,10 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                               decoration: InputDecoration(
                                 labelText: 'Phone Number',
                                 labelStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
+                                    FlutterFlowTheme.of(context).bodyMedium,
                                 hintText: 'Phone Number',
                                 hintStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
+                                    FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color:
@@ -478,12 +459,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                                   size: 16.0,
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                               validator: _model.phoneControllerValidator
                                   .asValidator(context),
                             ),
@@ -527,7 +503,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .bodySmall
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Montserrat',
                                     color:

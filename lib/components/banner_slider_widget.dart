@@ -108,13 +108,7 @@ class _BannerSliderWidgetState extends State<BannerSliderWidget> {
                             EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: Text(
                           'Search',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Montserrat',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                fontWeight: FontWeight.w600,
-                              ),
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ),
                     ],

@@ -122,7 +122,7 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                     child: Text(
                       'Please enter your OTP to log into the FESS app',
                       textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).bodyLarge,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
                   Padding(

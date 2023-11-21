@@ -133,7 +133,7 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                           setState(() => _model.typeValue = val),
                       width: double.infinity,
                       height: 50.0,
-                      textStyle: FlutterFlowTheme.of(context).displayLarge,
+                      textStyle: FlutterFlowTheme.of(context).bodyMedium,
                       hintText: 'Fraud Type',
                       icon: Icon(
                         Icons.keyboard_arrow_down_rounded,
@@ -164,7 +164,7 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                           setState(() => _model.priorityValue = val),
                       width: double.infinity,
                       height: 50.0,
-                      textStyle: FlutterFlowTheme.of(context).displayLarge,
+                      textStyle: FlutterFlowTheme.of(context).bodyMedium,
                       hintText: 'Priority',
                       icon: Icon(
                         Icons.keyboard_arrow_down_rounded,
@@ -193,8 +193,8 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Message',
-                        labelStyle: FlutterFlowTheme.of(context).displayLarge,
-                        hintStyle: FlutterFlowTheme.of(context).displayLarge,
+                        labelStyle: FlutterFlowTheme.of(context).bodyMedium,
+                        hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).alternate,
@@ -224,7 +224,7 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                           borderRadius: BorderRadius.circular(5.0),
                         ),
                       ),
-                      style: FlutterFlowTheme.of(context).displayLarge,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                       validator: _model.messageControllerValidator
                           .asValidator(context),
                     ),
@@ -256,7 +256,6 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                             FlutterFlowTheme.of(context).bodyMedium.override(
                                   fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).justWhite,
-                                  fontWeight: FontWeight.w600,
                                 ),
                         elevation: 0.0,
                         borderSide: BorderSide(
@@ -413,11 +412,9 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
-                            FlutterFlowTheme.of(context).bodySmall.override(
+                            FlutterFlowTheme.of(context).bodyMedium.override(
                                   fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).justWhite,
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.w600,
                                 ),
                         elevation: 0.0,
                         borderSide: BorderSide(

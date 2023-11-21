@@ -135,10 +135,7 @@ class _MessageDetailsPageWidgetState extends State<MessageDetailsPageWidget> {
                           EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                       child: Text(
                         messageDetailsPageMessagesRecord!.title,
-                        style: FlutterFlowTheme.of(context).titleLarge.override(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w600,
-                            ),
+                        style: FlutterFlowTheme.of(context).bodyLarge,
                       ),
                     ),
                     Padding(
@@ -204,19 +201,16 @@ class _MessageDetailsPageWidgetState extends State<MessageDetailsPageWidget> {
                           children: [
                             TextSpan(
                               text: 'Priority: ',
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                            TextSpan(
+                              text: messageDetailsPageMessagesRecord!.priority,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Montserrat',
-                                    color: FlutterFlowTheme.of(context).black,
-                                    fontWeight: FontWeight.bold,
+                                    color: FlutterFlowTheme.of(context).error,
                                   ),
-                            ),
-                            TextSpan(
-                              text: messageDetailsPageMessagesRecord!.priority,
-                              style: TextStyle(
-                                color: FlutterFlowTheme.of(context).error,
-                              ),
                             )
                           ],
                           style: FlutterFlowTheme.of(context).bodyMedium,

@@ -223,13 +223,7 @@ class _MessagesBoxWidgetState extends State<MessagesBoxWidget> {
                                                 maxLines: 1,
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                        .bodyMedium,
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional

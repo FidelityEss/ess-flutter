@@ -165,11 +165,7 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                               setState(() => _model.dropDownValue = val),
                           width: double.infinity,
                           height: 45.0,
-                          textStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Montserrat',
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          textStyle: FlutterFlowTheme.of(context).bodyMedium,
                           hintText: 'Company Compliments',
                           icon: Icon(
                             Icons.keyboard_arrow_down_rounded,
@@ -220,7 +216,7 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                                       fontWeight: FontWeight.w500,
                                     ),
                                 hintStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
+                                    FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: InputBorder.none,
                                 focusedBorder: InputBorder.none,
                                 errorBorder: InputBorder.none,

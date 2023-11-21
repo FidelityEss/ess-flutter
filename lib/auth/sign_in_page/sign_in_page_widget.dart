@@ -110,10 +110,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                   child: Text(
                     'Hi! Welcome back to FESS',
                     textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).bodyLarge.override(
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.normal,
-                        ),
+                    style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Form(

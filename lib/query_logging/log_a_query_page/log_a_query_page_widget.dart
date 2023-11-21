@@ -109,8 +109,8 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Please describe your query',
-                        labelStyle: FlutterFlowTheme.of(context).displayLarge,
-                        hintStyle: FlutterFlowTheme.of(context).displayLarge,
+                        labelStyle: FlutterFlowTheme.of(context).bodyMedium,
+                        hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).alternate,
@@ -140,7 +140,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                           borderRadius: BorderRadius.circular(5.0),
                         ),
                       ),
-                      style: FlutterFlowTheme.of(context).displayLarge,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                       validator: _model.messageControllerValidator
                           .asValidator(context),
                     ),
@@ -153,6 +153,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                         final selectedMedia =
                             await selectMediaWithSourceBottomSheet(
                           context: context,
+                          imageQuality: 30,
                           allowPhoto: true,
                         );
                         if (selectedMedia != null &&
@@ -163,6 +164,11 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
 
                           var downloadUrls = <String>[];
                           try {
+                            showUploadMessage(
+                              context,
+                              'Uploading file...',
+                              showLoading: true,
+                            );
                             selectedUploadedFiles = selectedMedia
                                 .map((m) => FFUploadedFile(
                                       name: m.storagePath.split('/').last,
@@ -183,6 +189,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                                 .map((u) => u!)
                                 .toList();
                           } finally {
+                            ScaffoldMessenger.of(context).hideCurrentSnackBar();
                             _model.isDataUploading = false;
                           }
                           if (selectedUploadedFiles.length ==
@@ -193,8 +200,10 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                                   selectedUploadedFiles.first;
                               _model.uploadedFileUrl = downloadUrls.first;
                             });
+                            showUploadMessage(context, 'Success!');
                           } else {
                             setState(() {});
+                            showUploadMessage(context, 'Failed to upload data');
                             return;
                           }
                         }
@@ -209,11 +218,9 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
-                            FlutterFlowTheme.of(context).bodySmall.override(
+                            FlutterFlowTheme.of(context).bodyMedium.override(
                                   fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).justWhite,
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.w600,
                                 ),
                         elevation: 0.0,
                         borderSide: BorderSide(
@@ -248,7 +255,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                                   child: AlertDialog(
                                 title: Text('Success'),
                                 content: Text(
-                                    'Your query has been submitted successfully'),
+                                    'Your query has been received successfully. Feedback will be provided as soon as possible.'),
                                 actions: [
                                   TextButton(
                                     onPressed: () =>
@@ -292,11 +299,9 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
-                            FlutterFlowTheme.of(context).bodySmall.override(
+                            FlutterFlowTheme.of(context).bodyMedium.override(
                                   fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).justWhite,
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.w600,
                                 ),
                         elevation: 0.0,
                         borderSide: BorderSide(

@@ -271,22 +271,22 @@ class ThemeTypography extends Typography {
   TextStyle get bodyLarge => GoogleFonts.getFont(
         'Montserrat',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 16.0,
+        fontWeight: FontWeight.bold,
+        fontSize: 18.0,
       );
   String get bodyMediumFamily => 'Montserrat';
   TextStyle get bodyMedium => GoogleFonts.getFont(
         'Montserrat',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 14.0,
+        fontWeight: FontWeight.w600,
+        fontSize: 16.0,
       );
   String get bodySmallFamily => 'Montserrat';
   TextStyle get bodySmall => GoogleFonts.getFont(
         'Montserrat',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 10.0,
+        fontWeight: FontWeight.w600,
+        fontSize: 14.0,
       );
 }
 

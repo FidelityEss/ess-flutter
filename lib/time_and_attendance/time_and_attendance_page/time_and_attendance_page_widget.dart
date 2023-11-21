@@ -160,8 +160,6 @@ class _TimeAndAttendancePageWidgetState
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        fontWeight:
-                                                            FontWeight.bold,
                                                       ),
                                                 ),
                                                 TextSpan(
@@ -169,7 +167,9 @@ class _TimeAndAttendancePageWidgetState
                                                     timesItem,
                                                     r'''$..workDate''',
                                                   ).toString(),
-                                                  style: TextStyle(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
                                                 )
                                               ],
                                               style: FlutterFlowTheme.of(
@@ -204,8 +204,6 @@ class _TimeAndAttendancePageWidgetState
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        fontWeight:
-                                                            FontWeight.bold,
                                                       ),
                                                 ),
                                                 TextSpan(
@@ -213,7 +211,9 @@ class _TimeAndAttendancePageWidgetState
                                                     timesItem,
                                                     r'''$..postedHours''',
                                                   ).toString(),
-                                                  style: TextStyle(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
                                                 )
                                               ],
                                               style: FlutterFlowTheme.of(
@@ -248,8 +248,6 @@ class _TimeAndAttendancePageWidgetState
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        fontWeight:
-                                                            FontWeight.bold,
                                                       ),
                                                 ),
                                                 TextSpan(
@@ -257,7 +255,9 @@ class _TimeAndAttendancePageWidgetState
                                                     timesItem,
                                                     r'''$..description''',
                                                   ).toString(),
-                                                  style: TextStyle(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
                                                 )
                                               ],
                                               style: FlutterFlowTheme.of(
@@ -292,8 +292,6 @@ class _TimeAndAttendancePageWidgetState
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        fontWeight:
-                                                            FontWeight.bold,
                                                       ),
                                                 ),
                                                 TextSpan(
@@ -301,7 +299,9 @@ class _TimeAndAttendancePageWidgetState
                                                     timesItem,
                                                     r'''$..route''',
                                                   ).toString(),
-                                                  style: TextStyle(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
                                                 )
                                               ],
                                               style: FlutterFlowTheme.of(
@@ -336,8 +336,6 @@ class _TimeAndAttendancePageWidgetState
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        fontWeight:
-                                                            FontWeight.bold,
                                                       ),
                                                 ),
                                                 TextSpan(
@@ -345,7 +343,9 @@ class _TimeAndAttendancePageWidgetState
                                                     timesItem,
                                                     r'''$..shift''',
                                                   ).toString(),
-                                                  style: TextStyle(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
                                                 )
                                               ],
                                               style: FlutterFlowTheme.of(

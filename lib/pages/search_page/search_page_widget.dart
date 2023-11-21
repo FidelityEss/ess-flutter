@@ -100,16 +100,8 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                   obscureText: false,
                   decoration: InputDecoration(
                     labelText: 'Search',
-                    labelStyle:
-                        FlutterFlowTheme.of(context).labelMedium.override(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w600,
-                            ),
-                    hintStyle:
-                        FlutterFlowTheme.of(context).labelMedium.override(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w600,
-                            ),
+                    labelStyle: FlutterFlowTheme.of(context).bodyMedium,
+                    hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).alternate,
@@ -486,11 +478,7 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                                         Text(
                                           filteredListItem,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyLarge
-                                              .override(
-                                                fontFamily: 'Montserrat',
-                                                fontWeight: FontWeight.w600,
-                                              ),
+                                              .bodyMedium,
                                         ),
                                         Icon(
                                           Icons.chevron_right_rounded,
