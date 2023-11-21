@@ -260,7 +260,7 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                         return;
                       }
                       _model.sendComplimentResponse = await SendEmailCall.call(
-                        toEmail: 'internalcommunications@fidelityservices.com',
+                        toEmail: 'charnelh@fidelity-services.com',
                         subject:
                             'FESS app Compliment from: ${currentUserDisplayName}',
                         body:

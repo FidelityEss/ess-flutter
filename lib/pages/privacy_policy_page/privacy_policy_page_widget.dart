@@ -301,7 +301,121 @@ class _PrivacyPolicyPageWidgetState extends State<PrivacyPolicyPageWidget> {
                   padding:
                       EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                   child: Text(
-                    'By accessing or using FESS, you agree to be bound by the following Terms & Conditions:\n\nAccess and Use:\n\nYou are permitted to use FESS only for purposes related to your employment or HR-related\nactivities. Unauthorized use is strictly prohibited.\n\nUser Accounts:\n\nYou are responsible for maintaining the confidentiality of your account credentials and for\nany activities that occur under your account.\n\nIntellectual Property:\n\nAll content and materials within FESS are protected by intellectual property laws and are\nowned by Fidelity Services Group (Pty) Ltd. You may not reproduce, modify, or distribute any\ncontent without our written consent.\n\nTermination:\n\nWe reserve the right to terminate or suspend your FESS access at our discretion, without\nnotice.\n\nDisclaimer:\n\nFESS is provided \"as is\" without any warranties, and we are not responsible for any\ndamages or losses that may result from its use.\n\nGoverning Law:\n\nThese Terms & Conditions are governed by the laws of South Africa.',
+                    'By accessing or using FESS, you agree to be bound by the following Terms & Conditions:',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'Access and Use:',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).secondary,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: Text(
+                    'You are permitted to use FESS only for purposes related to your employment or HR-related\nactivities. Unauthorized use is strictly prohibited.',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'User Accounts:',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).secondary,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: Text(
+                    'You are responsible for maintaining the confidentiality of your account credentials and for\nany activities that occur under your account.',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'Intellectual Property:',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).secondary,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: Text(
+                    'All content and materials within FESS are protected by intellectual property laws and are\nowned by Fidelity Services Group (Pty) Ltd. You may not reproduce, modify, or distribute any\ncontent without our written consent.',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'Termination:',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).secondary,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: Text(
+                    'All content and materials within FESS are protected by intellectual property laws and are\nowned by Fidelity Services Group (Pty) Ltd. You may not reproduce, modify, or distribute any\ncontent without our written consent.',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'Disclaimer:',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).secondary,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: Text(
+                    'FESS is provided \"as is\" without any warranties, and we are not responsible for any\ndamages or losses that may result from its use.',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                  child: Text(
+                    'Governing Law:',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).secondary,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: Text(
+                    'These Terms & Conditions are governed by the laws of South Africa.',
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
