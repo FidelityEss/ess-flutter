@@ -116,231 +116,12 @@ class _VacanciesDetailsPageWidgetState
               top: true,
               child: Column(
                 mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   wrapWithModel(
                     model: _model.customAppBarModel,
                     updateCallback: () => setState(() {}),
                     child: CustomAppBarWidget(
                       title: 'Vacancy',
-                    ),
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(0.0),
-                    child: Image.network(
-                      vacanciesDetailsPageVacanciesRecord!.image,
-                      width: double.infinity,
-                      height: 150.0,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Align(
-                    alignment: AlignmentDirectional(0.00, 0.00),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
-                      child: Text(
-                        vacanciesDetailsPageVacanciesRecord!.title,
-                        style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          vacanciesDetailsPageVacanciesRecord!.branch,
-                          style: FlutterFlowTheme.of(context).bodyMedium,
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 8.0, 0.0),
-                          child: Container(
-                            width: 5.0,
-                            height: 5.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).alternate,
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          vacanciesDetailsPageVacanciesRecord!.department,
-                          style: FlutterFlowTheme.of(context).bodyMedium,
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 8.0, 0.0),
-                          child: Container(
-                            width: 5.0,
-                            height: 5.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).alternate,
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          vacanciesDetailsPageVacanciesRecord!.primaryIndustry,
-                          style: FlutterFlowTheme.of(context).bodyMedium,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).white,
-                        borderRadius: BorderRadius.circular(5.0),
-                        border: Border.all(
-                          color: FlutterFlowTheme.of(context).alternate,
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.account_balance_wallet,
-                                color: FlutterFlowTheme.of(context).primary,
-                                size: 24.0,
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 8.0, 0.0, 0.0),
-                                child: Text(
-                                  vacanciesDetailsPageVacanciesRecord!
-                                      .functionalArea,
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            width: 1.0,
-                            height: 50.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).alternate,
-                            ),
-                          ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.calendar_month_sharp,
-                                color: FlutterFlowTheme.of(context).primary,
-                                size: 24.0,
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 8.0, 0.0, 0.0),
-                                child: Text(
-                                  vacanciesDetailsPageVacanciesRecord!
-                                      .employmentType,
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            width: 1.0,
-                            height: 50.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).alternate,
-                            ),
-                          ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.person_rounded,
-                                color: FlutterFlowTheme.of(context).primary,
-                                size: 24.0,
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 8.0, 0.0, 0.0),
-                                child: Text(
-                                  vacanciesDetailsPageVacanciesRecord!.level,
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 0.0, 0.0),
-                    child: RichText(
-                      textScaleFactor: MediaQuery.of(context).textScaleFactor,
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'Date Posted: ',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  color: FlutterFlowTheme.of(context).primary,
-                                ),
-                          ),
-                          TextSpan(
-                            text: dateTimeFormat('MMMMEEEEd',
-                                vacanciesDetailsPageVacanciesRecord!.created!),
-                            style: FlutterFlowTheme.of(context).bodyMedium,
-                          )
-                        ],
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 0.0, 0.0),
-                    child: RichText(
-                      textScaleFactor: MediaQuery.of(context).textScaleFactor,
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'Closing Date: ',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  color: FlutterFlowTheme.of(context).primary,
-                                ),
-                          ),
-                          TextSpan(
-                            text: dateTimeFormat('MMMMEEEEd',
-                                vacanciesDetailsPageVacanciesRecord!.closing!),
-                            style: FlutterFlowTheme.of(context).bodyMedium,
-                          )
-                        ],
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                      ),
                     ),
                   ),
                   Expanded(
@@ -350,44 +131,266 @@ class _VacanciesDetailsPageWidgetState
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                        child: SingleChildScrollView(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Align(
-                                alignment: AlignmentDirectional(-1.00, 0.00),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      32.0, 16.0, 0.0, 0.0),
-                                  child: Text(
-                                    'Job Description',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Montserrat',
-                                          fontWeight: FontWeight.bold,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(0.0),
+                              child: Image.network(
+                                vacanciesDetailsPageVacanciesRecord!.image,
+                                width: double.infinity,
+                                height: 150.0,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.00, 0.00),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 32.0, 0.0, 0.0),
+                                child: Text(
+                                  vacanciesDetailsPageVacanciesRecord!.title,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  32.0, 32.0, 32.0, 0.0),
+                              child: Text(
+                                vacanciesDetailsPageVacanciesRecord!.branch,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  32.0, 16.0, 32.0, 0.0),
+                              child: Text(
+                                vacanciesDetailsPageVacanciesRecord!.department,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  32.0, 16.0, 32.0, 0.0),
+                              child: Text(
+                                vacanciesDetailsPageVacanciesRecord!
+                                    .primaryIndustry,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  32.0, 32.0, 32.0, 0.0),
+                              child: Container(
+                                width: double.infinity,
+                                height: 100.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).white,
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  border: Border.all(
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.account_balance_wallet,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 24.0,
                                         ),
-                                  ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: Text(
+                                            vacanciesDetailsPageVacanciesRecord!
+                                                .functionalArea,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Container(
+                                      width: 1.0,
+                                      height: 50.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                      ),
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.calendar_month_sharp,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 24.0,
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: Text(
+                                            vacanciesDetailsPageVacanciesRecord!
+                                                .employmentType,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Container(
+                                      width: 1.0,
+                                      height: 50.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                      ),
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.person_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 24.0,
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: Text(
+                                            vacanciesDetailsPageVacanciesRecord!
+                                                .level,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ),
-                              Align(
-                                alignment: AlignmentDirectional(-1.00, 0.00),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      32.0, 16.0, 32.0, 0.0),
-                                  child: Text(
-                                    vacanciesDetailsPageVacanciesRecord!
-                                        .description,
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  32.0, 32.0, 0.0, 0.0),
+                              child: RichText(
+                                textScaleFactor:
+                                    MediaQuery.of(context).textScaleFactor,
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Date Posted: ',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
+                                    ),
+                                    TextSpan(
+                                      text: dateTimeFormat(
+                                          'MMMMEEEEd',
+                                          vacanciesDetailsPageVacanciesRecord!
+                                              .created!),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    )
+                                  ],
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  32.0, 16.0, 0.0, 0.0),
+                              child: RichText(
+                                textScaleFactor:
+                                    MediaQuery.of(context).textScaleFactor,
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Closing Date: ',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
+                                    ),
+                                    TextSpan(
+                                      text: dateTimeFormat(
+                                          'MMMMEEEEd',
+                                          vacanciesDetailsPageVacanciesRecord!
+                                              .closing!),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    )
+                                  ],
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    32.0, 16.0, 0.0, 0.0),
+                                child: Text(
+                                  'Job Description',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    32.0, 16.0, 32.0, 0.0),
+                                child: Text(
+                                  vacanciesDetailsPageVacanciesRecord!
+                                      .description,
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
