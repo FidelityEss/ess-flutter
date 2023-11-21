@@ -239,41 +239,30 @@ class _VanciesPageWidgetState extends State<VanciesPageWidget> {
                                                         ),
                                                       ),
                                                     ),
-                                                    Icon(
-                                                      Icons
-                                                          .calendar_month_rounded,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .textFieldIcon,
-                                                      size: 14.0,
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  4.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        dateTimeFormat(
-                                                            'MMMMEEEEd',
-                                                            vacanciesListItem
-                                                                .created!),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodySmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Montserrat',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .textFieldIcon,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                ),
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    4.0,
+                                                                    0.0,
+                                                                    16.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          vacanciesListItem
+                                                              .branch,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Montserrat',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .textFieldIcon,
+                                                                fontSize: 12.0,
+                                                              ),
+                                                        ),
                                                       ),
                                                     ),
                                                   ],
