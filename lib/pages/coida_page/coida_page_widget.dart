@@ -186,7 +186,7 @@ class _CoidaPageWidgetState extends State<CoidaPageWidget> {
                   child: FFButtonWidget(
                     onPressed: () async {
                       await launchURL(
-                          'https://firebasestorage.googleapis.com/v0/b/fess-a6f94.appspot.com/o/assets%2FCOIDA.pdf?alt=media&token=59f2d1ae-5644-4e53-8278-fa41bbe2e39c');
+                          'https://firebasestorage.googleapis.com/v0/b/fess-a6f94.appspot.com/o/assets%2FCOID%20Process.pdf?alt=media&token=781ede58-47cf-4510-915c-1197ff67e397');
                     },
                     text: 'Download COID Process',
                     options: FFButtonOptions(

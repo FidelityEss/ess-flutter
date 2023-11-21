@@ -114,10 +114,7 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                         EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
                     child: Text(
                       'Send us a compliment',
-                      style: FlutterFlowTheme.of(context).titleLarge.override(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold,
-                          ),
+                      style: FlutterFlowTheme.of(context).bodyLarge,
                     ),
                   ),
                 ),
@@ -128,10 +125,7 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                         EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 0.0),
                     child: Text(
                       'Please select a compliment and include a message.',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Montserrat',
-                            color: FlutterFlowTheme.of(context).textFieldIcon,
-                          ),
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
                 ),
