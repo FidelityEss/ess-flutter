@@ -164,31 +164,6 @@ class _VacanciesDetailsPageWidgetState
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   32.0, 32.0, 32.0, 0.0),
-                              child: Text(
-                                vacanciesDetailsPageVacanciesRecord!.branch,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  32.0, 16.0, 32.0, 0.0),
-                              child: Text(
-                                vacanciesDetailsPageVacanciesRecord!.department,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  32.0, 16.0, 32.0, 0.0),
-                              child: Text(
-                                vacanciesDetailsPageVacanciesRecord!
-                                    .primaryIndustry,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  32.0, 32.0, 32.0, 0.0),
                               child: Container(
                                 width: double.infinity,
                                 height: 100.0,
@@ -299,7 +274,97 @@ class _VacanciesDetailsPageWidgetState
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  32.0, 32.0, 0.0, 0.0),
+                                  32.0, 32.0, 32.0, 0.0),
+                              child: RichText(
+                                textScaleFactor:
+                                    MediaQuery.of(context).textScaleFactor,
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Branch: ',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
+                                    ),
+                                    TextSpan(
+                                      text: vacanciesDetailsPageVacanciesRecord!
+                                          .branch,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    )
+                                  ],
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  32.0, 16.0, 32.0, 0.0),
+                              child: RichText(
+                                textScaleFactor:
+                                    MediaQuery.of(context).textScaleFactor,
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Department: ',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
+                                    ),
+                                    TextSpan(
+                                      text: vacanciesDetailsPageVacanciesRecord!
+                                          .department,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    )
+                                  ],
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  32.0, 16.0, 32.0, 0.0),
+                              child: RichText(
+                                textScaleFactor:
+                                    MediaQuery.of(context).textScaleFactor,
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Primary Industry: ',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
+                                    ),
+                                    TextSpan(
+                                      text: vacanciesDetailsPageVacanciesRecord!
+                                          .primaryIndustry,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    )
+                                  ],
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  32.0, 16.0, 32.0, 0.0),
                               child: RichText(
                                 textScaleFactor:
                                     MediaQuery.of(context).textScaleFactor,
@@ -331,7 +396,7 @@ class _VacanciesDetailsPageWidgetState
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  32.0, 16.0, 0.0, 0.0),
+                                  32.0, 16.0, 32.0, 0.0),
                               child: RichText(
                                 textScaleFactor:
                                     MediaQuery.of(context).textScaleFactor,
@@ -365,7 +430,7 @@ class _VacanciesDetailsPageWidgetState
                               alignment: AlignmentDirectional(-1.00, 0.00),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    32.0, 16.0, 0.0, 0.0),
+                                    32.0, 32.0, 0.0, 0.0),
                                 child: Text(
                                   'Job Description',
                                   style: FlutterFlowTheme.of(context)
@@ -381,7 +446,7 @@ class _VacanciesDetailsPageWidgetState
                               alignment: AlignmentDirectional(-1.00, 0.00),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    32.0, 16.0, 32.0, 0.0),
+                                    32.0, 16.0, 32.0, 32.0),
                                 child: Text(
                                   vacanciesDetailsPageVacanciesRecord!
                                       .description,
