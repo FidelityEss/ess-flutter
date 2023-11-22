@@ -175,7 +175,7 @@ class _CoidaPageWidgetState extends State<CoidaPageWidget> {
                         EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                     child: FlutterFlowPdfViewer(
                       networkPath:
-                          'https://firebasestorage.googleapis.com/v0/b/fess-a6f94.appspot.com/o/assets%2FCOID%20Process.pdf?alt=media&token=781ede58-47cf-4510-915c-1197ff67e397',
+                          'https://firebasestorage.googleapis.com/v0/b/fess-a6f94.appspot.com/o/coid_docs%2FCOID%20Process%20(2).pdf?alt=media&token=73d7d173-b0ff-4980-ac34-47551d5d3cea',
                       height: 520.0,
                       horizontalScroll: false,
                     ),
@@ -186,7 +186,7 @@ class _CoidaPageWidgetState extends State<CoidaPageWidget> {
                   child: FFButtonWidget(
                     onPressed: () async {
                       await launchURL(
-                          'https://firebasestorage.googleapis.com/v0/b/fess-a6f94.appspot.com/o/assets%2FCOID%20Process.pdf?alt=media&token=781ede58-47cf-4510-915c-1197ff67e397');
+                          'https://firebasestorage.googleapis.com/v0/b/fess-a6f94.appspot.com/o/coid_docs%2FCOID%20Process%20(2).pdf?alt=media&token=73d7d173-b0ff-4980-ac34-47551d5d3cea');
                     },
                     text: 'Download COID Process',
                     options: FFButtonOptions(

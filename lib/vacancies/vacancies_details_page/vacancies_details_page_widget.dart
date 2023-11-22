@@ -501,7 +501,11 @@ class _VacanciesDetailsPageWidgetState
                                         : FocusScope.of(context).unfocus(),
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
-                                      child: ApplyBottomSheetWidget(),
+                                      child: ApplyBottomSheetWidget(
+                                        vacancyName:
+                                            vacanciesDetailsPageVacanciesRecord!
+                                                .title,
+                                      ),
                                     ),
                                   ));
                                 },

@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -11,7 +13,12 @@ import 'apply_bottom_sheet_model.dart';
 export 'apply_bottom_sheet_model.dart';
 
 class ApplyBottomSheetWidget extends StatefulWidget {
-  const ApplyBottomSheetWidget({Key? key}) : super(key: key);
+  const ApplyBottomSheetWidget({
+    Key? key,
+    required this.vacancyName,
+  }) : super(key: key);
+
+  final String? vacancyName;
 
   @override
   _ApplyBottomSheetWidgetState createState() => _ApplyBottomSheetWidgetState();
@@ -47,7 +54,7 @@ class _ApplyBottomSheetWidgetState extends State<ApplyBottomSheetWidget> {
 
     return Container(
       width: double.infinity,
-      height: MediaQuery.sizeOf(context).height * 0.27,
+      height: MediaQuery.sizeOf(context).height * 0.35,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
         borderRadius: BorderRadius.only(
@@ -147,6 +154,12 @@ class _ApplyBottomSheetWidgetState extends State<ApplyBottomSheetWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
               child: FFButtonWidget(
                 onPressed: () async {
+                  await SendEmailCall.call(
+                    toEmail: 'vacancy@fidelity.co.za',
+                    subject: 'FESS Vacancy Application',
+                    body:
+                        'User Name: ${currentUserDisplayName} User Email: ${currentUserEmail} User Phone: ${currentPhoneNumber} User CV: ${_model.uploadedFileUrl} Vacancy Name: ${widget.vacancyName}',
+                  );
                   Navigator.pop(context);
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(

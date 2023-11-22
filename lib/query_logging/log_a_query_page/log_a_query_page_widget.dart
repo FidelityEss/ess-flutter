@@ -240,6 +240,10 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                             !_model.formKey.currentState!.validate()) {
                           return;
                         }
+                        if (_model.uploadedFileUrl == null ||
+                            _model.uploadedFileUrl.isEmpty) {
+                          return;
+                        }
                         _model.createQueryResponse =
                             await FessApiGroup.createPayrollQueryCall.call(
                           description: _model.messageController.text,

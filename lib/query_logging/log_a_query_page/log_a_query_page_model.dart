@@ -26,6 +26,14 @@ class LogAQueryPageModel extends FlutterFlowModel<LogAQueryPageWidget> {
   FocusNode? messageFocusNode;
   TextEditingController? messageController;
   String? Function(BuildContext, String?)? messageControllerValidator;
+  String? _messageControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    return null;
+  }
+
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -39,6 +47,7 @@ class LogAQueryPageModel extends FlutterFlowModel<LogAQueryPageWidget> {
   void initState(BuildContext context) {
     customAppBarModel = createModel(context, () => CustomAppBarModel());
     bannerSliderModel = createModel(context, () => BannerSliderModel());
+    messageControllerValidator = _messageControllerValidator;
   }
 
   void dispose() {
