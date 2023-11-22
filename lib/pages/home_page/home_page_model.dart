@@ -29,6 +29,10 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Firestore Query - Query a collection] action in HomePage widget.
+  int? messagesCount;
+  // Stores action output result for [Firestore Query - Query a collection] action in HomePage widget.
+  int? readyByCount;
   // Model for BannerSlider component.
   late BannerSliderModel bannerSliderModel;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.

@@ -32,6 +32,10 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _searchItems = prefs.getStringList('ff_searchItems') ?? _searchItems;
     });
+    _safeInit(() {
+      _notificationCount =
+          prefs.getString('ff_notificationCount') ?? _notificationCount;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -142,6 +146,13 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInSearchItems(int _index, String _value) {
     _searchItems.insert(_index, _value);
     prefs.setStringList('ff_searchItems', _searchItems);
+  }
+
+  String _notificationCount = '';
+  String get notificationCount => _notificationCount;
+  set notificationCount(String _value) {
+    _notificationCount = _value;
+    prefs.setString('ff_notificationCount', _value);
   }
 }
 

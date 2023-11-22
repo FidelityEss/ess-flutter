@@ -64,6 +64,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           },
         );
       }
+      _model.messagesCount = await queryMessagesRecordCount();
+      _model.readyByCount = await queryReadbyRecordCount(
+        queryBuilder: (readbyRecord) => readbyRecord.where(
+          'uid',
+          isEqualTo: currentUserUid,
+        ),
+      );
+      FFAppState().notificationCount = functions
+          .getMessageCount(_model.messagesCount!, _model.readyByCount!)
+          .toString();
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -250,13 +260,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               ),
                                                             );
                                                           }
-                                                          int textCount =
+                                                          int counterCount =
                                                               snapshot.data!;
                                                           return Text(
                                                             functions
                                                                 .getMessageCount(
                                                                     containerCount,
-                                                                    textCount)
+                                                                    counterCount)
                                                                 .toString(),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
