@@ -71,9 +71,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           isEqualTo: currentUserUid,
         ),
       );
-      FFAppState().notificationCount = functions
-          .getMessageCount(_model.messagesCount!, _model.readyByCount!)
-          .toString();
+      FFAppState().notificationCounter = functions.getMessageCount(
+          _model.messagesCount!, _model.readyByCount!)!;
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
