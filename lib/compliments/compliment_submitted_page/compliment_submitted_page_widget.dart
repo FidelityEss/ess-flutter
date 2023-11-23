@@ -90,7 +90,7 @@ class _ComplimentSubmittedPageWidgetState
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                   child: Text(
-                    'Compliment Submitted',
+                    'Praise Submitted',
                     style: FlutterFlowTheme.of(context).bodyLarge,
                   ),
                 ),

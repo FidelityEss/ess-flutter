@@ -92,7 +92,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                   model: _model.customAppBarModel,
                   updateCallback: () => setState(() {}),
                   child: CustomAppBarWidget(
-                    title: 'Compliments',
+                    title: 'Praise',
                   ),
                 ),
                 wrapWithModel(
@@ -106,7 +106,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
                     child: Text(
-                      'Send us a compliment',
+                      'Send us a praise',
                       style: FlutterFlowTheme.of(context).bodyLarge,
                     ),
                   ),

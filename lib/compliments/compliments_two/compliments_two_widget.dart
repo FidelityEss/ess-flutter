@@ -99,7 +99,7 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                   model: _model.customAppBarModel,
                   updateCallback: () => setState(() {}),
                   child: CustomAppBarWidget(
-                    title: 'Compliments',
+                    title: 'Praise',
                   ),
                 ),
                 wrapWithModel(
@@ -113,19 +113,8 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
                     child: Text(
-                      'Send us a compliment',
+                      'Send us a praise',
                       style: FlutterFlowTheme.of(context).bodyLarge,
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 0.0),
-                    child: Text(
-                      'Please select a compliment and include a message.',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
                 ),
@@ -137,7 +126,7 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                     children: [
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            32.0, 32.0, 32.0, 0.0),
+                            32.0, 16.0, 32.0, 0.0),
                         child: FlutterFlowDropDown<String>(
                           controller: _model.dropDownValueController ??=
                               FormFieldController<String>(null),
@@ -160,7 +149,7 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                           width: double.infinity,
                           height: 45.0,
                           textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                          hintText: 'Company Compliments',
+                          hintText: 'Praises',
                           icon: Icon(
                             Icons.keyboard_arrow_down_rounded,
                             color: FlutterFlowTheme.of(context).textFieldIcon,
@@ -310,7 +299,7 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
 
                       setState(() {});
                     },
-                    text: 'Send Compliment',
+                    text: 'Send Praise',
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 40.0,

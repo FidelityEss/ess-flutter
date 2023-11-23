@@ -1025,7 +1025,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             .justWhite,
                                         size: 50.0,
                                       ),
-                                      title: 'Send\nCompliments',
+                                      title: 'Send\nPraise',
                                     ),
                                   ),
                                 ),
