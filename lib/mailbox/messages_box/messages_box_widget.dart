@@ -181,7 +181,7 @@ class _MessagesBoxWidgetState extends State<MessagesBoxWidget> {
                                 },
                                 child: Container(
                                   width: double.infinity,
-                                  height: 60.0,
+                                  height: 65.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context).homeBg,
                                     borderRadius: BorderRadius.circular(5.0),
@@ -231,12 +231,17 @@ class _MessagesBoxWidgetState extends State<MessagesBoxWidget> {
                                                         0.0, 2.0, 0.0, 0.0),
                                                 child: Text(
                                                   dateTimeFormat(
-                                                      'MMMMEEEEd',
+                                                      'MMMEd',
                                                       messagesItemsItem
                                                           .created!),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        fontSize: 12.0,
+                                                      ),
                                                 ),
                                               ),
                                             ],
