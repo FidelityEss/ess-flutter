@@ -455,6 +455,47 @@ class _VacanciesDetailsPageWidgetState
                                 ),
                               ),
                             ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    32.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  'Contact Details',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    32.0, 16.0, 32.0, 16.0),
+                                child: Text(
+                                  '${vacanciesDetailsPageVacanciesRecord?.name} ${vacanciesDetailsPageVacanciesRecord?.surname}',
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    32.0, 0.0, 32.0, 32.0),
+                                child: Text(
+                                  vacanciesDetailsPageVacanciesRecord!
+                                      .applicationEmail,
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),

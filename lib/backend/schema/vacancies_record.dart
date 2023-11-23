@@ -106,6 +106,16 @@ class VacanciesRecord extends FirestoreRecord {
   String get functionalArea => _functionalArea ?? '';
   bool hasFunctionalArea() => _functionalArea != null;
 
+  // "name" field.
+  String? _name;
+  String get name => _name ?? '';
+  bool hasName() => _name != null;
+
+  // "surname" field.
+  String? _surname;
+  String get surname => _surname ?? '';
+  bool hasSurname() => _surname != null;
+
   void _initializeFields() {
     _id = snapshotData['id'] as String?;
     _title = snapshotData['title'] as String?;
@@ -125,6 +135,8 @@ class VacanciesRecord extends FirestoreRecord {
     _closing = snapshotData['closing'] as DateTime?;
     _primaryIndustry = snapshotData['primary_industry'] as String?;
     _functionalArea = snapshotData['functional_area'] as String?;
+    _name = snapshotData['name'] as String?;
+    _surname = snapshotData['surname'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -180,6 +192,8 @@ Map<String, dynamic> createVacanciesRecordData({
   DateTime? closing,
   String? primaryIndustry,
   String? functionalArea,
+  String? name,
+  String? surname,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -201,6 +215,8 @@ Map<String, dynamic> createVacanciesRecordData({
       'closing': closing,
       'primary_industry': primaryIndustry,
       'functional_area': functionalArea,
+      'name': name,
+      'surname': surname,
     }.withoutNulls,
   );
 
@@ -229,7 +245,9 @@ class VacanciesRecordDocumentEquality implements Equality<VacanciesRecord> {
         e1?.branch == e2?.branch &&
         e1?.closing == e2?.closing &&
         e1?.primaryIndustry == e2?.primaryIndustry &&
-        e1?.functionalArea == e2?.functionalArea;
+        e1?.functionalArea == e2?.functionalArea &&
+        e1?.name == e2?.name &&
+        e1?.surname == e2?.surname;
   }
 
   @override
@@ -251,7 +269,9 @@ class VacanciesRecordDocumentEquality implements Equality<VacanciesRecord> {
         e?.branch,
         e?.closing,
         e?.primaryIndustry,
-        e?.functionalArea
+        e?.functionalArea,
+        e?.name,
+        e?.surname
       ]);
 
   @override
