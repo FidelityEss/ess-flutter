@@ -1,3 +1,5 @@
+import 'package:flutter_app_badger/flutter_app_badger.dart';
+
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/banner_slider_widget.dart';
@@ -73,6 +75,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       );
       FFAppState().notificationCounter = functions.getMessageCount(
           _model.messagesCount!, _model.readyByCount!)!;
+      FlutterAppBadger.updateBadgeCount(FFAppState().notificationCounter);
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
