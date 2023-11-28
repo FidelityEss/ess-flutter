@@ -813,11 +813,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       'InfoPage',
                                       queryParameters: {
                                         'heading': serializeParam(
-                                          'Fidelity Insure',
+                                          'Fidelity inSure',
                                           ParamType.String,
                                         ),
                                         'description': serializeParam(
-                                          'We’ve partnered with Auto & General* to bring you Fidelity Insure – an all-in-one insurance offering, covering vehicle, roadside, home, accident, trauma and legal assistance and benefits',
+                                          'We’ve partnered with Auto & General* to bring you Fidelity inSure – an all-in-one insurance offering, covering vehicle, roadside, home, accident, trauma and legal assistance and benefits.',
                                           ParamType.String,
                                         ),
                                         'link': serializeParam(
@@ -837,7 +837,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             .justWhite,
                                         size: 50.0,
                                       ),
-                                      title: 'Fidelity\nInsure',
+                                      title: 'Fidelity\ninSure',
                                     ),
                                   ),
                                 ),
@@ -863,7 +863,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       'InfoPage',
                                       queryParameters: {
                                         'heading': serializeParam(
-                                          'Specialised Cleaning and Hygiene',
+                                          'Specialised cleaning and hygiene',
                                           ParamType.String,
                                         ),
                                         'description': serializeParam(

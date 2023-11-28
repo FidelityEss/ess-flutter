@@ -172,7 +172,7 @@ class _VanciesPageWidgetState extends State<VanciesPageWidget> {
                                             shape: BoxShape.circle,
                                           ),
                                           child: Image.asset(
-                                            'assets/images/Fidelity_Services_Group.jpg',
+                                            'assets/images/FESSAppIcon_(2).png',
                                             fit: BoxFit.contain,
                                           ),
                                         ),
