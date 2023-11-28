@@ -247,7 +247,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                         _model.createQueryResponse =
                             await FessApiGroup.createPayrollQueryCall.call(
                           description: _model.messageController.text,
-                          fcmToken: 'value',
+                          fcmToken: 'token',
                           fileUrl: _model.uploadedFileUrl,
                           authToken: FFAppState().token,
                         );
@@ -290,6 +290,10 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                             },
                           );
                         }
+
+                        setState(() {
+                          _model.messageController?.text = ' ';
+                        });
 
                         setState(() {});
                       },
