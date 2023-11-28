@@ -99,7 +99,7 @@ String? getFCMToken(String uid) {
       .then((QuerySnapshot<Map<String, dynamic>> snapshot) {
     if (snapshot.docs.isNotEmpty) {
       // Data exists, you can access it using snapshot.docs.first.data()
-      var latestFcmToken = snapshot.docs.first.data();
+      var latestFcmToken = snapshot.docs.first.data()['fcm_token'];
       print('Latest FCM Token: $latestFcmToken');
       return latestFcmToken;
     } else {
