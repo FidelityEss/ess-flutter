@@ -87,3 +87,26 @@ int? getMessageCount(
     return count;
   }
 }
+
+String? getFCMToken(String uid) {
+  FirebaseFirestore.instance
+      .collection('users')
+      .doc(uid)
+      .collection('fcm_tokens')
+      .orderBy('created_at', descending: true)
+      .limit(1)
+      .get()
+      .then((QuerySnapshot<Map<String, dynamic>> snapshot) {
+    if (snapshot.docs.isNotEmpty) {
+      // Data exists, you can access it using snapshot.docs.first.data()
+      var latestFcmToken = snapshot.docs.first.data();
+      print('Latest FCM Token: $latestFcmToken');
+      return latestFcmToken;
+    } else {
+      return "";
+    }
+  }).catchError((error) {
+    return "";
+  });
+  return "";
+}
