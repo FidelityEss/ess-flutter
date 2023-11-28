@@ -90,7 +90,7 @@ class _CoidaPageWidgetState extends State<CoidaPageWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
                   child: Text(
-                    'We include the COID workflow that needs to be followed in the event of an IOD. Please ensure compliance and submit all relevant paperwork.',
+                    'We include the COIDA workflow that needs to be followed in the event of an IOD. Please ensure compliance and submit all relevant paperwork.',
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
@@ -115,7 +115,7 @@ class _CoidaPageWidgetState extends State<CoidaPageWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'COID Process',
+                            'COIDA Process',
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                           Stack(
@@ -175,7 +175,7 @@ class _CoidaPageWidgetState extends State<CoidaPageWidget> {
                         EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                     child: FlutterFlowPdfViewer(
                       networkPath:
-                          'https://firebasestorage.googleapis.com/v0/b/fess-a6f94.appspot.com/o/coid_docs%2FCOID%20Process%20(2).pdf?alt=media&token=73d7d173-b0ff-4980-ac34-47551d5d3cea',
+                          'https://firebasestorage.googleapis.com/v0/b/fess-a6f94.appspot.com/o/coid_docs%2FCOIDA%20Process.pdf?alt=media&token=2d52e5e1-a6f2-4754-aa9b-08a1eeb05d4b',
                       height: 520.0,
                       horizontalScroll: false,
                     ),
@@ -186,9 +186,9 @@ class _CoidaPageWidgetState extends State<CoidaPageWidget> {
                   child: FFButtonWidget(
                     onPressed: () async {
                       await launchURL(
-                          'https://firebasestorage.googleapis.com/v0/b/fess-a6f94.appspot.com/o/coid_docs%2FCOID%20Process%20(2).pdf?alt=media&token=73d7d173-b0ff-4980-ac34-47551d5d3cea');
+                          'https://firebasestorage.googleapis.com/v0/b/fess-a6f94.appspot.com/o/coid_docs%2FCOIDA%20Process.pdf?alt=media&token=2d52e5e1-a6f2-4754-aa9b-08a1eeb05d4b');
                     },
-                    text: 'Download COID Process',
+                    text: 'Download COIDA Process',
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 45.0,

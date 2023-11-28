@@ -82,6 +82,9 @@ class UmsukaWemaliApplyPageModel
       return 'Field is required';
     }
 
+    if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
+      return 'Please enter a valid email address';
+    }
     return null;
   }
 

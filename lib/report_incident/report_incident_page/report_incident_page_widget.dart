@@ -439,7 +439,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                               return WebViewAware(
                                   child: AlertDialog(
                                 title: Text('Success'),
-                                content: Text('Your query has been created.'),
+                                content: Text('The incident has been created'),
                                 actions: [
                                   TextButton(
                                     onPressed: () =>

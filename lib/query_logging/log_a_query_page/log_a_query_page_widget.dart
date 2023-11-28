@@ -244,6 +244,24 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                         }
                         if (_model.uploadedFileUrl == null ||
                             _model.uploadedFileUrl.isEmpty) {
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return WebViewAware(
+                                  child: AlertDialog(
+                                title: Text('Error'),
+                                content: Text(
+                                    'You have not attached supporting documentation, please select a file from your phone as evidence'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              ));
+                            },
+                          );
                           return;
                         }
                         _model.createQueryResponse =
@@ -261,7 +279,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                                   child: AlertDialog(
                                 title: Text('Success'),
                                 content: Text(
-                                    'Your query has been received successfully. Feedback will be provided as soon as possible.'),
+                                    'Your query has been received. Feedback will be provided as soon as possible.'),
                                 actions: [
                                   TextButton(
                                     onPressed: () =>
@@ -280,7 +298,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                                   child: AlertDialog(
                                 title: Text('Error'),
                                 content: Text(
-                                    'We couldn\'t create your payroll query. Please try again later.'),
+                                    'We couldn\'t create your payroll query.'),
                                 actions: [
                                   TextButton(
                                     onPressed: () =>

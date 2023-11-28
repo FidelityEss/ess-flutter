@@ -217,164 +217,125 @@ class _EventDetailsPageWidgetState extends State<EventDetailsPageWidget> {
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
-                      child: Container(
-                        width: double.infinity,
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).homeBg,
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.calendar_today,
-                                color: FlutterFlowTheme.of(context).secondary,
-                                size: 20.0,
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      dateTimeFormat('MMMMEEEEd',
-                                          eventDetailsPageEventsRecord!.date!),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 4.0, 0.0, 0.0),
-                                      child: Text(
-                                        dateTimeFormat(
-                                            'jm',
-                                            eventDetailsPageEventsRecord!
-                                                .date!),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.calendar_today,
+                            color: FlutterFlowTheme.of(context).secondary,
+                            size: 20.0,
                           ),
-                        ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 0.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  dateTimeFormat('MMMMEEEEd',
+                                      eventDetailsPageEventsRecord!.date!),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 4.0, 0.0, 0.0),
+                                  child: Text(
+                                    dateTimeFormat('jm',
+                                        eventDetailsPageEventsRecord!.date!),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                      child: Container(
-                        width: double.infinity,
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).homeBg,
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.location_pin,
-                                color: FlutterFlowTheme.of(context).secondary,
-                                size: 20.0,
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      eventDetailsPageEventsRecord!
-                                          .locationName,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 4.0, 0.0, 0.0),
-                                      child: Text(
-                                        '${eventDetailsPageEventsRecord?.locationStreet}, ${eventDetailsPageEventsRecord?.locationSuburb}, ${eventDetailsPageEventsRecord?.locationCity}, ${eventDetailsPageEventsRecord?.locationProvince}',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.location_pin,
+                            color: FlutterFlowTheme.of(context).secondary,
+                            size: 20.0,
                           ),
-                        ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 0.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  eventDetailsPageEventsRecord!.locationName,
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 4.0, 0.0, 0.0),
+                                  child: Text(
+                                    '${eventDetailsPageEventsRecord?.locationStreet}, ${eventDetailsPageEventsRecord?.locationSuburb}, ${eventDetailsPageEventsRecord?.locationCity}, ${eventDetailsPageEventsRecord?.locationProvince}',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                      child: Container(
-                        width: double.infinity,
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).homeBg,
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.person_rounded,
-                                color: FlutterFlowTheme.of(context).secondary,
-                                size: 20.0,
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      eventDetailsPageEventsRecord!
-                                          .contactPersonName,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 4.0, 0.0, 0.0),
-                                      child: Text(
-                                        eventDetailsPageEventsRecord!
-                                            .contactPersonEmail,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.person_rounded,
+                            color: FlutterFlowTheme.of(context).secondary,
+                            size: 20.0,
                           ),
-                        ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 0.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  eventDetailsPageEventsRecord!
+                                      .contactPersonName,
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 4.0, 0.0, 0.0),
+                                  child: Text(
+                                    eventDetailsPageEventsRecord!
+                                        .contactPersonEmail,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     Padding(

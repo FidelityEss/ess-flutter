@@ -16,9 +16,11 @@ class ApplyBottomSheetWidget extends StatefulWidget {
   const ApplyBottomSheetWidget({
     Key? key,
     required this.vacancyName,
+    required this.email,
   }) : super(key: key);
 
   final String? vacancyName;
+  final String? email;
 
   @override
   _ApplyBottomSheetWidgetState createState() => _ApplyBottomSheetWidgetState();
@@ -155,7 +157,7 @@ class _ApplyBottomSheetWidgetState extends State<ApplyBottomSheetWidget> {
               child: FFButtonWidget(
                 onPressed: () async {
                   await SendEmailCall.call(
-                    toEmail: 'vacancy@fidelity.co.za',
+                    toEmail: widget.email,
                     subject: 'FESS Vacancy Application',
                     body:
                         'User Name: ${currentUserDisplayName} User Email: ${currentUserEmail} User Phone: ${currentPhoneNumber} User CV: ${_model.uploadedFileUrl} Vacancy Name: ${widget.vacancyName}',
@@ -164,7 +166,7 @@ class _ApplyBottomSheetWidgetState extends State<ApplyBottomSheetWidget> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text(
-                        'Your application has been sent.',
+                        'Your application has been sent to ${widget.email}',
                         style: TextStyle(
                           color: FlutterFlowTheme.of(context).justWhite,
                         ),

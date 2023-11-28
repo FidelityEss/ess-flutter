@@ -116,7 +116,7 @@ class _UmsukaWemaliApplyPageWidgetState
                     model: _model.customAppBarModel,
                     updateCallback: () => setState(() {}),
                     child: CustomAppBarWidget(
-                      title: 'Compliments',
+                      title: 'Umsuka Wemali',
                     ),
                   ),
                   wrapWithModel(

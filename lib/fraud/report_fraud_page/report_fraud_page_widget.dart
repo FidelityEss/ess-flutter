@@ -120,7 +120,6 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                         'Phishing and Data Breach Scams',
                         'Contract Fraud',
                         'Supplier Collusion',
-                        'Time and Attendance Fraud',
                         'Fraudulent Marketing Practices',
                         'Theft of company assets',
                         'Timesheet fraud (Payroll)',
@@ -367,7 +366,8 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                               return WebViewAware(
                                   child: AlertDialog(
                                 title: Text('Success'),
-                                content: Text('Your query has been created.'),
+                                content: Text(
+                                    'The reported fraud matter has been created'),
                                 actions: [
                                   TextButton(
                                     onPressed: () =>

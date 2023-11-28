@@ -1,5 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/banner_slider_widget.dart';
+import '/components/banner_slider_no_search_widget.dart';
 import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -18,20 +18,21 @@ class TimeAndAttendancePageModel
   final unfocusNode = FocusNode();
   // Model for CustomAppBar component.
   late CustomAppBarModel customAppBarModel;
-  // Model for BannerSlider component.
-  late BannerSliderModel bannerSliderModel;
+  // Model for BannerSliderNoSearch component.
+  late BannerSliderNoSearchModel bannerSliderNoSearchModel;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
     customAppBarModel = createModel(context, () => CustomAppBarModel());
-    bannerSliderModel = createModel(context, () => BannerSliderModel());
+    bannerSliderNoSearchModel =
+        createModel(context, () => BannerSliderNoSearchModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
     customAppBarModel.dispose();
-    bannerSliderModel.dispose();
+    bannerSliderNoSearchModel.dispose();
   }
 
   /// Action blocks are added here.

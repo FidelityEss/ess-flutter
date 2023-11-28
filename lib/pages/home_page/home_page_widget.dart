@@ -813,11 +813,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       'InfoPage',
                                       queryParameters: {
                                         'heading': serializeParam(
-                                          'Fidelity inSure',
+                                          'Fidelity Insure',
                                           ParamType.String,
                                         ),
                                         'description': serializeParam(
-                                          'We’ve partnered with Auto & General* to bring you Fidelity inSure – an all-in-one insurance offering covering vehicle, roadside, home, accident, trauma and legal assistance and benefits.',
+                                          'We’ve partnered with Auto & General* to bring you Fidelity Insure – an all-in-one insurance offering, covering vehicle, roadside, home, accident, trauma and legal assistance and benefits',
                                           ParamType.String,
                                         ),
                                         'link': serializeParam(
@@ -863,11 +863,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       'InfoPage',
                                       queryParameters: {
                                         'heading': serializeParam(
-                                          'Specialised cleaning and hygiene',
+                                          'Specialised Cleaning and Hygiene',
                                           ParamType.String,
                                         ),
                                         'description': serializeParam(
-                                          'Fidelity Cleaning Services is an environmentally-friendly service that not only offers the best tools, equipment and cleaning agents to meet any requirement, but also professionally trained staff to tackle scenarios small and large, across all sectors.',
+                                          'Fidelity Cleaning Services offers environmentally-friendly contract cleaning, hygiene & pest control services by professionally trained staff to tackle small and large scenarios across all sectors.',
                                           ParamType.String,
                                         ),
                                         'link': serializeParam(
@@ -943,7 +943,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       'InfoPage',
                                       queryParameters: {
                                         'heading': serializeParam(
-                                          'Your driving companion',
+                                          'Your Driving Companion',
                                           ParamType.String,
                                         ),
                                         'description': serializeParam(

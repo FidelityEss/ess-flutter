@@ -99,7 +99,7 @@ class _ComplimentsTwoWidgetState extends State<ComplimentsTwoWidget> {
                   model: _model.customAppBarModel,
                   updateCallback: () => setState(() {}),
                   child: CustomAppBarWidget(
-                    title: 'Praise',
+                    title: 'Send Praise',
                   ),
                 ),
                 wrapWithModel(

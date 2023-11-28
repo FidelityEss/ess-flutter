@@ -141,7 +141,7 @@ class _VacanciesDetailsPageWidgetState
                               child: Image.network(
                                 vacanciesDetailsPageVacanciesRecord!.image,
                                 width: double.infinity,
-                                height: 150.0,
+                                height: 200.0,
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -558,6 +558,9 @@ class _VacanciesDetailsPageWidgetState
                                         vacancyName:
                                             vacanciesDetailsPageVacanciesRecord!
                                                 .title,
+                                        email:
+                                            vacanciesDetailsPageVacanciesRecord!
+                                                .applicationEmail,
                                       ),
                                     ),
                                   ));

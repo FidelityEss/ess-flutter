@@ -76,7 +76,7 @@ class _HRServicesPageWidgetState extends State<HRServicesPageWidget> {
                 model: _model.customAppBarModel,
                 updateCallback: () => setState(() {}),
                 child: CustomAppBarWidget(
-                  title: 'HR Services',
+                  title: 'Human Resources',
                 ),
               ),
               wrapWithModel(

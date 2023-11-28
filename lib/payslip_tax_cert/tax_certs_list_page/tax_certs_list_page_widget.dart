@@ -105,7 +105,7 @@ class _TaxCertsListPageWidgetState extends State<TaxCertsListPageWidget> {
                     model: _model.customAppBarModel,
                     updateCallback: () => setState(() {}),
                     child: CustomAppBarWidget(
-                      title: 'Payslips',
+                      title: 'Tax Certificates',
                     ),
                   ),
                   wrapWithModel(

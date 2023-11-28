@@ -92,7 +92,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                   model: _model.customAppBarModel,
                   updateCallback: () => setState(() {}),
                   child: CustomAppBarWidget(
-                    title: 'Praise',
+                    title: 'Send Praise',
                   ),
                 ),
                 wrapWithModel(
