@@ -217,47 +217,7 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                         }
 
                         if (loggedIn) {
-                          if ((valueOrDefault(
-                                          currentUserDocument?.firstName, '') !=
-                                      null &&
-                                  valueOrDefault(
-                                          currentUserDocument?.firstName, '') !=
-                                      '') ||
-                              (valueOrDefault(
-                                          currentUserDocument?.lastName, '') !=
-                                      null &&
-                                  valueOrDefault(
-                                          currentUserDocument?.lastName, '') !=
-                                      '')) {
-                            context.pushNamedAuth('HomePage', context.mounted);
-                          } else {
-                            context.goNamedAuth(
-                              'UpdateProfilePage',
-                              context.mounted,
-                              queryParameters: {
-                                'en': serializeParam(
-                                  widget.en,
-                                  ParamType.String,
-                                ),
-                                'eid': serializeParam(
-                                  widget.eid,
-                                  ParamType.String,
-                                ),
-                                'firstName': serializeParam(
-                                  widget.firstName,
-                                  ParamType.String,
-                                ),
-                                'surname': serializeParam(
-                                  widget.lastName,
-                                  ParamType.String,
-                                ),
-                                'ecc': serializeParam(
-                                  '',
-                                  ParamType.String,
-                                ),
-                              }.withoutNulls,
-                            );
-                          }
+                          context.pushNamedAuth('HomePage', context.mounted);
                         }
                       },
                       text: 'Verify OTP',

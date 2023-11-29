@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import '../cloud_functions/cloud_functions.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
@@ -191,28 +192,19 @@ class CreatePayrollQueryCall {
     String? fileUrl = '',
     String? authToken = '',
   }) async {
-    final ffApiRequestBody = '''
-{
-  "description": "${description}",
-  "fcmToken": "${fcmToken}",
-  "fileUrl": "${fileUrl}"
-}''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'CreatePayrollQuery',
-      apiUrl: '${FessApiGroup.baseUrl}/Payroll/AddPayrollQuery',
-      callType: ApiCallType.POST,
-      headers: {
-        'Authorization': 'Bearer ${authToken}',
-        'api-key': 'c1e57890-a4ee-4354-ab59-53098d763963',
+    final response = await makeCloudCall(
+      _kPrivateApiFunctionName,
+      {
+        'callName': 'CreatePayrollQueryCall',
+        'variables': {
+          'description': description,
+          'fcmToken': fcmToken,
+          'fileUrl': fileUrl,
+          'authToken': authToken,
+        },
       },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
     );
+    return ApiCallResponse.fromCloudCallResponse(response);
   }
 
   dynamic orderId(dynamic response) => getJsonField(
