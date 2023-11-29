@@ -103,10 +103,10 @@ String? getFCMToken(String uid) {
       print('Latest FCM Token: $latestFcmToken');
       return latestFcmToken;
     } else {
-      return "";
+      return "testing";
     }
   }).catchError((error) {
-    return "";
+    return "testing";
   });
-  return "";
+  return "testing";
 }
