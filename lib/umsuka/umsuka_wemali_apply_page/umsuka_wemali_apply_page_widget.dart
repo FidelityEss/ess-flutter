@@ -560,7 +560,7 @@ class _UmsukaWemaliApplyPageWidgetState
                           subject:
                               'Umsuka WeMali FESS Application: ${valueOrDefault(currentUserDocument?.eid, '')}',
                           body:
-                              'Name: ${currentUserDisplayName} Employee ID: ${valueOrDefault(currentUserDocument?.eid, '')} Company Code: ${valueOrDefault(currentUserDocument?.ecd, '')} Employee Number: ${valueOrDefault(currentUserDocument?.en, '')} Email: ${currentUserEmail} Phone Number: ${currentPhoneNumber} Loan Amount: ${_model.loanAmountController.text} Loan Purpose: ${_model.purposeController.text}',
+                              'Name: ${currentUserDisplayName} , Employee ID: ${valueOrDefault(currentUserDocument?.eid, '')} , Company Code: ${valueOrDefault(currentUserDocument?.ecd, '')} , Employee Number: ${valueOrDefault(currentUserDocument?.en, '')} , Email: ${currentUserEmail} , Phone Number: ${currentPhoneNumber} , Loan Amount: ${_model.loanAmountController.text} , Loan Purpose: ${_model.purposeController.text}',
                         );
                         if ((_model.sendUmsukaEmail?.succeeded ?? true)) {
                           await UmsukaRecord.collection

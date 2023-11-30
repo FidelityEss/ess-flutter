@@ -407,7 +407,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                           subject:
                               '${_model.typeValue1}: ${_model.priorityValue} Priority',
                           body:
-                              'Name: ${currentUserDisplayName} Employee Number: ${valueOrDefault(currentUserDocument?.en, '')} Message: ${_model.messageController.text} Location: ${_model.placePickerValue.address} LatLng: ${_model.placePickerValue.latLng?.toString()} Email: ${currentUserEmail} Phone: ${currentPhoneNumber} Category: ${_model.typeValue1} Classification: ${_model.typeValue2}',
+                              'Name: ${currentUserDisplayName} , Employee Number: ${valueOrDefault(currentUserDocument?.en, '')} , Message: ${_model.messageController.text} , Location: ${_model.placePickerValue.address} , LatLng: ${_model.placePickerValue.latLng?.toString()} , Email: ${currentUserEmail} , Phone: ${currentPhoneNumber} , Category: ${_model.typeValue1} , Classification: ${_model.typeValue2}',
                         );
                         if ((_model.sendIncidentEmail?.succeeded ?? true)) {
                           await IncidentsRecord.collection
