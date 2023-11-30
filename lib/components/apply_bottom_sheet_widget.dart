@@ -160,7 +160,7 @@ class _ApplyBottomSheetWidgetState extends State<ApplyBottomSheetWidget> {
                     toEmail: widget.email,
                     subject: 'FESS Vacancy Application',
                     body:
-                        'User Name: ${currentUserDisplayName} , User Email: ${currentUserEmail} , User Phone: ${currentPhoneNumber} , User CV: ${_model.uploadedFileUrl} , Vacancy Name: ${widget.vacancyName}',
+                        'User Name: ${currentUserDisplayName} , User Email: ${currentUserEmail} , User Phone: ${currentPhoneNumber} , Vacancy Name: ${widget.vacancyName}',
                     link: _model.uploadedFileUrl,
                   );
                   Navigator.pop(context);
