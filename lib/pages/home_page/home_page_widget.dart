@@ -863,7 +863,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       'InfoPage',
                                       queryParameters: {
                                         'heading': serializeParam(
-                                          'Specialised cleaning and hygiene',
+                                          'Specialised Cleaning and Hygiene',
                                           ParamType.String,
                                         ),
                                         'description': serializeParam(

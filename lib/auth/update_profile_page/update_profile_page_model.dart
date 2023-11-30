@@ -24,6 +24,10 @@ class UpdateProfilePageModel extends FlutterFlowModel<UpdateProfilePageWidget> {
       return 'Field is required';
     }
 
+    if (val.length < 3) {
+      return 'Please enter a valid name';
+    }
+
     return null;
   }
 
@@ -34,6 +38,10 @@ class UpdateProfilePageModel extends FlutterFlowModel<UpdateProfilePageWidget> {
   String? _surnameControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'Field is required';
+    }
+
+    if (val.length < 3) {
+      return 'Please enter a valid surname';
     }
 
     return null;

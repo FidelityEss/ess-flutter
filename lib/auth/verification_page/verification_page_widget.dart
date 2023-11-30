@@ -217,7 +217,58 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                         }
 
                         if (loggedIn) {
-                          context.pushNamedAuth('HomePage', context.mounted);
+                          if ((currentUserEmail == null ||
+                                  currentUserEmail == '') ||
+                              (currentUserDisplayName == null ||
+                                  currentUserDisplayName == '') ||
+                              (valueOrDefault(
+                                          currentUserDocument?.firstName, '') ==
+                                      null ||
+                                  valueOrDefault(
+                                          currentUserDocument?.firstName, '') ==
+                                      '') ||
+                              (valueOrDefault(currentUserDocument?.lastName, '') ==
+                                      null ||
+                                  valueOrDefault(
+                                          currentUserDocument?.lastName, '') ==
+                                      '') ||
+                              (valueOrDefault(currentUserDocument?.en, '') ==
+                                      null ||
+                                  valueOrDefault(currentUserDocument?.en, '') ==
+                                      '') ||
+                              (valueOrDefault(currentUserDocument?.eid, '') ==
+                                      null ||
+                                  valueOrDefault(currentUserDocument?.eid, '') ==
+                                      '')) {
+                            context.pushNamedAuth(
+                              'UpdateProfilePage',
+                              context.mounted,
+                              queryParameters: {
+                                'en': serializeParam(
+                                  widget.en,
+                                  ParamType.String,
+                                ),
+                                'eid': serializeParam(
+                                  widget.eid,
+                                  ParamType.String,
+                                ),
+                                'firstName': serializeParam(
+                                  widget.firstName,
+                                  ParamType.String,
+                                ),
+                                'surname': serializeParam(
+                                  widget.lastName,
+                                  ParamType.String,
+                                ),
+                                'ecc': serializeParam(
+                                  ' ',
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
+                          } else {
+                            context.pushNamedAuth('HomePage', context.mounted);
+                          }
                         }
                       },
                       text: 'Verify OTP',
