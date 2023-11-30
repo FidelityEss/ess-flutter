@@ -262,12 +262,14 @@ class SendEmailCall {
     String? toEmail = '',
     String? subject = '',
     String? body = '',
+    String? link = '',
   }) async {
     final ffApiRequestBody = '''
 {
   "toEmail": "${toEmail}",
   "subject": "${subject}",
-  "body": "${body}"
+  "body": "${body}",
+  "link": "${link}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'SendEmail',
