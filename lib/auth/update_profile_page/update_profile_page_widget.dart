@@ -259,6 +259,9 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                             context.pushNamed('HomePage');
                           } else {
                             await authManager.sendEmailVerification();
+                            setState(() {
+                              _model.showVerificationButton = true;
+                            });
                             await showDialog(
                               context: context,
                               builder: (alertDialogContext) {
