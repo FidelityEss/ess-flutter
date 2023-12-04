@@ -264,7 +264,7 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                                           currentUserDocument?.userType, '') ==
                                       '') ||
                               !currentUserEmailVerified) {
-                            context.pushNamedAuth(
+                            context.goNamedAuth(
                               'UpdateProfilePage',
                               context.mounted,
                               queryParameters: {
@@ -279,7 +279,7 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                               }.withoutNulls,
                             );
                           } else {
-                            context.pushNamedAuth('HomePage', context.mounted);
+                            context.goNamedAuth('HomePage', context.mounted);
                           }
                         }
                       },

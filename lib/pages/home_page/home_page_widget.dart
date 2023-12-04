@@ -39,6 +39,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await authManager.refreshUser();
       if (functions.hoursAgo(FFAppState().tokenUpdateTime) >= 3) {
         GoRouter.of(context).prepareAuthEvent();
         await authManager.signOut();
@@ -71,6 +72,28 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 valueOrDefault(currentUserDocument?.lastName, '') == '') ||
             (currentUserDisplayName == null || currentUserDisplayName == '')) {
           context.goNamedAuth('ManageProfile', context.mounted);
+        } else {
+          if (currentUserEmailVerified != true) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                    child: AlertDialog(
+                  title: Text('Warning'),
+                  content: Text(
+                      'To continue using FESS, we need to verify your email.'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Continue'),
+                    ),
+                  ],
+                ));
+              },
+            );
+
+            context.goNamedAuth('UpdateProfilePage', context.mounted);
+          }
         }
       }
 
