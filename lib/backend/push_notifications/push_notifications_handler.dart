@@ -188,11 +188,8 @@ final parametersBuilderMap =
   'ComplimentSubmittedPage': ParameterData.none(),
   'UpdateProfilePage': (data) async => ParameterData(
         allParams: {
-          'en': getParameter<String>(data, 'en'),
-          'eid': getParameter<String>(data, 'eid'),
-          'firstName': getParameter<String>(data, 'firstName'),
-          'surname': getParameter<String>(data, 'surname'),
-          'ecc': getParameter<String>(data, 'ecc'),
+          'isFromProfile': getParameter<bool>(data, 'isFromProfile'),
+          'email': getParameter<String>(data, 'email'),
         },
       ),
   'PayrollServicesPage': ParameterData.none(),

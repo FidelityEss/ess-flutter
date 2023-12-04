@@ -360,7 +360,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget> {
                     text: 'Sign In',
                     options: FFButtonOptions(
                       width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: 40.0,
+                      height: 45.0,
                       padding:
                           EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:

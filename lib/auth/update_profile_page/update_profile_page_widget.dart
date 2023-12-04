@@ -1,31 +1,24 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'update_profile_page_model.dart';
 export 'update_profile_page_model.dart';
 
 class UpdateProfilePageWidget extends StatefulWidget {
   const UpdateProfilePageWidget({
     Key? key,
-    required this.en,
-    required this.eid,
-    required this.firstName,
-    required this.surname,
-    required this.ecc,
+    this.isFromProfile,
+    this.email,
   }) : super(key: key);
 
-  final String? en;
-  final String? eid;
-  final String? firstName;
-  final String? surname;
-  final String? ecc;
+  final bool? isFromProfile;
+  final String? email;
 
   @override
   _UpdateProfilePageWidgetState createState() =>
@@ -42,13 +35,7 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
     super.initState();
     _model = createModel(context, () => UpdateProfilePageModel());
 
-    _model.nameController ??= TextEditingController(text: widget.firstName);
-    _model.nameFocusNode ??= FocusNode();
-
-    _model.surnameController ??= TextEditingController(text: widget.surname);
-    _model.surnameFocusNode ??= FocusNode();
-
-    _model.emailController ??= TextEditingController();
+    _model.emailController ??= TextEditingController(text: widget.email);
     _model.emailFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -136,110 +123,6 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                     children: [
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            32.0, 0.0, 32.0, 0.0),
-                        child: TextFormField(
-                          controller: _model.nameController,
-                          focusNode: _model.nameFocusNode,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            labelStyle:
-                                FlutterFlowTheme.of(context).displayLarge,
-                            hintText: 'Name',
-                            hintStyle:
-                                FlutterFlowTheme.of(context).displayLarge,
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).alternate,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).primary,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            prefixIcon: Icon(
-                              Icons.person_rounded,
-                              color: FlutterFlowTheme.of(context).textFieldIcon,
-                              size: 16.0,
-                            ),
-                          ),
-                          style: FlutterFlowTheme.of(context).displayLarge,
-                          validator: _model.nameControllerValidator
-                              .asValidator(context),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            32.0, 16.0, 32.0, 0.0),
-                        child: TextFormField(
-                          controller: _model.surnameController,
-                          focusNode: _model.surnameFocusNode,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            labelStyle:
-                                FlutterFlowTheme.of(context).displayLarge,
-                            hintText: 'Surname',
-                            hintStyle:
-                                FlutterFlowTheme.of(context).displayLarge,
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).alternate,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).primary,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            prefixIcon: Icon(
-                              Icons.person_rounded,
-                              color: FlutterFlowTheme.of(context).textFieldIcon,
-                              size: 16.0,
-                            ),
-                          ),
-                          style: FlutterFlowTheme.of(context).displayLarge,
-                          validator: _model.surnameControllerValidator
-                              .asValidator(context),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
                             32.0, 16.0, 32.0, 0.0),
                         child: TextFormField(
                           controller: _model.emailController,
@@ -293,69 +176,187 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      if (_model.formKey.currentState == null ||
-                          !_model.formKey.currentState!.validate()) {
-                        return;
-                      }
+                if (!_model.showVerificationButton)
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        await authManager.refreshUser();
+                        if (widget.isFromProfile!) {
+                          if (_model.emailController.text.isEmpty) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Email required!',
+                                ),
+                              ),
+                            );
+                            return;
+                          }
 
-                      await currentUserReference!.update(createUsersRecordData(
-                        email: _model.emailController.text,
-                        displayName:
-                            '${_model.nameController.text} ${_model.surnameController.text}',
-                        photoUrl:
-                            'https://firebasestorage.googleapis.com/v0/b/fess-a6f94.appspot.com/o/images%2Ffess_avatar.jpg?alt=media&token=7dfb15df-3b8c-4dfd-b9e0-57f4bbef6bac&_gl=1*b9qxs5*_ga*Mzk1OTY0NDA0LjE2OTUxNDYxMDk.*_ga_CW55HF8NVT*MTY5NzEwOTU4OS4xMi4xLjE2OTcxMDk2MjguMjEuMC4w',
-                        firstName: _model.nameController.text,
-                        lastName: _model.surnameController.text,
-                        userType: 'employee',
-                        en: widget.en,
-                        eid: widget.eid,
-                        ecd: widget.ecc,
-                      ));
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            'Profile Updated',
-                            style: TextStyle(
-                              color: FlutterFlowTheme.of(context).justWhite,
+                          await authManager.updateEmail(
+                            email: _model.emailController.text,
+                            context: context,
+                          );
+                          setState(() {});
+
+                          await authManager.sendEmailVerification();
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return WebViewAware(
+                                  child: AlertDialog(
+                                title: Text('Once Off Verification Required'),
+                                content: Text(
+                                    'In order for you to access all the functionality on the FESS app, we require you to verify your email. We have sent you a verification email, please open it and click on the verify link to proceed.'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              ));
+                            },
+                          );
+                        } else {
+                          if (_model.formKey.currentState == null ||
+                              !_model.formKey.currentState!.validate()) {
+                            return;
+                          }
+                          if (_model.emailController.text.isEmpty) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Email required!',
+                                ),
+                              ),
+                            );
+                            return;
+                          }
+
+                          await authManager.updateEmail(
+                            email: _model.emailController.text,
+                            context: context,
+                          );
+                          setState(() {});
+
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                'Profile Updated',
+                                style: TextStyle(
+                                  color: FlutterFlowTheme.of(context).justWhite,
+                                ),
+                              ),
+                              duration: Duration(milliseconds: 4000),
+                              backgroundColor:
+                                  FlutterFlowTheme.of(context).secondary,
                             ),
-                          ),
-                          duration: Duration(milliseconds: 4000),
-                          backgroundColor:
-                              FlutterFlowTheme.of(context).secondary,
+                          );
+                          if (currentUserEmailVerified) {
+                            context.pushNamed('HomePage');
+                          } else {
+                            await authManager.sendEmailVerification();
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return WebViewAware(
+                                    child: AlertDialog(
+                                  title: Text('Once Off Verification Required'),
+                                  content: Text(
+                                      'In order for you to access all the functionality on the FESS app, we require you to verify your email. We have sent you a verification email, please open it and click on the verify link to proceed.'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                ));
+                              },
+                            );
+                          }
+                        }
+                      },
+                      text: 'Update & Verify',
+                      options: FFButtonOptions(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        height: 45.0,
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle: FlutterFlowTheme.of(context)
+                            .bodySmall
+                            .override(
+                              fontFamily: 'Montserrat',
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                            ),
+                        elevation: 0.0,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
                         ),
-                      );
-
-                      context.pushNamed('HomePage');
-                    },
-                    text: 'Update',
-                    options: FFButtonOptions(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: 40.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primary,
-                      textStyle: FlutterFlowTheme.of(context)
-                          .bodySmall
-                          .override(
-                            fontFamily: 'Montserrat',
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                          ),
-                      elevation: 0.0,
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: 1.0,
+                        borderRadius: BorderRadius.circular(5.0),
                       ),
-                      borderRadius: BorderRadius.circular(5.0),
                     ),
                   ),
-                ),
+                if (_model.showVerificationButton)
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        await authManager.refreshUser();
+                        if (currentUserEmailVerified) {
+                          context.pushNamed('HomePage');
+                        } else {
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return WebViewAware(
+                                  child: AlertDialog(
+                                title: Text('Warning'),
+                                content: Text(
+                                    'You have not yet verified your email address. Please check your emails for the link.'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              ));
+                            },
+                          );
+                        }
+                      },
+                      text: 'I have verified my email',
+                      options: FFButtonOptions(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        height: 45.0,
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).justWhite,
+                        textStyle:
+                            FlutterFlowTheme.of(context).bodySmall.override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context).primary,
+                                ),
+                        elevation: 0.0,
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).primary,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                  ),
               ],
             ),
           ),

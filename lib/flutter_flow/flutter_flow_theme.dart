@@ -279,7 +279,7 @@ class ThemeTypography extends Typography {
         'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
-        fontSize: 16.0,
+        fontSize: 14.0,
       );
   String get bodySmallFamily => 'Montserrat';
   TextStyle get bodySmall => GoogleFonts.getFont(

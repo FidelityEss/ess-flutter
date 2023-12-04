@@ -267,11 +267,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'UpdateProfilePage',
           path: '/updateProfilePage',
           builder: (context, params) => UpdateProfilePageWidget(
-            en: params.getParam('en', ParamType.String),
-            eid: params.getParam('eid', ParamType.String),
-            firstName: params.getParam('firstName', ParamType.String),
-            surname: params.getParam('surname', ParamType.String),
-            ecc: params.getParam('ecc', ParamType.String),
+            isFromProfile: params.getParam('isFromProfile', ParamType.bool),
+            email: params.getParam('email', ParamType.String),
           ),
         ),
         FFRoute(

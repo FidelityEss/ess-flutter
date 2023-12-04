@@ -63,7 +63,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             ));
           },
         );
+      } else {
+        if ((currentUserEmail == null || currentUserEmail == '') ||
+            (valueOrDefault(currentUserDocument?.firstName, '') == null ||
+                valueOrDefault(currentUserDocument?.firstName, '') == '') ||
+            (valueOrDefault(currentUserDocument?.lastName, '') == null ||
+                valueOrDefault(currentUserDocument?.lastName, '') == '') ||
+            (currentUserDisplayName == null || currentUserDisplayName == '')) {
+          context.goNamedAuth('ManageProfile', context.mounted);
+        }
       }
+
       _model.messagesCount = await queryMessagesRecordCount();
       _model.readyByCount = await queryReadbyRecordCount(
         queryBuilder: (readbyRecord) => readbyRecord.where(

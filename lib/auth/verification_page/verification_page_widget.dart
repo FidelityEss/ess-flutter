@@ -1,8 +1,10 @@
 import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -197,6 +199,7 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                         EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        await authManager.refreshUser();
                         GoRouter.of(context).prepareAuthEvent();
                         final smsCodeVal = _model.otpController.text;
                         if (smsCodeVal == null || smsCodeVal.isEmpty) {
@@ -217,12 +220,9 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                         }
 
                         if (loggedIn) {
-                          if ((currentUserEmail == null ||
-                                  currentUserEmail == '') ||
-                              (currentUserDisplayName == null ||
+                          if ((currentUserDisplayName == null ||
                                   currentUserDisplayName == '') ||
-                              (valueOrDefault(
-                                          currentUserDocument?.firstName, '') ==
+                              (valueOrDefault(currentUserDocument?.firstName, '') ==
                                       null ||
                                   valueOrDefault(
                                           currentUserDocument?.firstName, '') ==
@@ -240,28 +240,40 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                                       null ||
                                   valueOrDefault(currentUserDocument?.eid, '') ==
                                       '')) {
+                            await currentUserReference!
+                                .update(createUsersRecordData(
+                              displayName:
+                                  '${widget.firstName} ${widget.lastName}',
+                              firstName: widget.firstName,
+                              lastName: widget.lastName,
+                              en: widget.en,
+                              eid: widget.eid,
+                              userType: 'employee',
+                              photoUrl:
+                                  'https://firebasestorage.googleapis.com/v0/b/fess-a6f94.appspot.com/o/images%2Ffess_avatar.jpg?alt=media&token=7dfb15df-3b8c-4dfd-b9e0-57f4bbef6bac&_gl=1*b9qxs5*_ga*Mzk1OTY0NDA0LjE2OTUxNDYxMDk.*_ga_CW55HF8NVT*MTY5NzEwOTU4OS4xMi4xLjE2OTcxMDk2MjguMjEuMC4w',
+                            ));
+                          }
+                          if ((currentUserEmail == null ||
+                                  currentUserEmail == '') ||
+                              (currentUserPhoto == null ||
+                                  currentUserPhoto == '') ||
+                              (valueOrDefault(
+                                          currentUserDocument?.userType, '') ==
+                                      null ||
+                                  valueOrDefault(
+                                          currentUserDocument?.userType, '') ==
+                                      '') ||
+                              !currentUserEmailVerified) {
                             context.pushNamedAuth(
                               'UpdateProfilePage',
                               context.mounted,
                               queryParameters: {
-                                'en': serializeParam(
-                                  widget.en,
-                                  ParamType.String,
+                                'isFromProfile': serializeParam(
+                                  false,
+                                  ParamType.bool,
                                 ),
-                                'eid': serializeParam(
-                                  widget.eid,
-                                  ParamType.String,
-                                ),
-                                'firstName': serializeParam(
-                                  widget.firstName,
-                                  ParamType.String,
-                                ),
-                                'surname': serializeParam(
-                                  widget.lastName,
-                                  ParamType.String,
-                                ),
-                                'ecc': serializeParam(
-                                  ' ',
+                                'email': serializeParam(
+                                  '',
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -274,7 +286,7 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                       text: 'Verify OTP',
                       options: FFButtonOptions(
                         width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: 40.0,
+                        height: 45.0,
                         padding: EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         iconPadding:
@@ -365,7 +377,7 @@ class _VerificationPageWidgetState extends State<VerificationPageWidget> {
                       text: 'Go Back',
                       options: FFButtonOptions(
                         width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: 40.0,
+                        height: 45.0,
                         padding: EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         iconPadding:
