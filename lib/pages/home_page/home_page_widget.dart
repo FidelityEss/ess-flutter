@@ -92,7 +92,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               },
             );
 
-            context.goNamedAuth('UpdateProfilePage', context.mounted);
+            context.goNamedAuth(
+              'UpdateProfilePage',
+              context.mounted,
+              queryParameters: {
+                'email': serializeParam(
+                  currentUserEmail,
+                  ParamType.String,
+                ),
+              }.withoutNulls,
+            );
           }
         }
       }
