@@ -258,10 +258,6 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                           if (currentUserEmailVerified) {
                             context.pushNamed('HomePage');
                           } else {
-                            await authManager.sendEmailVerification();
-                            setState(() {
-                              _model.showVerificationButton = true;
-                            });
                             await showDialog(
                               context: context,
                               builder: (alertDialogContext) {
@@ -280,6 +276,10 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                                 ));
                               },
                             );
+                            setState(() {
+                              _model.showVerificationButton = true;
+                            });
+                            await authManager.sendEmailVerification();
                           }
                         }
                       },
