@@ -182,83 +182,40 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                         EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        if (widget.isFromProfile!) {
-                          if (_model.emailController.text.isEmpty) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Email required!',
-                                ),
-                              ),
-                            );
-                            return;
-                          }
-
-                          await authManager.updateEmail(
-                            email: _model.emailController.text,
-                            context: context,
-                          );
-                          setState(() {});
-
-                          await showDialog(
-                            context: context,
-                            builder: (alertDialogContext) {
-                              return WebViewAware(
-                                  child: AlertDialog(
-                                title: Text('Once Off Verification Required'),
-                                content: Text(
-                                    'In order for you to access all the functionality on the FESS app, we require you to verify your email. We have sent you a verification email, please open it and click on the verify link to proceed.'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Ok'),
-                                  ),
-                                ],
-                              ));
-                            },
-                          );
-                          await authManager.sendEmailVerification();
-                        } else {
-                          if (_model.formKey.currentState == null ||
-                              !_model.formKey.currentState!.validate()) {
-                            return;
-                          }
-                          if (_model.emailController.text.isEmpty) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Email required!',
-                                ),
-                              ),
-                            );
-                            return;
-                          }
-
-                          await authManager.updateEmail(
-                            email: _model.emailController.text,
-                            context: context,
-                          );
-                          setState(() {});
-
+                        if (_model.emailController.text.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(
-                                'We have sent a verification email to ${_model.emailController.text}. Please check your emails.',
-                                style: TextStyle(
-                                  color: FlutterFlowTheme.of(context).justWhite,
-                                ),
+                                'Email required!',
                               ),
-                              duration: Duration(milliseconds: 4000),
-                              backgroundColor:
-                                  FlutterFlowTheme.of(context).secondary,
                             ),
                           );
-                          setState(() {
-                            _model.showVerificationButton = true;
-                          });
-                          await authManager.sendEmailVerification();
+                          return;
                         }
+
+                        await authManager.updateEmail(
+                          email: _model.emailController.text,
+                          context: context,
+                        );
+                        setState(() {});
+
+                        await authManager.sendEmailVerification();
+                        setState(() {
+                          _model.showVerificationButton = true;
+                        });
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'Verification email sent to ${_model.emailController.text}. Please check your email for the verification link.',
+                              style: TextStyle(
+                                color: FlutterFlowTheme.of(context).justWhite,
+                              ),
+                            ),
+                            duration: Duration(milliseconds: 4000),
+                            backgroundColor:
+                                FlutterFlowTheme.of(context).secondary,
+                          ),
+                        );
                       },
                       text: 'Update & Verify',
                       options: FFButtonOptions(
