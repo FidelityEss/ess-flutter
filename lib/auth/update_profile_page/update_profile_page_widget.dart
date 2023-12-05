@@ -258,28 +258,24 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                           if (currentUserEmailVerified) {
                             context.pushNamed('HomePage');
                           } else {
-                            await showDialog(
-                              context: context,
-                              builder: (alertDialogContext) {
-                                return WebViewAware(
-                                    child: AlertDialog(
-                                  title: Text('Once Off Verification Required'),
-                                  content: Text(
-                                      'In order for you to access all the functionality on the FESS app, we require you to verify your email. We have sent you a verification email, please open it and click on the verify link to proceed.'),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(alertDialogContext),
-                                      child: Text('Ok'),
-                                    ),
-                                  ],
-                                ));
-                              },
+                            await authManager.sendEmailVerification();
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'We have sent a verification email to ${_model.emailController.text}. Please check your emails.',
+                                  style: TextStyle(
+                                    color:
+                                        FlutterFlowTheme.of(context).justWhite,
+                                  ),
+                                ),
+                                duration: Duration(milliseconds: 4000),
+                                backgroundColor:
+                                    FlutterFlowTheme.of(context).secondary,
+                              ),
                             );
                             setState(() {
                               _model.showVerificationButton = true;
                             });
-                            await authManager.sendEmailVerification();
                           }
                         }
                       },
