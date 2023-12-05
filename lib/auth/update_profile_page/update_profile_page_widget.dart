@@ -182,7 +182,6 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                         EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        await authManager.refreshUser();
                         if (widget.isFromProfile!) {
                           if (_model.emailController.text.isEmpty) {
                             ScaffoldMessenger.of(context).showSnackBar(
@@ -245,7 +244,7 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(
-                                'Profile Updated',
+                                'We have sent a verification email to ${_model.emailController.text}. Please check your emails.',
                                 style: TextStyle(
                                   color: FlutterFlowTheme.of(context).justWhite,
                                 ),
@@ -255,28 +254,10 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                                   FlutterFlowTheme.of(context).secondary,
                             ),
                           );
-                          if (currentUserEmailVerified) {
-                            context.pushNamed('HomePage');
-                          } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'We have sent a verification email to ${_model.emailController.text}. Please check your emails.',
-                                  style: TextStyle(
-                                    color:
-                                        FlutterFlowTheme.of(context).justWhite,
-                                  ),
-                                ),
-                                duration: Duration(milliseconds: 4000),
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).secondary,
-                              ),
-                            );
-                            setState(() {
-                              _model.showVerificationButton = true;
-                            });
-                            await authManager.sendEmailVerification();
-                          }
+                          setState(() {
+                            _model.showVerificationButton = true;
+                          });
+                          await authManager.sendEmailVerification();
                         }
                       },
                       text: 'Update & Verify',
