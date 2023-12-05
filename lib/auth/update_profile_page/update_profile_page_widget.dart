@@ -210,7 +210,7 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                                 child: AlertDialog(
                               title: Text('Verification Email Sent'),
                               content: Text(
-                                  'A verification link has been dispatched to your email address. Kindly open the provided link to confirm and verify your email.'),
+                                  'A verification link has been dispatched to your email address. Kindly open the provided link to confirm and verify your email. Please note that you will need to sign in again after verifying your email.'),
                               actions: [
                                 TextButton(
                                   onPressed: () =>
