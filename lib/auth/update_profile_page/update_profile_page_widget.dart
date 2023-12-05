@@ -249,7 +249,30 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                       onPressed: () async {
                         await authManager.refreshUser();
                         if (currentUserEmailVerified) {
-                          context.pushNamed('HomePage');
+                          GoRouter.of(context).prepareAuthEvent();
+                          await authManager.signOut();
+                          GoRouter.of(context).clearRedirectLocation();
+
+                          context.pushNamedAuth('SignInPage', context.mounted);
+
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return WebViewAware(
+                                  child: AlertDialog(
+                                title: Text('Sign In Again'),
+                                content: Text(
+                                    'Because you added an email to your profile, we require you to sign in again.'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              ));
+                            },
+                          );
                         } else {
                           await showDialog(
                             context: context,
