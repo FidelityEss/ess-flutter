@@ -100,6 +100,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   currentUserEmail,
                   ParamType.String,
                 ),
+                'isFromProfile': serializeParam(
+                  false,
+                  ParamType.bool,
+                ),
               }.withoutNulls,
             );
           }
