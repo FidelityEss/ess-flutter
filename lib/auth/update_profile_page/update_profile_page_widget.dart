@@ -201,7 +201,6 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                           );
                           setState(() {});
 
-                          await authManager.sendEmailVerification();
                           await showDialog(
                             context: context,
                             builder: (alertDialogContext) {
@@ -220,6 +219,7 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                               ));
                             },
                           );
+                          await authManager.sendEmailVerification();
                         } else {
                           if (_model.formKey.currentState == null ||
                               !_model.formKey.currentState!.validate()) {
@@ -258,7 +258,6 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                           if (currentUserEmailVerified) {
                             context.pushNamed('HomePage');
                           } else {
-                            await authManager.sendEmailVerification();
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
@@ -276,6 +275,7 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                             setState(() {
                               _model.showVerificationButton = true;
                             });
+                            await authManager.sendEmailVerification();
                           }
                         }
                       },
