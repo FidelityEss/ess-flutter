@@ -203,18 +203,23 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                         setState(() {
                           _model.showVerificationButton = true;
                         });
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              'Verification email sent to ${_model.emailController.text}. Please check your email for the verification link.',
-                              style: TextStyle(
-                                color: FlutterFlowTheme.of(context).justWhite,
-                              ),
-                            ),
-                            duration: Duration(milliseconds: 4000),
-                            backgroundColor:
-                                FlutterFlowTheme.of(context).secondary,
-                          ),
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return WebViewAware(
+                                child: AlertDialog(
+                              title: Text('Verification Email Sent'),
+                              content: Text(
+                                  'A verification link has been dispatched to your email address. Kindly open the provided link to confirm and verify your email.'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Ok'),
+                                ),
+                              ],
+                            ));
+                          },
                         );
                       },
                       text: 'Update & Verify',
@@ -247,52 +252,30 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                         EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        await authManager.refreshUser();
-                        if (currentUserEmailVerified) {
-                          GoRouter.of(context).prepareAuthEvent();
-                          await authManager.signOut();
-                          GoRouter.of(context).clearRedirectLocation();
+                        GoRouter.of(context).prepareAuthEvent();
+                        await authManager.signOut();
+                        GoRouter.of(context).clearRedirectLocation();
 
-                          context.pushNamedAuth('SignInPage', context.mounted);
+                        context.pushNamedAuth('SignInPage', context.mounted);
 
-                          await showDialog(
-                            context: context,
-                            builder: (alertDialogContext) {
-                              return WebViewAware(
-                                  child: AlertDialog(
-                                title: Text('Sign In Again'),
-                                content: Text(
-                                    'Because you added an email to your profile, we require you to sign in again.'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Ok'),
-                                  ),
-                                ],
-                              ));
-                            },
-                          );
-                        } else {
-                          await showDialog(
-                            context: context,
-                            builder: (alertDialogContext) {
-                              return WebViewAware(
-                                  child: AlertDialog(
-                                title: Text('Warning'),
-                                content: Text(
-                                    'You have not yet verified your email address. Please check your emails for the link.'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Ok'),
-                                  ),
-                                ],
-                              ));
-                            },
-                          );
-                        }
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return WebViewAware(
+                                child: AlertDialog(
+                              title: Text('Sign In Required'),
+                              content: Text(
+                                  'Since you\'ve added an email to your profile, we kindly request you to sign in again to finalize the profile update. It\'s important to note that this action is a one-time requirement, and you won\'t be prompted to do so again in the future.'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Ok'),
+                                ),
+                              ],
+                            ));
+                          },
+                        );
                       },
                       text: 'I have verified my email',
                       options: FFButtonOptions(
