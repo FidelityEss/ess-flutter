@@ -110,7 +110,7 @@ class _UpdateProfilePageWidgetState extends State<UpdateProfilePageWidget> {
                   padding:
                       EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 42.0),
                   child: Text(
-                    'To continue, please update your profile.',
+                    'To continue, please enter your correct email address. This is necessary for full access to FESS.',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
