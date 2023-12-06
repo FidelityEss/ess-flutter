@@ -136,20 +136,11 @@ class _VacanciesDetailsPageWidgetState
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(0.0),
-                              child: Image.network(
-                                vacanciesDetailsPageVacanciesRecord!.image,
-                                width: double.infinity,
-                                height: 200.0,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
                             Align(
                               alignment: AlignmentDirectional(0.00, 0.00),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 32.0, 0.0, 0.0),
+                                    0.0, 64.0, 0.0, 0.0),
                                 child: Text(
                                   vacanciesDetailsPageVacanciesRecord!.company,
                                   style: FlutterFlowTheme.of(context)
