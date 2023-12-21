@@ -26,6 +26,8 @@ class FessApiGroup {
       CreatePayrollQueryCall();
   static GetEmployeeTaxCertificatesCall getEmployeeTaxCertificatesCall =
       GetEmployeeTaxCertificatesCall();
+  static PayrollOrderCategoriesCall payrollOrderCategoriesCall =
+      PayrollOrderCategoriesCall();
 }
 
 class AuthenticationCall {
@@ -54,6 +56,7 @@ class AuthenticationCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -101,39 +104,52 @@ class GetEmployeePayslipsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic fileName(dynamic response) => getJsonField(
+  List<String>? fileName(dynamic response) => (getJsonField(
         response,
         r'''$[:].filename''',
         true,
-      );
-  dynamic payrollYear(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .cast<String>();
+  List<int>? payrollYear(dynamic response) => (getJsonField(
         response,
         r'''$[:].payrollYear''',
         true,
-      );
-  dynamic payrollPeriod(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .cast<int>();
+  List<int>? payrollPeriod(dynamic response) => (getJsonField(
         response,
         r'''$[:].payrollPeriod''',
         true,
-      );
-  dynamic fileLink(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .cast<int>();
+  List<String>? fileLink(dynamic response) => (getJsonField(
         response,
         r'''$[:].fileLink''',
         true,
-      );
-  dynamic friendlyDescription(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .cast<String>();
+  List<String>? friendlyDescription(dynamic response) => (getJsonField(
         response,
         r'''$[:].friendlyDescription''',
         true,
-      );
-  dynamic arrayFileName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .cast<String>();
+  List<String>? arrayFileName(dynamic response) => (getJsonField(
         response,
         r'''$..filename''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .cast<String>();
 }
 
 class PayslipCall {
@@ -157,6 +173,7 @@ class PayslipCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -180,6 +197,7 @@ class GetEmployeeTimeCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -188,14 +206,18 @@ class CreatePayrollQueryCall {
   Future<ApiCallResponse> call({
     String? description = '',
     String? fcmToken = '',
-    String? fileUrl = '',
+    List<String>? fileUrlsList,
+    int? payrollOrderCategoryId,
     String? authToken = '',
   }) async {
+    final fileUrls = _serializeList(fileUrlsList);
+
     final ffApiRequestBody = '''
 {
   "description": "${description}",
-  "fcmToken": "${fcmToken}",
-  "fileUrl": "${fileUrl}"
+  "FCMToken": "${fcmToken}",
+  "FileUrls": ${fileUrls},
+  "PayrollOrderCategoryId": ${payrollOrderCategoryId}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CreatePayrollQuery',
@@ -212,6 +234,7 @@ class CreatePayrollQueryCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -251,8 +274,42 @@ class GetEmployeeTaxCertificatesCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
+}
+
+class PayrollOrderCategoriesCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'PayrollOrderCategories',
+      apiUrl: '${FessApiGroup.baseUrl}/Payroll/GetPayrollOrderCategories',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${authToken}',
+        'api-key': 'c1e57890-a4ee-4354-ab59-53098d763963',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List? iDs(dynamic response) => getJsonField(
+        response,
+        r'''$[:].id''',
+        true,
+      ) as List?;
+  List? names(dynamic response) => getJsonField(
+        response,
+        r'''$[:].name''',
+        true,
+      ) as List?;
 }
 
 /// End FESS API Group Code
@@ -283,6 +340,7 @@ class SendEmailCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }

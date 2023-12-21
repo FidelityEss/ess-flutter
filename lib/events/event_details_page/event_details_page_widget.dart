@@ -1,10 +1,11 @@
 import '/backend/backend.dart';
+import '/components/banner_slider_widget.dart';
+import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'event_details_page_model.dart';
@@ -114,97 +115,17 @@ class _EventDetailsPageWidgetState extends State<EventDetailsPageWidget> {
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      height: MediaQuery.sizeOf(context).height * 0.25,
-                      child: Stack(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.network(
-                              eventDetailsPageEventsRecord!.image,
-                              width: double.infinity,
-                              height: double.infinity,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Container(
-                            width: double.infinity,
-                            height: double.infinity,
-                            decoration: BoxDecoration(
-                              color: Color(0xC0000000),
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      32.0, 32.0, 32.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          context.safePop();
-                                        },
-                                        child: Container(
-                                          width: 30.0,
-                                          height: 30.0,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            border: Border.all(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .justWhite,
-                                            ),
-                                          ),
-                                          child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
-                                            child: FaIcon(
-                                              FontAwesomeIcons.arrowLeft,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .justWhite,
-                                              size: 12.0,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 30.0, 0.0),
-                                          child: Text(
-                                            'Event',
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Montserrat',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .justWhite,
-                                                ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+                    wrapWithModel(
+                      model: _model.customAppBarModel,
+                      updateCallback: () => setState(() {}),
+                      child: CustomAppBarWidget(
+                        title: 'Event Details',
                       ),
+                    ),
+                    wrapWithModel(
+                      model: _model.bannerSliderModel,
+                      updateCallback: () => setState(() {}),
+                      child: BannerSliderWidget(),
                     ),
                     Padding(
                       padding:

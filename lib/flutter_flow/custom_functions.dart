@@ -110,3 +110,17 @@ String? getFCMToken(String uid) {
   });
   return "testing";
 }
+
+int? getPosition(
+  List<String> stringList,
+  String targetString,
+) {
+  // Check if the targetString is present in the list
+  if (stringList.contains(targetString)) {
+    // Return the position (index + 1) of the target string in the list
+    return stringList.indexOf(targetString) + 1;
+  } else {
+    // If the target string is not found, return -1 or any other indicator
+    return 1;
+  }
+}

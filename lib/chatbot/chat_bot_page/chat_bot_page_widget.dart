@@ -81,8 +81,7 @@ class _ChatBotPageWidgetState extends State<ChatBotPageWidget> {
                     color: FlutterFlowTheme.of(context).homeBg,
                   ),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 32.0),
+                    padding: EdgeInsets.all(32.0),
                     child: ListView(
                       padding: EdgeInsets.zero,
                       scrollDirection: Axis.vertical,
@@ -158,8 +157,7 @@ class _ChatBotPageWidgetState extends State<ChatBotPageWidget> {
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
                 child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                  padding: EdgeInsets.all(16.0),
                   child: Container(
                     width: 100.0,
                     height: 100.0,

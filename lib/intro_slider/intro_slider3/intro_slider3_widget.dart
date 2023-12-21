@@ -73,7 +73,7 @@ class _IntroSlider3WidgetState extends State<IntroSlider3Widget> {
             children: [
               Expanded(
                 child: Align(
-                  alignment: AlignmentDirectional(0.00, -1.00),
+                  alignment: AlignmentDirectional(0.0, -1.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(0.0),
                     child: Image.asset(
@@ -141,7 +141,7 @@ class _IntroSlider3WidgetState extends State<IntroSlider3Widget> {
                           ),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Icon(
                             Icons.done_rounded,
                             color: Colors.white,

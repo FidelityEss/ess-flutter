@@ -420,8 +420,7 @@ class _PrivacyPolicyPageWidgetState extends State<PrivacyPolicyPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 32.0),
+                  padding: EdgeInsets.all(32.0),
                   child: Text(
                     'End of Privacy Policy and Terms & Conditions',
                     style: FlutterFlowTheme.of(context).bodyLarge,

@@ -220,7 +220,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           children: [
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Icon(
                                                 Icons.notifications,
                                                 color:
@@ -231,7 +231,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             ),
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  1.00, -1.00),
+                                                  1.0, -1.0),
                                               child: FutureBuilder<int>(
                                                 future:
                                                     queryMessagesRecordCount(),
@@ -270,7 +270,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: FutureBuilder<int>(
                                                         future:
                                                             queryReadbyRecordCount(
@@ -360,7 +360,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             children: [
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: AuthUserStreamWidget(
                                                   builder: (context) =>
                                                       Container(

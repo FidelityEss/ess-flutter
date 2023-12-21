@@ -122,7 +122,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: AuthUserStreamWidget(
                                           builder: (context) => Container(
                                             width: 78.0,
@@ -301,7 +301,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 32.0),
                           child: Text(
-                            'Version 2.0.9',
+                            'Version 2.0.10',
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),

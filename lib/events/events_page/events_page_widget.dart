@@ -106,207 +106,17 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Featured Events',
+                        'Events',
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                  child: StreamBuilder<List<EventsRecord>>(
-                    stream: queryEventsRecord(
-                      queryBuilder: (eventsRecord) => eventsRecord.where(
-                        'featured',
-                        isEqualTo: true,
-                      ),
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
-                              ),
-                            ),
-                          ),
-                        );
-                      }
-                      List<EventsRecord> rowEventsRecordList = snapshot.data!;
-                      return SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: List.generate(rowEventsRecordList.length,
-                              (rowIndex) {
-                            final rowEventsRecord =
-                                rowEventsRecordList[rowIndex];
-                            return Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  32.0, 0.0, 0.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed(
-                                    'EventDetailsPage',
-                                    queryParameters: {
-                                      'id': serializeParam(
-                                        rowEventsRecord.id,
-                                        ParamType.String,
-                                      ),
-                                    }.withoutNulls,
-                                  );
-                                },
-                                child: Container(
-                                  width: 220.0,
-                                  height: 130.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context).white,
-                                    borderRadius: BorderRadius.circular(5.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      width: 0.0,
-                                    ),
-                                  ),
-                                  child: Stack(
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                        child: Image.network(
-                                          rowEventsRecord.image,
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                      Container(
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        decoration: BoxDecoration(
-                                          color: Color(0x65000000),
-                                          borderRadius:
-                                              BorderRadius.circular(5.0),
-                                        ),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
-                                              child: Container(
-                                                width: double.infinity,
-                                                height: 50.0,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0x7FB79E67),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          16.0, 0.0, 16.0, 0.0),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Text(
-                                                        rowEventsRecord.title,
-                                                        maxLines: 1,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Montserrat',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .justWhite,
-                                                                ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    3.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          dateTimeFormat(
-                                                              'MMMMEEEEd',
-                                                              rowEventsRecord
-                                                                  .date!),
-                                                          maxLines: 1,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Montserrat',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .justWhite,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            );
-                          }),
-                        ),
-                      );
-                    },
                   ),
                 ),
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Other events',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 32.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                   child: StreamBuilder<List<EventsRecord>>(
-                    stream: queryEventsRecord(
-                      queryBuilder: (eventsRecord) => eventsRecord.where(
-                        'featured',
-                        isEqualTo: false,
-                      ),
-                    ),
+                    stream: queryEventsRecord(),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
@@ -389,8 +199,8 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Icon(
                                               Icons.calendar_today,
                                               color:

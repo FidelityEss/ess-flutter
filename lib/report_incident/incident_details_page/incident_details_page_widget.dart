@@ -201,7 +201,7 @@ class _IncidentDetailsPageWidgetState extends State<IncidentDetailsPageWidget> {
                                 borderRadius: BorderRadius.circular(5.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   incidentDetailsPageIncidentsRecord!.type,
                                   style: FlutterFlowTheme.of(context)

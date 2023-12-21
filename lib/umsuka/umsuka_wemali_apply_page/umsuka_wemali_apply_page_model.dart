@@ -83,7 +83,7 @@ class UmsukaWemaliApplyPageModel
     }
 
     if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
-      return 'Please enter a valid email address';
+      return 'Please enter a valid email address. If the email is valid, please make sure all letters are small letters.';
     }
     return null;
   }

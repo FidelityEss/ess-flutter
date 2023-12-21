@@ -353,10 +353,9 @@ class _QueriesPageWidgetState extends State<QueriesPageWidget> {
                               animate: true,
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    32.0, 32.0, 32.0, 32.0),
+                                padding: EdgeInsets.all(32.0),
                                 child: Text(
                                   'You have not logged any queries',
                                   style: FlutterFlowTheme.of(context)

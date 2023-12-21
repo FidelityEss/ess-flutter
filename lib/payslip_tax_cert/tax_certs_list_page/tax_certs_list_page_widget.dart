@@ -172,8 +172,7 @@ class _TaxCertsListPageWidgetState extends State<TaxCertsListPageWidget> {
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 16.0, 16.0, 16.0),
+                                        padding: EdgeInsets.all(16.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:

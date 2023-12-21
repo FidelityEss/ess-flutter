@@ -78,7 +78,7 @@ class _CustomAppBarWidgetState extends State<CustomAppBarWidget> {
                   ),
                 ),
                 child: Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: FaIcon(
                     FontAwesomeIcons.arrowLeft,
                     color: FlutterFlowTheme.of(context).justWhite,

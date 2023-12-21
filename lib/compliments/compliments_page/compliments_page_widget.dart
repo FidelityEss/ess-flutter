@@ -101,7 +101,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                   child: BannerSliderWidget(),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(32.0, 0.0, 0.0, 0.0),
@@ -112,7 +112,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 0.0),
@@ -129,6 +129,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                     builder: (context) => TextFormField(
                       controller: _model.nameController1,
                       focusNode: _model.nameFocusNode1,
+                      readOnly: true,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Name',
@@ -182,6 +183,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                     builder: (context) => TextFormField(
                       controller: _model.nameController2,
                       focusNode: _model.nameFocusNode2,
+                      readOnly: true,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Surname',
@@ -234,6 +236,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                   child: TextFormField(
                     controller: _model.nameController3,
                     focusNode: _model.nameFocusNode3,
+                    readOnly: true,
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'Email Address',
@@ -286,6 +289,7 @@ class _ComplimentsPageWidgetState extends State<ComplimentsPageWidget> {
                     builder: (context) => TextFormField(
                       controller: _model.nameController4,
                       focusNode: _model.nameFocusNode4,
+                      readOnly: true,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Phone Number',

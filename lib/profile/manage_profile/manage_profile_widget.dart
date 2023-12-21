@@ -139,7 +139,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: AuthUserStreamWidget(
                                             builder: (context) => Container(
                                               width: 78.0,
@@ -474,8 +474,7 @@ class _ManageProfileWidgetState extends State<ManageProfileWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                32.0, 32.0, 32.0, 32.0),
+                            padding: EdgeInsets.all(32.0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 await currentUserReference!

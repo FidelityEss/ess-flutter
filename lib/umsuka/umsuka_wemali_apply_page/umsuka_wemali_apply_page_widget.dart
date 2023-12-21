@@ -349,6 +349,7 @@ class _UmsukaWemaliApplyPageWidgetState
                     child: TextFormField(
                       controller: _model.emailController,
                       focusNode: _model.emailFocusNode,
+                      textCapitalization: TextCapitalization.none,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelStyle: FlutterFlowTheme.of(context).bodyMedium,
@@ -389,6 +390,7 @@ class _UmsukaWemaliApplyPageWidgetState
                         ),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
+                      keyboardType: TextInputType.emailAddress,
                       validator:
                           _model.emailControllerValidator.asValidator(context),
                     ),
@@ -547,8 +549,7 @@ class _UmsukaWemaliApplyPageWidgetState
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 32.0),
+                    padding: EdgeInsets.all(32.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         if (_model.formKey.currentState == null ||

@@ -191,6 +191,7 @@ class _VanciesPageWidgetState extends State<VanciesPageWidget> {
                                             children: [
                                               Text(
                                                 vacanciesListItem.title,
+                                                maxLines: 1,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
@@ -205,20 +206,25 @@ class _VanciesPageWidgetState extends State<VanciesPageWidget> {
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.center,
                                                   children: [
-                                                    Text(
-                                                      vacanciesListItem.company,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Montserrat',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .textFieldIcon,
-                                                                fontSize: 12.0,
-                                                              ),
+                                                    Expanded(
+                                                      child: Text(
+                                                        vacanciesListItem
+                                                            .company,
+                                                        maxLines: 1,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Montserrat',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .textFieldIcon,
+                                                                  fontSize:
+                                                                      12.0,
+                                                                ),
+                                                      ),
                                                     ),
                                                     Padding(
                                                       padding:
@@ -251,6 +257,7 @@ class _VanciesPageWidgetState extends State<VanciesPageWidget> {
                                                         child: Text(
                                                           vacanciesListItem
                                                               .branch,
+                                                          maxLines: 1,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodySmall

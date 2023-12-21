@@ -3,11 +3,14 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'log_a_query_page_widget.dart' show LogAQueryPageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,6 +31,9 @@ class LogAQueryPageModel extends FlutterFlowModel<LogAQueryPageWidget> {
   late CustomAppBarModel customAppBarModel;
   // Model for BannerSlider component.
   late BannerSliderModel bannerSliderModel;
+  // State field(s) for Type widget.
+  String? typeValue;
+  FormFieldController<String>? typeValueController;
   // State field(s) for Message widget.
   FocusNode? messageFocusNode;
   TextEditingController? messageController;
@@ -41,10 +47,13 @@ class LogAQueryPageModel extends FlutterFlowModel<LogAQueryPageWidget> {
   }
 
   bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
+  List<FFUploadedFile> uploadedLocalFiles = [];
+  List<String> uploadedFileUrls = [];
 
+  // Stores action output result for [Custom Action - isHuaweiDevice] action in Button widget.
+  bool? deviceCheck;
+  // Stores action output result for [Backend Call - API (CreatePayrollQuery)] action in Button widget.
+  ApiCallResponse? createQueryResponseHuawei;
   // Stores action output result for [Custom Action - getFcmToken] action in Button widget.
   String? customActionOutput;
   // Stores action output result for [Backend Call - API (CreatePayrollQuery)] action in Button widget.

@@ -51,7 +51,7 @@ class _LoadingDialogWidgetState extends State<LoadingDialogWidget> {
         borderRadius: BorderRadius.circular(5.0),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 32.0),
+        padding: EdgeInsets.all(32.0),
         child: Lottie.asset(
           'assets/lottie_animations/oYnibGjwTw.json',
           width: MediaQuery.sizeOf(context).width * 1.0,

@@ -10,10 +10,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 
 class ApplyBottomSheetModel extends FlutterFlowModel<ApplyBottomSheetWidget> {
   ///  State fields for stateful widgets in this component.
 
+  final formKey = GlobalKey<FormState>();
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));

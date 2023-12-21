@@ -69,7 +69,7 @@ class _ComplimentSubmittedPageWidgetState
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: AlignmentDirectional(0.00, 0.00),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -97,7 +97,7 @@ class _ComplimentSubmittedPageWidgetState
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(32.0, 8.0, 32.0, 0.0),
                   child: Text(
-                    'Thank you for making it this far. We appreciate your feedback!',
+                    'Thank you for sending us your praise. We appreciate your feedback!',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),

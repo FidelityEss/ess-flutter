@@ -137,7 +137,7 @@ class _VacanciesDetailsPageWidgetState
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 64.0, 0.0, 0.0),
@@ -307,7 +307,7 @@ class _VacanciesDetailsPageWidgetState
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     32.0, 32.0, 0.0, 0.0),
@@ -383,7 +383,7 @@ class _VacanciesDetailsPageWidgetState
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     32.0, 32.0, 0.0, 0.0),
@@ -459,7 +459,7 @@ class _VacanciesDetailsPageWidgetState
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     32.0, 16.0, 32.0, 32.0),
@@ -472,7 +472,7 @@ class _VacanciesDetailsPageWidgetState
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     32.0, 0.0, 0.0, 0.0),
@@ -488,7 +488,7 @@ class _VacanciesDetailsPageWidgetState
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(-1.00, 0.00),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     32.0, 16.0, 32.0, 32.0),
@@ -566,7 +566,7 @@ class _VacanciesDetailsPageWidgetState
                                 borderRadius: BorderRadius.circular(30.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   'Apply',
                                   style: FlutterFlowTheme.of(context)
