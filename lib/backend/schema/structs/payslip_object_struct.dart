@@ -62,8 +62,9 @@ class PayslipObjectStruct extends FFFirebaseStruct {
         friendlyDescription: data['friendlyDescription'] as String?,
       );
 
-  static PayslipObjectStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? PayslipObjectStruct.fromMap(data) : null;
+  static PayslipObjectStruct? maybeFromMap(dynamic data) => data is Map
+      ? PayslipObjectStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'filename': _filename,

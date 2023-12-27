@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import '../schema/structs/index.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
@@ -60,22 +61,22 @@ class AuthenticationCall {
     );
   }
 
-  dynamic token(dynamic response) => getJsonField(
+  String? token(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.token''',
-      );
-  dynamic firstName(dynamic response) => getJsonField(
+      ));
+  String? firstName(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.firstName''',
-      );
-  dynamic surname(dynamic response) => getJsonField(
+      ));
+  String? surname(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.surname''',
-      );
-  dynamic cellphoneNumber(dynamic response) => getJsonField(
+      ));
+  String? cellphoneNumber(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.cellphoneNumber''',
-      );
+      ));
 }
 
 class GetEmployeePayslipsCall {
@@ -114,42 +115,54 @@ class GetEmployeePayslipsCall {
         true,
       ) as List?)
           ?.withoutNulls
-          .cast<String>();
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
   List<int>? payrollYear(dynamic response) => (getJsonField(
         response,
         r'''$[:].payrollYear''',
         true,
       ) as List?)
           ?.withoutNulls
-          .cast<int>();
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
   List<int>? payrollPeriod(dynamic response) => (getJsonField(
         response,
         r'''$[:].payrollPeriod''',
         true,
       ) as List?)
           ?.withoutNulls
-          .cast<int>();
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
   List<String>? fileLink(dynamic response) => (getJsonField(
         response,
         r'''$[:].fileLink''',
         true,
       ) as List?)
           ?.withoutNulls
-          .cast<String>();
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
   List<String>? friendlyDescription(dynamic response) => (getJsonField(
         response,
         r'''$[:].friendlyDescription''',
         true,
       ) as List?)
           ?.withoutNulls
-          .cast<String>();
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
   List<String>? arrayFileName(dynamic response) => (getJsonField(
         response,
         r'''$..filename''',
         true,
       ) as List?)
           ?.withoutNulls
-          .cast<String>();
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class PayslipCall {
@@ -238,14 +251,14 @@ class CreatePayrollQueryCall {
     );
   }
 
-  dynamic orderId(dynamic response) => getJsonField(
+  int? orderId(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.payrollOrderId''',
-      );
-  dynamic orderNumber(dynamic response) => getJsonField(
+      ));
+  String? orderNumber(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.payrollOrderNumber''',
-      );
+      ));
 }
 
 class GetEmployeeTaxCertificatesCall {

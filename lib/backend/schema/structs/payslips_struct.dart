@@ -31,7 +31,7 @@ class PayslipsStruct extends FFFirebaseStruct {
       );
 
   static PayslipsStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? PayslipsStruct.fromMap(data) : null;
+      data is Map ? PayslipsStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
         'payslipsList': _payslipsList?.map((e) => e.toMap()).toList(),
