@@ -4,13 +4,11 @@ import '/backend/backend.dart';
 import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_place_picker.dart';
+import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/place.dart';
-import 'dart:io';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'report_fraud_page_widget.dart' show ReportFraudPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -47,8 +45,9 @@ class ReportFraudPageModel extends FlutterFlowModel<ReportFraudPageWidget> {
     return null;
   }
 
-  // State field(s) for PlacePicker widget.
-  var placePickerValue = FFPlace();
+  // State field(s) for GoogleMap widget.
+  LatLng? googleMapsCenter;
+  final googleMapsController = Completer<GoogleMapController>();
   // Stores action output result for [Backend Call - API (SendEmail)] action in Button widget.
   ApiCallResponse? sendFraudEmail;
 

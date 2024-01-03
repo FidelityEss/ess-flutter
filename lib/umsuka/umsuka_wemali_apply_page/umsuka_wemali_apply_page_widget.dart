@@ -47,10 +47,6 @@ class _UmsukaWemaliApplyPageWidgetState
         text: valueOrDefault(currentUserDocument?.eid, ''));
     _model.idFocusNode ??= FocusNode();
 
-    _model.companyNumberController ??= TextEditingController(
-        text: valueOrDefault(currentUserDocument?.en, ''));
-    _model.companyNumberFocusNode ??= FocusNode();
-
     _model.emailController ??= TextEditingController(text: currentUserEmail);
     _model.emailFocusNode ??= FocusNode();
 
@@ -288,58 +284,6 @@ class _UmsukaWemaliApplyPageWidgetState
                         style: FlutterFlowTheme.of(context).bodyMedium,
                         validator:
                             _model.idControllerValidator.asValidator(context),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                    child: AuthUserStreamWidget(
-                      builder: (context) => TextFormField(
-                        controller: _model.companyNumberController,
-                        focusNode: _model.companyNumberFocusNode,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelStyle: FlutterFlowTheme.of(context).bodyMedium,
-                          hintText: 'Employee Number',
-                          hintStyle: FlutterFlowTheme.of(context).bodyMedium,
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).alternate,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).primary,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          prefixIcon: Icon(
-                            Icons.numbers_rounded,
-                            color: FlutterFlowTheme.of(context).textFieldIcon,
-                            size: 16.0,
-                          ),
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                        validator: _model.companyNumberControllerValidator
-                            .asValidator(context),
                       ),
                     ),
                   ),

@@ -335,6 +335,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             fileLink: params.getParam('fileLink', ParamType.String),
             date: params.getParam('date', ParamType.String),
           ),
+        ),
+        FFRoute(
+          name: 'Testing',
+          path: '/testing',
+          builder: (context, params) => TestingWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

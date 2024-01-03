@@ -74,3 +74,4 @@ export '/payslip_tax_cert/tax_certs_list_page/tax_certs_list_page_widget.dart'
     show TaxCertsListPageWidget;
 export '/payslip_tax_cert/tax_cert_page/tax_cert_page_widget.dart'
     show TaxCertPageWidget;
+export '/testing/testing_widget.dart' show TestingWidget;

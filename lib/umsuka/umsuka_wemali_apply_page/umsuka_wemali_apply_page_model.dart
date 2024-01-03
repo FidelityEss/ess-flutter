@@ -61,18 +61,6 @@ class UmsukaWemaliApplyPageModel
     return null;
   }
 
-  // State field(s) for CompanyNumber widget.
-  FocusNode? companyNumberFocusNode;
-  TextEditingController? companyNumberController;
-  String? Function(BuildContext, String?)? companyNumberControllerValidator;
-  String? _companyNumberControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'Field is required';
-    }
-
-    return null;
-  }
-
   // State field(s) for Email widget.
   FocusNode? emailFocusNode;
   TextEditingController? emailController;
@@ -135,7 +123,6 @@ class UmsukaWemaliApplyPageModel
     nameControllerValidator = _nameControllerValidator;
     surnameControllerValidator = _surnameControllerValidator;
     idControllerValidator = _idControllerValidator;
-    companyNumberControllerValidator = _companyNumberControllerValidator;
     emailControllerValidator = _emailControllerValidator;
     phoneControllerValidator = _phoneControllerValidator;
     loanAmountControllerValidator = _loanAmountControllerValidator;
@@ -154,9 +141,6 @@ class UmsukaWemaliApplyPageModel
 
     idFocusNode?.dispose();
     idController?.dispose();
-
-    companyNumberFocusNode?.dispose();
-    companyNumberController?.dispose();
 
     emailFocusNode?.dispose();
     emailController?.dispose();
