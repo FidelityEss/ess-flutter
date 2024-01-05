@@ -161,7 +161,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                           borderWidth: 2.0,
                           borderRadius: 5.0,
                           margin: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 4.0, 16.0, 4.0),
+                              8.0, 4.0, 16.0, 4.0),
                           hidesUnderline: true,
                           isOverButton: true,
                           isSearchable: false,
