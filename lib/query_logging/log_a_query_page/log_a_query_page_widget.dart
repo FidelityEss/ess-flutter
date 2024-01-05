@@ -63,7 +63,9 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
     context.watch<FFAppState>();
 
     return FutureBuilder<ApiCallResponse>(
-      future: FessApiGroup.payrollOrderCategoriesCall.call(),
+      future: FessApiGroup.payrollOrderCategoriesCall.call(
+        authToken: FFAppState().token,
+      ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
