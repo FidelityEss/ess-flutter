@@ -50,6 +50,10 @@ class LogAQueryPageModel extends FlutterFlowModel<LogAQueryPageWidget> {
   List<FFUploadedFile> uploadedLocalFiles = [];
   List<String> uploadedFileUrls = [];
 
+  // Stores action output result for [Custom Action - isHuaweiDevice] action in Button widget.
+  bool? deviceCheck;
+  // Stores action output result for [Backend Call - API (CreatePayrollQuery)] action in Button widget.
+  ApiCallResponse? createQueryResponseHuawei;
   // Stores action output result for [Custom Action - getFcmToken] action in Button widget.
   String? customActionOutput;
   // Stores action output result for [Backend Call - API (CreatePayrollQuery)] action in Button widget.
