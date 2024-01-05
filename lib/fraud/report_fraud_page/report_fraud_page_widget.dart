@@ -164,7 +164,7 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                       borderWidth: 2.0,
                       borderRadius: 5.0,
                       margin:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                          EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 16.0, 4.0),
                       hidesUnderline: true,
                       isSearchable: false,
                       isMultiSelect: false,
@@ -195,7 +195,7 @@ class _ReportFraudPageWidgetState extends State<ReportFraudPageWidget> {
                       borderWidth: 2.0,
                       borderRadius: 5.0,
                       margin:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                          EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 16.0, 4.0),
                       hidesUnderline: true,
                       isSearchable: false,
                       isMultiSelect: false,

@@ -172,7 +172,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                           borderWidth: 2.0,
                           borderRadius: 5.0,
                           margin: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 4.0, 16.0, 4.0),
+                              12.0, 4.0, 16.0, 4.0),
                           hidesUnderline: true,
                           isSearchable: false,
                           isMultiSelect: false,
@@ -233,7 +233,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                           borderWidth: 2.0,
                           borderRadius: 5.0,
                           margin: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 4.0, 16.0, 4.0),
+                              12.0, 4.0, 16.0, 4.0),
                           hidesUnderline: true,
                           isSearchable: false,
                           isMultiSelect: false,

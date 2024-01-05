@@ -163,7 +163,7 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                           borderWidth: 2.0,
                           borderRadius: 5.0,
                           margin: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 4.0, 16.0, 4.0),
+                              12.0, 4.0, 16.0, 4.0),
                           hidesUnderline: true,
                           isOverButton: true,
                           isSearchable: false,
@@ -334,141 +334,75 @@ class _LogAQueryPageWidgetState extends State<LogAQueryPageWidget> {
                               );
                               return;
                             }
-                            _model.deviceCheck = await actions.isHuaweiDevice();
-                            if (_model.deviceCheck!) {
-                              _model.createQueryResponseHuawei =
-                                  await FessApiGroup.createPayrollQueryCall
-                                      .call(
-                                description: _model.messageController.text,
-                                fcmToken: 'huawei',
-                                fileUrlsList: _model.uploadedFileUrls,
-                                authToken: FFAppState().token,
-                                payrollOrderCategoryId: functions.getPosition(
-                                    (FessApiGroup.payrollOrderCategoriesCall
-                                            .names(
-                                      logAQueryPagePayrollOrderCategoriesResponse
-                                          .jsonBody,
-                                    ) as List)
-                                        .map<String>((s) => s.toString())
-                                        .toList()!
-                                        .map((e) => e.toString())
-                                        .toList(),
-                                    _model.typeValue!),
+                            _model.customActionOutput =
+                                await actions.getFcmToken(
+                              currentUserUid,
+                            );
+                            _model.createQueryResponse =
+                                await FessApiGroup.createPayrollQueryCall.call(
+                              description: _model.messageController.text,
+                              fcmToken: _model.customActionOutput,
+                              fileUrlsList: _model.uploadedFileUrls,
+                              authToken: FFAppState().token,
+                              payrollOrderCategoryId: functions.getPosition(
+                                  (FessApiGroup.payrollOrderCategoriesCall
+                                          .names(
+                                    logAQueryPagePayrollOrderCategoriesResponse
+                                        .jsonBody,
+                                  ) as List)
+                                      .map<String>((s) => s.toString())
+                                      .toList()!
+                                      .map((e) => e.toString())
+                                      .toList(),
+                                  _model.typeValue!),
+                            );
+                            if ((_model.createQueryResponse?.succeeded ??
+                                true)) {
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return WebViewAware(
+                                      child: AlertDialog(
+                                    title: Text('Success'),
+                                    content: Text(
+                                        'Your query has been received. Feedback will be provided as soon as possible.'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('Ok'),
+                                      ),
+                                    ],
+                                  ));
+                                },
                               );
-                              if ((_model
-                                      .createQueryResponseHuawei?.succeeded ??
-                                  true)) {
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                        child: AlertDialog(
-                                      title: Text('Success'),
-                                      content: Text(
-                                          'Your query has been received. Feedback will be provided as soon as possible.'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ));
-                                  },
-                                );
-                              } else {
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                        child: AlertDialog(
-                                      title: Text('Error'),
-                                      content: Text(
-                                          'We couldn\'t create your payroll query.'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ));
-                                  },
-                                );
-                              }
-
-                              setState(() {
-                                _model.messageController?.text = ' ';
-                              });
                             } else {
-                              _model.customActionOutput =
-                                  await actions.getFcmToken(
-                                currentUserUid,
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return WebViewAware(
+                                      child: AlertDialog(
+                                    title: Text('Error'),
+                                    content: Text(
+                                        'We couldn\'t create your payroll query.'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('Ok'),
+                                      ),
+                                    ],
+                                  ));
+                                },
                               );
-                              _model.createQueryResponse = await FessApiGroup
-                                  .createPayrollQueryCall
-                                  .call(
-                                description: _model.messageController.text,
-                                fcmToken: _model.customActionOutput,
-                                fileUrlsList: _model.uploadedFileUrls,
-                                authToken: FFAppState().token,
-                                payrollOrderCategoryId: functions.getPosition(
-                                    (FessApiGroup.payrollOrderCategoriesCall
-                                            .names(
-                                      logAQueryPagePayrollOrderCategoriesResponse
-                                          .jsonBody,
-                                    ) as List)
-                                        .map<String>((s) => s.toString())
-                                        .toList()!
-                                        .map((e) => e.toString())
-                                        .toList(),
-                                    _model.typeValue!),
-                              );
-                              if ((_model.createQueryResponse?.succeeded ??
-                                  true)) {
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                        child: AlertDialog(
-                                      title: Text('Success'),
-                                      content: Text(
-                                          'Your query has been received. Feedback will be provided as soon as possible.'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ));
-                                  },
-                                );
-                              } else {
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                        child: AlertDialog(
-                                      title: Text('Error'),
-                                      content: Text(
-                                          'We couldn\'t create your payroll query.'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ));
-                                  },
-                                );
-                              }
-
-                              setState(() {
-                                _model.messageController?.text = ' ';
-                              });
                             }
+
+                            setState(() {
+                              _model.messageController?.clear();
+                            });
+                            setState(() {
+                              _model.typeValueController?.reset();
+                            });
 
                             setState(() {});
                           },
