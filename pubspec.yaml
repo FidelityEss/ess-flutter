@@ -33,7 +33,6 @@ dependencies:
   cloud_functions: 4.5.8
   cloud_functions_platform_interface: 5.5.11
   cloud_functions_web: 4.6.11
-  collection: 1.17.2
   device_info_plus: ^9.1.1
   device_info_plus_platform_interface: 7.0.0
   dropdown_button2: 2.3.9
@@ -57,10 +56,6 @@ dependencies:
   firebase_storage_web: 3.6.17
   flutter_animate: 4.1.1+1
   flutter_cache_manager: 3.3.1
-  flutter_google_places: 
-    git:
-      url: https://github.com/fluttercommunity/flutter_google_places
-      ref: v0.3.2
   flutter_native_splash: 2.3.1
   flutter_plugin_android_lifecycle: 2.0.17
   font_awesome_flutter: 10.6.0
@@ -91,8 +86,6 @@ dependencies:
   json_path: 0.6.2
   lottie: 2.7.0
   mime_type: 1.0.0
-  package_info_plus: 4.2.0
-  package_info_plus_platform_interface: 2.0.1
   page_transition: 2.1.0
   path_provider: 2.0.14
   path_provider_android: 2.0.25

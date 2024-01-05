@@ -4,13 +4,11 @@ import '/backend/backend.dart';
 import '/components/banner_slider_widget.dart';
 import '/components/custom_app_bar_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_place_picker.dart';
+import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/place.dart';
-import 'dart:io';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -33,12 +31,15 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
   late ReportIncidentPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => ReportIncidentPageModel());
 
+    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+        .then((loc) => setState(() => currentUserLocationValue = loc));
     _model.messageController ??= TextEditingController();
     _model.messageFocusNode ??= FocusNode();
 
@@ -64,6 +65,22 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
     }
 
     context.watch<FFAppState>();
+    if (currentUserLocationValue == null) {
+      return Container(
+        color: FlutterFlowTheme.of(context).primaryBackground,
+        child: Center(
+          child: SizedBox(
+            width: 50.0,
+            height: 50.0,
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(
+                FlutterFlowTheme.of(context).primary,
+              ),
+            ),
+          ),
+        ),
+      );
+    }
 
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
@@ -71,6 +88,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
+        resizeToAvoidBottomInset: false,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(0.0),
@@ -90,7 +108,7 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   wrapWithModel(
                     model: _model.customAppBarModel,
@@ -302,37 +320,38 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                    child: FlutterFlowPlacePicker(
-                      iOSGoogleMapsApiKey:
-                          'AIzaSyDPvLXvrnoKFiX_-WCBaw3t65TwVKGMUlQ',
-                      androidGoogleMapsApiKey:
-                          'AIzaSyDp54F2JTJPsHH7ln0yzhnKi2PbY4BhQh0',
-                      webGoogleMapsApiKey:
-                          'AIzaSyAgmTxJWZ48yDLW4KK3nUeYU5ALGBwzA6E',
-                      onSelect: (place) async {
-                        setState(() => _model.placePickerValue = place);
-                      },
-                      defaultText: 'Select Location',
-                      icon: Icon(
-                        Icons.place,
-                        color: FlutterFlowTheme.of(context).info,
-                        size: 16.0,
+                    child: Text(
+                      'This is your selected location',
+                      style: FlutterFlowTheme.of(context).bodyMedium,
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                    child: Container(
+                      width: double.infinity,
+                      height: 100.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
-                      buttonOptions: FFButtonOptions(
-                        width: double.infinity,
-                        height: 45.0,
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).bodyMedium.override(
-                                  fontFamily: 'Montserrat',
-                                  color: FlutterFlowTheme.of(context).justWhite,
-                                ),
-                        elevation: 0.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
+                      child: FlutterFlowGoogleMap(
+                        controller: _model.googleMapsController,
+                        onCameraIdle: (latLng) =>
+                            _model.googleMapsCenter = latLng,
+                        initialLocation: _model.googleMapsCenter ??=
+                            currentUserLocationValue!,
+                        markerColor: GoogleMarkerColor.red,
+                        mapType: MapType.normal,
+                        style: GoogleMapStyle.standard,
+                        initialZoom: 14.0,
+                        allowInteraction: false,
+                        allowZoom: false,
+                        showZoomControls: true,
+                        showLocation: true,
+                        showCompass: false,
+                        showMapToolbar: false,
+                        showTraffic: false,
+                        centerMapOnMarkerTap: true,
                       ),
                     ),
                   ),
@@ -341,6 +360,8 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                         EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 32.0),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        currentUserLocationValue = await getCurrentUserLocation(
+                            defaultLocation: LatLng(0.0, 0.0));
                         if (_model.formKey.currentState == null ||
                             !_model.formKey.currentState!.validate()) {
                           return;
@@ -383,31 +404,12 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                           );
                           return;
                         }
-                        if (_model.placePickerValue == FFPlace()) {
-                          await showDialog(
-                            context: context,
-                            builder: (alertDialogContext) {
-                              return WebViewAware(
-                                  child: AlertDialog(
-                                title: Text('Select Location'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Ok'),
-                                  ),
-                                ],
-                              ));
-                            },
-                          );
-                          return;
-                        }
                         _model.sendIncidentEmail = await SendEmailCall.call(
                           toEmail: 'ITOC@fidelitycc.co.za',
                           subject:
                               '${_model.typeValue1}: ${_model.priorityValue} Priority',
                           body:
-                              'Name: ${currentUserDisplayName} , Employee Number: ${valueOrDefault(currentUserDocument?.en, '')} , Message: ${_model.messageController.text} , Location: ${_model.placePickerValue.address} , LatLng: ${_model.placePickerValue.latLng?.toString()} , Email: ${currentUserEmail} , Phone: ${currentPhoneNumber} , Category: ${_model.typeValue1} , Classification: ${_model.typeValue2}',
+                              'Name: ${currentUserDisplayName} , Employee Number: ${valueOrDefault(currentUserDocument?.en, '')} , Message: ${_model.messageController.text} , Location: ${currentUserLocationValue?.toString()} , LatLng: ${currentUserLocationValue?.toString()} , Email: ${currentUserEmail} , Phone: ${currentPhoneNumber} , Category: ${_model.typeValue1} , Classification: ${_model.typeValue2}',
                         );
                         if ((_model.sendIncidentEmail?.succeeded ?? true)) {
                           await IncidentsRecord.collection
@@ -426,12 +428,13 @@ class _ReportIncidentPageWidgetState extends State<ReportIncidentPageWidget> {
                                 message: _model.messageController.text,
                                 created: getCurrentTimestamp,
                                 updated: getCurrentTimestamp,
-                                location: _model.placePickerValue.latLng,
+                                location: currentUserLocationValue,
                                 assignee: 'No Assignee',
                                 status: 'Logged',
                                 userName: currentUserDisplayName,
-                                locationName: _model.placePickerValue.name,
-                                latlng: _model.placePickerValue.latLng,
+                                locationName:
+                                    currentUserLocationValue?.toString(),
+                                latlng: currentUserLocationValue,
                               ));
                           await showDialog(
                             context: context,

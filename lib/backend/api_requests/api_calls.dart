@@ -29,6 +29,7 @@ class FessApiGroup {
       GetEmployeeTaxCertificatesCall();
   static PayrollOrderCategoriesCall payrollOrderCategoriesCall =
       PayrollOrderCategoriesCall();
+  static MailAPICall mailAPICall = MailAPICall();
 }
 
 class AuthenticationCall {
@@ -323,6 +324,47 @@ class PayrollOrderCategoriesCall {
         r'''$[:].name''',
         true,
       ) as List?;
+}
+
+class MailAPICall {
+  Future<ApiCallResponse> call({
+    String? fromEmail = '',
+    String? toEmail = '',
+    String? subject = '',
+    String? emailTemplateName = '',
+    dynamic? fieldsJson,
+    List<String>? attachmentUrlsList,
+    String? authToken = '',
+  }) async {
+    final attachmentUrls = _serializeList(attachmentUrlsList);
+    final fields = _serializeJson(fieldsJson);
+    final ffApiRequestBody = '''
+{
+  "fromEmail": "${fromEmail}",
+  "toEmail": "${toEmail}",
+  "subject": "${subject}",
+  "emailTemplateName": "${emailTemplateName}",
+  "fields": ${fields},
+  "attachmentUrls": ${attachmentUrls}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Mail API',
+      apiUrl: '${FessApiGroup.baseUrl}/Mail/QueueTemplatedEmailRequest',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${authToken}',
+        'api-key': 'c1e57890-a4ee-4354-ab59-53098d763963',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 /// End FESS API Group Code
